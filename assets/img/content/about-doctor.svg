@@ -1,0 +1,15 @@
+<svg width="560" height="640" viewBox="0 0 560 640" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="560" height="640" rx="28" fill="#0D1116"/>
+  <rect x="70" y="110" width="420" height="440" rx="34" fill="#F6F9FC"/>
+  <circle cx="280" cy="240" r="88" fill="#E8D1C0"/>
+  <rect x="176" y="340" width="208" height="164" rx="44" fill="#FFFFFF"/>
+  <rect x="144" y="362" width="70" height="150" rx="35" fill="#FFFFFF"/>
+  <rect x="346" y="362" width="70" height="150" rx="35" fill="#FFFFFF"/>
+  <path d="M216 198C222 140 246 112 280 112C314 112 338 140 344 198C328 230 308 248 280 248C252 248 232 230 216 198Z" fill="#4A332B"/>
+  <path d="M234 410L260 518" stroke="#B6C3CF" stroke-width="12" stroke-linecap="round"/>
+  <path d="M326 410L300 518" stroke="#B6C3CF" stroke-width="12" stroke-linecap="round"/>
+  <path d="M232 332H328L348 380H212L232 332Z" fill="#1099A0"/>
+  <circle cx="262" cy="522" r="14" fill="#10151B"/>
+  <circle cx="298" cy="522" r="14" fill="#10151B"/>
+  <text x="50%" y="602" text-anchor="middle" fill="#9FB2BF" font-family="Arial, sans-serif" font-size="20">TODO: заменить на реальное фото врача</text>
+</svg>
