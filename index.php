@@ -54,22 +54,49 @@ switch ($status) {
             <div class="container header__inner">
                 <a class="logo" href="#top" aria-label="На главную">
                     <span class="logo__mark">❤</span>
-                    <span class="logo__text">Кардио хирург</span>
+                    <span class="logo__text">Кардиохирург</span>
                 </a>
 
                 <nav class="header__nav nav" aria-label="Основная навигация">
-                    <a class="nav__link" href="#hero">Обо мне</a>
-                    <a class="nav__link" href="#specialization">Специализация</a>
-                    <a class="nav__link" href="#about">Направления</a>
-                    <a class="nav__link" href="#results">Результаты</a>
-                    <a class="nav__link" href="#contacts">Контакты</a>
+                    <a class="nav__link" href="#hero">ОБО МНЕ</a>
+                    <a class="nav__link" href="">РЕЗУЛЬТАТЫ РАБОТ</a>
+                    <a class="nav__link" href="">ПАМЯТКИ ПАЦИЕНТАМ</a>
+                    <a class="nav__link" href="">ДЛЯ ВРАЧЕЙ</a>
+                    <a class="nav__link" href="#contacts">КОНТАКТЫ</a>
+                    <a class="nav__link" href="">УСЛУГИ И ЦЕНЫ</a>
                 </nav>
 
                 <div class="header__actions">
                     <button class="header__menu-button" type="button" data-menu-toggle aria-expanded="false" aria-controls="mega-menu">
-                        Меню
+                        МЕНЮ
                     </button>
+
+                    <div class="header__socials">
+                        <a
+                            class="header__icon-link"
+                            href="https://t.me/your_username"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Telegram"
+                            title="Telegram"
+                        >
+                            <img src="assets/img/icons/max.svg" alt="max" class="header__icon-image">
+                        </a>
+
+                        <a
+                            class="header__icon-link"
+                            href="https://wa.me/79990000000"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="WhatsApp"
+                            title="WhatsApp"
+                        >
+                            <img src="assets/img/icons/telegram.svg" alt="telegram" class="header__icon-image">
+                        </a>
+                    </div>
+
                     <a class="button button--accent button--small" href="#consultation">Записаться</a>
+
                     <button class="burger" type="button" data-mobile-nav-toggle aria-expanded="false" aria-controls="mobile-nav" aria-label="Открыть меню">
                         <span></span>
                         <span></span>
@@ -81,18 +108,21 @@ switch ($status) {
             <div class="mega-menu" id="mega-menu" hidden>
                 <div class="container mega-menu__inner">
                     <div class="mega-menu__column">
-                        <p class="mega-menu__title">Разделы</p>
-                        <a class="mega-menu__link" href="#hero">О враче</a>
-                        <a class="mega-menu__link" href="#specialization">Специализация</a>
-                        <a class="mega-menu__link" href="#about">Направления</a>
-                        <a class="mega-menu__link" href="#results">Результаты работ</a>
-                        <a class="mega-menu__link" href="#contacts">Контакты</a>
+                        <a class="mega-menu__link" href="#hero">О ВРАЧЕ</a>
+                        <a class="mega-menu__link" href="">О клинике</a> 
+                        <a class="mega-menu__link" href="">Отзывы</a>
+                        <a class="mega-menu__link" href="#results">Публикации</a>
+                        <a class="mega-menu__link" href="#contacts">Дипломы</a>
                     </div>
 
                     <div class="mega-menu__column">
-                        <p class="mega-menu__title">Справочно</p>
-                        <p class="mega-menu__text">Здесь потом можно добавить дополнительные ссылки на внутренние страницы: цены, отзывы, памятку пациенту, клинические кейсы.</p>
-                        <p class="mega-menu__note"><!-- TODO: Заменить на реальные данные врача -->Опыт работы более 15 лет. Индивидуальный подход и современные методы лечения.</p>
+                        <a class="mega-menu__link" href="">АНАЛИЗЫ</a>
+                        <a class="mega-menu__link" href="">Анастезия</a>
+                        <a class="mega-menu__link" href="">Как проходит операция</a>
+                        <a class="mega-menu__link" href="">Как проходит консультация</a>
+                        <a class="mega-menu__link" href="">Пациентам из другого города</a>
+                        <a class="mega-menu__link" href="">Подготовка к операции</a>
+                        <a class="mega-menu__link" href="">После операции</a>
                     </div>
 
                     <div class="mega-menu__preview">
@@ -119,9 +149,10 @@ switch ($status) {
 
         <main>
             <section class="hero" id="hero">
+                <img src="assets/img/content/hero-shape.svg" alt="" class="hero__shape" aria-hidden="true">
+
                 <div class="container hero__grid">
                     <div class="hero__visual">
-                        <div class="hero__circle"></div>
                         <div class="hero__image-card">
                             <!-- TODO: Вставить изображение hero-doctor.webp в /assets/img/content/ -->
                             <img src="assets/img/content/hero-doctor.svg" alt="Фото врача-кардиохирурга" class="hero__image">
@@ -155,42 +186,42 @@ switch ($status) {
 
                     <div class="spec-grid">
                         <article class="spec-card">
-                            <div class="spec-card__icon" aria-hidden="true">
-                                <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-6.8-4.4-9-8.1C1 9.6 2.7 6 6.5 6c2.1 0 3.3 1.2 4 2.3.7-1.1 1.9-2.3 4-2.3C18.3 6 20 9.6 21 12.9 18.8 16.6 12 21 12 21Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
-                            </div>
+                        <div class="spec-card__icon" aria-hidden="true">
+                            <img src="assets/img/icons/spec-vascular.svg" alt="">
+                        </div>
                             <div>
-                                <h3 class="spec-card__title">Сосудистая хирургия</h3>
-                                <p class="spec-card__text">Диагностика и лечение заболеваний сосудов, ведение пациентов после операций.</p>
+                                <h3 class="spec-card__title">СОСУДИСТАЯ ХИРУРГИЯ</h3>
+                                <p class="spec-card__text">Специализируется на крупных сосудах — аорте, венах и артериях</p>
                             </div>
                         </article>
 
                         <article class="spec-card">
-                            <div class="spec-card__icon" aria-hidden="true">
-                                <svg viewBox="0 0 24 24" fill="none"><path d="M7 12h10M12 7v10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M4 12c0-4.4 3.6-8 8-8s8 3.6 8 8-3.6 8-8 8-8-3.6-8-8Z" stroke="currentColor" stroke-width="1.8"/></svg>
-                            </div>
+                        <div class="spec-card__icon" aria-hidden="true">
+                            <img src="assets/img/icons/spec-heart-transplant.svg" alt="">
+                        </div>
                             <div>
-                                <h3 class="spec-card__title">Трансплантация сердца</h3>
-                                <p class="spec-card__text">Комплексное сопровождение пациента на этапах обследования и лечения.</p>
+                                <h3 class="spec-card__title">ТРАНСПЛАНТАЦИЯ СЕРДЦА</h3>
+                                <p class="spec-card__text">Пересаживает сердца пациентам с тяжёлыми заболеваниями.</p>
                             </div>
                         </article>
 
                         <article class="spec-card">
-                            <div class="spec-card__icon" aria-hidden="true">
-                                <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5v14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M6.5 18.5 4 21m14-2.5L20 21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-                            </div>
+                        <div class="spec-card__icon" aria-hidden="true">
+                            <img src="assets/img/icons/spec-heart-transplant.svg" alt="">
+                        </div>
                             <div>
-                                <h3 class="spec-card__title">Трансплантация органов</h3>
-                                <p class="spec-card__text">Планирование лечения, ведение документации и сопровождение на ключевых этапах.</p>
+                                <h3 class="spec-card__title">ТРАНСПЛАНТАЦИЯ СЕРДЦА</h3>
+                                <p class="spec-card__text">Пересаживает сердца пациентам с тяжёлыми заболеваниями.</p>
                             </div>
                         </article>
 
                         <article class="spec-card">
-                            <div class="spec-card__icon" aria-hidden="true">
-                                <svg viewBox="0 0 24 24" fill="none"><path d="M4 12c0-4.4 3.6-8 8-8s8 3.6 8 8-3.6 8-8 8-8-3.6-8-8Z" stroke="currentColor" stroke-width="1.8"/><path d="M8.5 12.5 11 15l4.5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                            </div>
+                        <div class="spec-card__icon" aria-hidden="true">
+                            <img src="assets/img/icons/spec-vascular.svg" alt="">
+                        </div>
                             <div>
-                                <h3 class="spec-card__title">Сосудистая хирургия</h3>
-                                <p class="spec-card__text">Подготовка к операции, второе мнение, послеоперационное наблюдение и рекомендации.</p>
+                                <h3 class="spec-card__title">СОСУДИСТАЯ ХИРУРГИЯ</h3>
+                                <p class="spec-card__text">Специализируется на крупных сосудах — аорте, венах и артериях</p>
                             </div>
                         </article>
                     </div>
