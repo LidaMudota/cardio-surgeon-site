@@ -42,13 +42,8 @@ class Mailer
             return false;
         }
 
-        if ($host !== 'smtp.yandex.ru') {
-            $this->lastError = 'Для этого проекта требуется SMTP Яндекса: smtp.yandex.ru.';
-            return false;
-        }
-
-        if ($port !== 465 || $secure !== 'ssl') {
-            $this->lastError = 'Для Яндекс Почты используйте порт 465 и secure=ssl.';
+        if ($port !== 465 || !in_array($secure, ['ssl', 'smtps'], true)) {
+            $this->lastError = 'Для Яндекс Почты используйте host=smtp.yandex.com, порт 465 и secure=ssl.';
             return false;
         }
 
@@ -62,10 +57,9 @@ class Mailer
             return false;
         }
 
-        if ($fromAddress !== $username) {
-            $this->lastError = 'Для Яндекс SMTP адрес отправителя from.address должен совпадать с smtp.username.';
-            return false;
-        }
+        $smtpSecure = $secure === 'ssl' || $secure === 'smtps'
+            ? PHPMailer::ENCRYPTION_SMTPS
+            : '';
 
         $mail = new PHPMailer(true);
 
@@ -76,21 +70,26 @@ class Mailer
             $mail->SMTPAuth = $smtpAuth;
             $mail->Username = $username;
             $mail->Password = $password;
-            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+            $mail->SMTPSecure = $smtpSecure;
             $mail->CharSet = 'UTF-8';
             $mail->Encoding = PHPMailer::ENCODING_BASE64;
 
             $mail->setFrom($fromAddress, $fromName !== '' ? $fromName : 'Форма сайта');
             $mail->addAddress($toAddress);
-            $mail->addReplyTo($fromAddress, $fromName !== '' ? $fromName : 'Форма сайта');
 
             $mail->isHTML(false);
             $mail->Subject = $subject;
             $mail->Body = $body;
 
-            return $mail->send();
+            if (!$mail->send()) {
+                $this->lastError = 'SMTP ошибка: ' . ($mail->ErrorInfo !== '' ? $mail->ErrorInfo : 'неизвестная ошибка PHPMailer');
+                return false;
+            }
+
+            return true;
         } catch (Exception $exception) {
-            $this->lastError = 'SMTP ошибка: ' . $exception->getMessage();
+            $errorInfo = $mail->ErrorInfo !== '' ? ' | PHPMailer: ' . $mail->ErrorInfo : '';
+            $this->lastError = 'SMTP ошибка: ' . $exception->getMessage() . $errorInfo;
             return false;
         }
     }

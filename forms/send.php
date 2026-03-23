@@ -175,11 +175,15 @@ $body = "Новая заявка с сайта {$siteName}\n\n"
 $mailer = new Mailer($config);
 
 if (!$mailer->send($subject, $body)) {
+    $smtpError = $mailer->getLastError();
+
     respond(500, [
         'success' => false,
-        'message' => 'Не удалось отправить заявку через SMTP Яндекс Почты. Проверьте логин, пароль приложения и настройки в config/mail.local.php.',
+        'message' => $smtpError !== ''
+            ? $smtpError
+            : 'Не удалось отправить заявку через SMTP Яндекс Почты. Проверьте логин, пароль приложения и настройки в config/mail.local.php.',
         'code' => 'mail_send_error',
-        'details' => $mailer->getLastError(),
+        'details' => $smtpError,
     ], buildRedirect('error'));
 }
 
