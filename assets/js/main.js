@@ -94,8 +94,24 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    const showFormAlert = (form, type, message) => {
+        let alert = form.querySelector('[data-form-alert]');
+
+        if (!alert) {
+            alert = document.createElement('div');
+            alert.setAttribute('data-form-alert', '1');
+            alert.setAttribute('role', type === 'success' ? 'status' : 'alert');
+            form.prepend(alert);
+        }
+
+        alert.className = `alert ${type === 'success' ? 'alert--success' : 'alert--error'}`;
+        alert.textContent = message;
+    };
+
     forms.forEach((form) => {
-        form.addEventListener('submit', (event) => {
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
             const fields = form.querySelectorAll('[required]');
             let hasError = false;
 
@@ -117,7 +133,47 @@ document.addEventListener('DOMContentLoaded', () => {
                 phoneInput.classList.add('is-invalid');
             }
 
-            if (hasError) event.preventDefault();
+            if (hasError) {
+                showFormAlert(form, 'error', 'Проверьте заполнение обязательных полей формы.');
+                return;
+            }
+
+            const submitButton = form.querySelector('button[type="submit"]');
+            submitButton?.setAttribute('disabled', 'disabled');
+
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'X-Requested-With': 'XMLHttpRequest',
+                    },
+                    body: new FormData(form),
+                    credentials: 'same-origin',
+                });
+
+                const payload = await response.json();
+
+                if (!response.ok || !payload.success) {
+                    showFormAlert(form, 'error', payload.message || 'Не удалось отправить форму.');
+                    return;
+                }
+
+                showFormAlert(form, 'success', payload.message || 'Форма успешно отправлена.');
+                form.reset();
+                const startedAt = form.querySelector('input[name="form_started_at"]');
+                if (startedAt) startedAt.value = String(Math.floor(Date.now() / 1000));
+
+                if (payload.redirect) {
+                    setTimeout(() => {
+                        window.location.href = payload.redirect;
+                    }, 400);
+                }
+            } catch (error) {
+                showFormAlert(form, 'error', 'Ошибка соединения. Повторите попытку позже.');
+            } finally {
+                submitButton?.removeAttribute('disabled');
+            }
         });
     });
 

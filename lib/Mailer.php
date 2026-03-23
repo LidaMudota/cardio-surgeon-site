@@ -1,64 +1,99 @@
 <?php
 
+use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\PHPMailer;
+
 class Mailer
 {
     private array $config;
+    private string $lastError = '';
 
     public function __construct(array $config)
     {
         $this->config = $config;
     }
 
+    public function getLastError(): string
+    {
+        return $this->lastError;
+    }
+
     public function send(string $subject, string $body): bool
     {
-        $recipient = trim((string) ($this->config['recipient'] ?? ''));
-        if ($recipient === '') {
+        $transport = strtolower((string) ($this->config['transport'] ?? 'smtp'));
+
+        if ($transport === 'mail') {
+            return $this->sendViaMail($subject, $body);
+        }
+
+        if (!class_exists(PHPMailer::class)) {
+            $this->lastError = 'PHPMailer не найден. Проверьте vendor/autoload.php.';
             return false;
         }
 
-        $smtpEnabled = (bool) ($this->config['smtp']['enabled'] ?? false);
-        if ($smtpEnabled && class_exists('PHPMailer\PHPMailer\PHPMailer')) {
-            return $this->sendViaSmtp($recipient, $subject, $body);
-        }
-
-        return $this->sendViaMail($recipient, $subject, $body);
+        return $this->sendViaSmtp($subject, $body);
     }
 
-    private function sendViaMail(string $recipient, string $subject, string $body): bool
+    private function sendViaMail(string $subject, string $body): bool
     {
-        $fromEmail = (string) ($this->config['from_email'] ?? 'no-reply@example.com');
+        $recipient = trim((string) ($this->config['to']['address'] ?? ''));
+        $fromAddress = trim((string) ($this->config['from']['address'] ?? ''));
+
+        if ($recipient === '' || $fromAddress === '') {
+            $this->lastError = 'Не заполнены адреса отправителя/получателя в config/mail.php.';
+            return false;
+        }
 
         $headers = [
             'MIME-Version: 1.0',
             'Content-type: text/plain; charset=UTF-8',
-            'From: ' . $fromEmail,
-            'Reply-To: ' . $fromEmail,
+            'From: ' . $fromAddress,
+            'Reply-To: ' . $fromAddress,
             'X-Mailer: PHP/' . phpversion(),
         ];
 
-        return mail($recipient, '=?UTF-8?B?' . base64_encode($subject) . '?=', $body, implode("\r\n", $headers));
+        $sent = mail($recipient, '=?UTF-8?B?' . base64_encode($subject) . '?=', $body, implode("\r\n", $headers));
+
+        if (!$sent) {
+            $this->lastError = 'Функция mail() вернула ошибку.';
+        }
+
+        return $sent;
     }
 
-    private function sendViaSmtp(string $recipient, string $subject, string $body): bool
+    private function sendViaSmtp(string $subject, string $body): bool
     {
-        $mail = new PHPMailer\PHPMailer\PHPMailer(true);
-        $smtp = $this->config['smtp'];
+        $smtp = $this->config['smtp'] ?? [];
+        $recipient = trim((string) ($this->config['to']['address'] ?? ''));
+        $fromAddress = trim((string) ($this->config['from']['address'] ?? ''));
+        $fromName = trim((string) ($this->config['from']['name'] ?? ''));
+
+        if ($recipient === '' || $fromAddress === '') {
+            $this->lastError = 'Не заполнены адреса отправителя/получателя в config/mail.php.';
+            return false;
+        }
+
+        $mail = new PHPMailer(true);
 
         try {
             $mail->isSMTP();
-            $mail->Host = (string) ($smtp['host'] ?? '');
+            $mail->Host = trim((string) ($smtp['host'] ?? ''));
             $mail->Port = (int) ($smtp['port'] ?? 587);
             $mail->SMTPAuth = true;
-            $mail->Username = (string) ($smtp['username'] ?? '');
+            $mail->Username = trim((string) ($smtp['username'] ?? ''));
             $mail->Password = (string) ($smtp['password'] ?? '');
-            $mail->SMTPSecure = (string) ($smtp['secure'] ?? PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS);
+            $mail->SMTPSecure = trim((string) ($smtp['secure'] ?? PHPMailer::ENCRYPTION_STARTTLS));
             $mail->CharSet = 'UTF-8';
-            $mail->setFrom((string) ($this->config['from_email'] ?? 'no-reply@example.com'), (string) ($this->config['site_name'] ?? 'Кардиохирург'));
+
+            $mail->setFrom($fromAddress, $fromName !== '' ? $fromName : 'Website');
             $mail->addAddress($recipient);
             $mail->Subject = $subject;
             $mail->Body = $body;
+            $mail->isHTML(false);
+
             return $mail->send();
-        } catch (Throwable $exception) {
+        } catch (Exception $exception) {
+            $this->lastError = $exception->getMessage();
             return false;
         }
     }
