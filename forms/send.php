@@ -1,7 +1,19 @@
 <?php
 session_start();
 
-require_once __DIR__ . '/../vendor/autoload.php';
+$autoloadPath = __DIR__ . '/../vendor/autoload.php';
+if (!is_file($autoloadPath)) {
+    http_response_code(500);
+    header('Content-Type: application/json; charset=UTF-8');
+    echo json_encode([
+        'success' => false,
+        'message' => 'Системная ошибка: отсутствует vendor/autoload.php. Выполните composer install.',
+        'code' => 'autoload_missing',
+    ], JSON_UNESCAPED_UNICODE);
+    exit;
+}
+
+require_once $autoloadPath;
 require_once __DIR__ . '/../lib/Mailer.php';
 
 $config = require __DIR__ . '/../config/mail.php';
@@ -92,18 +104,18 @@ $message = trim((string) ($_POST['message'] ?? ''));
 $agreement = isset($_POST['agreement']) && (string) $_POST['agreement'] === '1';
 $phoneDigits = preg_replace('/\D+/', '', $phone);
 
-if ($name === '' || mb_strlen($name) < 2 || mb_strlen($name) > 100) {
+if ($name === '' || mb_strlen($name) < 2 || mb_strlen($name) > 100 || !preg_match('/^[\p{L}\s\-\'\.]+$/u', $name)) {
     respond(422, [
         'success' => false,
-        'message' => 'Укажите корректное имя (от 2 до 100 символов).',
+        'message' => 'Укажите корректное имя (2–100 символов, только буквы, пробел, дефис, апостроф).',
         'code' => 'invalid_name',
     ], buildRedirect('invalid'));
 }
 
-if (strlen((string) $phoneDigits) < 11) {
+if (strlen((string) $phoneDigits) < 11 || strlen((string) $phoneDigits) > 15) {
     respond(422, [
         'success' => false,
-        'message' => 'Укажите корректный номер телефона.',
+        'message' => 'Укажите корректный номер телефона (11–15 цифр).',
         'code' => 'invalid_phone',
     ], buildRedirect('invalid'));
 }
@@ -124,20 +136,19 @@ if ($message !== '' && mb_strlen($message) > 2000) {
     ], buildRedirect('invalid'));
 }
 
-$requiredPlaceholders = [
+$requiredConfigValues = [
     (string) ($config['smtp']['host'] ?? ''),
     (string) ($config['smtp']['port'] ?? ''),
+    (string) ($config['smtp']['secure'] ?? ''),
     (string) ($config['smtp']['username'] ?? ''),
     (string) ($config['smtp']['password'] ?? ''),
-    (string) ($config['smtp']['secure'] ?? ''),
     (string) ($config['from']['address'] ?? ''),
-    (string) ($config['from']['name'] ?? ''),
     (string) ($config['to']['address'] ?? ''),
 ];
 
 $hasPlaceholder = false;
-foreach ($requiredPlaceholders as $value) {
-    if ($value === '' || str_contains($value, 'SMTP_') || str_contains($value, 'MAIL_')) {
+foreach ($requiredConfigValues as $value) {
+    if ($value === '' || str_contains($value, 'YANDEX_') || str_contains($value, 'MAIL_TO_')) {
         $hasPlaceholder = true;
         break;
     }
@@ -146,7 +157,7 @@ foreach ($requiredPlaceholders as $value) {
 if ($hasPlaceholder) {
     respond(500, [
         'success' => false,
-        'message' => 'Почта не настроена: заполните config/mail.php боевыми значениями.',
+        'message' => 'Почта не настроена: заполните config/mail.local.php по образцу config/mail.example.php.',
         'code' => 'mail_config_required',
     ], buildRedirect('config'));
 }
@@ -157,7 +168,7 @@ $subject = 'Новая заявка с сайта';
 $body = "Новая заявка с сайта {$siteName}\n\n"
     . "Имя: {$name}\n"
     . "Телефон: {$phone}\n"
-    . "Комментарий: " . ($message !== '' ? $message : 'Не указан') . "\n"
+    . 'Комментарий: ' . ($message !== '' ? $message : 'Не указан') . "\n"
     . "Страница: {$formPage}\n"
     . 'Дата и время: ' . date('d.m.Y H:i:s') . "\n";
 
@@ -166,7 +177,7 @@ $mailer = new Mailer($config);
 if (!$mailer->send($subject, $body)) {
     respond(500, [
         'success' => false,
-        'message' => 'Не удалось отправить заявку. Попробуйте позже.',
+        'message' => 'Не удалось отправить заявку через SMTP Яндекс Почты. Проверьте логин, пароль приложения и настройки в config/mail.local.php.',
         'code' => 'mail_send_error',
         'details' => $mailer->getLastError(),
     ], buildRedirect('error'));

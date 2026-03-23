@@ -1,23 +1,15 @@
 <?php
 
-return [
-    'site_name' => 'Сайт врача-кардиохирурга',
-    'transport' => 'smtp', // smtp | mail
+$localConfigFile = __DIR__ . '/mail.local.php';
 
-    'smtp' => [
-        'host' => 'SMTP_HOST',
-        'port' => 'SMTP_PORT',
-        'username' => 'SMTP_USERNAME',
-        'password' => 'SMTP_PASSWORD',
-        'secure' => 'SMTP_SECURE', // tls | ssl
-    ],
+if (!is_file($localConfigFile)) {
+    return [];
+}
 
-    'from' => [
-        'address' => 'MAIL_FROM_ADDRESS',
-        'name' => 'MAIL_FROM_NAME',
-    ],
+$localConfig = require $localConfigFile;
 
-    'to' => [
-        'address' => 'MAIL_TO_ADDRESS',
-    ],
-];
+if (!is_array($localConfig)) {
+    return [];
+}
+
+return $localConfig;

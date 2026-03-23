@@ -20,56 +20,50 @@ class Mailer
 
     public function send(string $subject, string $body): bool
     {
-        $transport = strtolower((string) ($this->config['transport'] ?? 'smtp'));
-
-        if ($transport === 'mail') {
-            return $this->sendViaMail($subject, $body);
-        }
-
         if (!class_exists(PHPMailer::class)) {
-            $this->lastError = 'PHPMailer не найден. Проверьте vendor/autoload.php.';
+            $this->lastError = 'PHPMailer не найден. Проверьте подключение vendor/autoload.php.';
             return false;
         }
 
-        return $this->sendViaSmtp($subject, $body);
-    }
-
-    private function sendViaMail(string $subject, string $body): bool
-    {
-        $recipient = trim((string) ($this->config['to']['address'] ?? ''));
-        $fromAddress = trim((string) ($this->config['from']['address'] ?? ''));
-
-        if ($recipient === '' || $fromAddress === '') {
-            $this->lastError = 'Не заполнены адреса отправителя/получателя в config/mail.php.';
-            return false;
-        }
-
-        $headers = [
-            'MIME-Version: 1.0',
-            'Content-type: text/plain; charset=UTF-8',
-            'From: ' . $fromAddress,
-            'Reply-To: ' . $fromAddress,
-            'X-Mailer: PHP/' . phpversion(),
-        ];
-
-        $sent = mail($recipient, '=?UTF-8?B?' . base64_encode($subject) . '?=', $body, implode("\r\n", $headers));
-
-        if (!$sent) {
-            $this->lastError = 'Функция mail() вернула ошибку.';
-        }
-
-        return $sent;
-    }
-
-    private function sendViaSmtp(string $subject, string $body): bool
-    {
         $smtp = $this->config['smtp'] ?? [];
-        $recipient = trim((string) ($this->config['to']['address'] ?? ''));
         $fromAddress = trim((string) ($this->config['from']['address'] ?? ''));
         $fromName = trim((string) ($this->config['from']['name'] ?? ''));
+        $toAddress = trim((string) ($this->config['to']['address'] ?? ''));
 
-        if ($recipient === '' || $fromAddress === '') {
-            $this->lastError = 'Не заполнены адреса отправителя/получателя в config/mail.php.';
+        $host = trim((string) ($smtp['host'] ?? ''));
+        $port = (int) ($smtp['port'] ?? 465);
+        $secure = strtolower(trim((string) ($smtp['secure'] ?? 'ssl')));
+        $smtpAuth = (bool) ($smtp['auth'] ?? true);
+        $username = trim((string) ($smtp['username'] ?? ''));
+        $password = (string) ($smtp['password'] ?? '');
+
+        if ($host === '' || $username === '' || $password === '' || $fromAddress === '' || $toAddress === '') {
+            $this->lastError = 'Не заполнены обязательные SMTP-параметры в config/mail.local.php.';
+            return false;
+        }
+
+        if ($host !== 'smtp.yandex.ru') {
+            $this->lastError = 'Для этого проекта требуется SMTP Яндекса: smtp.yandex.ru.';
+            return false;
+        }
+
+        if ($port !== 465 || $secure !== 'ssl') {
+            $this->lastError = 'Для Яндекс Почты используйте порт 465 и secure=ssl.';
+            return false;
+        }
+
+        if (!$smtpAuth) {
+            $this->lastError = 'Для Яндекс SMTP требуется auth=true.';
+            return false;
+        }
+
+        if (!filter_var($fromAddress, FILTER_VALIDATE_EMAIL) || !filter_var($toAddress, FILTER_VALIDATE_EMAIL)) {
+            $this->lastError = 'Проверьте корректность email-адресов отправителя и получателя.';
+            return false;
+        }
+
+        if ($fromAddress !== $username) {
+            $this->lastError = 'Для Яндекс SMTP адрес отправителя from.address должен совпадать с smtp.username.';
             return false;
         }
 
@@ -77,23 +71,26 @@ class Mailer
 
         try {
             $mail->isSMTP();
-            $mail->Host = trim((string) ($smtp['host'] ?? ''));
-            $mail->Port = (int) ($smtp['port'] ?? 587);
-            $mail->SMTPAuth = true;
-            $mail->Username = trim((string) ($smtp['username'] ?? ''));
-            $mail->Password = (string) ($smtp['password'] ?? '');
-            $mail->SMTPSecure = trim((string) ($smtp['secure'] ?? PHPMailer::ENCRYPTION_STARTTLS));
+            $mail->Host = $host;
+            $mail->Port = $port;
+            $mail->SMTPAuth = $smtpAuth;
+            $mail->Username = $username;
+            $mail->Password = $password;
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
             $mail->CharSet = 'UTF-8';
+            $mail->Encoding = PHPMailer::ENCODING_BASE64;
 
-            $mail->setFrom($fromAddress, $fromName !== '' ? $fromName : 'Website');
-            $mail->addAddress($recipient);
+            $mail->setFrom($fromAddress, $fromName !== '' ? $fromName : 'Форма сайта');
+            $mail->addAddress($toAddress);
+            $mail->addReplyTo($fromAddress, $fromName !== '' ? $fromName : 'Форма сайта');
+
+            $mail->isHTML(false);
             $mail->Subject = $subject;
             $mail->Body = $body;
-            $mail->isHTML(false);
 
             return $mail->send();
         } catch (Exception $exception) {
-            $this->lastError = $exception->getMessage();
+            $this->lastError = 'SMTP ошибка: ' . $exception->getMessage();
             return false;
         }
     }
