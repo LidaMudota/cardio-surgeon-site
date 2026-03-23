@@ -5,19 +5,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileToggle = document.querySelector('[data-mobile-nav-toggle]');
     const mobileNav = document.getElementById('mobile-nav');
     const mobileNavLinks = document.querySelectorAll('.mobile-nav__link');
-    const phoneInput = document.querySelector('[data-phone-input]');
-    const form = document.querySelector('[data-consultation-form]');
+    const phoneInputs = document.querySelectorAll('[data-phone-input]');
+    const forms = document.querySelectorAll('[data-consultation-form]');
     const slider = document.querySelector('[data-results-slider]');
     const prevButton = document.querySelector('[data-results-prev]');
     const nextButton = document.querySelector('[data-results-next]');
 
     const toggleSection = (button, section) => {
-        if (!button || !section) {
-            return;
-        }
-
+        if (!button || !section) return;
         const isHidden = section.hasAttribute('hidden');
-
         if (isHidden) {
             section.removeAttribute('hidden');
             button.setAttribute('aria-expanded', 'true');
@@ -81,39 +77,24 @@ document.addEventListener('DOMContentLoaded', () => {
         const normalized = digits.startsWith('8') ? `7${digits.slice(1)}` : digits;
         const clean = normalized.startsWith('7') ? normalized : `7${normalized}`;
         const parts = clean.match(/^(7)(\d{0,3})(\d{0,3})(\d{0,2})(\d{0,2})$/);
-
-        if (!parts) {
-            return value;
-        }
+        if (!parts) return value;
 
         let result = '+7';
-
-        if (parts[2]) {
-            result += ` (${parts[2]}`;
-        }
-        if (parts[2] && parts[2].length === 3) {
-            result += ')';
-        }
-        if (parts[3]) {
-            result += ` ${parts[3]}`;
-        }
-        if (parts[4]) {
-            result += `-${parts[4]}`;
-        }
-        if (parts[5]) {
-            result += `-${parts[5]}`;
-        }
-
+        if (parts[2]) result += ` (${parts[2]}`;
+        if (parts[2] && parts[2].length === 3) result += ')';
+        if (parts[3]) result += ` ${parts[3]}`;
+        if (parts[4]) result += `-${parts[4]}`;
+        if (parts[5]) result += `-${parts[5]}`;
         return result;
     };
 
-    if (phoneInput) {
+    phoneInputs.forEach((phoneInput) => {
         phoneInput.addEventListener('input', (event) => {
             event.target.value = applyPhoneMask(event.target.value);
         });
-    }
+    });
 
-    if (form) {
+    forms.forEach((form) => {
         form.addEventListener('submit', (event) => {
             const fields = form.querySelectorAll('[required]');
             let hasError = false;
@@ -122,7 +103,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 const isCheckbox = field.type === 'checkbox';
                 const value = isCheckbox ? field.checked : field.value.trim();
                 const fieldWrapper = isCheckbox ? field.closest('.checkbox') : field;
-
                 fieldWrapper?.classList.remove('is-invalid');
 
                 if (!value) {
@@ -131,22 +111,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
 
+            const phoneInput = form.querySelector('[data-phone-input]');
             if (phoneInput && phoneInput.value.replace(/\D/g, '').length < 11) {
                 hasError = true;
                 phoneInput.classList.add('is-invalid');
             }
 
-            if (hasError) {
-                event.preventDefault();
-            }
+            if (hasError) event.preventDefault();
         });
-    }
+    });
 
     const scrollCard = (direction) => {
-        if (!slider) {
-            return;
-        }
-
+        if (!slider) return;
         const card = slider.querySelector('.result-card');
         const scrollAmount = card ? card.getBoundingClientRect().width + 18 : 300;
         slider.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
@@ -154,4 +130,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     prevButton?.addEventListener('click', () => scrollCard(-1));
     nextButton?.addEventListener('click', () => scrollCard(1));
+
+    const diplomaTriggers = document.querySelectorAll('[data-diploma-open]');
+    const diplomaModal = document.querySelector('[data-diploma-modal]');
+    const diplomaImage = diplomaModal?.querySelector('img');
+    const diplomaClose = diplomaModal?.querySelector('[data-diploma-close]');
+
+    diplomaTriggers.forEach((trigger) => {
+        trigger.addEventListener('click', () => {
+            if (!diplomaModal || !diplomaImage) return;
+            diplomaImage.src = trigger.dataset.image || '';
+            diplomaImage.alt = trigger.dataset.alt || 'Документ';
+            diplomaModal.removeAttribute('hidden');
+        });
+    });
+
+    diplomaClose?.addEventListener('click', () => diplomaModal?.setAttribute('hidden', 'hidden'));
 });

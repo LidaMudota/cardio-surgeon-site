@@ -1,0 +1,12 @@
+<main class="inner-page">
+    <section class="inner-hero">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="index.php">Главная</a>
+                <span>•</span>
+                <span><?= e($pageTitle); ?></span>
+            </nav>
+            <h1 class="inner-hero__title"><?= e($pageTitle); ?></h1>
+            <p class="inner-hero__subtitle"><?= e($pageSubtitle); ?></p>
+        </div>
+    </section>

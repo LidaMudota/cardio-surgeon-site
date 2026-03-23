@@ -43,27 +43,38 @@ switch ($status) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Кардиохирург — главная страница</title>
     <meta name="description" content="Главная страница сайта врача-кардиохирурга. Запись на консультацию, направления помощи, информация о специалисте и результаты практики.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:title" content="Кардиохирург — главная страница">
+    <meta property="og:description" content="Главная страница сайта врача-кардиохирурга. Запись на консультацию, направления помощи, информация о специалисте и результаты практики.">
+    <meta property="og:url" content="https://example.com/index.php">
+    <meta property="og:image" content="https://example.com/assets/img/content/hero-doctor.svg">
+    <link rel="canonical" href="https://example.com/index.php">
+    <link rel="icon" type="image/svg+xml" href="assets/img/icons/spec-heart-transplant.svg">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/internal.css">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Physician","name":"Кардиохирург","url":"https://example.com/index.php","medicalSpecialty":"Cardiovascular"}</script>
 </head>
 <body>
     <div class="site-shell">
         <header class="header" id="top">
             <div class="container header__inner">
-                <a class="logo" href="#top" aria-label="На главную">
+                <a class="logo" href="index.php" aria-label="На главную">
                     <span class="logo__mark">❤</span>
                     <span class="logo__text">Кардиохирург</span>
                 </a>
 
                 <nav class="header__nav nav" aria-label="Основная навигация">
-                    <a class="nav__link" href="#hero">ОБО МНЕ</a>
-                    <a class="nav__link" href="">РЕЗУЛЬТАТЫ РАБОТ</a>
-                    <a class="nav__link" href="">ПАМЯТКИ ПАЦИЕНТАМ</a>
-                    <a class="nav__link" href="">ДЛЯ ВРАЧЕЙ</a>
-                    <a class="nav__link" href="#contacts">КОНТАКТЫ</a>
-                    <a class="nav__link" href="">УСЛУГИ И ЦЕНЫ</a>
+                    <a class="nav__link" href="o-vrache.php">ОБО МНЕ</a>
+                    <a class="nav__link" href="rezultaty-rabot.php">РЕЗУЛЬТАТЫ РАБОТ</a>
+                    <a class="nav__link" href="pamyatki-patsientam.php">ПАМЯТКИ ПАЦИЕНТАМ</a>
+                    <a class="nav__link" href="dlya-vrachey.php">ДЛЯ ВРАЧЕЙ</a>
+                    <a class="nav__link" href="kontakty.php">КОНТАКТЫ</a>
+                    <a class="nav__link" href="uslugi-i-tseny.php">УСЛУГИ И ЦЕНЫ</a>
                 </nav>
 
                 <div class="header__actions">
@@ -108,21 +119,21 @@ switch ($status) {
             <div class="mega-menu" id="mega-menu" hidden>
                 <div class="container mega-menu__inner">
                     <div class="mega-menu__column">
-                        <a class="mega-menu__link" href="#hero">О ВРАЧЕ</a>
-                        <a class="mega-menu__link" href="">О клинике</a> 
-                        <a class="mega-menu__link" href="">Отзывы</a>
-                        <a class="mega-menu__link" href="#results">Публикации</a>
-                        <a class="mega-menu__link" href="#contacts">Дипломы</a>
+                        <a class="mega-menu__link" href="o-vrache.php">О ВРАЧЕ</a>
+                        <a class="mega-menu__link" href="o-klinike.php">О клинике</a> 
+                        <a class="mega-menu__link" href="otzyvy.php">Отзывы</a>
+                        <a class="mega-menu__link" href="publikatsii.php">Публикации</a>
+                        <a class="mega-menu__link" href="diplomy.php">Дипломы</a>
                     </div>
 
                     <div class="mega-menu__column">
-                        <a class="mega-menu__link" href="">АНАЛИЗЫ</a>
-                        <a class="mega-menu__link" href="">Анастезия</a>
-                        <a class="mega-menu__link" href="">Как проходит операция</a>
-                        <a class="mega-menu__link" href="">Как проходит консультация</a>
-                        <a class="mega-menu__link" href="">Пациентам из другого города</a>
-                        <a class="mega-menu__link" href="">Подготовка к операции</a>
-                        <a class="mega-menu__link" href="">После операции</a>
+                        <a class="mega-menu__link" href="analizy.php">АНАЛИЗЫ</a>
+                        <a class="mega-menu__link" href="anesteziya.php">Анастезия</a>
+                        <a class="mega-menu__link" href="kak-prokhodit-operatsiya.php">Как проходит операция</a>
+                        <a class="mega-menu__link" href="kak-prokhodit-konsultatsiya.php">Как проходит консультация</a>
+                        <a class="mega-menu__link" href="patsientam-iz-drugogo-goroda.php">Пациентам из другого города</a>
+                        <a class="mega-menu__link" href="podgotovka-k-operatsii.php">Подготовка к операции</a>
+                        <a class="mega-menu__link" href="posle-operatsii.php">После операции</a>
                     </div>
 
                     <div class="mega-menu__preview">
@@ -137,12 +148,12 @@ switch ($status) {
 
             <div class="mobile-nav" id="mobile-nav" hidden>
                 <div class="container mobile-nav__inner">
-                    <a class="mobile-nav__link" href="#hero">Обо мне</a>
-                    <a class="mobile-nav__link" href="#specialization">Специализация</a>
-                    <a class="mobile-nav__link" href="#about">Направления</a>
-                    <a class="mobile-nav__link" href="#results">Результаты</a>
-                    <a class="mobile-nav__link" href="#consultation">Запись</a>
-                    <a class="mobile-nav__link" href="#contacts">Контакты</a>
+                    <a class="mobile-nav__link" href="o-vrache.php">Обо мне</a>
+                    <a class="mobile-nav__link" href="specializatsiya.php">Специализация</a>
+                    <a class="mobile-nav__link" href="specializatsiya.php">Направления</a>
+                    <a class="mobile-nav__link" href="rezultaty-rabot.php">Результаты</a>
+                    <a class="mobile-nav__link" href="konsultatsiya.php">Запись</a>
+                    <a class="mobile-nav__link" href="kontakty.php">Контакты</a>
                 </div>
             </div>
         </header>
@@ -172,7 +183,7 @@ switch ($status) {
 
                         <div class="hero__actions">
                             <a class="button button--accent" href="#consultation">Записаться</a>
-                            <a class="button button--ghost" href="#specialization">Специализация</a>
+                            <a class="button button--ghost" href="specializatsiya.php">Специализация</a>
                         </div>
                     </div>
                 </div>
@@ -297,6 +308,7 @@ switch ($status) {
                         <form class="consultation__form" action="forms/send.php" method="post" novalidate data-consultation-form>
                             <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token'], ENT_QUOTES, 'UTF-8'); ?>">
                             <input type="hidden" name="form_started_at" value="<?= time(); ?>">
+                            <input type="hidden" name="form_page" value="index.php">
                             <div class="form-field form-field--honeypot" aria-hidden="true">
                                 <label for="website">Оставьте это поле пустым</label>
                                 <input type="text" name="website" id="website" tabindex="-1" autocomplete="off">
@@ -312,6 +324,11 @@ switch ($status) {
                                 <input class="input" type="tel" id="phone" name="phone" placeholder="Номер телефона" required data-phone-input>
                             </div>
 
+                            <div class="form-field">
+                                <label class="visually-hidden" for="message">Комментарий</label>
+                                <textarea class="input input--textarea" id="message" name="message" placeholder="Комментарий / тема обращения"></textarea>
+                            </div>
+
                             <div class="form-field form-field--submit">
                                 <button class="button button--dark button--wide" type="submit">ОТПРАВИТЬ ЗАЯВКУ</button>
                             </div>
@@ -319,7 +336,7 @@ switch ($status) {
                             <label class="checkbox">
                                 <input class="checkbox__input" type="checkbox" name="agreement" value="1" required>
                                 <span class="checkbox__box"></span>
-                                <span class="checkbox__text">Я согласен(а) на обработку персональных данных. <!-- TODO: Добавить ссылки на политику конфиденциальности и согласие на обработку персональных данных --></span>
+                                <span class="checkbox__text">Я согласен(а) на обработку персональных данных. <a href="politika-konfidentsialnosti.php">Политикой конфиденциальности</a> и <a href="soglasie-na-obrabotku-personalnykh-dannykh.php">согласием на обработку персональных данных</a></span>
                             </label>
                         </form>
                     </div>
@@ -330,21 +347,21 @@ switch ($status) {
         <footer class="footer" id="contacts">
             <div class="container footer__inner">
                 <div class="footer__column">
-                    <a class="footer__link" href="#">Главная</a>
-                    <a class="footer__link" href="#hero">Обо мне</a>
-                    <a class="footer__link" href="">Цены</a>
+                    <a class="footer__link" href="index.php">Главная</a>
+                    <a class="footer__link" href="o-vrache.php">Обо мне</a>
+                    <a class="footer__link" href="uslugi-i-tseny.php">Цены</a>
                 </div>
 
                 <div class="footer__column">
-                    <a class="footer__link" href="">Специализация</a>
-                    <a class="footer__link" href="">Результаты операций</a>
-                    <a class="footer__link" href="">Консультация</a>
+                    <a class="footer__link" href="specializatsiya.php">Специализация</a>
+                    <a class="footer__link" href="rezultaty-rabot.php">Результаты операций</a>
+                    <a class="footer__link" href="konsultatsiya.php">Консультация</a>
                 </div>
 
                 <div class="footer__column footer__column--contacts">
-                    <a class="footer__link" href="">Результаты работ</a>
-                    <a class="footer__link" href="">Отзывы</a>
-                    <a class="footer__link" href="">Контакты</a>
+                    <a class="footer__link" href="rezultaty-rabot.php">Результаты работ</a>
+                    <a class="footer__link" href="otzyvy.php">Отзывы</a>
+                    <a class="footer__link" href="kontakty.php">Контакты</a>
                 </div>
 
                 <div class="footer__cta">
@@ -377,6 +394,8 @@ switch ($status) {
             <div class="footer__bottom">
                 <div class="container footer__bottom-inner">
                     <p class="footer__caption">2026 Все права защищены</p>
+                    <a class="footer__link" href="politika-konfidentsialnosti.php">Политика конфиденциальности</a>
+                    <a class="footer__link" href="soglasie-na-obrabotku-personalnykh-dannykh.php">Согласие на обработку ПДн</a>
                 </div>
             </div>
         </footer>
