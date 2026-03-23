@@ -223,7 +223,7 @@ button {
 }
 
 .button--accent {
-    background: var(--color-accent);
+    background: #00A29A;
     color: whitesmoke
 }
 
@@ -245,7 +245,7 @@ button {
 }
 
 .button--dark {
-    background: #14181f;
+    background: #00A29A;
     color: var(--color-white);
 }
 
@@ -320,7 +320,6 @@ button {
 .footer__link {
     display: block;
     margin-bottom: 12px;
-    font-weight: 600;
 }
 
 .mega-menu__column .mega-menu__link {
@@ -378,6 +377,10 @@ button {
     background-color: #000000;
 }
 
+.section--consultation {
+    background-color: #1E1E1E;
+}
+
 .section--tight {
     padding-top: 18px;
 }
@@ -387,16 +390,13 @@ button {
 }
 
 .section__head--results {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
+    margin-bottom: 24px;
 }
 
 .section__title,
 .consultation__title {
     margin: 0;
-    font-size: clamp(28px, 3.4vw, 42px);
+    font-size: 45px;
     line-height: 1.1;
 }
 
@@ -631,6 +631,10 @@ button {
     scrollbar-width: none;
 }
 
+.results-slider-area {
+    position: relative;
+}
+
 .results-slider::-webkit-scrollbar {
     display: none;
 }
@@ -651,34 +655,74 @@ button {
 }
 
 .results-nav {
-    display: flex;
-    gap: 10px;
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
 }
 
 .results-nav__button {
+    position: absolute;
+    top: 50%;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 42px;
-    height: 42px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 50%;
+    width: 54px;
+    height: 54px;
+    padding: 0;
+    border: none;
     background: transparent;
-    color: var(--color-text);
-    font-size: 20px;
+    pointer-events: auto;
+    transform: translateY(-50%);
+}
+
+.results-nav__button[data-results-prev] {
+    left: -86px;
+}
+
+.results-nav__button[data-results-next] {
+    right: -86px;
+}
+
+.results-nav__button img {
+    display: block;
+    width: 54px;
+    height: 54px;
+    object-fit: contain;
+}
+
+.results-nav__button:hover,
+.results-nav__button:focus-visible {
+    box-shadow: none;
+    opacity: 0.9;
 }
 
 .results-nav__button:hover,
 .results-nav__button:focus-visible {
     border-color: rgba(24, 198, 198, 0.5);
-    color: var(--color-accent);
+    box-shadow: 0 0 0 3px rgba(24, 198, 198, 0.12);
 }
 
 .consultation {
+    position: relative;
     padding: 34px 34px 30px;
     border-radius: 28px;
-    background: linear-gradient(135deg, #1ac8c8 0%, #11afaf 100%);
+    background: #00A29A;
     box-shadow: 0 22px 48px rgba(17, 175, 175, 0.2);
+    overflow: hidden;
+}
+
+.consultation::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url('../img/content/consultation-bg.png') center / cover no-repeat;
+    z-index: 0;
+}
+
+.consultation > * {
+    position: relative;
+    z-index: 1;
 }
 
 .consultation__header {
@@ -688,12 +732,13 @@ button {
 
 .consultation__title,
 .consultation__subtitle {
-    color: #061014;
+    color: whitesmoke;
 }
 
 .consultation__subtitle {
     margin: 10px auto 0;
     max-width: 560px;
+    font-size: 19px;
 }
 
 .alert {
@@ -718,6 +763,8 @@ button {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 12px;
     align-items: start;
+    margin-left: 112px;
+    margin-right: 112px;
 }
 
 .form-field {
@@ -806,6 +853,7 @@ button {
 
 .footer {
     padding: 32px 0 0;
+    background-color: #000000;
 }
 
 .footer__inner {
@@ -849,6 +897,7 @@ button {
 
 .footer__bottom {
     border-top: 1px solid rgba(255, 255, 255, 0.06);
+    background-color: #1E1E1E;
 }
 
 .footer__bottom-inner {
@@ -860,7 +909,7 @@ button {
 }
 
 .footer__caption {
-    margin: 0;
+    margin: auto;
     font-size: 13px;
 }
 
@@ -975,10 +1024,6 @@ button {
     .spec-card,
     .consultation {
         padding: 18px 16px;
-    }
-
-    .section__head--results {
-        align-items: flex-start;
     }
 
     .about__visual {

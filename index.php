@@ -248,25 +248,32 @@ switch ($status) {
                 <div class="container">
                     <div class="section__head section__head--results">
                         <h2 class="section__title">Результаты операций</h2>
-                        <div class="results-nav">
-                            <button class="results-nav__button" type="button" data-results-prev aria-label="Предыдущий слайд">‹</button>
-                            <button class="results-nav__button" type="button" data-results-next aria-label="Следующий слайд">›</button>
-                        </div>
                     </div>
 
-                    <div class="results-slider" data-results-slider>
-                        <article class="result-card">
-                            <!-- TODO: Вставить изображение result-01.webp в /assets/img/content/ -->
-                            <img src="assets/img/content/result-01.svg" alt="Результат операции 1" class="result-card__image">
-                        </article>
-                        <article class="result-card">
-                            <!-- TODO: Вставить изображение result-02.webp в /assets/img/content/ -->
-                            <img src="assets/img/content/result-02.svg" alt="Результат операции 2" class="result-card__image">
-                        </article>
-                        <article class="result-card">
-                            <!-- TODO: Вставить изображение result-03.webp в /assets/img/content/ -->
-                            <img src="assets/img/content/result-03.svg" alt="Результат операции 3" class="result-card__image">
-                        </article>
+                    <div class="results-slider-area">
+                        <div class="results-nav">
+                            <button class="results-nav__button" type="button" data-results-prev aria-label="Предыдущий слайд">
+                                <img src="assets/img/icons/results-arrow-prev.svg" alt="" aria-hidden="true">
+                            </button>
+                            <button class="results-nav__button" type="button" data-results-next aria-label="Следующий слайд">
+                                <img src="assets/img/icons/results-arrow-next.svg" alt="" aria-hidden="true">
+                            </button>
+                        </div>
+
+                        <div class="results-slider" data-results-slider>
+                            <article class="result-card">
+                                <!-- TODO: Вставить изображение result-01.webp в /assets/img/content/ -->
+                                <img src="assets/img/content/result-01.svg" alt="Результат операции 1" class="result-card__image">
+                            </article>
+                            <article class="result-card">
+                                <!-- TODO: Вставить изображение result-02.webp в /assets/img/content/ -->
+                                <img src="assets/img/content/result-02.svg" alt="Результат операции 2" class="result-card__image">
+                            </article>
+                            <article class="result-card">
+                                <!-- TODO: Вставить изображение result-03.webp в /assets/img/content/ -->
+                                <img src="assets/img/content/result-03.svg" alt="Результат операции 3" class="result-card__image">
+                            </article>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -306,7 +313,7 @@ switch ($status) {
                             </div>
 
                             <div class="form-field form-field--submit">
-                                <button class="button button--dark button--wide" type="submit">Отправить заявку</button>
+                                <button class="button button--dark button--wide" type="submit">ОТПРАВИТЬ ЗАЯВКУ</button>
                             </div>
 
                             <label class="checkbox">
@@ -323,30 +330,45 @@ switch ($status) {
         <footer class="footer" id="contacts">
             <div class="container footer__inner">
                 <div class="footer__column">
-                    <p class="footer__title">Навигация</p>
+                    <a class="footer__link" href="#">Главная</a>
                     <a class="footer__link" href="#hero">Обо мне</a>
-                    <a class="footer__link" href="#specialization">Специализация</a>
-                    <a class="footer__link" href="#about">Направления</a>
+                    <a class="footer__link" href="">Цены</a>
                 </div>
 
                 <div class="footer__column">
-                    <p class="footer__title">Разделы</p>
-                    <a class="footer__link" href="#results">Результаты работ</a>
-                    <a class="footer__link" href="#consultation">Запись</a>
-                    <a class="footer__link" href="#contacts">Контакты</a>
+                    <a class="footer__link" href="">Специализация</a>
+                    <a class="footer__link" href="">Результаты операций</a>
+                    <a class="footer__link" href="">Консультация</a>
                 </div>
 
                 <div class="footer__column footer__column--contacts">
-                    <p class="footer__title">Контакты</p>
-                    <a class="footer__link" href="tel:+70000000000"><!-- TODO: Вставить реальный номер телефона -->+7 (000) 000-00-00</a>
-                    <a class="footer__link" href="mailto:doctor@example.com"><!-- TODO: Вставить реальный email -->doctor@example.com</a>
-                    <p class="footer__text"><!-- TODO: Вставить реальный адрес -->г. Москва, ул. Примерная, д. 1</p>
+                    <a class="footer__link" href="">Результаты работ</a>
+                    <a class="footer__link" href="">Отзывы</a>
+                    <a class="footer__link" href="">Контакты</a>
                 </div>
 
                 <div class="footer__cta">
-                    <div class="footer__socials">
-                        <a class="footer__social" href="#" aria-label="Telegram">tg</a>
-                        <a class="footer__social" href="#" aria-label="WhatsApp">wa</a>
+                    <div class="header__socials">
+                    <a
+                            class="header__icon-link"
+                            href="https://wa.me/79990000000"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="WhatsApp"
+                            title="WhatsApp"
+                        >
+                            <img src="assets/img/icons/telega.svg" alt="telegram" class="header__icon-image">
+                        </a>
+                        <a
+                            class="header__icon-link"
+                            href="https://t.me/your_username"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Telegram"
+                            title="Telegram"
+                        >
+                            <img src="assets/img/icons/maxim.svg" alt="max" class="header__icon-image">
+                        </a>
                     </div>
                     <a class="button button--accent button--small" href="#consultation">Записаться</a>
                 </div>
@@ -354,8 +376,7 @@ switch ($status) {
 
             <div class="footer__bottom">
                 <div class="container footer__bottom-inner">
-                    <p class="footer__caption">© 2026 Сайт врача-кардиохирурга</p>
-                    <p class="footer__caption"><!-- TODO: Добавить юридические данные и медицинское предупреждение -->Имеются противопоказания. Необходима консультация специалиста.</p>
+                    <p class="footer__caption">2026 Все права защищены</p>
                 </div>
             </div>
         </footer>
