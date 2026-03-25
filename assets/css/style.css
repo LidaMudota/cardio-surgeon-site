@@ -932,6 +932,184 @@ button {
     font-size: 13px;
 }
 
+
+
+body:not(.is-page-ready) .site-shell > main,
+body:not(.is-page-ready) .site-shell > .inner-page {
+    opacity: 0;
+    transform: translate3d(0, 10px, 0);
+}
+
+.site-shell > main,
+.site-shell > .inner-page {
+    transition: opacity 0.44s cubic-bezier(0.22, 1, 0.36, 1), transform 0.44s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.motion-reveal {
+    --motion-delay: 0ms;
+    opacity: 0;
+    transition:
+        opacity 0.72s cubic-bezier(0.22, 1, 0.36, 1) var(--motion-delay),
+        transform 0.72s cubic-bezier(0.22, 1, 0.36, 1) var(--motion-delay);
+    will-change: transform, opacity;
+}
+
+.motion-reveal--up {
+    transform: translate3d(0, 24px, 0);
+}
+
+.motion-reveal--left {
+    transform: translate3d(-22px, 0, 0);
+}
+
+.motion-reveal--right {
+    transform: translate3d(22px, 0, 0);
+}
+
+.motion-reveal.is-revealed {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+}
+
+.button {
+    transition: transform var(--transition), opacity var(--transition), background-color var(--transition), color var(--transition), border-color var(--transition), box-shadow var(--transition);
+}
+
+.button:hover,
+.button:focus-visible {
+    box-shadow: 0 10px 24px rgba(6, 13, 16, 0.28);
+}
+
+.button--glint {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.button--glint::after {
+    content: '';
+    position: absolute;
+    top: -160%;
+    left: -180%;
+    width: 46%;
+    height: 400%;
+    background: linear-gradient(130deg, transparent 0%, rgba(255, 255, 255, 0.03) 42%, rgba(255, 255, 255, 0.34) 50%, rgba(255, 255, 255, 0.03) 58%, transparent 100%);
+    transform: translate3d(0, 0, 0) rotate(12deg);
+    animation: buttonGlint 9.8s linear infinite;
+    pointer-events: none;
+}
+
+.button--glint:hover::after,
+.button--glint:focus-visible::after {
+    animation-duration: 7.8s;
+}
+
+@keyframes buttonGlint {
+    0%, 80% {
+        transform: translate3d(0, 0, 0) rotate(12deg);
+        opacity: 0;
+    }
+
+    84% {
+        opacity: 0.52;
+    }
+
+    100% {
+        transform: translate3d(660%, 0, 0) rotate(12deg);
+        opacity: 0;
+    }
+}
+
+.motion-float {
+    --mf-x: 0px;
+    --mf-y: 0px;
+    transform: translate3d(calc(var(--mf-x) * 0.36), calc(var(--mf-y) * 0.36), 0);
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform;
+}
+
+.motion-parallax {
+    --scroll-shift: 0px;
+    transform: translate3d(0, var(--scroll-shift), 0);
+    transition: transform 0.28s linear;
+    will-change: transform;
+}
+
+.motion-sticky-moment {
+    position: sticky;
+    top: 94px;
+}
+
+.result-card,
+.info-card,
+.doc-card,
+.doctor-specialty,
+.doctor-contribution__item,
+.doctor-highlight {
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.35s ease;
+}
+
+.result-card:hover,
+.info-card:hover,
+.doc-card:hover,
+.doctor-specialty:hover,
+.doctor-contribution__item:hover,
+.doctor-highlight:hover {
+    transform: translate3d(0, -3px, 0);
+    box-shadow: 0 16px 34px rgba(0, 0, 0, 0.2);
+}
+
+.spec-card__icon img,
+.results-nav__button img,
+.header__icon-image {
+    transition: transform 0.3s ease;
+}
+
+.spec-card:hover .spec-card__icon img,
+.results-nav__button:hover img,
+.header__icon-link:hover .header__icon-image {
+    transform: translate3d(0, -1px, 0);
+}
+
+@media (max-width: 991px) {
+    .motion-float,
+    .motion-parallax,
+    .motion-sticky-moment {
+        transform: none !important;
+        position: static;
+    }
+
+    .button--glint::after {
+        animation-duration: 12s;
+        opacity: 0.34;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .site-shell > main,
+    .site-shell > .inner-page,
+    .motion-reveal,
+    .button,
+    .button--glint::after,
+    .motion-float,
+    .motion-parallax,
+    .result-card,
+    .info-card,
+    .doc-card,
+    .doctor-specialty,
+    .doctor-contribution__item,
+    .doctor-highlight {
+        transition: none !important;
+        animation: none !important;
+        transform: none !important;
+        opacity: 1 !important;
+    }
+}
+
 @media (max-width: 1199px) {
     .hero__grid,
     .about {

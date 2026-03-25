@@ -202,4 +202,205 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     diplomaClose?.addEventListener('click', () => diplomaModal?.setAttribute('hidden', 'hidden'));
+
+
+    const mediaQueryReduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const mediaQueryDesktop = window.matchMedia('(min-width: 992px)');
+    const shouldReduceMotion = () => mediaQueryReduced.matches;
+
+    const initPageEnter = () => {
+        if (shouldReduceMotion()) {
+            document.body.classList.add('is-page-ready');
+            return;
+        }
+
+        requestAnimationFrame(() => {
+            document.body.classList.add('is-page-ready');
+        });
+    };
+
+    const initRevealAnimations = () => {
+        const revealRoots = [
+            '.hero__content',
+            '.section__head',
+            '.inner-hero .container',
+            '.about__content',
+            '.about__visual',
+            '.consultation',
+            '.footer__inner',
+            '.footer__bottom-inner',
+            '.doctor-intro__grid',
+            '.doctor-highlight',
+            '.doctor-text',
+            '.doctor-specialties',
+            '.doctor-contribution',
+            '.doctor-clinic__card',
+            '.inner-section > .container > *:not(script)'
+        ];
+
+        const revealNodes = new Set();
+        revealRoots.forEach((selector) => {
+            document.querySelectorAll(selector).forEach((node) => revealNodes.add(node));
+        });
+
+        const staggerGroups = [
+            '.spec-grid .spec-card',
+            '.results-slider .result-card',
+            '.inner-grid > *',
+            '.doc-grid .doc-card',
+            '.doctor-facts .doctor-facts__item',
+            '.doctor-specialties .doctor-specialty',
+            '.doctor-contribution .doctor-contribution__item',
+            '.faq details'
+        ];
+
+        staggerGroups.forEach((selector) => {
+            document.querySelectorAll(selector).forEach((node) => revealNodes.add(node));
+        });
+
+        const revealElements = Array.from(revealNodes);
+        if (!revealElements.length) return;
+
+        revealElements.forEach((element, index) => {
+            const mode = index % 3;
+            element.classList.add('motion-reveal');
+            element.classList.add(mode === 0 ? 'motion-reveal--up' : mode === 1 ? 'motion-reveal--left' : 'motion-reveal--right');
+        });
+
+        if (shouldReduceMotion()) {
+            revealElements.forEach((element) => element.classList.add('is-revealed'));
+            return;
+        }
+
+        const staggerParents = document.querySelectorAll('.spec-grid, .results-slider, .inner-grid, .doc-grid, .doctor-facts, .doctor-specialties, .doctor-contribution, .faq');
+        staggerParents.forEach((parent) => {
+            const children = parent.querySelectorAll('.motion-reveal');
+            children.forEach((child, index) => {
+                child.style.setProperty('--motion-delay', `${Math.min(index * 55, 220)}ms`);
+            });
+        });
+
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('is-revealed');
+                observer.unobserve(entry.target);
+            });
+        }, {
+            rootMargin: '0px 0px -12% 0px',
+            threshold: 0.16,
+        });
+
+        revealElements.forEach((element) => revealObserver.observe(element));
+    };
+
+    const initButtonGlint = () => {
+        const glintButtons = [
+            document.querySelector('.hero .button--accent'),
+            document.querySelector('.consultation .button--accent'),
+            document.querySelector('.footer__cta .button--accent')
+        ].filter(Boolean);
+
+        glintButtons.forEach((button) => button.classList.add('button--glint'));
+    };
+
+    const initMouseFollow = () => {
+        if (shouldReduceMotion() || !mediaQueryDesktop.matches) return;
+
+        const targets = [
+            document.querySelector('.hero__image-card'),
+            document.querySelector('.about__visual'),
+            document.querySelector('.doctor-intro__visual')
+        ].filter(Boolean);
+
+        if (!targets.length) return;
+
+        targets.forEach((target) => {
+            target.classList.add('motion-float');
+            target.style.setProperty('--mf-x', '0px');
+            target.style.setProperty('--mf-y', '0px');
+        });
+
+        let rafId = null;
+        let mouseX = 0;
+        let mouseY = 0;
+
+        const update = () => {
+            targets.forEach((target) => {
+                const rect = target.getBoundingClientRect();
+                const centerX = rect.left + rect.width / 2;
+                const centerY = rect.top + rect.height / 2;
+                const offsetX = ((mouseX - centerX) / window.innerWidth) * 10;
+                const offsetY = ((mouseY - centerY) / window.innerHeight) * 10;
+                const clampedX = Math.max(Math.min(offsetX, 8), -8);
+                const clampedY = Math.max(Math.min(offsetY, 8), -8);
+
+                target.style.setProperty('--mf-x', `${clampedX.toFixed(2)}px`);
+                target.style.setProperty('--mf-y', `${clampedY.toFixed(2)}px`);
+            });
+
+            rafId = null;
+        };
+
+        window.addEventListener('mousemove', (event) => {
+            mouseX = event.clientX;
+            mouseY = event.clientY;
+            if (!rafId) rafId = requestAnimationFrame(update);
+        }, { passive: true });
+    };
+
+    const initScrollParallax = () => {
+        if (shouldReduceMotion()) return;
+
+        const targets = [
+            ...document.querySelectorAll('.about__image, .doctor-intro__image, .result-card__image, .media-placeholder')
+        ].filter((node) => !node.closest('.hero__shape'));
+
+        if (!targets.length) return;
+
+        targets.forEach((target) => target.classList.add('motion-parallax'));
+
+        let ticking = false;
+
+        const update = () => {
+            const viewportHeight = window.innerHeight;
+
+            targets.forEach((target) => {
+                const rect = target.getBoundingClientRect();
+                if (rect.bottom < -40 || rect.top > viewportHeight + 40) return;
+
+                const progress = ((rect.top + rect.height / 2) - viewportHeight / 2) / viewportHeight;
+                const shift = Math.max(Math.min(progress * -12, 12), -12);
+                target.style.setProperty('--scroll-shift', `${shift.toFixed(2)}px`);
+            });
+
+            ticking = false;
+        };
+
+        const onScroll = () => {
+            if (ticking) return;
+            ticking = true;
+            requestAnimationFrame(update);
+        };
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', onScroll, { passive: true });
+        onScroll();
+    };
+
+    const initStickyMoments = () => {
+        if (!mediaQueryDesktop.matches || shouldReduceMotion()) return;
+
+        [
+            document.querySelector('.about__visual'),
+            document.querySelector('.doctor-intro__visual')
+        ].filter(Boolean).forEach((node) => node.classList.add('motion-sticky-moment'));
+    };
+
+    initPageEnter();
+    initRevealAnimations();
+    initButtonGlint();
+    initMouseFollow();
+    initScrollParallax();
+    initStickyMoments();
 });
