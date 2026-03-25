@@ -2,7 +2,7 @@
     <div class="container header__inner">
         <a class="logo" href="index.php" aria-label="На главную">
             <span class="logo__mark">❤</span>
-            <span class="logo__text">Кардиохирург</span>
+            <span class="logo__text">Коробков А. О.</span>
         </a>
 
         <nav class="header__nav nav" aria-label="Основная навигация">
