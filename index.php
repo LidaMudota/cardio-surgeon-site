@@ -48,7 +48,7 @@ switch ($status) {
     <meta property="og:title" content="Кардиохирург — главная страница">
     <meta property="og:description" content="Главная страница сайта врача-кардиохирурга. Запись на консультацию, направления помощи, информация о специалисте и результаты практики.">
     <meta property="og:url" content="https://example.com/index.php">
-    <meta property="og:image" content="https://example.com/assets/img/content/hero-doctor.svg">
+    <meta property="og:image" content="https://example.com/assets/img/content/hero-doctor.png">
     <link rel="canonical" href="https://example.com/index.php">
     <link rel="icon" type="image/svg+xml" href="assets/img/icons/spec-heart-transplant.svg">
 
@@ -65,7 +65,7 @@ switch ($status) {
             <div class="container header__inner">
                 <a class="logo" href="index.php" aria-label="На главную">
                     <span class="logo__mark">❤</span>
-                    <span class="logo__text">Кардиохирург</span>
+                    <span class="logo__text">Коробков А. О.</span>
                 </a>
 
                 <nav class="header__nav nav" aria-label="Основная навигация">
@@ -165,25 +165,17 @@ switch ($status) {
                 <div class="container hero__grid">
                     <div class="hero__visual">
                         <div class="hero__image-card">
-                            <!-- TODO: Вставить изображение hero-doctor.webp в /assets/img/content/ -->
-                            <img src="assets/img/content/hero-doctor.svg" alt="Фото врача-кардиохирурга" class="hero__image">
+                            <img src="assets/img/content/hero-doctor.png" alt="Фото врача-кардиохирурга" class="hero__image">
                         </div>
                     </div>
 
                     <div class="hero__content">
-                        <p class="hero__eyebrow">Кардиохирург</p>
-                        <h1 class="hero__title"><!-- TODO: Заменить на реальные данные врача -->Фамилия<br>Имя Отчество</h1>
-                        <p class="hero__subtitle"><!-- TODO: Заменить на реальные данные врача -->Врач высшей категории. Опыт работы 15+ лет. Современные методы диагностики и лечения заболеваний сердца.</p>
-
-                        <ul class="hero__facts">
-                            <li>Консультации и второе мнение</li>
-                            <li>Подготовка к операции</li>
-                            <li>Послеоперационное наблюдение</li>
-                        </ul>
+                        <h1 class="hero__title"><!-- TODO: Заменить на реальные данные врача -->Коробков<br>Александр Олегович </h1>
+                        <p class="hero__subtitle"><!-- TODO: Заменить на реальные данные врача -->Врач эндоваскулярный хирург</p>
+                        <p class="hero__subtitle"><!-- TODO: Заменить на реальные данные врача -->Стаж работы 16 лет</p>
 
                         <div class="hero__actions">
                             <a class="button button--accent" href="#consultation">Записаться</a>
-                            <a class="button button--ghost" href="specializatsiya.php">Специализация</a>
                         </div>
                     </div>
                 </div>
@@ -201,8 +193,8 @@ switch ($status) {
                             <img src="assets/img/icons/spec-vascular.svg" alt="">
                         </div>
                             <div>
-                                <h3 class="spec-card__title">СОСУДИСТАЯ ХИРУРГИЯ</h3>
-                                <p class="spec-card__text">Специализируется на крупных сосудах — аорте, венах и артериях</p>
+                                <h3 class="spec-card__title">КОРОНАРНОЕ СТЕНТИРОВАНИЕ</h3>
+                                <p class="spec-card__text">Восстановление кровотока в коронарных артериях с применением современных эндоваскулярных методик, включая ВСУЗИ.</p>
                             </div>
                         </article>
 
@@ -211,8 +203,8 @@ switch ($status) {
                             <img src="assets/img/icons/spec-heart-transplant.svg" alt="">
                         </div>
                             <div>
-                                <h3 class="spec-card__title">ТРАНСПЛАНТАЦИЯ СЕРДЦА</h3>
-                                <p class="spec-card__text">Пересаживает сердца пациентам с тяжёлыми заболеваниями.</p>
+                                <h3 class="spec-card__title">СТЕНТИРОВАНИЕ СОННЫХ АРТЕРИЙ</h3>
+                                <p class="spec-card__text">Малоинвазивное лечение стенозов сонных артерий для снижения риска инсульта и восстановления кровоснабжения мозга.</p>
                             </div>
                         </article>
 
@@ -221,8 +213,8 @@ switch ($status) {
                             <img src="assets/img/icons/spec-heart-transplant.svg" alt="">
                         </div>
                             <div>
-                                <h3 class="spec-card__title">ТРАНСПЛАНТАЦИЯ СЕРДЦА</h3>
-                                <p class="spec-card__text">Пересаживает сердца пациентам с тяжёлыми заболеваниями.</p>
+                                <h3 class="spec-card__title">АРТЕРИИ НИЖНИХ КОНЕЧНОСТЕЙ</h3>
+                                <p class="spec-card__text">Баллонная ангиопластика и стентирование артерий нижних конечностей с ротационной атерэктомией и ВСУЗИ.</p>
                             </div>
                         </article>
 
@@ -231,8 +223,8 @@ switch ($status) {
                             <img src="assets/img/icons/spec-vascular.svg" alt="">
                         </div>
                             <div>
-                                <h3 class="spec-card__title">СОСУДИСТАЯ ХИРУРГИЯ</h3>
-                                <p class="spec-card__text">Специализируется на крупных сосудах — аорте, венах и артериях</p>
+                                <h3 class="spec-card__title">ВЕНОЗНОЕ СТЕНТИРОВАНИЕ</h3>
+                                <p class="spec-card__text">Эндоваскулярное лечение заболеваний вен, включая стентирование глубоких вен и эмболизацию.</p>
                             </div>
                         </article>
                     </div>
@@ -242,15 +234,18 @@ switch ($status) {
             <section class="section section--about" id="about">
                 <div class="container about">
                     <div class="about__content">
-                        <h2 class="section__title section__title--left"><!-- TODO: Заменить на реальные данные врача -->Фамилия<br>Имя Отчество</h2>
-                        <p class="about__lead"><!-- TODO: Заменить на реальные данные врача -->Врач-кардиохирург с многолетним опытом работы. Специализируется на диагностике, подготовке к хирургическому лечению и ведении пациентов после операций.</p>
-                        <p class="about__text"><!-- TODO: Заменить на реальные данные врача -->На странице использован осмысленный временный текст, чтобы блок выглядел как готовый макет. Позже сюда нужно вставить реальную биографию, опыт, достижения, образование и специализацию врача.</p>
-                        <p class="about__text"><!-- TODO: Заменить на реальные данные врача -->Можно добавить сведения о стаже, количестве проведенных операций, направлениях практики, профессиональных сообществах, научной деятельности и формате приема.</p>
+                        <h2 class="section__title section__title--left"><!-- TODO: Заменить на реальные данные врача -->Коробков<br>Александр Олегович</h2>
+                        <p class="about__lead"><!-- TODO: Заменить на реальные данные врача -->ВРАЧ ЭНДОВАСКУЛЯРНЫЙ ХИРУРГ</p>
+                        <p class="about__text"><!-- TODO: Заменить на реальные данные врача -->Коробков Александр Олегович — эндоваскулярный хирург, врач высшей квалификационной категории с 16-летним клиническим опытом, соискатель ученой степени кандидата медицинских наук в ФГБНУ «РНЦХ им. акад. Б. В. Петровского».
+
+В 2010 году с отличием окончил ММА им. И. М. Сеченова, а в 2012 году стал первым выпускником в стране ординатуры по специальности «рентгенэндоваскулярные диагностика и лечение». При его участии были разработаны и утверждены 7 протоколов клинических апробаций.
+
+Специализируется на коронарном и венозном стентировании, стентировании сонных артерий, лечении артерий нижних конечностей и эмболизации. Выступает спикером профильных конгрессов и проводит обучение хирургов.</p>
                     </div>
 
                     <div class="about__visual">
                         <!-- TODO: Вставить изображение about-doctor.webp в /assets/img/content/ -->
-                        <img src="assets/img/content/about-doctor.svg" alt="Портрет врача" class="about__image">
+                        <img src="assets/img/content/about-doctor.jpg" alt="Портрет врача" class="about__image">
                     </div>
                 </div>
             </section>

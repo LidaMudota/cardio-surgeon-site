@@ -338,8 +338,8 @@ button {
 .about__text,
 .spec-card__text,
 .consultation__subtitle {
-    color: var(--color-text-muted);
-    line-height: 1.65;
+    color: #FFFFFF;
+    font-size: 22px;
 }
 
 .mega-menu__note {
@@ -414,12 +414,13 @@ button {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    height: 666px;
 }
 
 .hero__shape {
     position: absolute;
-    left: -50px;
-    bottom: -50px;
+    left: -75px;
+    bottom: 0px;
     width: 780px;
     max-width: none;
     pointer-events: none;
@@ -454,7 +455,7 @@ button {
 .hero__visual {
     position: relative;
     z-index: 1;
-    min-height: 360px;
+    min-height: 620px;
     display: flex;
     align-items: flex-end;
     justify-content: center;
@@ -463,6 +464,9 @@ button {
 .hero__content {
     position: relative;
     z-index: 1;
+    align-self: start;
+    padding-top: 55px;
+    margin-right: -100px;
 }
 
 .hero__circle {
@@ -479,13 +483,25 @@ button {
 .hero__image-card {
     position: relative;
     z-index: 1;
-    width: min(100%, 420px);
+    width: min(100%, 500px);
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    filter: none;
 }
 
 .hero__image {
-    width: 100%;
-    max-height: 420px;
+    width: auto;
+    max-width: 100%;
+    height: clamp(520px, 62vw, 860px);
+    max-height: none;
     object-fit: contain;
+    object-position: left bottom;
+    display: block;
+    transform: translate(-111px, -150px);
 }
 
 .hero__eyebrow {
@@ -499,9 +515,10 @@ button {
 
 .hero__title {
     margin: 0 0 16px;
-    font-size: clamp(34px, 5vw, 58px);
+    font-size: 50px;
     line-height: 0.98;
     font-weight: 800;
+    width: 600px;
 }
 
 .hero__facts {
@@ -605,10 +622,12 @@ button {
     font-size: 17px;
     line-height: 1.7;
     color: var(--color-text);
+    font-weight: bold;
 }
 
 .about__text {
     margin: 0 0 14px;
+    color: #DEDEDE;
 }
 
 .about__visual {
@@ -924,12 +943,12 @@ button {
     }
 
     .hero__visual {
-        min-height: 300px;
+        min-height: 340px;
         order: -1;
     }
 
     .hero__image {
-        max-height: 360px;
+        height: clamp(300px, 54vw, 430px);
     }
 
     .mega-menu__inner,
@@ -1011,7 +1030,11 @@ button {
     }
 
     .hero__visual {
-        min-height: 240px;
+        min-height: 250px;
+    }
+
+    .hero__image {
+        height: min(78vw, 330px);
     }
 
     .hero__circle {
@@ -1062,5 +1085,11 @@ button {
     #specialization {
         margin-top: -32px;
         padding-top: 68px;
+    }
+}
+
+@media (max-width: 1199px) {
+    .hero__content {
+        padding-top: 0;
     }
 }
