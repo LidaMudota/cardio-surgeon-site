@@ -337,6 +337,20 @@ switch ($status) {
                     </div>
                 </div>
             </section>
+
+            <section class="section section--location" id="location">
+                <div class="container">
+                    <div class="location-map motion-reveal motion-reveal--up" data-map-panel>
+                        <div class="location-map__top" data-map-copy>
+                            <h2 class="location-map__title">Как нас найти</h2>
+                            <p class="location-map__text">Клиника удобно расположена в городе, а маршрут до входа отображается прямо на карте. Откройте карту, чтобы построить путь из любой точки.</p>
+                        </div>
+                        <div class="location-map__frame" aria-label="Карта расположения клиники">
+                            <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A47f7c01e0e45c8af8c3b6758b11905f24df3bf364d201d50108de2cc9d03153e&amp;width=500&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </main>
 
         <footer class="footer" id="contacts">

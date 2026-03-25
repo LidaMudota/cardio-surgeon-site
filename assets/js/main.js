@@ -235,7 +235,8 @@ document.addEventListener('DOMContentLoaded', () => {
             '.doctor-specialties',
             '.doctor-contribution',
             '.doctor-clinic__card',
-            '.inner-section > .container > *:not(script)'
+            '.inner-section > .container > *:not(script)',
+            '.location-map'
         ];
 
         const revealNodes = new Set();
@@ -388,6 +389,37 @@ document.addEventListener('DOMContentLoaded', () => {
         onScroll();
     };
 
+
+    const initMapParallax = () => {
+        if (shouldReduceMotion() || !mediaQueryDesktop.matches) return;
+
+        const mapPanel = document.querySelector('[data-map-panel]');
+        const mapCopy = document.querySelector('[data-map-copy]');
+        if (!mapPanel || !mapCopy) return;
+
+        let ticking = false;
+
+        const update = () => {
+            const rect = mapPanel.getBoundingClientRect();
+            const viewportCenter = window.innerHeight / 2;
+            const panelCenter = rect.top + rect.height / 2;
+            const progress = (panelCenter - viewportCenter) / window.innerHeight;
+            const shift = Math.max(Math.min(progress * -8, 8), -8);
+            mapCopy.style.transform = `translate3d(0, ${shift.toFixed(2)}px, 0)`;
+            ticking = false;
+        };
+
+        const onScroll = () => {
+            if (ticking) return;
+            ticking = true;
+            requestAnimationFrame(update);
+        };
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', onScroll, { passive: true });
+        onScroll();
+    };
+
     const initStickyMoments = () => {
         if (!mediaQueryDesktop.matches || shouldReduceMotion()) return;
 
@@ -402,5 +434,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initButtonGlint();
     initMouseFollow();
     initScrollParallax();
+    initMapParallax();
     initStickyMoments();
 });
