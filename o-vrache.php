@@ -32,7 +32,7 @@ require __DIR__ . '/includes/page-start.php';
         </div>
     </section>
 
-    <section class="inner-section doctor-page">
+    <section class="inner-section doctor-page doctor-page--tone-deep">
         <div class="container">
             <h2 class="section__title section__title--left">О враче</h2>
             <div class="info-card doctor-text">
@@ -43,7 +43,7 @@ require __DIR__ . '/includes/page-start.php';
         </div>
     </section>
 
-    <section class="inner-section doctor-page">
+    <section class="inner-section doctor-page doctor-page--tone-soft">
         <div class="container">
             <h2 class="section__title section__title--left">Экспертная деятельность</h2>
             <article class="doctor-highlight">
@@ -52,7 +52,7 @@ require __DIR__ . '/includes/page-start.php';
         </div>
     </section>
 
-    <section class="inner-section doctor-page">
+    <section class="inner-section doctor-page doctor-page--tone-mid">
         <div class="container">
             <h2 class="section__title section__title--left">Основные направления</h2>
             <div class="doctor-specialties">
@@ -84,7 +84,7 @@ require __DIR__ . '/includes/page-start.php';
         </div>
     </section>
 
-    <section class="inner-section doctor-page">
+    <section class="inner-section doctor-page doctor-page--tone-elevated">
         <div class="container">
             <h2 class="section__title section__title--left">Профессиональный вклад</h2>
             <div class="doctor-contribution">
@@ -100,7 +100,7 @@ require __DIR__ . '/includes/page-start.php';
         </div>
     </section>
 
-    <section class="inner-section doctor-page">
+    <section class="inner-section doctor-page doctor-page--tone-deep">
         <div class="container">
             <h2 class="section__title section__title--left">Опыт и образование</h2>
 
@@ -143,7 +143,7 @@ require __DIR__ . '/includes/page-start.php';
         </div>
     </section>
 
-    <section class="inner-section doctor-page">
+    <section class="inner-section doctor-page doctor-page--tone-soft">
         <div class="container">
             <h2 class="section__title section__title--left">Дипломы и сертификаты</h2>
             <div class="doctor-docs-placeholder info-card">
@@ -153,7 +153,7 @@ require __DIR__ . '/includes/page-start.php';
         </div>
     </section>
 
-    <section class="inner-section doctor-page doctor-clinic">
+    <section class="inner-section doctor-page doctor-page--tone-base doctor-clinic">
         <div class="container">
             <div class="info-card doctor-clinic__card">
                 <h2 class="section__title section__title--left">Данные по клинике</h2>
