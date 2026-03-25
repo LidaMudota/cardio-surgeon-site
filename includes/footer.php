@@ -31,7 +31,7 @@
         </div>
     </div>
 
-    <div class="footer__bottom">
+    <div class="footer__bottom" data-no-scroll-motion>
         <div class="container footer__bottom-inner">
             <p class="footer__caption">2026 Все права защищены</p>
             <a class="footer__link" href="politika-konfidentsialnosti.php">Политика конфиденциальности</a>

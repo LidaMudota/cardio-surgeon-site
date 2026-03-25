@@ -220,6 +220,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const initRevealAnimations = () => {
+        const isMotionExcluded = (node) => Boolean(node?.closest('[data-no-scroll-motion]'));
         const revealRoots = [
             '.hero__content',
             '.section__head',
@@ -228,7 +229,6 @@ document.addEventListener('DOMContentLoaded', () => {
             '.about__visual',
             '.consultation',
             '.footer__inner',
-            '.footer__bottom-inner',
             '.doctor-intro__grid',
             '.doctor-highlight',
             '.doctor-text',
@@ -241,7 +241,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const revealNodes = new Set();
         revealRoots.forEach((selector) => {
-            document.querySelectorAll(selector).forEach((node) => revealNodes.add(node));
+            document.querySelectorAll(selector).forEach((node) => {
+                if (isMotionExcluded(node)) return;
+                revealNodes.add(node);
+            });
         });
 
         const staggerGroups = [
@@ -256,7 +259,10 @@ document.addEventListener('DOMContentLoaded', () => {
         ];
 
         staggerGroups.forEach((selector) => {
-            document.querySelectorAll(selector).forEach((node) => revealNodes.add(node));
+            document.querySelectorAll(selector).forEach((node) => {
+                if (isMotionExcluded(node)) return;
+                revealNodes.add(node);
+            });
         });
 
         const revealElements = Array.from(revealNodes);
