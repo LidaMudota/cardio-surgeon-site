@@ -43,7 +43,7 @@
                         </a>
                     </div>
 
-                    <a class="button button--accent button--small" href="#consultation">Записаться</a>
+                    <a class="button button--accent button--small" href="index.php#consultation">Записаться</a>
 
                     <button class="burger" type="button" data-mobile-nav-toggle aria-expanded="false" aria-controls="mobile-nav" aria-label="Открыть меню">
                         <span></span>
@@ -78,7 +78,7 @@
                             <!-- TODO: Вставить изображение menu-preview.webp в /assets/img/content/ -->
                             <img src="assets/img/content/about-doctor0.jpg" alt="Превью врача" class="mega-menu__image">
                         </div>
-                        <a class="button button--accent button--small" href="#consultation">Записаться на консультацию</a>
+                        <a class="button button--accent button--small" href="index.php#consultation">Записаться на консультацию</a>
                     </div>
                 </div>
             </div>
