@@ -1040,6 +1040,11 @@ button {
     display: none;
 }
 
+.footer__tablet,
+.footer__bottom--tablet {
+    display: none;
+}
+
 
 
 body:not(.is-page-ready) .site-shell > main,
@@ -1996,6 +2001,94 @@ body:not(.is-page-ready) .site-shell > .inner-page {
 
     .footer__inner {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .footer--index > .footer__inner,
+    .footer--index > .footer__bottom:not(.footer__bottom--tablet) {
+        display: none;
+    }
+
+    .footer--index .footer__tablet,
+    .footer--index .footer__bottom--tablet {
+        display: block;
+    }
+
+    .footer--index .footer__tablet {
+        padding-bottom: 24px;
+    }
+
+    .footer--index .footer__tablet-top {
+        display: grid;
+        justify-items: center;
+        gap: 14px;
+        margin-bottom: 24px;
+        text-align: center;
+    }
+
+    .footer--index .footer__tablet-socials {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .footer--index .footer__tablet-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+    }
+
+    .footer--index .footer__tablet-block {
+        display: grid;
+        gap: 10px;
+        padding: 20px;
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(255, 255, 255, 0.02);
+    }
+
+    .footer--index .footer__tablet-title {
+        margin: 0 0 4px;
+        font-size: 14px;
+        line-height: 1.3;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: var(--color-text-soft);
+    }
+
+    .footer--index .footer__tablet-links .footer__link,
+    .footer--index .footer__tablet-contacts .footer__link {
+        display: inline-flex;
+        width: fit-content;
+        min-height: 0;
+        margin: 0;
+        line-height: 1.45;
+    }
+
+    .footer--index .footer__tablet-address {
+        margin: 0;
+        font-size: 15px;
+        line-height: 1.5;
+        color: var(--color-text);
+    }
+
+    .footer--index .footer__tablet-cta {
+        margin-top: 8px;
+        width: fit-content;
+    }
+
+    .footer--index .footer__bottom-inner--tablet {
+        display: grid;
+        justify-items: center;
+        text-align: center;
+        gap: 8px;
+        padding: 14px 0 18px;
+    }
+
+    .footer--index .footer__bottom-inner--tablet .footer__link {
+        min-height: 0;
     }
 }
 
