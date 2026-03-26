@@ -100,3 +100,153 @@
     .doctor-timeline__item::after { left: 12px; }
     .doctor-docs-placeholder { min-height: 180px; }
 }
+
+@media (max-width: 991px) {
+    .inner-hero {
+        padding: 56px 0 30px;
+    }
+
+    .inner-hero__title {
+        font-size: clamp(30px, 6vw, 38px);
+        line-height: 1.14;
+    }
+
+    .inner-hero__subtitle,
+    .info-card p,
+    .info-card li,
+    .doctor-text p {
+        font-size: 16px;
+        line-height: 1.65;
+    }
+
+    .inner-section {
+        padding: 40px 0;
+    }
+
+    .info-card,
+    .doctor-highlight,
+    .doctor-intro__content,
+    .doctor-specialty,
+    .doctor-contribution__item {
+        padding: 18px;
+    }
+
+    .doc-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .modal {
+        padding: 16px;
+    }
+}
+
+@media (max-width: 767px) {
+    .breadcrumbs {
+        flex-wrap: wrap;
+        row-gap: 6px;
+        font-size: 13px;
+    }
+
+    .inner-hero {
+        padding: 44px 0 24px;
+    }
+
+    .inner-hero__title {
+        font-size: clamp(26px, 8vw, 32px);
+    }
+
+    .inner-hero__subtitle,
+    .info-card p,
+    .info-card li,
+    .doctor-text p,
+    .doctor-timeline__item p {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    .inner-grid,
+    .two-col,
+    .doc-grid,
+    .doctor-intro__grid,
+    .doctor-specialties,
+    .doctor-contribution,
+    .doctor-facts {
+        grid-template-columns: 1fr;
+    }
+
+    .doctor-intro__image {
+        min-height: 280px;
+    }
+
+    .doctor-docs-placeholder__title,
+    .doctor-specialty h3,
+    .doctor-contribution__item h3 {
+        font-size: 19px;
+    }
+
+    .faq details {
+        padding: 12px 14px;
+    }
+
+    .doc-card button,
+    .faq summary,
+    .doctor-timeline__item a {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+    }
+}
+
+@media (max-width: 575px) {
+    .inner-section {
+        padding: 32px 0;
+    }
+
+    .inner-hero {
+        padding: 36px 0 20px;
+    }
+
+    .inner-hero__title {
+        font-size: 24px;
+    }
+
+    .inner-hero__subtitle,
+    .info-card p,
+    .info-card li,
+    .doctor-text p,
+    .doctor-timeline__item p,
+    .medical-note {
+        font-size: 14px;
+    }
+
+    .info-card,
+    .doctor-highlight,
+    .doctor-intro__content,
+    .doctor-specialty,
+    .doctor-contribution__item,
+    .doc-card {
+        padding: 14px;
+    }
+
+    .doctor-timeline__item {
+        padding-left: 38px;
+    }
+
+    .doctor-timeline__item::before {
+        left: 14px;
+    }
+
+    .doctor-timeline__item::after {
+        left: 8px;
+    }
+
+    .modal__content {
+        max-width: 94vw;
+        max-height: 82vh;
+    }
+
+    .modal__close {
+        top: 12px;
+        right: 12px;
+    }
+}
