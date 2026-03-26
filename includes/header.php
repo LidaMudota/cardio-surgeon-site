@@ -55,7 +55,7 @@
             <div class="mega-menu__preview">
                 <div class="mega-menu__image-wrap">
                     <!-- TODO: Вставить изображение menu-preview.webp в /assets/img/content/ -->
-                    <img src="assets/img/content/about-doctor.svg" alt="Превью врача" class="mega-menu__image">
+                    <img src="assets/img/content/about-doctor0.jpg" alt="Превью врача" class="mega-menu__image">
                 </div>
                 <a class="button button--accent button--small" href="konsultatsiya.php#consultation-form">Записаться на консультацию</a>
             </div>
