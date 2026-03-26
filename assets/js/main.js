@@ -207,7 +207,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const scrollCard = (direction) => {
         if (!slider) return;
         const card = slider.querySelector('.result-card');
-        const scrollAmount = card ? card.getBoundingClientRect().width + 18 : 300;
+        const sliderStyles = window.getComputedStyle(slider);
+        const gap = parseFloat(sliderStyles.columnGap || sliderStyles.gap || '0') || 0;
+        const scrollAmount = card ? card.getBoundingClientRect().width + gap : 300;
         slider.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
     };
 

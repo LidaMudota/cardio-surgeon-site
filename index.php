@@ -176,14 +176,23 @@ switch ($status) {
                             <article class="result-card">
                                 <!-- TODO: Вставить изображение result-01.webp в /assets/img/content/ -->
                                 <img src="assets/img/content/result-01.svg" alt="Результат операции 1" class="result-card__image">
+                                <div class="result-card__meta" aria-hidden="true">
+                                    <p class="result-card__meta-title">Результат операции 1</p>
+                                </div>
                             </article>
                             <article class="result-card">
                                 <!-- TODO: Вставить изображение result-02.webp в /assets/img/content/ -->
                                 <img src="assets/img/content/result-02.svg" alt="Результат операции 2" class="result-card__image">
+                                <div class="result-card__meta" aria-hidden="true">
+                                    <p class="result-card__meta-title">Результат операции 2</p>
+                                </div>
                             </article>
                             <article class="result-card">
                                 <!-- TODO: Вставить изображение result-03.webp в /assets/img/content/ -->
                                 <img src="assets/img/content/result-03.svg" alt="Результат операции 3" class="result-card__image">
+                                <div class="result-card__meta" aria-hidden="true">
+                                    <p class="result-card__meta-title">Результат операции 3</p>
+                                </div>
                             </article>
                         </div>
                     </div>
