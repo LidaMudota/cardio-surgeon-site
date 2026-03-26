@@ -2071,6 +2071,45 @@ body:not(.is-page-ready) .site-shell > .inner-page {
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
+    #specialization {
+        padding-top: 40px;
+        padding-bottom: 52px;
+    }
+
+    #specialization .spec-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    #specialization .spec-card {
+        align-items: center;
+        gap: 10px;
+        min-height: 96px;
+        height: auto;
+        padding: 14px 14px 13px;
+    }
+
+    #specialization .spec-card__icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    #specialization .spec-card__icon img {
+        width: 60px;
+        height: 60px;
+    }
+
+    #specialization .spec-card__title {
+        margin: 0 0 5px;
+        font-size: 18px;
+        line-height: 1.15;
+    }
+
+    #specialization .spec-card__text {
+        font-size: 15px;
+        line-height: 1.3;
+    }
+
     .footer--index > .footer__inner,
     .footer--index > .footer__bottom:not(.footer__bottom--tablet) {
         display: none;
