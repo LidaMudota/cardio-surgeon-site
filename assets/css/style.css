@@ -1592,19 +1592,69 @@ body:not(.is-page-ready) .site-shell > .inner-page {
     }
 
     .footer__desktop-only {
-        display: none;
+        display: block;
     }
 
-    .footer__mobile-only {
-        display: block;
+    .footer__mobile-only,
+    .footer-mobile {
+        display: none;
     }
 
     .footer {
         padding-top: 24px;
     }
 
-    .footer-mobile {
+    .footer .footer__inner {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        padding-bottom: 18px;
+    }
+
+    .footer .footer__column {
         display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .footer .footer__link {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        min-height: 42px;
+        margin-bottom: 0;
+        line-height: 1.45;
+    }
+
+    .footer .footer__cta {
+        gap: 12px;
+        align-items: flex-start;
+        width: 100%;
+    }
+
+    .footer .footer__cta .header__socials {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .footer .footer__cta .button {
+        width: 100%;
+    }
+
+    .footer .footer__bottom-inner {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 14px 0 18px;
+    }
+
+    .footer .footer__bottom-inner .footer__caption {
+        margin: 0;
+    }
+
+    .footer-mobile {
+        display: none;
         flex-direction: column;
         align-items: center;
         gap: 18px;
