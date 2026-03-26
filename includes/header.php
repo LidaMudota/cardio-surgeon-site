@@ -85,12 +85,34 @@
 
             <div class="mobile-nav" id="mobile-nav" hidden>
                 <div class="container mobile-nav__inner">
-                    <a class="mobile-nav__link" href="o-vrache.php">Обо мне</a>
-                    <a class="mobile-nav__link" href="specializatsiya.php">Специализация</a>
-                    <a class="mobile-nav__link" href="specializatsiya.php">Направления</a>
-                    <a class="mobile-nav__link" href="rezultaty-rabot.php">Результаты</a>
-                    <a class="mobile-nav__link" href="konsultatsiya.php">Запись</a>
-                    <a class="mobile-nav__link" href="kontakty.php">Контакты</a>
+                    <div class="mobile-nav__group">
+                        <p class="mobile-nav__group-title">Разделы</p>
+                        <a class="mobile-nav__link" href="o-vrache.php">Обо мне</a>
+                        <a class="mobile-nav__link" href="rezultaty-rabot.php">Результаты работ</a>
+                        <a class="mobile-nav__link" href="pamyatki-patsientam.php">Памятки пациентам</a>
+                        <a class="mobile-nav__link" href="dlya-vrachey.php">Для врачей</a>
+                        <a class="mobile-nav__link" href="kontakty.php">Контакты</a>
+                        <a class="mobile-nav__link" href="uslugi-i-tseny.php">Услуги и цены</a>
+                    </div>
+
+                    <div class="mobile-nav__group">
+                        <p class="mobile-nav__group-title">Информация</p>
+                        <a class="mobile-nav__link" href="o-klinike.php">О клинике</a>
+                        <a class="mobile-nav__link" href="otzyvy.php">Отзывы</a>
+                        <a class="mobile-nav__link" href="publikatsii.php">Публикации</a>
+                        <a class="mobile-nav__link" href="diplomy.php">Дипломы</a>
+                    </div>
+
+                    <div class="mobile-nav__group">
+                        <p class="mobile-nav__group-title">Пациентам</p>
+                        <a class="mobile-nav__link" href="analizy.php">Анализы</a>
+                        <a class="mobile-nav__link" href="anesteziya.php">Анестезия</a>
+                        <a class="mobile-nav__link" href="kak-prokhodit-operatsiya.php">Как проходит операция</a>
+                        <a class="mobile-nav__link" href="kak-prokhodit-konsultatsiya.php">Как проходит консультация</a>
+                        <a class="mobile-nav__link" href="patsientam-iz-drugogo-goroda.php">Пациентам из другого города</a>
+                        <a class="mobile-nav__link" href="podgotovka-k-operatsii.php">Подготовка к операции</a>
+                        <a class="mobile-nav__link" href="posle-operatsii.php">После операции</a>
+                    </div>
                 </div>
             </div>
         </header>

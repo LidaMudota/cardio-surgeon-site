@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileToggle = document.querySelector('[data-mobile-nav-toggle]');
     const mobileNav = document.getElementById('mobile-nav');
     const mobileNavLinks = document.querySelectorAll('.mobile-nav__link');
+    const mobileViewport = window.matchMedia('(max-width: 1024px)');
     const phoneInputs = document.querySelectorAll('[data-phone-input]');
     const forms = document.querySelectorAll('[data-consultation-form]');
     const slider = document.querySelector('[data-results-slider]');
@@ -67,6 +68,32 @@ document.addEventListener('DOMContentLoaded', () => {
             mobileToggle?.setAttribute('aria-expanded', 'false');
         }
     });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key !== 'Escape') return;
+        if (megaMenu && !megaMenu.hasAttribute('hidden')) {
+            megaMenu.setAttribute('hidden', 'hidden');
+            menuToggle?.setAttribute('aria-expanded', 'false');
+        }
+        if (mobileNav && !mobileNav.hasAttribute('hidden')) {
+            mobileNav.setAttribute('hidden', 'hidden');
+            mobileToggle?.setAttribute('aria-expanded', 'false');
+        }
+    });
+
+    const syncNavByViewport = () => {
+        if (!mobileViewport.matches && mobileNav && !mobileNav.hasAttribute('hidden')) {
+            mobileNav.setAttribute('hidden', 'hidden');
+            mobileToggle?.setAttribute('aria-expanded', 'false');
+        }
+        if (mobileViewport.matches && megaMenu && !megaMenu.hasAttribute('hidden')) {
+            megaMenu.setAttribute('hidden', 'hidden');
+            menuToggle?.setAttribute('aria-expanded', 'false');
+        }
+    };
+
+    mobileViewport.addEventListener('change', syncNavByViewport);
+    syncNavByViewport();
 
     window.addEventListener('scroll', () => {
         header?.classList.toggle('is-scrolled', window.scrollY > 12);
