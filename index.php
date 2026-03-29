@@ -71,7 +71,7 @@ switch ($status) {
                 <div class="container hero__grid">
                     <div class="hero__visual">
                         <div class="hero__image-card">
-                            <img src="assets/img/content/hero-doctor.png" alt="Фото врача-кардиохирурга" class="hero__image">
+                            <img src="assets/img/content/hero-doctor.png" alt="Фото врача эндоваскулярного хирурга" class="hero__image">
                         </div>
                     </div>
 
@@ -100,7 +100,7 @@ switch ($status) {
                         </div>
                             <div>
                                 <h3 class="spec-card__title">КОРОНАРНОЕ СТЕНТИРОВАНИЕ</h3>
-                                <p class="spec-card__text">С применением ВСУЗИ.</p>
+                                <p class="spec-card__text">с применением ВСУЗИ при стентировании</p>
                             </div>
                         </article>
 
@@ -110,7 +110,7 @@ switch ($status) {
                         </div>
                             <div>
                                 <h3 class="spec-card__title">СТЕНТИРОВАНИЕ СОННЫХ АРТЕРИЙ</h3>
-                                <p class="spec-card__text">Операции по стентированию сонных артерий.</p>
+                                <p class="spec-card__text">операции по стентированию сонных артерий</p>
                             </div>
                         </article>
 
@@ -120,7 +120,7 @@ switch ($status) {
                         </div>
                             <div>
                                 <h3 class="spec-card__title">АРТЕРИИ НИЖНИХ КОНЕЧНОСТЕЙ</h3>
-                                <p class="spec-card__text">Ангиопластика и стентирование артерий.</p>
+                                <p class="spec-card__text">стентирование с ротационной атерэктомией, ВСУЗИ</p>
                             </div>
                         </article>
 
@@ -130,7 +130,7 @@ switch ($status) {
                         </div>
                             <div>
                                 <h3 class="spec-card__title">ВЕНОЗНОЕ СТЕНТИРОВАНИЕ</h3>
-                                <p class="spec-card__text">Стентирование глубоких вен.</p>
+                                <p class="spec-card__text">посттромботический синдром, синдром Мэй-Тернера</p>
                             </div>
                         </article>
                     </div>
@@ -142,11 +142,7 @@ switch ($status) {
                     <div class="about__content">
                         <h2 class="section__title section__title--left"><!-- TODO: Заменить на реальные данные врача -->Коробков<br>Александр Олегович</h2>
                         <p class="about__lead"><!-- TODO: Заменить на реальные данные врача -->ВРАЧ ЭНДОВАСКУЛЯРНЫЙ ХИРУРГ</p>
-                        <p class="about__text"><!-- TODO: Заменить на реальные данные врача -->Коробков Александр Олегович — эндоваскулярный хирург, врач высшей квалификационной категории с 16-летним клиническим опытом, соискатель ученой степени кандидата медицинских наук в ФГБНУ «РНЦХ им. акад. Б. В. Петровского».
-
-В 2010 году с отличием окончил ММА им. И. М. Сеченова, а в 2012 году стал первым выпускником в стране ординатуры по специальности «рентгенэндоваскулярные диагностика и лечение». При его участии были разработаны и утверждены 7 протоколов клинических апробаций.
-
-Специализируется на коронарном и венозном стентировании, стентировании сонных артерий, лечении артерий нижних конечностей и эмболизации. Выступает спикером профильных конгрессов и проводит обучение хирургов.</p>
+                        <p class="about__text"><!-- TODO: Заменить на реальные данные врача -->Коробков Александр Олегович — эндоваскулярный хирург, врач высшей квалифицированной категории, 16 лет клинической практики, соискатель ученой степени кандидата медицинских наук в ФГБНУ «РНЦХ им. акад. Б. В. Петровского». В 2010 году с отличием закончил ММА им. И. М. Сеченова, а в 2012 году был первым выпускником в стране ординатуры по специальности «рентгенэндоваскулярные диагностика и лечение». На базе ФГАУ «НМИЦ ЛРЦ» Минздрава России при участии Коробкова Александра Олеговича были разработаны и утверждены Министерством здравоохранения РФ к практическому применению 7 протоколов клинических апробаций. Доктор специализируется на коронарном стентировании с применением ВСУЗИ, стентировании сонных артерий, баллонной ангиопластике и стентировании артерий нижних конечностей с применением ротационной атерэктомии и ВСУЗИ, венозном стентировании и эмболизации. Сегодня выступает спикером на профильных конгрессах по эндоваскулярной хирургии в России и проводит обучение хирургов.</p>
                     </div>
 
                     <div class="about__visual">
@@ -268,124 +264,4 @@ switch ($status) {
             </section>
         </main>
 
-        <footer class="footer footer--index" id="contacts">
-            <div class="container footer__inner">
-                <div class="footer__column">
-                    <a class="footer__link" href="index.php">Главная</a>
-                    <a class="footer__link" href="o-vrache.php">Обо мне</a>
-                    <a class="footer__link" href="uslugi-i-tseny.php">Цены</a>
-                </div>
-
-                <div class="footer__column">
-                    <a class="footer__link" href="specializatsiya.php">Специализация</a>
-                    <a class="footer__link" href="rezultaty-rabot.php">Результаты операций</a>
-                    <a class="footer__link" href="konsultatsiya.php">Консультация</a>
-                </div>
-
-                <div class="footer__column footer__column--contacts">
-                    <a class="footer__link" href="rezultaty-rabot.php">Результаты работ</a>
-                    <a class="footer__link" href="otzyvy.php">Отзывы</a>
-                    <a class="footer__link" href="kontakty.php">Контакты</a>
-                </div>
-
-                <div class="footer__cta">
-                    <div class="header__socials">
-                    <a
-                            class="header__icon-link"
-                            href="https://wa.me/79990000000"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="WhatsApp"
-                            title="WhatsApp"
-                        >
-                            <img src="assets/img/icons/telega.svg" alt="telegram" class="header__icon-image">
-                        </a>
-                        <a
-                            class="header__icon-link"
-                            href="https://t.me/your_username"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="Telegram"
-                            title="Telegram"
-                        >
-                            <img src="assets/img/icons/maxim.svg" alt="max" class="header__icon-image">
-                        </a>
-                    </div>
-                    <a class="button button--accent button--small" href="#consultation">Записаться</a>
-                </div>
-            </div>
-
-            <div class="container footer__tablet" data-no-scroll-motion>
-                <div class="footer__tablet-top">
-                    <a class="logo footer__tablet-logo" href="index.php" aria-label="На главную">
-                        <span class="logo__mark">❤</span>
-                        <span class="logo__text">Коробков А. О.</span>
-                    </a>
-                    <div class="header__socials footer__tablet-socials" aria-label="Социальные сети">
-                        <a
-                            class="header__icon-link"
-                            href="https://wa.me/79990000000"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="WhatsApp"
-                            title="WhatsApp"
-                        >
-                            <img src="assets/img/icons/telega.svg" alt="telegram" class="header__icon-image">
-                        </a>
-                        <a
-                            class="header__icon-link"
-                            href="https://t.me/your_username"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="Telegram"
-                            title="Telegram"
-                        >
-                            <img src="assets/img/icons/maxim.svg" alt="max" class="header__icon-image">
-                        </a>
-                    </div>
-                </div>
-
-                <div class="footer__tablet-grid">
-                    <section class="footer__tablet-block footer__tablet-links" aria-labelledby="footer-tablet-links">
-                        <h2 class="footer__tablet-title" id="footer-tablet-links">Быстрые ссылки</h2>
-                        <a class="footer__link" href="index.php">Главная</a>
-                        <a class="footer__link" href="o-vrache.php">Обо мне</a>
-                        <a class="footer__link" href="uslugi-i-tseny.php">Цены</a>
-                        <a class="footer__link" href="specializatsiya.php">Специализация</a>
-                        <a class="footer__link" href="rezultaty-rabot.php">Результаты работ</a>
-                        <a class="footer__link" href="konsultatsiya.php">Консультация</a>
-                        <a class="footer__link" href="otzyvy.php">Отзывы</a>
-                        <a class="footer__link" href="kontakty.php">Контакты</a>
-                    </section>
-
-                    <section class="footer__tablet-block footer__tablet-contacts" aria-labelledby="footer-tablet-contacts">
-                        <h2 class="footer__tablet-title" id="footer-tablet-contacts">Контакты</h2>
-                        <a class="footer__link" href="tel:+70000000000">+7 (000) 000-00-00</a>
-                        <a class="footer__link" href="mailto:info@example.com">info@example.com</a>
-                        <p class="footer__tablet-address">г. Москва, ул. Примерная, д. 1</p>
-                        <a class="button button--accent button--small footer__tablet-cta" href="#consultation">Записаться</a>
-                    </section>
-                </div>
-            </div>
-
-            <div class="footer__bottom" data-no-scroll-motion>
-                <div class="container footer__bottom-inner">
-                    <p class="footer__caption">2026 Все права защищены</p>
-                    <a class="footer__link" href="politika-konfidentsialnosti.php">Политика конфиденциальности</a>
-                    <a class="footer__link" href="soglasie-na-obrabotku-personalnykh-dannykh.php">Согласие на обработку ПДн</a>
-                </div>
-            </div>
-
-            <div class="footer__bottom footer__bottom--tablet" data-no-scroll-motion>
-                <div class="container footer__bottom-inner footer__bottom-inner--tablet">
-                    <p class="footer__caption">2026 Все права защищены</p>
-                    <a class="footer__link" href="politika-konfidentsialnosti.php">Политика конфиденциальности</a>
-                    <a class="footer__link" href="soglasie-na-obrabotku-personalnykh-dannykh.php">Согласие на обработку ПДн</a>
-                </div>
-            </div>
-        </footer>
-    </div>
-
-    <script src="assets/js/main.js"></script>
-</body>
-</html>
+        <?php require __DIR__ . '/includes/footer.php'; ?>
