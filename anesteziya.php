@@ -1,54 +1,53 @@
 <?php
 require __DIR__ . '/includes/init.php';
 $meta = [
-    'title' => 'Анестезия — кардиохирург',
-    'description' => 'Понятно о видах анестезии, безопасности и контроле состояния. Запись через форму на сайте.'
+    'title' => 'Анестезия во время операции — Коробков Александр Олегович',
+    'description' => 'Как проводится обезболивание при эндоваскулярных вмешательствах и в каких случаях может понадобиться общий наркоз.'
 ];
-$pageTitle = 'Анестезия';
-$pageSubtitle = 'Понятно о видах анестезии, безопасности и контроле состояния.';
+$pageTitle = 'Анестезия во время операции';
+$pageSubtitle = 'Чаще всего эндоваскулярные операции проводятся через маленький прокол в коже под местной анестезией и не требуют общего наркоза.';
 require __DIR__ . '/includes/head.php';
 require __DIR__ . '/includes/header.php';
 require __DIR__ . '/includes/page-start.php';
 ?>
 
-    <section class="inner-section">
-        <div class="container two-col">
-            <div class="info-card">
-                <h2>Ключевая информация</h2>
-                <p>Осмысленный временный текст для демонстрации полноценной страницы. <!-- TODO: Вставить реальные тексты от клиента --></p>
-                <ul class="info-list">
-                    <li>Структурированный блок для удобного восприятия пациентом.</li>
-                    <li>Практические пояснения и шаги для подготовки.</li>
-                    <li>Понятные ориентиры по срокам и результатам.</li>
-                </ul>
-            </div>
-            <div class="media-placeholder">TODO: Вставить реальное фото клиники<br>TODO: Заменить на реальное фото врача</div>
+    <section class="inner-section doctor-page doctor-page--tone-deep prep-page">
+        <div class="container prep-main-grid">
+            <article class="info-card prep-topic">
+                <h2>Как проходит обезболивание</h2>
+                <p>В начале выполняется «укол-заморозка» местного анестетика в том месте, где далее будет выполнена пункция артерии – чаще это запястье или бедро.</p>
+                <p>В момент введения местного анестетика могут беспокоить неприятные ощущения, поэтому, дополнительно внутривенно вводятся седативные средства, они позволяют создать максимально комфортные условия для пациента во время операции.</p>
+            </article>
+
+            <article class="info-card prep-topic">
+                <h2>Что чувствует пациент</h2>
+                <p>Проведение инструментария внутри сосуда безболезненны и не ощущаются, так как внутренняя стенка сосудов не имеет болевых рецепторов.</p>
+            </article>
+
+            <article class="info-card prep-topic">
+                <h2>Почему эндоваскулярные вмешательства чаще проходят без общего наркоза</h2>
+                <p>Важным преимуществом местной и внутривенной анестезии в эндоваскулярной хирургии является возможность общения с пациентом в ходе операции для обеспечения дополнительного контроля и безопасности, что делает ее наиболее комфортным и безопасным методом оперативного лечения сосудистого русла.</p>
+            </article>
+
+            <article class="info-card prep-topic">
+                <h2>В каких случаях может понадобиться общий наркоз</h2>
+                <p>Крайне редко (при операциях на полостях сердца, клапанах, аорте и др.) может потребоваться общий наркоз.</p>
+            </article>
         </div>
     </section>
 
-    <section class="inner-section">
+    <section class="inner-section doctor-page doctor-page--tone-mid prep-page">
         <div class="container">
-            <h2 class="section__title section__title--left">Разделы страницы</h2>
-            <div class="inner-grid">
-                <article class="info-card"><h3>Блок 1</h3><p>Тематическое описание раздела без lorem ipsum.</p></article>
-                <article class="info-card"><h3>Блок 2</h3><p>Тематическое описание раздела без lorem ipsum.</p></article>
-                <article class="info-card"><h3>Блок 3</h3><p>Тематическое описание раздела без lorem ipsum.</p></article>
-            </div>
+            <article class="info-card prep-note prep-note--accent">
+                <p>Какой метод анестезии будет предложен Вам можно узнать на консультации.</p>
+            </article>
         </div>
     </section>
 
-    <section class="inner-section faq">
-        <div class="container">
-            <h2 class="section__title section__title--left">Частые вопросы</h2>
-            <details><summary>Как подготовиться?</summary><p>Подготовьте документы, анализы и выписки. <!-- TODO: Вставить реальные данные по анализам --></p></details>
-            <details><summary>Когда ожидать обратную связь?</summary><p>Обычно в рабочее время в день обращения.</p></details>
-        </div>
-    </section>
-
-<?php if (true):
-    $formTitle = 'Записаться на консультацию';
-    $formSubtitle = 'Оставьте контакты, и администратор свяжется с вами.';
-    require __DIR__ . '/includes/form-block.php';
-endif; ?>
+<?php
+$formTitle = 'Записаться на консультацию';
+$formSubtitle = 'Оставьте контакты, и администратор свяжется с вами.';
+require __DIR__ . '/includes/form-block.php';
+?>
 </main>
 <?php require __DIR__ . '/includes/footer.php'; ?>

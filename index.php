@@ -71,7 +71,7 @@ switch ($status) {
                 <div class="container hero__grid">
                     <div class="hero__visual">
                         <div class="hero__image-card">
-                            <img src="assets/img/content/hero-doctor.png" alt="Фото врача эндоваскулярного хирурга" class="hero__image">
+                            <img src="assets/img/content/hero-doctor1.png" alt="Фото врача эндоваскулярного хирурга" class="hero__image">
                         </div>
                     </div>
 
