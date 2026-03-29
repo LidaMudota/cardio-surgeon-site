@@ -54,31 +54,17 @@ require __DIR__ . '/includes/page-start.php';
 
     <section class="inner-section doctor-page doctor-page--tone-mid">
         <div class="container">
-            <h2 class="section__title section__title--left">Основные направления</h2>
-            <div class="doctor-specialties">
-                <article class="info-card doctor-specialty">
-                    <h3>Коронарное стентирование</h3>
-                    <p>Коронарное стентирование с применением ВСУЗИ</p>
+            <h2 class="section__title section__title--left">Связанные разделы</h2>
+            <div class="page-link-cards">
+                <article class="info-card page-link-card">
+                    <h3>Основные направления</h3>
+                    <p>Подробный перечень направлений эндоваскулярной хирургии вынесен на отдельную страницу специализации.</p>
+                    <a href="specializatsiya.php" class="button button--ghost">Подробнее</a>
                 </article>
-                <article class="info-card doctor-specialty">
-                    <h3>Сонные артерии</h3>
-                    <p>Стентирование сонных артерий</p>
-                </article>
-                <article class="info-card doctor-specialty">
-                    <h3>Артерии нижних конечностей</h3>
-                    <p>Баллонная ангиопластика и стентирование артерий нижних конечностей с применением ротационной атерэктомии и ВСУЗИ</p>
-                </article>
-                <article class="info-card doctor-specialty">
-                    <h3>Глубокие вены</h3>
-                    <p>Стентирование глубоких вен (посттромботический синдром, синдром Мэй-Тернера, щелкунчика)</p>
-                </article>
-                <article class="info-card doctor-specialty">
-                    <h3>Маточные артерии</h3>
-                    <p>Эмболизация маточных артерий</p>
-                </article>
-                <article class="info-card doctor-specialty">
-                    <h3>Венозная эмболизация</h3>
-                    <p>Эмболизация вен при варикоцеле и эректильной дисфункции</p>
+                <article class="info-card page-link-card">
+                    <h3>Данные по клинике</h3>
+                    <p>Информация о сайте клиники, лицензии и реквизитах доступна на странице «О клинике».</p>
+                    <a href="o-klinike.php" class="button button--ghost">Подробнее</a>
                 </article>
             </div>
         </div>
@@ -149,18 +135,6 @@ require __DIR__ . '/includes/page-start.php';
             <div class="doctor-docs-placeholder info-card">
                 <p class="doctor-docs-placeholder__title">Раздел готов к публикации документов</p>
                 <p>Фотографии дипломов и сертификатов будут добавлены в эту секцию после передачи материалов.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="inner-section doctor-page doctor-page--tone-base doctor-clinic">
-        <div class="container">
-            <div class="info-card doctor-clinic__card">
-                <h2 class="section__title section__title--left">Данные по клинике</h2>
-                <p>Сайт клиники: <a href="https://www.medicina.ru/" target="_blank" rel="noopener noreferrer">medicina.ru</a></p>
-                <p>Лицензия Л041-00110-77/00363409. Срок действия: бессрочная.</p>
-                <p>Дата создания документа: 16.03.2018.</p>
-                <p>Документ изменён: 09.02.2026.</p>
             </div>
         </div>
     </section>
