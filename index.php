@@ -66,22 +66,22 @@ switch ($status) {
 
         <main>
             <section class="hero" id="hero">
-                <img src="assets/img/content/hero-shape.svg" alt="" class="hero__shape" aria-hidden="true">
-
                 <div class="container hero__grid">
                     <div class="hero__visual">
                         <div class="hero__image-card">
-                            <img src="assets/img/content/hero-doctor1.png" alt="Фото врача эндоваскулярного хирурга" class="hero__image">
+                            <img src="assets/img/content/hero-doctor0.png" alt="Фото врача эндоваскулярного хирурга" class="hero__image" loading="eager" fetchpriority="high" decoding="async">
                         </div>
                     </div>
 
                     <div class="hero__content">
-                        <h1 class="hero__title"><!-- TODO: Заменить на реальные данные врача -->Коробков<br>Александр Олегович </h1>
-                        <p class="hero__subtitle"><!-- TODO: Заменить на реальные данные врача -->Врач эндоваскулярный хирург</p>
-                        <p class="hero__subtitle"><!-- TODO: Заменить на реальные данные врача -->Стаж работы 16 лет</p>
+                        <div class="hero__content-panel">
+                            <h1 class="hero__title"><!-- TODO: Заменить на реальные данные врача -->Коробков<br>Александр Олегович </h1>
+                            <p class="hero__subtitle"><!-- TODO: Заменить на реальные данные врача -->Врач эндоваскулярный хирург</p>
+                            <p class="hero__subtitle"><!-- TODO: Заменить на реальные данные врача -->Стаж работы 16 лет</p>
 
-                        <div class="hero__actions">
-                            <a class="button button--accent" href="#consultation">Записаться</a>
+                            <div class="hero__actions">
+                                <a class="button button--accent" href="#consultation">Записаться</a>
+                            </div>
                         </div>
                     </div>
                 </div>

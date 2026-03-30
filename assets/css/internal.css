@@ -145,7 +145,7 @@
 .prep-note { min-height: 100%; }
 .prep-note p { margin: 0; line-height: 1.65; }
 .prep-note--star { border-color: rgba(24, 198, 198, 0.35); }
-.prep-note--accent { border-color: rgba(24, 198, 198, 0.46); background: linear-gradient(130deg, rgba(24, 198, 198, 0.16), rgba(9, 11, 16, 0.95)); }
+.prep-note--accent { border-color: rgba(24, 198, 198, 0.46); }
 .prep-note--contact a { color: var(--color-text); text-decoration: underline; text-decoration-color: rgba(24, 198, 198, 0.7); text-underline-offset: 3px; }
 .prep-comments { display: grid; gap: 14px; }
 .prep-comments__item h3 { margin: 0 0 10px; font-size: clamp(18px, 2.1vw, 24px); line-height: 1.45; }
@@ -272,15 +272,15 @@
         padding: 12px 14px;
     }
 
-    .prep-checklist__item {
-        padding-left: 50px;
+    .prep-page .prep-checklist__item {
+        padding-left: 62px;
     }
-
-    .prep-checklist__item::before {
-        left: 14px;
-        top: 14px;
-        width: 26px;
-        height: 26px;
+    
+    .prep-page .prep-checklist__item::before {
+        left: 16px;
+        top: 16px;
+        width: 28px;
+        height: 28px;
         font-size: 13px;
     }
 
@@ -478,5 +478,46 @@
 
     .doctor-clinic__card .section__title {
         margin-bottom: 14px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .prep-page .prep-checklist,
+    .prep-page .prep-comments,
+    .prep-page .prep-grid-two {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+        align-items: stretch;
+    }
+
+    .prep-page .prep-checklist__item,
+    .prep-page .prep-comments__item,
+    .prep-page .prep-note {
+        min-width: 0;
+        min-height: 100%;
+    }
+
+    .prep-page .prep-checklist__item {
+        padding-left: 70px;
+    }
+
+    .prep-page .prep-checklist__item::before {
+        left: 18px;
+        top: 18px;
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+    }
+
+    .prep-page .prep-checklist__item h2 {
+        font-size: 20px;
+        line-height: 1.3;
+    }
+
+    .prep-page .prep-checklist__item p,
+    .prep-page .prep-note p,
+    .prep-page .prep-comments__item p {
+        font-size: 15px;
+        line-height: 1.6;
     }
 }
