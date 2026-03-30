@@ -10,106 +10,82 @@ require __DIR__ . '/includes/head.php';
 require __DIR__ . '/includes/header.php';
 require __DIR__ . '/includes/page-start.php';
 ?>
-<style>
-    .red-star {
-        color: #ff4d4f;
-    }
-</style>
-
-    <section class="inner-section doctor-page doctor-page--tone-deep prep-page">
+    <section class="inner-section doctor-page doctor-page--tone-soft prep-page prep-page--document">
         <div class="container">
-            <ol class="prep-checklist" aria-label="Перечень анализов и обследований">
-                <li class="info-card prep-checklist__item">
-                    <h2>Общий клинический анализ крови с СОЭ и лейкоцитарной формулой</h2>
+            <article class="prep-document" aria-label="Памятка по анализам и обследованиям">
+                <p class="prep-document__lead">Перед госпитализацией необходимо подготовить перечень обследований с учетом сроков актуальности результатов.</p>
+
+                <ol class="prep-document__list" aria-label="Перечень анализов и обследований">
+                    <li class="prep-document__item">
+                        <h2>Общий клинический анализ крови с СОЭ и лейкоцитарной формулой</h2>
                     <p><strong>Срок действия:</strong> 14 дней с момента выполнения.</p>
-                </li>
-                <li class="info-card prep-checklist__item">
-                    <h2>Биохимический анализ крови: общий белок, общий билирубин, АЛТ, АСТ, калий, натрий, глюкоза, холестерин, ЛПНП, триглицериды, креатинин, мочевина</h2>
+                    </li>
+                    <li class="prep-document__item">
+                        <h2>Биохимический анализ крови: общий белок, общий билирубин, АЛТ, АСТ, калий, натрий, глюкоза, холестерин, ЛПНП, триглицериды, креатинин, мочевина</h2>
                     <p><strong>Срок действия:</strong> 14 дней с момента выполнения.</p>
-                </li>
-                <li class="info-card prep-checklist__item">
-                    <h2>Коагулограмма: АЧТВ, МНО, протромбин, тромбиновое время, фибриноген</h2>
+                    </li>
+                    <li class="prep-document__item">
+                        <h2>Коагулограмма: АЧТВ, МНО, протромбин, тромбиновое время, фибриноген</h2>
                     <p><strong>Срок действия:</strong> 14 дней с момента выполнения.</p>
-                </li>
-                <li class="info-card prep-checklist__item">
-                    <h2>Группа крови, резус-фактор</h2>
+                    </li>
+                    <li class="prep-document__item">
+                        <h2>Группа крови, резус-фактор</h2>
                     <p><strong>Срок действия:</strong> без срока годности.</p>
-                </li>
-                <li class="info-card prep-checklist__item">
-                    <h2>Анализ крови на ВИЧ, гепатиты (В и С) и сифилис (при выявлении положительного результата необходима консультация инфекциониста об отсутствии противопоказаний к плановой госпитализации)</h2>
+                    </li>
+                    <li class="prep-document__item">
+                        <h2>Анализ крови на ВИЧ, гепатиты (В и С) и сифилис (при выявлении положительного результата необходима консультация инфекциониста об отсутствии противопоказаний к плановой госпитализации)</h2>
                     <p><strong>Срок действия:</strong> 3 месяца с момента выполнения.</p>
-                </li>
-                <li class="info-card prep-checklist__item">
-                    <h2>Общий анализ мочи</h2>
+                    </li>
+                    <li class="prep-document__item">
+                        <h2>Общий анализ мочи</h2>
                     <p><strong>Срок действия:</strong> 14 дней с момента выполнения.</p>
-                </li>
-                <li class="info-card prep-checklist__item">
-                    <h2>ЭКГ с расшифровкой</h2>
+                    </li>
+                    <li class="prep-document__item">
+                        <h2>ЭКГ с расшифровкой</h2>
                     <p><strong>Срок действия:</strong> 14 дней с момента выполнения.</p>
-                </li>
-                <li class="info-card prep-checklist__item">
-                    <h2>Флюорография или рентгенография органов грудной клетки или КТ ОГК</h2>
+                    </li>
+                    <li class="prep-document__item">
+                        <h2>Флюорография или рентгенография органов грудной клетки или КТ ОГК</h2>
                     <p><strong>Срок действия:</strong> 12 месяцев с момента выполнения.</p>
-                </li>
-                <li class="info-card prep-checklist__item">
-                    <h2>ЭХО-КГ</h2>
+                    </li>
+                    <li class="prep-document__item">
+                        <h2>ЭХО-КГ</h2>
                     <p><strong>Срок действия:</strong> 12 месяцев с момента выполнения.</p>
-                </li>
-                <li class="info-card prep-checklist__item">
-                    <h2>Заключение терапевта о допуске к госпитализации</h2>
+                    </li>
+                    <li class="prep-document__item">
+                        <h2>Заключение терапевта о допуске к госпитализации</h2>
                     <p><strong>Срок действия:</strong> 14 дней.</p>
-                </li>
-                <li class="info-card prep-checklist__item">
-                    <h2>ЭГДС<span class="red-star">*</span></h2>
+                    </li>
+                    <li class="prep-document__item">
+                        <h2>ЭГДС<span class="red-star">*</span></h2>
                     <p><strong>Срок действия:</strong> 45 дней с момента выполнения.</p>
-                </li>
-                <li class="info-card prep-checklist__item">
-                    <h2>Холтеровское мониторирование ЭКГ или нагрузочный тест<span class="red-star">*</span></h2>
+                    </li>
+                    <li class="prep-document__item">
+                        <h2>Холтеровское мониторирование ЭКГ или нагрузочный тест<span class="red-star">*</span></h2>
                     <p><strong>Срок действия:</strong> без срока годности.</p>
-                </li>
-                <li class="info-card prep-checklist__item">
-                    <h2>Заключение аллерголога<span class="red-star">*</span> (при наличии аллергических реакций на йод, новокаин или лидокаин)</h2>
+                    </li>
+                    <li class="prep-document__item">
+                        <h2>Заключение аллерголога<span class="red-star">*</span> (при наличии аллергических реакций на йод, новокаин или лидокаин)</h2>
                     <p><strong>Срок действия:</strong> 14 дней.</p>
-                </li>
-            </ol>
-        </div>
-    </section>
+                    </li>
+                </ol>
 
-    <section class="inner-section doctor-page doctor-page--tone-mid prep-page">
-        <div class="container prep-grid-two">
-            <article class="info-card prep-note prep-note--star">
-                <p><span class="red-star">*</span> - назначаются индивидуально после консультации</p>
-            </article>
-            <article class="info-card prep-note">
-                <p>Перечень обследований может быть изменен в соответствии с клинической необходимостью по результатам консультации.</p>
-            </article>
-            <article class="info-card prep-note prep-note--accent">
-                <p>Все анализы необходимо предоставить в оригинальном виде с печатью медицинского учреждения или подписанные ЭЦП!</p>
-            </article>
-            <article class="info-card prep-note prep-note--contact">
-                <p>Перед госпитализацией Вас попросят прислать скан или фотографию всех обследований на контактный номер <a href="tel:+79166930333">+7 (916) 693 03 33</a></p>
-            </article>
-        </div>
-    </section>
+                <div class="prep-document__notes">
+                    <p><span class="red-star">*</span> - назначаются индивидуально после консультации</p>
+                    <p>Перечень обследований может быть изменен в соответствии с клинической необходимостью по результатам консультации.</p>
+                    <p>Все анализы необходимо предоставить в оригинальном виде с печатью медицинского учреждения или подписанные ЭЦП!</p>
+                    <p>Перед госпитализацией Вас попросят прислать скан или фотографию всех обследований на контактный номер <a href="tel:+79166930333">+7 (916) 693 03 33</a></p>
+                </div>
 
-    <section class="inner-section doctor-page doctor-page--tone-soft prep-page">
-        <div class="container">
-            <h2 class="section__title section__title--left">Комментарии по подготовке</h2>
-            <div class="prep-comments">
-                <article class="info-card prep-comments__item">
+                <h2 class="prep-document__subtitle">Комментарии по подготовке</h2>
+                <div class="prep-document__comments">
                     <p>Анализ крови на ВИЧ, гепатиты (В и С) и сифилис рекомендуется выполнить в первую очередь для своевременного оформления консультации инфекциониста в случае положительного результата.</p>
-                </article>
-                <article class="info-card prep-comments__item">
                     <p>ЭГДС рекомендуется выполнить не позднее, чем за 14 дней до госпитализации. Необходимо для своевременного (за 10 дней до операции) назначения дополнительной терапии по итогам исследования (см. следующую страницу).</p>
-                </article>
-                <article class="info-card prep-comments__item">
                     <p>Осмотр терапевта рекомендуется пройти осмотр не позже, чем за 5-7 дней до госпитализации. Необходимо для оценки общего состояния здоровья, выявления возможных противопоказаний и своевременной коррекции выявленных отклонений.</p>
-                </article>
-                <article class="info-card prep-comments__item">
                     <p>Операция может быть перенесена при любых признаках инфекционных болезней (ОРВИ, грипп и др.), а также при повышении температуры тела более 37о С вне зависимости от причины.</p>
-                </article>
+                </div>
+            </article>
             </div>
-        </div>
     </section>
 
 <?php

@@ -93,6 +93,7 @@
 .clinic-page .doctor-text { max-width: 960px; }
 
 .prep-page .section__title { margin-bottom: 20px; }
+.prep-page .red-star { color: #ff4d4f; }
 .prep-main-grid { display: grid; gap: 18px; }
 .prep-grid-two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
 .prep-checklist {
@@ -154,6 +155,84 @@
 .prep-warning { border-color: rgba(255, 186, 107, 0.45); background: linear-gradient(130deg, rgba(255, 186, 107, 0.14), rgba(9, 11, 16, 0.95)); }
 .prep-warning p { margin: 0; line-height: 1.7; }
 .prep-warning--major { border-color: rgba(255, 120, 120, 0.62); background: linear-gradient(130deg, rgba(255, 120, 120, 0.22), rgba(9, 11, 16, 0.95)); }
+
+.prep-page--document {
+    background: #121212;
+}
+
+.prep-document {
+    max-width: 900px;
+    margin: 0 auto;
+    color: var(--color-text);
+}
+
+.prep-document__lead {
+    margin: 0 0 20px;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+}
+
+.prep-document__list {
+    margin: 0;
+    padding-left: 26px;
+}
+
+.prep-document__item {
+    margin: 0;
+}
+
+.prep-document__item + .prep-document__item {
+    margin-top: 14px;
+}
+
+.prep-document__item h2 {
+    margin: 0 0 8px;
+    font-size: clamp(18px, 2.1vw, 22px);
+    line-height: 1.45;
+}
+
+.prep-document__item p {
+    margin: 0;
+    line-height: 1.65;
+    color: var(--color-text-muted);
+}
+
+.prep-document__notes {
+    margin-top: 24px;
+}
+
+.prep-document__notes p {
+    margin: 0;
+    line-height: 1.7;
+    color: var(--color-text-muted);
+}
+
+.prep-document__notes p + p {
+    margin-top: 10px;
+}
+
+.prep-document__notes a {
+    color: var(--color-text);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: rgba(24, 198, 198, 0.7);
+}
+
+.prep-document__subtitle {
+    margin: 28px 0 14px;
+    font-size: clamp(24px, 3vw, 32px);
+    line-height: 1.25;
+}
+
+.prep-document__comments p {
+    margin: 0;
+    line-height: 1.7;
+    color: var(--color-text-muted);
+}
+
+.prep-document__comments p + p {
+    margin-top: 10px;
+}
 
 .clinic-page .doctor-highlight a {
     color: var(--color-text);
@@ -292,6 +371,14 @@
         font-size: 18px;
     }
 
+    .prep-document {
+        max-width: 100%;
+    }
+
+    .prep-document__list {
+        padding-left: 22px;
+    }
+
     .doc-card button,
     .faq summary,
     .doctor-timeline__item a {
@@ -356,6 +443,10 @@
 
     .prep-subpoint {
         padding: 12px;
+    }
+
+    .prep-document__item h2 {
+        font-size: 17px;
     }
 
     .prep-topic h3,
