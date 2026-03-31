@@ -2400,15 +2400,11 @@ body:not(.is-page-ready) .site-shell > .inner-page {
 }
 
 @media (max-width: 767px) {
-    .about__visual {
-        height: 540px;
-    }
-    
-    .about__image {
+    #about .about__image {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        object-position: 38% 0;
+        object-position: 30% 0;
     }
 }
 
@@ -2457,7 +2453,7 @@ body:not(.is-page-ready) .site-shell > .inner-page {
     }
 
     #about .about__visual {
-        height: clamp(320px, 58vh, 430px);
+        height: clamp(340px, 60vh, 460px);
         margin-top: 0;
         margin-bottom: 0;
     }
@@ -2473,7 +2469,7 @@ body:not(.is-page-ready) .site-shell > .inner-page {
     }
 
     #about .about__visual {
-        height: clamp(290px, 54vh, 390px);
+        height: clamp(305px, 56vh, 415px);
     }
 }
 
