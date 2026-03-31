@@ -136,10 +136,6 @@ button {
     transition: color var(--transition), opacity var(--transition);
 }
 
-.nav__link {
-
-}
-
 .nav__link:hover,
 .mobile-nav__link:hover,
 .footer__link:hover,
