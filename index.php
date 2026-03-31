@@ -106,7 +106,7 @@ switch ($status) {
 
                         <article class="spec-card">
                         <div class="spec-card__icon" aria-hidden="true">
-                            <img src="assets/img/icons/spec-heart-transplant.svg" alt="">
+                            <img src="assets/img/icons/sonnayaArteriya0.png" alt="">
                         </div>
                             <div>
                                 <h3 class="spec-card__title">СТЕНТИРОВАНИЕ СОННЫХ АРТЕРИЙ</h3>
@@ -116,7 +116,7 @@ switch ($status) {
 
                         <article class="spec-card">
                         <div class="spec-card__icon" aria-hidden="true">
-                            <img src="assets/img/icons/spec-heart-transplant.svg" alt="">
+                            <img src="assets/img/icons/nijnieKonechnosti3.png" alt="">
                         </div>
                             <div>
                                 <h3 class="spec-card__title">АРТЕРИИ НИЖНИХ КОНЕЧНОСТЕЙ</h3>
@@ -126,7 +126,7 @@ switch ($status) {
 
                         <article class="spec-card">
                         <div class="spec-card__icon" aria-hidden="true">
-                            <img src="assets/img/icons/spec-vascular.svg" alt="">
+                            <img src="assets/img/icons/stentirovanieVen0.png" alt="">
                         </div>
                             <div>
                                 <h3 class="spec-card__title">ВЕНОЗНОЕ СТЕНТИРОВАНИЕ</h3>
