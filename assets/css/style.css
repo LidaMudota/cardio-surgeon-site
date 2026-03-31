@@ -293,17 +293,19 @@ button {
 
 .mega-menu__inner {
     display: grid;
-    grid-template-columns: 1.1fr 1.1fr 0.9fr;
-    gap: 28px;
+    grid-template-columns: 315px 480px minmax(0, 1fr);
+    gap: 20px;
     padding: 24px 0 28px;
+    align-items: stretch;
 }
 
 .mega-menu__column,
 .mega-menu__preview {
-    padding: 18px;
+    height: 100%;
+    padding: 16px;
     border: 1px solid var(--color-card-border);
-    border-radius: var(--radius-md);
-    background: #282828
+    border-radius: 9px;
+    background: #282828;
 }
 
 .mega-menu__title,
@@ -347,10 +349,32 @@ button {
 }
 
 .mega-menu__image-wrap {
+    flex: 0 0 auto;
+    width: 100%;
+    aspect-ratio: 16 / 16;
     overflow: hidden;
-    border-radius: var(--radius-sm);
-    margin-bottom: 16px;
+    border-radius: 6px;
+    margin-bottom: 0;
     border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.mega-menu__preview {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.mega-menu__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.mega-menu__preview .button {
+    width: 100%;
+    margin-top: auto;
+    border-radius: 6px;
+    flex-shrink: 0;
 }
 
 .mobile-nav__inner {
@@ -2388,7 +2412,7 @@ body:not(.is-page-ready) .site-shell > .inner-page {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        object-position: center top;
+        object-position: 38% 0;
     }
 }
 
@@ -2664,5 +2688,133 @@ body:not(.is-page-ready) .site-shell > .inner-page {
         width: auto;
         min-width: 220px;
         max-width: none;
+    }
+}
+
+/* Specialization cards: production alignment and stable sizing */
+#specialization .spec-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+#specialization .spec-card {
+    display: grid;
+    grid-template-columns: 88px minmax(0, 1fr);
+    align-items: center;
+    gap: 16px;
+    min-height: 164px;
+    height: auto;
+    padding: 20px;
+}
+
+#specialization .spec-card__icon {
+    width: 88px;
+    height: 88px;
+    margin: 0;
+}
+
+#specialization .spec-card__icon img {
+    width: 72px;
+    height: 72px;
+    object-fit: contain;
+    object-position: center;
+}
+
+#specialization .spec-card--heart .spec-card__icon img {
+    width: 58px;
+    height: 58px;
+}
+
+#specialization .spec-card__content {
+    min-width: 0;
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#specialization .spec-card__title {
+    margin: 0 0 8px;
+    font-size: 21px;
+    line-height: 1.18;
+    text-wrap: balance;
+    overflow-wrap: anywhere;
+}
+
+#specialization .spec-card__text {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.4;
+    color: #d0d6e2;
+}
+
+@media (max-width: 1024px) {
+    #specialization .spec-card {
+        grid-template-columns: 72px minmax(0, 1fr);
+        min-height: 0;
+        padding: 16px;
+        gap: 12px;
+    }
+
+    #specialization .spec-card__icon {
+        width: 72px;
+        height: 72px;
+    }
+
+    #specialization .spec-card__icon img {
+        width: 58px;
+        height: 58px;
+    }
+
+    #specialization .spec-card--heart .spec-card__icon img {
+        width: 46px;
+        height: 46px;
+    }
+
+    #specialization .spec-card__title {
+        font-size: 17px;
+    }
+
+    #specialization .spec-card__text {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 767px) {
+    #specialization .spec-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    #specialization .spec-card {
+        grid-template-columns: 60px minmax(0, 1fr);
+        padding: 14px;
+        gap: 10px;
+    }
+
+    #specialization .spec-card__icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    #specialization .spec-card__icon img {
+        width: 46px;
+        height: 46px;
+    }
+
+    #specialization .spec-card--heart .spec-card__icon img {
+        width: 38px;
+        height: 38px;
+    }
+
+    #specialization .spec-card__title {
+        margin-bottom: 6px;
+        font-size: 15px;
+        line-height: 1.22;
+    }
+
+    #specialization .spec-card__text {
+        font-size: 13px;
+        line-height: 1.35;
     }
 }

@@ -94,43 +94,63 @@ switch ($status) {
                     </div>
 
                     <div class="spec-grid">
-                        <article class="spec-card">
-                        <div class="spec-card__icon" aria-hidden="true">
-                            <img src="assets/img/icons/spec-vascular.svg" alt="">
-                        </div>
-                            <div>
+                        <article class="spec-card spec-card--heart">
+                            <div class="spec-card__icon" aria-hidden="true">
+                                <img src="assets/img/icons/spec-vascular.svg" alt="">
+                            </div>
+                            <div class="spec-card__content">
                                 <h3 class="spec-card__title">КОРОНАРНОЕ СТЕНТИРОВАНИЕ</h3>
-                                <p class="spec-card__text">с применением ВСУЗИ при стентировании</p>
+                                <p class="spec-card__text">с применением ВСУЗИ</p>
                             </div>
                         </article>
 
                         <article class="spec-card">
-                        <div class="spec-card__icon" aria-hidden="true">
-                            <img src="assets/img/icons/sonnayaArteriya0.png" alt="">
-                        </div>
-                            <div>
+                            <div class="spec-card__icon" aria-hidden="true">
+                                <img src="assets/img/icons/sonnayaArteriya0.png" alt="">
+                            </div>
+                            <div class="spec-card__content">
                                 <h3 class="spec-card__title">СТЕНТИРОВАНИЕ СОННЫХ АРТЕРИЙ</h3>
-                                <p class="spec-card__text">операции по стентированию сонных артерий</p>
+                                <p class="spec-card__text">стентирование для профилактики инсульта</p>
                             </div>
                         </article>
 
                         <article class="spec-card">
-                        <div class="spec-card__icon" aria-hidden="true">
-                            <img src="assets/img/icons/nijnieKonechnosti3.png" alt="">
-                        </div>
-                            <div>
+                            <div class="spec-card__icon" aria-hidden="true">
+                                <img src="assets/img/icons/nijnieKonechnosti3.png" alt="">
+                            </div>
+                            <div class="spec-card__content">
                                 <h3 class="spec-card__title">АРТЕРИИ НИЖНИХ КОНЕЧНОСТЕЙ</h3>
-                                <p class="spec-card__text">стентирование с ротационной атерэктомией, ВСУЗИ</p>
+                                <p class="spec-card__text">ангиопластика баллонами с лекарственным покрытием, стентирование с применением ротационной атерэктомии и ВСУЗИ</p>
                             </div>
                         </article>
 
                         <article class="spec-card">
-                        <div class="spec-card__icon" aria-hidden="true">
-                            <img src="assets/img/icons/stentirovanieVen0.png" alt="">
-                        </div>
-                            <div>
+                            <div class="spec-card__icon" aria-hidden="true">
+                                <img src="assets/img/icons/stentirovanieVen0.png" alt="">
+                            </div>
+                            <div class="spec-card__content">
                                 <h3 class="spec-card__title">ВЕНОЗНОЕ СТЕНТИРОВАНИЕ</h3>
-                                <p class="spec-card__text">посттромботический синдром, синдром Мэй-Тернера</p>
+                                <p class="spec-card__text">лечение синдрома Мэй-Тернера, щелкунчика и посттромботического синдрома</p>
+                            </div>
+                        </article>
+
+                        <article class="spec-card">
+                            <div class="spec-card__icon" aria-hidden="true">
+                                <img src="assets/img/icons/spec-uterine-embolization.png" alt="">
+                            </div>
+                            <div class="spec-card__content">
+                                <h3 class="spec-card__title">ЭМБОЛИЗАЦИЯ МАТОЧНЫХ АРТЕРИЙ</h3>
+                                <p class="spec-card__text">эндоваскулярное лечение миомы матки</p>
+                            </div>
+                        </article>
+
+                        <article class="spec-card">
+                            <div class="spec-card__icon" aria-hidden="true">
+                                <img src="assets/img/icons/spec-varicocele-embolization0.png" alt="">
+                            </div>
+                            <div class="spec-card__content">
+                                <h3 class="spec-card__title">ЭМБОЛИЗАЦИЯ ВЕН ПРИ ВАРИКОЦЕЛЕ И ЭРЕКТИЛЬНОЙ ДИСФУНКЦИИ</h3>
+                                <p class="spec-card__text">малоинвазивное эндоваскулярное лечение венозных нарушений</p>
                             </div>
                         </article>
                     </div>
@@ -147,7 +167,7 @@ switch ($status) {
 
                     <div class="about__visual">
                         <!-- TODO: Вставить изображение about-doctor.webp в /assets/img/content/ -->
-                        <img src="assets/img/content/about-doctor.jpg" alt="Портрет врача" class="about__image">
+                        <img src="assets/img/content/fotoVracha.png" alt="Портрет врача" class="about__image">
                     </div>
                 </div>
             </section>

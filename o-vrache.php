@@ -14,7 +14,7 @@ require __DIR__ . '/includes/page-start.php';
     <section class="inner-section doctor-page doctor-intro">
         <div class="container doctor-intro__grid">
             <div class="doctor-intro__visual">
-                <img src="assets/img/content/about-doctor.jpg" alt="Коробков Александр Олегович" class="doctor-intro__image">
+                <img src="assets/img/content/fotoVracha.png" alt="Коробков Александр Олегович" class="doctor-intro__image">
             </div>
 
             <div class="doctor-intro__content info-card">
