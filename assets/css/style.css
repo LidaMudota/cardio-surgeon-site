@@ -2400,11 +2400,17 @@ body:not(.is-page-ready) .site-shell > .inner-page {
 }
 
 @media (max-width: 767px) {
+    #about {
+        /* Mobile photo offset: X (-left / +right), Y (-up / +down) */
+        --about-image-mobile-offset-x: 0px;
+        --about-image-mobile-offset-y: 0px;
+    }
+
     #about .about__image {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        object-position: 30% 0;
+        object-position: calc(30% + var(--about-image-mobile-offset-x)) calc(0% + var(--about-image-mobile-offset-y));
     }
 }
 
