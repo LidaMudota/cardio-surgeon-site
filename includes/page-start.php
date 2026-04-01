@@ -7,6 +7,8 @@
                 <span><?= e($pageTitle); ?></span>
             </nav>
             <h1 class="inner-hero__title"><?= e($pageTitle); ?></h1>
+            <?php if (!empty($pageSubtitle)): ?>
             <p class="inner-hero__subtitle"><?= e($pageSubtitle); ?></p>
+            <?php endif; ?>
         </div>
     </section>

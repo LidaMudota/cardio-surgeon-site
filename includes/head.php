@@ -1,6 +1,6 @@
 <?php
-$title = $meta['title'] ?? 'Кардиохирург';
-$description = $meta['description'] ?? 'Сайт врача-кардиохирурга';
+$title = $meta['title'] ?? 'Сайт врача';
+$description = $meta['description'] ?? 'Официальный сайт врача.';
 $ogTitle = $meta['og_title'] ?? $title;
 $ogDescription = $meta['og_description'] ?? $description;
 $noindex = !empty($meta['noindex']);
@@ -29,6 +29,11 @@ $noindex = !empty($meta['noindex']);
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/internal.css">
+    <?php if (!empty($extraStylesheets) && is_array($extraStylesheets)): ?>
+        <?php foreach ($extraStylesheets as $stylesheet): ?>
+            <link rel="stylesheet" href="<?= e($stylesheet); ?>">
+        <?php endforeach; ?>
+    <?php endif; ?>
 </head>
 <body>
 <div class="site-shell">
