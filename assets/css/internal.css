@@ -634,168 +634,149 @@
     }
 }
 
-.clinic-page {
-    position: relative;
+.clinic-page__default-hero-hidden {
+    display: none;
 }
 
-.clinic-page--tone-base {
-    background: #0f1115;
-}
-
-.clinic-hero {
-    padding-top: 54px;
-}
-
-.clinic-hero__card {
+.clinic-page__hero {
     position: relative;
     overflow: hidden;
-    padding: 34px;
-    border-radius: 22px;
-    border: 1px solid rgba(24, 198, 198, 0.34);
     background:
-        radial-gradient(circle at 85% 12%, rgba(24, 198, 198, 0.2), transparent 48%),
-        linear-gradient(128deg, rgba(16, 20, 27, 0.95), rgba(8, 11, 16, 0.98));
+        radial-gradient(circle at 78% 18%, rgba(24, 198, 198, 0.22), transparent 36%),
+        linear-gradient(132deg, #090d14 0%, #111824 56%, #0d121b 100%);
 }
 
-.clinic-hero__eyebrow {
-    margin: 0 0 14px;
-    color: var(--color-accent);
-    font-size: 12px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
+.clinic-page__hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.035), transparent 24%, transparent 76%, rgba(255, 255, 255, 0.04));
 }
 
-.clinic-hero__title {
+.clinic-page__layout {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1.6fr) minmax(290px, 0.95fr);
+    min-height: clamp(480px, 78vh, 700px);
+    align-items: stretch;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 26px;
+    background: rgba(10, 14, 21, 0.6);
+    backdrop-filter: blur(2px);
+}
+
+.clinic-page__main {
+    padding: clamp(34px, 5vw, 72px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.clinic-page__breadcrumbs {
+    margin-bottom: 22px;
+}
+
+.clinic-page__title {
     margin: 0;
-    max-width: 28ch;
-    font-size: clamp(32px, 4.1vw, 50px);
-    line-height: 1.14;
+    font-size: clamp(42px, 6vw, 88px);
+    line-height: 0.98;
+    letter-spacing: -0.03em;
 }
 
-.clinic-hero__lead {
-    margin: 18px 0 0;
-    max-width: 64ch;
-    color: var(--color-text-muted);
-    font-size: clamp(16px, 2vw, 20px);
-    line-height: 1.65;
+.clinic-page__lead {
+    margin: 28px 0 0;
+    max-width: 36ch;
+    font-size: clamp(19px, 2.1vw, 30px);
+    line-height: 1.42;
+    color: rgba(233, 240, 255, 0.86);
 }
 
-.clinic-highlights {
-    background: #12151a;
+.clinic-page__aside {
+    padding: clamp(26px, 3vw, 40px) clamp(22px, 2.4vw, 34px);
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    background: linear-gradient(180deg, rgba(8, 12, 19, 0.82) 0%, rgba(8, 12, 19, 0.95) 100%);
+    display: flex;
 }
 
-.clinic-highlights__list {
+.clinic-page__list {
     margin: 0;
     padding: 0;
     list-style: none;
+    width: 100%;
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 16px;
+    align-content: center;
 }
 
-.clinic-highlights__item {
-    min-height: 100%;
-    padding: 22px;
-    border-color: rgba(24, 198, 198, 0.28);
-    background: linear-gradient(145deg, rgba(24, 198, 198, 0.12), rgba(8, 11, 16, 0.97));
-}
-
-.clinic-highlights__item p {
+.clinic-page__list-item {
     margin: 0;
-    color: var(--color-text);
-    line-height: 1.68;
-    font-size: 17px;
+    padding: 18px 0;
+    color: rgba(230, 237, 250, 0.9);
+    line-height: 1.65;
+    font-size: clamp(15px, 1.08vw, 17px);
 }
 
-.clinic-highlights__bullet {
-    margin-right: 8px;
-    color: var(--color-accent);
-    font-weight: 800;
-}
-
-.clinic-standards {
-    background: #15181d;
-}
-
-.clinic-standards__card {
-    border: 1px solid rgba(24, 198, 198, 0.34);
-    border-radius: var(--radius-lg);
-    background:
-        linear-gradient(180deg, rgba(9, 11, 16, 0.96), rgba(9, 11, 16, 0.99)),
-        radial-gradient(circle at top right, rgba(24, 198, 198, 0.24), transparent 62%);
-    box-shadow: 0 20px 44px rgba(0, 0, 0, 0.32);
-    padding: 34px;
-}
-
-.clinic-standards__title {
-    margin: 0;
-    font-size: clamp(28px, 3.5vw, 42px);
-    line-height: 1.2;
-}
-
-.clinic-standards__text {
-    margin: 16px 0 0;
-    max-width: 72ch;
-    color: var(--color-text-muted);
-    font-size: 17px;
-    line-height: 1.72;
+.clinic-page__list-item + .clinic-page__list-item {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 @media (max-width: 1100px) {
-    .clinic-highlights__list {
-        grid-template-columns: 1fr;
+    .clinic-page__layout {
+        grid-template-columns: minmax(0, 1.35fr) minmax(260px, 0.9fr);
+    }
+
+    .clinic-page__title {
+        font-size: clamp(38px, 5.6vw, 72px);
+    }
+
+    .clinic-page__lead {
+        margin-top: 24px;
+        font-size: clamp(18px, 2vw, 26px);
     }
 }
 
-@media (max-width: 991px) {
-    .clinic-hero {
-        padding-top: 42px;
+@media (max-width: 900px) {
+    .clinic-page__layout {
+        grid-template-columns: 1fr;
+        min-height: initial;
     }
 
-    .clinic-hero__card,
-    .clinic-standards__card {
-        padding: 26px;
+    .clinic-page__aside {
+        border-left: 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    .clinic-highlights__item p,
-    .clinic-standards__text {
-        font-size: 16px;
+    .clinic-page__list {
+        align-content: start;
     }
 }
 
 @media (max-width: 767px) {
-    .clinic-hero {
-        padding-top: 34px;
+    .clinic-page__hero {
+        padding-top: 24px;
     }
 
-    .clinic-hero__card,
-    .clinic-highlights__item,
-    .clinic-standards__card {
-        padding: 20px;
+    .clinic-page__main {
+        padding: 24px 20px;
     }
 
-    .clinic-hero__lead {
-        margin-top: 14px;
-        line-height: 1.6;
+    .clinic-page__aside {
+        padding: 14px 20px 20px;
     }
 
-    .clinic-highlights__item p,
-    .clinic-standards__text {
+    .clinic-page__breadcrumbs {
+        margin-bottom: 16px;
+    }
+
+    .clinic-page__lead {
+        margin-top: 18px;
+        max-width: 100%;
+    }
+
+    .clinic-page__list-item {
+        padding: 14px 0;
         font-size: 15px;
-        line-height: 1.62;
-    }
-}
-
-@media (max-width: 575px) {
-    .clinic-hero__card,
-    .clinic-highlights__item,
-    .clinic-standards__card {
-        padding: 16px;
-    }
-
-    .clinic-highlights__item p,
-    .clinic-standards__text {
-        font-size: 14px;
+        line-height: 1.58;
     }
 }
