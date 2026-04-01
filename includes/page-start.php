@@ -1,5 +1,9 @@
-<main class="inner-page">
-    <section class="inner-hero">
+<?php
+$innerPageAttrs = $innerPageAttrs ?? '';
+$innerHeroAttrs = $innerHeroAttrs ?? '';
+?>
+<main class="inner-page"<?= $innerPageAttrs; ?>>
+    <section class="inner-hero"<?= $innerHeroAttrs; ?>>
         <div class="container">
             <nav class="breadcrumbs" aria-label="Хлебные крошки">
                 <a href="index.php">Главная</a>

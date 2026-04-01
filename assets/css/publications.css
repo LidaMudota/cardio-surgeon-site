@@ -1,64 +1,43 @@
 .page-publications {
-    background: #111111;
-    padding-top: 52px;
-    padding-bottom: 60px;
+    background: #121212;
 }
 
 .page-publications__container {
-    max-width: 980px;
+    max-width: 940px;
 }
 
-.page-publications__list-shell {
-    padding: 30px 34px;
-    background: linear-gradient(180deg, rgba(24, 198, 198, 0.08), rgba(17, 17, 17, 0.96));
-    border-color: rgba(24, 198, 198, 0.25);
+.page-publications__document {
+    max-width: none;
 }
 
 .page-publications__list {
-    margin: 0;
-    padding-left: 30px;
-    display: grid;
-    gap: 16px;
-    list-style-position: outside;
+    padding-left: 28px;
 }
 
 .page-publications__item {
-    margin: 0;
-    color: var(--color-text);
-    line-height: 1.72;
+    color: var(--color-text-muted);
     letter-spacing: 0.005em;
     overflow-wrap: anywhere;
 }
 
+.page-publications__item + .page-publications__item {
+    margin-top: 12px;
+}
+
+.page-publications__item p {
+    margin: 0;
+    line-height: 1.7;
+}
+
 @media (max-width: 991px) {
-    .page-publications {
-        padding-top: 44px;
-        padding-bottom: 52px;
-    }
-
-    .page-publications__list-shell {
-        padding: 24px 24px;
-    }
-
     .page-publications__list {
-        padding-left: 26px;
-        gap: 14px;
+        padding-left: 25px;
     }
 }
 
 @media (max-width: 767px) {
-    .page-publications {
-        padding-top: 34px;
-        padding-bottom: 42px;
-    }
-
-    .page-publications__list-shell {
-        padding: 18px 16px;
-    }
-
     .page-publications__list {
         padding-left: 22px;
-        gap: 12px;
     }
 
     .page-publications__item {
@@ -68,13 +47,8 @@
 }
 
 @media (max-width: 575px) {
-    .page-publications__list-shell {
-        padding: 16px 14px;
-    }
-
     .page-publications__list {
         padding-left: 20px;
-        gap: 10px;
     }
 
     .page-publications__item {

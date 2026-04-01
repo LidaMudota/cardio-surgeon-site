@@ -7,6 +7,7 @@ $meta = [
 $pageTitle = 'Научные публикации Коробкова Александра Олеговича';
 $pageSubtitle = '';
 $extraStylesheets = ['assets/css/publications.css'];
+$innerHeroAttrs = ' data-no-scroll-motion';
 
 $publications = [
     'СОВРЕМЕННЫЕ ПОДХОДЫ К АНТИТРОМБОЦИТАРНОЙ ТЕРАПИИ ОСТРОГО КОРОНАРНОГО СИНДРОМА БЕЗ ПОДЪЕМА СЕГМЕНТА ST. Сулимов В.А., Коробков А.О., Удовиченко А.Е. Сердце: журнал для практикующих врачей. 2010. Т. 9. № 2 (52). С. 90-96.',
@@ -45,15 +46,15 @@ require __DIR__ . '/includes/header.php';
 require __DIR__ . '/includes/page-start.php';
 ?>
 
-    <section class="inner-section page-publications">
+    <section class="inner-section doctor-page doctor-page--tone-soft prep-page prep-page--document page-publications" data-no-scroll-motion>
         <div class="container page-publications__container">
-            <div class="page-publications__list-shell info-card">
-                <ol class="page-publications__list" aria-label="Научные публикации Коробкова Александра Олеговича">
+            <article class="prep-document page-publications__document" aria-label="Научные публикации Коробкова Александра Олеговича">
+                <ol class="prep-document__list page-publications__list" aria-label="Научные публикации Коробкова Александра Олеговича">
                     <?php foreach ($publications as $publication): ?>
-                        <li class="page-publications__item"><?= e($publication); ?></li>
+                        <li class="prep-document__item page-publications__item"><p><?= e($publication); ?></p></li>
                     <?php endforeach; ?>
                 </ol>
-            </div>
+            </article>
         </div>
     </section>
 
