@@ -653,6 +653,44 @@ $reviewsPageData = [
     ],
 ];
 
+$buildFeaturedReviewFromCatalog = static function (array $review): array {
+    return [
+        'author' => $review['author'] ?? '',
+        'date' => $review['date'] ?? '',
+        'rating' => $review['rating'] ?? 5.0,
+        'stars' => $review['stars'] ?? 5,
+        'title' => $review['title'] ?? 'Отзыв пациента',
+        'excerpt' => $review['text'] ?? '',
+        'source_name' => $review['source_name'] ?? '',
+        'source_url' => $review['source_url'] ?? '',
+        'verified_text' => $review['verified_text'] ?? 'Отзыв опубликован на внешней площадке.',
+    ];
+};
+
+$findReviewBySourceName = static function (array $reviews, string $sourceName): ?array {
+    foreach ($reviews as $review) {
+        if (($review['source_name'] ?? '') === $sourceName) {
+            return $review;
+        }
+    }
+
+    return null;
+};
+
+$featuredReviews = $reviewsPageData['featured_reviews'];
+
+$napopravkuReview = $findReviewBySourceName($reviewsPageData['reviews'], 'napopravku.ru');
+if ($napopravkuReview !== null && isset($featuredReviews[1])) {
+    $featuredReviews[1] = $buildFeaturedReviewFromCatalog($napopravkuReview);
+}
+
+$prodoctorovReview = $findReviewBySourceName($reviewsPageData['reviews'], 'prodoctorov.ru');
+if ($prodoctorovReview !== null && isset($featuredReviews[2])) {
+    $featuredReviews[2] = $buildFeaturedReviewFromCatalog($prodoctorovReview);
+}
+
+$reviewsPageData['featured_reviews'] = $featuredReviews;
+
 $totalDistributionCount = array_sum(array_map(static fn($item) => (int) ($item['count'] ?? 0), $reviewsPageData['summary']['distribution']));
 
 $meta = [
