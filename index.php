@@ -41,12 +41,12 @@ switch ($status) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Кардиохирург — главная страница</title>
-    <meta name="description" content="Главная страница сайта врача-кардиохирурга. Запись на консультацию, направления помощи, информация о специалисте и результаты практики.">
+    <title>Эндоваскулярный хирург — главная страница</title>
+    <meta name="description" content="Главная страница сайта врача-эндоваскулярного хирурга. Запись на консультацию, направления помощи, информация о специалисте и результаты практики.">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="ru_RU">
-    <meta property="og:title" content="Кардиохирург — главная страница">
-    <meta property="og:description" content="Главная страница сайта врача-кардиохирурга. Запись на консультацию, направления помощи, информация о специалисте и результаты практики.">
+    <meta property="og:title" content="Эндоваскулярный хирург — главная страница">
+    <meta property="og:description" content="Главная страница сайта врача-эндоваскулярного хирурга. Запись на консультацию, направления помощи, информация о специалисте и результаты практики.">
     <meta property="og:url" content="https://example.com/index.php">
     <meta property="og:image" content="https://example.com/assets/img/content/hero-doctor.png">
     <link rel="canonical" href="https://example.com/index.php">
@@ -57,7 +57,7 @@ switch ($status) {
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/internal.css">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Physician","name":"Кардиохирург","url":"https://example.com/index.php","medicalSpecialty":"Cardiovascular"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Physician","name":"Эндоваскулярный хирург","url":"https://example.com/index.php","medicalSpecialty":"Cardiovascular"}</script>
 </head>
 <body>
     <div class="site-shell">

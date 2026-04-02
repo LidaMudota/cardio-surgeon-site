@@ -162,7 +162,7 @@ if ($hasPlaceholder) {
     ], buildRedirect('config'));
 }
 
-$siteName = trim((string) ($config['site_name'] ?? 'Сайт врача-кардиохирурга'));
+$siteName = trim((string) ($config['site_name'] ?? 'Сайт врача-эндоваскулярного хирурга'));
 $formPage = basename((string) ($_POST['form_page'] ?? 'index.php'));
 $subject = 'Новая заявка с сайта';
 $body = "Новая заявка с сайта {$siteName}\n\n"

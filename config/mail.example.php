@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'site_name' => 'Сайт врача-кардиохирурга',
+    'site_name' => 'Сайт врача-эндоваскулярного хирурга',
 
     'smtp' => [
         'host' => 'smtp.yandex.com',
