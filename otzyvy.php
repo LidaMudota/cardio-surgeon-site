@@ -608,7 +608,7 @@ require __DIR__ . '/includes/page-start.php';
         </div>
     </section>
 
-    <section class="inner-section reviews-page__catalog" id="all-reviews">
+    <section class="inner-section reviews-page__catalog" id="all-reviews" data-no-scroll-motion>
         <div class="container reviews-page__layout">
             <aside class="reviews-page__sidebar" aria-label="Сводка по отзывам">
                 <div class="reviews-page__sidebar-card">
