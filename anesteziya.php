@@ -1,45 +1,40 @@
 <?php
 require __DIR__ . '/includes/init.php';
 $meta = [
-    'title' => 'Анестезия во время операции — Коробков Александр Олегович',
-    'description' => 'Как проводится обезболивание при эндоваскулярных вмешательствах и в каких случаях может понадобиться общий наркоз.'
+    'title' => 'Анестезия — Коробков Александр Олегович',
+    'description' => 'Информация об анестезии при эндоваскулярных вмешательствах.'
 ];
-$pageTitle = 'Анестезия во время операции';
-$pageSubtitle = 'Чаще всего эндоваскулярные операции проводятся через маленький прокол в коже под местной анестезией и не требуют общего наркоза.';
+$pageTitle = 'Анестезия';
+$pageSubtitle = 'Эндоваскулярные вмешательства выполняются через точечный прокол под местной анестезией; общий наркоз применяется крайне редко — преимущественно при операциях на полостях сердца, клапанах или аорте.';
+$innerPageAttrs = ' data-page="anesthesia"';
+$extraStylesheets = ['assets/css/anesteziya.css'];
 require __DIR__ . '/includes/head.php';
 require __DIR__ . '/includes/header.php';
 require __DIR__ . '/includes/page-start.php';
 ?>
 
-    <section class="inner-section doctor-page doctor-page--tone-deep prep-page prep-page--document">
+    <section class="inner-section doctor-page doctor-page--tone-deep anesthesia-page" aria-label="Страница об анестезии">
         <div class="container">
-            <article class="prep-document" aria-label="Информация об анестезии во время операции">
-                <p class="prep-document__lead">Чаще всего эндоваскулярные операции проводятся через маленький прокол в коже под местной анестезией и не требуют общего наркоза.</p>
+            <article class="anesthesia-page__layout" aria-label="Информация об анестезии во время эндоваскулярного вмешательства">
+                <section class="anesthesia-page__block anesthesia-page__block--main" aria-labelledby="anesthesia-main-heading">
+                    <h2 id="anesthesia-main-heading" class="anesthesia-page__heading">Как проходит обезболивание</h2>
+                    <p class="anesthesia-page__text">В области пункции (чаще всего лучевой или бедренной артерии) вводится местный анестетик. Для уменьшения дискомфорта на этапе инфильтрационной анестезии дополнительно используется внутривенная седация (успокоительные препараты), что обеспечивает комфорт пациента на протяжении всего вмешательства.</p>
+                </section>
 
-                <h2 class="prep-document__subtitle">Как проходит обезболивание</h2>
-                <div class="prep-document__comments">
-                    <p>В начале выполняется «укол-заморозка» местного анестетика в том месте, где далее будет выполнена пункция артерии – чаще это запястье или бедро.</p>
-                    <p>В момент введения местного анестетика могут беспокоить неприятные ощущения, поэтому, дополнительно внутривенно вводятся седативные средства, они позволяют создать максимально комфортные условия для пациента во время операции.</p>
-                </div>
+                <section class="anesthesia-page__block anesthesia-page__block--accent" aria-labelledby="anesthesia-painless-heading">
+                    <h2 id="anesthesia-painless-heading" class="anesthesia-page__heading">Безболезненность вмешательства</h2>
+                    <p class="anesthesia-page__text">Все манипуляции внутри сосудистого русла безболезненны, поскольку внутренняя стенка сосудов не содержит болевых рецепторов.</p>
+                </section>
 
-                <h2 class="prep-document__subtitle">Что чувствует пациент</h2>
-                <div class="prep-document__comments">
-                    <p>Проведение инструментария внутри сосуда безболезненны и не ощущаются, так как внутренняя стенка сосудов не имеет болевых рецепторов.</p>
-                </div>
+                <section class="anesthesia-page__block anesthesia-page__block--safety" aria-labelledby="anesthesia-safety-heading">
+                    <h2 id="anesthesia-safety-heading" class="anesthesia-page__heading">Контроль и безопасность во время операции</h2>
+                    <p class="anesthesia-page__text">Ключевое преимущество эндоваскулярных вмешательств — сохранение вербального контакта с пациентом, что позволяет повысить безопасность и обеспечить контроль во время операции.</p>
+                </section>
 
-                <h2 class="prep-document__subtitle">Почему эндоваскулярные вмешательства чаще проходят без общего наркоза</h2>
-                <div class="prep-document__comments">
-                    <p>Важным преимуществом местной и внутривенной анестезии в эндоваскулярной хирургии является возможность общения с пациентом в ходе операции для обеспечения дополнительного контроля и безопасности, что делает ее наиболее комфортным и безопасным методом оперативного лечения сосудистого русла.</p>
-                </div>
-
-                <h2 class="prep-document__subtitle">В каких случаях может понадобиться общий наркоз</h2>
-                <div class="prep-document__comments">
-                    <p>Крайне редко (при операциях на полостях сердца, клапанах, аорте и др.) может потребоваться общий наркоз.</p>
-                </div>
-
-                <div class="prep-document__notes">
-                    <p>Какой метод анестезии будет предложен Вам можно узнать на консультации.</p>
-                </div>
+                <section class="anesthesia-page__block anesthesia-page__block--final" aria-labelledby="anesthesia-final-heading">
+                    <h2 id="anesthesia-final-heading" class="anesthesia-page__heading">Итог</h2>
+                    <p class="anesthesia-page__text">Оптимальный вариант анестезии определяется индивидуально на консультации.</p>
+                </section>
             </article>
         </div>
     </section>

@@ -1,0 +1,94 @@
+.inner-page[data-page="anesthesia"] .anesthesia-page {
+    padding-top: 56px;
+    padding-bottom: 72px;
+    background:
+        radial-gradient(circle at top right, rgba(24, 198, 198, 0.14), transparent 46%),
+        #111111;
+}
+
+.inner-page[data-page="anesthesia"] .anesthesia-page__layout {
+    max-width: 980px;
+    margin: 0 auto;
+    display: grid;
+    gap: 18px;
+}
+
+.inner-page[data-page="anesthesia"] .anesthesia-page__block {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.02);
+    padding: 28px;
+    backdrop-filter: blur(2px);
+}
+
+.inner-page[data-page="anesthesia"] .anesthesia-page__block--main {
+    background: linear-gradient(130deg, rgba(24, 198, 198, 0.08), rgba(12, 12, 12, 0.96));
+}
+
+.inner-page[data-page="anesthesia"] .anesthesia-page__block--accent {
+    border-color: rgba(24, 198, 198, 0.3);
+    background: rgba(24, 198, 198, 0.08);
+}
+
+.inner-page[data-page="anesthesia"] .anesthesia-page__block--safety {
+    border-color: rgba(24, 198, 198, 0.42);
+    background: linear-gradient(140deg, rgba(24, 198, 198, 0.15), rgba(9, 11, 16, 0.94));
+}
+
+.inner-page[data-page="anesthesia"] .anesthesia-page__block--final {
+    border-color: rgba(255, 255, 255, 0.16);
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.inner-page[data-page="anesthesia"] .anesthesia-page__heading {
+    margin: 0 0 12px;
+    font-size: clamp(22px, 2.8vw, 30px);
+    line-height: 1.3;
+}
+
+.inner-page[data-page="anesthesia"] .anesthesia-page__text {
+    margin: 0;
+    color: var(--color-text-muted);
+    font-size: 17px;
+    line-height: 1.72;
+}
+
+@media (max-width: 900px) {
+    .inner-page[data-page="anesthesia"] .anesthesia-page {
+        padding-top: 44px;
+        padding-bottom: 58px;
+    }
+
+    .inner-page[data-page="anesthesia"] .anesthesia-page__block {
+        padding: 24px;
+        border-radius: 18px;
+    }
+
+    .inner-page[data-page="anesthesia"] .anesthesia-page__text {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 640px) {
+    .inner-page[data-page="anesthesia"] .anesthesia-page {
+        padding-top: 36px;
+        padding-bottom: 46px;
+    }
+
+    .inner-page[data-page="anesthesia"] .anesthesia-page__layout {
+        gap: 14px;
+    }
+
+    .inner-page[data-page="anesthesia"] .anesthesia-page__block {
+        padding: 20px 18px;
+        border-radius: 16px;
+    }
+
+    .inner-page[data-page="anesthesia"] .anesthesia-page__heading {
+        margin-bottom: 10px;
+    }
+
+    .inner-page[data-page="anesthesia"] .anesthesia-page__text {
+        line-height: 1.66;
+    }
+}
