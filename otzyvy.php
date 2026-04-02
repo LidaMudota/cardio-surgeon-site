@@ -729,15 +729,19 @@ require __DIR__ . '/includes/page-start.php';
             <div class="reviews-page__featured-grid">
                 <?php foreach ($reviewsPageData['featured_reviews'] as $review): ?>
                     <article class="review-card review-card--featured">
-                        <div class="review-card__meta">
-                            <span class="review-card__source"><?= e($review['source_name']); ?></span>
-                            <span><?= e($review['date']); ?></span>
+                        <div class="reviews-page__featured-card-body">
+                            <div class="review-card__meta">
+                                <span class="review-card__source"><?= e($review['source_name']); ?></span>
+                                <span><?= e($review['date']); ?></span>
+                            </div>
+                            <h3 class="review-card__title"><?= e($review['title']); ?></h3>
+                            <p class="review-card__author"><?= e($review['author']); ?> · <?= str_repeat('★', (int) $review['rating']); ?></p>
+                            <p class="review-card__text"><?= e($review['excerpt']); ?></p>
                         </div>
-                        <h3 class="review-card__title"><?= e($review['title']); ?></h3>
-                        <p class="review-card__author"><?= e($review['author']); ?> · <?= str_repeat('★', (int) $review['rating']); ?></p>
-                        <p class="review-card__text"><?= e($review['excerpt']); ?></p>
-                        <p class="review-card__verified"><?= e($review['verified_text']); ?></p>
-                        <a class="review-card__cta" href="<?= e($review['source_url']); ?>" target="_blank" rel="noopener noreferrer nofollow">Смотреть оригинал</a>
+                        <div class="reviews-page__featured-card-footer">
+                            <p class="review-card__verified"><?= e($review['verified_text']); ?></p>
+                            <a class="review-card__cta" href="<?= e($review['source_url']); ?>" target="_blank" rel="noopener noreferrer nofollow">Смотреть оригинал</a>
+                        </div>
                     </article>
                 <?php endforeach; ?>
             </div>

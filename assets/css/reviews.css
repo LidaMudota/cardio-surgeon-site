@@ -170,6 +170,29 @@
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 18px;
+    align-items: stretch;
+}
+
+.reviews-page__featured .review-card--featured {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.reviews-page__featured-card-body {
+    display: grid;
+    gap: 0;
+}
+
+.reviews-page__featured-card-footer {
+    margin-top: auto;
+    padding-top: 14px;
+    display: grid;
+    gap: 12px;
+}
+
+.reviews-page__featured .review-card--featured .review-card__cta {
+    justify-self: start;
 }
 
 .review-card {
