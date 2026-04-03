@@ -14,29 +14,35 @@ require __DIR__ . '/includes/page-start.php';
 ?>
 
     <section class="inner-section doctor-page doctor-page--tone-deep anesthesia-page" aria-label="Страница об анестезии">
-        <div class="container">
-            <article class="anesthesia-page__layout" aria-label="Информация об анестезии во время эндоваскулярного вмешательства">
-                <section class="anesthesia-page__block anesthesia-page__block--main" aria-labelledby="anesthesia-main-heading">
+        <article class="anesthesia-page__layout" aria-label="Информация об анестезии во время эндоваскулярного вмешательства">
+            <section class="anesthesia-page__section anesthesia-page__section--main" aria-labelledby="anesthesia-main-heading">
+                <div class="container anesthesia-page__content">
                     <h2 id="anesthesia-main-heading" class="anesthesia-page__heading">Как проходит обезболивание</h2>
                     <p class="anesthesia-page__text">В области пункции (чаще всего лучевой или бедренной артерии) вводится местный анестетик. Для уменьшения дискомфорта на этапе инфильтрационной анестезии дополнительно используется внутривенная седация (успокоительные препараты), что обеспечивает комфорт пациента на протяжении всего вмешательства.</p>
-                </section>
+                </div>
+            </section>
 
-                <section class="anesthesia-page__block anesthesia-page__block--accent" aria-labelledby="anesthesia-painless-heading">
+            <section class="anesthesia-page__section anesthesia-page__section--accent" aria-labelledby="anesthesia-painless-heading">
+                <div class="container anesthesia-page__content">
                     <h2 id="anesthesia-painless-heading" class="anesthesia-page__heading">Безболезненность вмешательства</h2>
                     <p class="anesthesia-page__text">Все манипуляции внутри сосудистого русла безболезненны, поскольку внутренняя стенка сосудов не содержит болевых рецепторов.</p>
-                </section>
+                </div>
+            </section>
 
-                <section class="anesthesia-page__block anesthesia-page__block--safety" aria-labelledby="anesthesia-safety-heading">
+            <section class="anesthesia-page__section anesthesia-page__section--safety" aria-labelledby="anesthesia-safety-heading">
+                <div class="container anesthesia-page__content">
                     <h2 id="anesthesia-safety-heading" class="anesthesia-page__heading">Контроль и безопасность во время операции</h2>
                     <p class="anesthesia-page__text">Ключевое преимущество эндоваскулярных вмешательств — сохранение вербального контакта с пациентом, что позволяет повысить безопасность и обеспечить контроль во время операции.</p>
-                </section>
+                </div>
+            </section>
 
-                <section class="anesthesia-page__block anesthesia-page__block--final" aria-labelledby="anesthesia-final-heading">
+            <section class="anesthesia-page__section anesthesia-page__section--final" aria-labelledby="anesthesia-final-heading">
+                <div class="container anesthesia-page__content">
                     <h2 id="anesthesia-final-heading" class="anesthesia-page__heading">Итог</h2>
                     <p class="anesthesia-page__text">Оптимальный вариант анестезии определяется индивидуально на консультации.</p>
-                </section>
-            </article>
-        </div>
+                </div>
+            </section>
+        </article>
     </section>
 
 <?php
