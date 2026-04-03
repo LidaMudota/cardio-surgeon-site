@@ -5,7 +5,7 @@ $meta = [
     'description' => 'Варианты консультации, адрес клиники, предварительная запись и перечень материалов, которые нужно подготовить.'
 ];
 $pageTitle = 'Как проходит консультация';
-$pageSubtitle = 'Возможны несколько вариантов консультации:';
+$pageSubtitle = '';
 $extraStylesheets = ['assets/css/consultation-page.css'];
 require __DIR__ . '/includes/head.php';
 require __DIR__ . '/includes/header.php';
@@ -20,6 +20,8 @@ require __DIR__ . '/includes/page-start.php';
                     <li class="consultation-page__options-item">Очная.</li>
                     <li class="consultation-page__options-item">Телемедицинская.</li>
                 </ol>
+                <p class="consultation-page__details-text">Консультации проводятся в клинике АО «Медицина» по адресу: 125047, г. Москва, 2-й Тверской-Ямской пер., 10.</p>
+                <p class="consultation-page__details-text">Необходима предварительная запись по телефону: <a href="tel:+79166930333">+7 (916) 693-03-33</a>.</p>
             </article>
 
             <aside class="consultation-page__photo-panel" aria-label="Фото врача">
@@ -29,15 +31,6 @@ require __DIR__ . '/includes/page-start.php';
                     </div>
                 </div>
             </aside>
-        </div>
-    </section>
-
-    <section class="inner-section doctor-page doctor-page--tone-mid consultation-page__section consultation-page__section--details">
-        <div class="container">
-            <article class="info-card consultation-page__details-card" aria-label="Адрес клиники и предварительная запись">
-                <p class="consultation-page__details-text">Консультации проводятся в клинике АО «Медицина» по адресу: 125047, г. Москва, 2-й Тверской-Ямской пер., 10.</p>
-                <p class="consultation-page__details-text">Необходима предварительная запись по телефону: <a href="tel:+79166930333">+7 (916) 693-03-33</a>.</p>
-            </article>
         </div>
     </section>
 
