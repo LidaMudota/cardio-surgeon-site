@@ -499,10 +499,18 @@
     .doctor-intro__grid {
         grid-template-columns: minmax(300px, 0.86fr) minmax(0, 1.14fr);
         gap: 20px;
+        align-items: start;
+    }
+
+    .doctor-intro__visual {
+        min-height: 0;
     }
 
     .doctor-intro__image {
-        min-height: 420px;
+        min-height: 0;
+        height: auto;
+        object-fit: contain;
+        aspect-ratio: auto;
     }
 
     .doctor-intro__content {
