@@ -249,7 +249,14 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const initRevealAnimations = () => {
-        const isMotionExcluded = (node) => Boolean(node?.closest('[data-no-scroll-motion]'));
+        const pageRoot = document.querySelector('.site-shell > main') || document.querySelector('.site-shell > .inner-page') || document.body;
+        const firstTwoSections = Array.from(pageRoot.querySelectorAll('section')).slice(0, 2);
+        const firstTwoSectionSet = new Set(firstTwoSections);
+        const isInFirstTwoSections = (node) => {
+            const section = node?.closest('section');
+            return Boolean(section && firstTwoSectionSet.has(section));
+        };
+        const isMotionExcluded = (node) => Boolean(node?.closest('[data-no-scroll-motion]')) || isInFirstTwoSections(node);
         const revealRoots = [
             '.hero__content',
             '.section__head',
@@ -302,6 +309,14 @@ document.addEventListener('DOMContentLoaded', () => {
             element.classList.add('motion-reveal');
             element.classList.add(mode === 0 ? 'motion-reveal--up' : mode === 1 ? 'motion-reveal--left' : 'motion-reveal--right');
         });
+
+        if (firstTwoSections.length) {
+            firstTwoSections.forEach((section) => {
+                section.querySelectorAll('.motion-reveal').forEach((element) => {
+                    element.classList.add('is-revealed');
+                });
+            });
+        }
 
         if (shouldReduceMotion()) {
             revealElements.forEach((element) => element.classList.add('is-revealed'));

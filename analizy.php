@@ -17,8 +17,7 @@ require __DIR__ . '/includes/page-start.php';
             <p class="analizy-intro__text">Перед госпитализацией Вас попросят прислать скан или фотографию всех обследований на контактный номер +7 (916) 693-03-33.</p>
         </article>
 
-        <section class="analizy-section" aria-labelledby="analizy-list-title">
-            <h2 class="section__title section__title--left analizy-section__title" id="analizy-list-title">Анализы и обследования перед госпитализацией</h2>
+        <section class="analizy-section" aria-label="Перечень анализов и обследований перед госпитализацией">
             <ol class="analizy-list" aria-label="Перечень анализов и обследований перед госпитализацией">
                 <li class="analizy-list__item info-card">Общий клинический анализ крови с СОЭ и лейкоцитарной формулой (14 дней с момента выполнения).</li>
                 <li class="analizy-list__item info-card">Биохимический анализ крови: общий белок, общий билирубин, АЛТ, АСТ, калий, натрий, глюкоза, холестерин, ЛПНП, триглицериды, креатинин, мочевина (14 дней с момента выполнения).</li>
@@ -30,16 +29,16 @@ require __DIR__ . '/includes/page-start.php';
                 <li class="analizy-list__item info-card">Флюорография или рентгенография органов грудной клетки, или КТ ОГК (12 месяцев с момента выполнения). </li>
                 <li class="analizy-list__item info-card">ЭХО-КГ (12 месяцев с момента выполнения).</li>
                 <li class="analizy-list__item info-card">Заключение терапевта о допуске к госпитализации (14 дней).</li>
-                <li class="analizy-list__item info-card">ЭГДС* (45 дней с момента выполнения).</li>
-                <li class="analizy-list__item info-card">Холтеровское мониторирование ЭКГ или нагрузочный тест* (без срока годности).</li>
-                <li class="analizy-list__item info-card">Заключение аллерголога* (при наличии аллергических реакций на йод, новокаин или лидокаин) (14 дней).</li>
+                <li class="analizy-list__item info-card">ЭГДС<span class="analizy-asterisk">*</span> (45 дней с момента выполнения).</li>
+                <li class="analizy-list__item info-card">Холтеровское мониторирование ЭКГ или нагрузочный тест<span class="analizy-asterisk">*</span> (без срока годности).</li>
+                <li class="analizy-list__item info-card">Заключение аллерголога<span class="analizy-asterisk">*</span> (при наличии аллергических реакций на йод, новокаин или лидокаин) (14 дней).</li>
             </ol>
         </section>
 
         <section class="analizy-section" aria-labelledby="analizy-notes-title">
             <h2 class="section__title section__title--left analizy-section__title" id="analizy-notes-title">Важные примечания</h2>
             <div class="analizy-notes info-card">
-                <p>* — назначаются индивидуально после консультации.</p>
+                <p><span class="analizy-asterisk">*</span> — назначаются индивидуально после консультации.</p>
                 <p>Перечень обследований может быть изменен в соответствии с клинической необходимостью по результатам консультации.</p>
                 <p>Все анализы необходимо предоставить в оригинальном виде с печатью медицинского учреждения или подписанные ЭЦП!</p>
                 <p>Перед госпитализацией Вас попросят прислать скан или фотографию всех обследований на контактный номер <a href="tel:+79166930333">+7 (916) 693-03-33</a>.</p>

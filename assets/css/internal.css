@@ -951,6 +951,10 @@
     text-decoration-color: rgba(24, 198, 198, 0.7);
 }
 
+.analizy-page .analizy-asterisk {
+    color: #d52b1e;
+}
+
 .analizy-comments {
     display: grid;
     gap: 12px;
