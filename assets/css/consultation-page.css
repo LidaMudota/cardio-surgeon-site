@@ -25,10 +25,30 @@
     gap: 12px;
 }
 
+.consultation-page__options-list + .consultation-page__details-block {
+    margin-top: clamp(24px, 3.1vw, 34px);
+}
+
 .consultation-page__options-item {
     font-size: clamp(19px, 2vw, 24px);
     line-height: 1.55;
     color: var(--color-text-main);
+}
+
+.consultation-page__details-block {
+    max-width: 62ch;
+}
+
+.consultation-page__details-divider {
+    width: clamp(132px, 26%, 188px);
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        rgba(126, 217, 220, 0.5) 0%,
+        rgba(126, 217, 220, 0.26) 42%,
+        rgba(255, 255, 255, 0.08) 100%
+    );
+    margin-bottom: clamp(16px, 2.1vw, 24px);
 }
 
 .consultation-page__photo-panel {
@@ -68,8 +88,13 @@
 
 .consultation-page__details-text {
     margin: 0;
-    font-size: clamp(17px, 1.75vw, 21px);
-    line-height: 1.68;
+    font-size: clamp(16px, 1.48vw, 19px);
+    line-height: 1.72;
+    color: var(--color-text-muted);
+}
+
+.consultation-page__details-text + .consultation-page__details-text {
+    margin-top: 10px;
 }
 
 .consultation-page__details-text a {

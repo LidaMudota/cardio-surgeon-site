@@ -20,8 +20,11 @@ require __DIR__ . '/includes/page-start.php';
                     <li class="consultation-page__options-item">Очная.</li>
                     <li class="consultation-page__options-item">Телемедицинская.</li>
                 </ol>
-                <p class="consultation-page__details-text">Консультации проводятся в клинике АО «Медицина» по адресу: 125047, г. Москва, 2-й Тверской-Ямской пер., 10.</p>
-                <p class="consultation-page__details-text">Необходима предварительная запись по телефону: <a href="tel:+79166930333">+7 (916) 693-03-33</a>.</p>
+                <div class="consultation-page__details-block" aria-label="Адрес и запись на консультацию">
+                    <div class="consultation-page__details-divider" aria-hidden="true"></div>
+                    <p class="consultation-page__details-text">Консультации проводятся в клинике АО «Медицина» по адресу: 125047, г. Москва, 2-й Тверской-Ямской пер., 10.</p>
+                    <p class="consultation-page__details-text">Необходима предварительная запись по телефону: <a href="tel:+79166930333">+7 (916) 693-03-33</a>.</p>
+                </div>
             </article>
 
             <aside class="consultation-page__photo-panel" aria-label="Фото врача">
