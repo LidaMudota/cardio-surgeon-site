@@ -24,8 +24,9 @@ require __DIR__ . '/includes/page-start.php';
 
             <aside class="consultation-page__photo-panel" aria-label="Фото врача">
                 <div class="consultation-page__photo-shell">
-                    <!-- Вставьте фото врача в тег <img> внутри этого контейнера -->
-                    <div class="consultation-page__photo-placeholder" role="img" aria-label="Место для фото врача"></div>
+                    <div class="consultation-page__photo-placeholder">
+                        <img src="assets/img/content/about-doctor0.jpg" alt="Сердечно-сосудистый хирург Александр Олегович Коробков">
+                    </div>
                 </div>
             </aside>
         </div>
