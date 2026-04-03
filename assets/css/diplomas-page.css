@@ -1,0 +1,173 @@
+.diplomas-page {
+    padding-top: 54px;
+    padding-bottom: 84px;
+}
+
+.diplomas-page__layout {
+    display: grid;
+    gap: 56px;
+}
+
+.diplomas-page__section-head {
+    margin-bottom: 20px;
+}
+
+.diplomas-page__section-note {
+    margin: 12px 0 0;
+    max-width: 76ch;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+}
+
+.diplomas-page__featured {
+    padding: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    background: linear-gradient(160deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+    box-shadow: 0 20px 46px rgba(0, 0, 0, 0.24);
+}
+
+.diplomas-page__featured-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.diplomas-page__archive-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.diplomas-page__card {
+    min-width: 0;
+}
+
+.diplomas-page__card-link {
+    height: 100%;
+    display: grid;
+    align-content: start;
+    text-decoration: none;
+    color: inherit;
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 18px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.02);
+    transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+}
+
+.diplomas-page__card-link:hover,
+.diplomas-page__card-link:focus-visible {
+    transform: translateY(-4px);
+    border-color: rgba(24, 198, 198, 0.45);
+    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.24);
+}
+
+.diplomas-page__card-link:focus-visible {
+    outline: 2px solid rgba(24, 198, 198, 0.55);
+    outline-offset: 2px;
+}
+
+.diplomas-page__preview {
+    margin: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+    background: rgba(0, 0, 0, 0.18);
+    padding: 12px;
+    aspect-ratio: 4 / 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.diplomas-page__preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.diplomas-page__preview--featured {
+    aspect-ratio: 16 / 11;
+    padding: 14px;
+}
+
+.diplomas-page__card-meta {
+    padding: 16px 16px 18px;
+}
+
+.diplomas-page__card-type {
+    margin: 0 0 8px;
+    font-size: 12px;
+    letter-spacing: .03em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    font-weight: 700;
+}
+
+.diplomas-page__card-title {
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.4;
+}
+
+.diplomas-page__card-period {
+    margin: 10px 0 0;
+    color: var(--color-text-muted);
+    font-size: 14px;
+}
+
+@media (max-width: 1200px) {
+    .diplomas-page__featured-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .diplomas-page__archive-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 900px) {
+    .diplomas-page {
+        padding-top: 42px;
+        padding-bottom: 72px;
+    }
+
+    .diplomas-page__layout {
+        gap: 44px;
+    }
+
+    .diplomas-page__featured {
+        padding: 22px;
+    }
+
+    .diplomas-page__archive-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .diplomas-page__card-title {
+        font-size: 17px;
+    }
+}
+
+@media (max-width: 640px) {
+    .diplomas-page__featured {
+        padding: 18px;
+    }
+
+    .diplomas-page__featured-grid,
+    .diplomas-page__archive-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .diplomas-page__preview,
+    .diplomas-page__preview--featured {
+        aspect-ratio: 7 / 5;
+    }
+
+    .diplomas-page__card-meta {
+        padding: 14px;
+    }
+
+    .diplomas-page__card-title {
+        font-size: 16px;
+    }
+}
