@@ -12,8 +12,7 @@ require __DIR__ . '/includes/page-start.php';
 ?>
 <section class="inner-section doctor-page doctor-page--tone-soft analizy-page">
     <div class="container analizy-page__container">
-        <article class="analizy-intro info-card" aria-labelledby="analizy-intro-title">
-            <h2 class="analizy-intro__title" id="analizy-intro-title">Анализы и обследования перед госпитализацией</h2>
+        <article class="analizy-intro info-card">
             <p class="analizy-intro__text">Перед госпитализацией Вас попросят прислать скан или фотографию всех обследований на контактный номер +7 (916) 693-03-33.</p>
         </article>
 

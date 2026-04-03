@@ -707,7 +707,7 @@ require __DIR__ . '/includes/header.php';
 require __DIR__ . '/includes/page-start.php';
 ?>
 
-    <section class="inner-section reviews-page__intro">
+    <section class="inner-section reviews-page__intro" data-no-scroll-motion>
         <div class="container">
             <article class="reviews-page__intro-card" aria-label="О странице отзывов">
                 <p class="reviews-page__intro-lead">Здесь представлены отзывы пациентов о консультации, лечении и коммуникации с врачом. Для прозрачности каждый отзыв можно проверить на внешней площадке.</p>
@@ -716,7 +716,7 @@ require __DIR__ . '/includes/page-start.php';
         </div>
     </section>
 
-    <section class="inner-section reviews-page__summary" id="reviews-summary">
+    <section class="inner-section reviews-page__summary" id="reviews-summary" data-no-scroll-motion>
         <div class="container">
             <div class="reviews-page__summary-grid">
                 <article class="reviews-page__summary-main" aria-label="Общая оценка отзывов">
@@ -761,7 +761,7 @@ require __DIR__ . '/includes/page-start.php';
         </div>
     </section>
 
-    <section class="inner-section reviews-page__featured" id="featured-reviews">
+    <section class="inner-section reviews-page__featured" id="featured-reviews" data-no-scroll-motion>
         <div class="container">
             <h2 class="section__title section__title--left">Избранные отзывы</h2>
             <div class="reviews-page__featured-grid">
