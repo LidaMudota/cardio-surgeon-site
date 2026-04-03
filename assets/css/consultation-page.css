@@ -140,26 +140,64 @@
     color: var(--color-text-muted);
 }
 
-@media (max-width: 1024px) {
+@media (min-width: 768px) and (max-width: 1024px) {
+    .consultation-page__section {
+        padding-top: 44px;
+        padding-bottom: 44px;
+    }
+
     .consultation-page__overview-grid {
         grid-template-columns: 1fr;
+        gap: 20px;
+        align-items: start;
+    }
+
+    .consultation-page__overview-content,
+    .consultation-page__prep-item {
+        padding: 24px;
+    }
+
+    .consultation-page__details-block {
+        max-width: 68ch;
+    }
+
+    .consultation-page__photo-panel {
+        justify-content: center;
     }
 
     .consultation-page__photo-shell {
-        max-width: 640px;
+        max-width: 620px;
+        padding: 16px;
+    }
+
+    .consultation-page__photo-placeholder {
+        min-height: 0;
+    }
+
+    .consultation-page__photo-placeholder img {
+        aspect-ratio: 4 / 4;
+        object-fit: cover;
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .consultation-page__section {
         padding-top: clamp(36px, 7vw, 56px);
         padding-bottom: clamp(36px, 7vw, 56px);
+    }
+
+    .consultation-page__overview-grid {
+        grid-template-columns: 1fr;
     }
 
     .consultation-page__overview-content,
     .consultation-page__details-card,
     .consultation-page__prep-item {
         padding: 20px;
+    }
+
+    .consultation-page__photo-shell {
+        max-width: 640px;
     }
 
     .consultation-page__photo-placeholder {
