@@ -61,11 +61,17 @@
 .doctor-intro__visual { border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--color-card-border); background: var(--color-card); min-height: 100%; }
 .doctor-intro__image { width: 100%; height: 100%; min-height: 440px; object-fit: cover; }
 .doctor-intro__content { padding: 28px; display: flex; flex-direction: column; gap: 16px; }
+.doctor-intro__story { justify-content: center; gap: 0; }
+.doctor-intro__story p { margin: 0; color: var(--color-text-muted); line-height: 1.72; max-width: 66ch; }
+.doctor-intro__story p + p { margin-top: 16px; }
 .doctor-intro__label { margin: 0; color: var(--color-accent); font-weight: 700; letter-spacing: .02em; text-transform: uppercase; font-size: 12px; }
 .doctor-intro__name { margin: 0; font-size: clamp(32px, 4.8vw, 52px); line-height: 1.06; }
 .doctor-intro__lead { margin: 0; color: var(--color-text-muted); max-width: 62ch; }
 .doctor-facts { margin: 4px 0 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
 .doctor-facts__item { border: 1px solid rgba(24, 198, 198, 0.24); background: rgba(24, 198, 198, 0.08); border-radius: 12px; padding: 10px 12px; color: var(--color-text); font-size: 14px; }
+.doctor-profile { border-top: 1px solid rgba(255, 255, 255, 0.06); }
+.doctor-profile__card { max-width: 980px; display: grid; gap: 16px; }
+.doctor-profile__name { margin: 0; font-size: clamp(30px, 4.2vw, 44px); line-height: 1.1; }
 
 .doctor-text { max-width: 920px; }
 .doctor-text p { margin: 0; color: var(--color-text-muted); line-height: 1.75; }
@@ -299,7 +305,8 @@
     .inner-hero__subtitle,
     .info-card p,
     .info-card li,
-    .doctor-text p {
+    .doctor-text p,
+    .doctor-intro__story p {
         font-size: 16px;
         line-height: 1.65;
     }
@@ -344,7 +351,8 @@
     .info-card p,
     .info-card li,
     .doctor-text p,
-    .doctor-timeline__item p {
+    .doctor-timeline__item p,
+    .doctor-intro__story p {
         font-size: 15px;
         line-height: 1.6;
     }
@@ -429,6 +437,7 @@
     .info-card li,
     .doctor-text p,
     .doctor-timeline__item p,
+    .doctor-intro__story p,
     .medical-note {
         font-size: 14px;
     }
