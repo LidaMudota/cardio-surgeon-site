@@ -249,14 +249,20 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const initRevealAnimations = () => {
-        const pageRoot = document.querySelector('.site-shell > main') || document.querySelector('.site-shell > .inner-page') || document.body;
-        const firstTwoSections = Array.from(pageRoot.querySelectorAll('section')).slice(0, 2);
-        const firstTwoSectionSet = new Set(firstTwoSections);
-        const isInFirstTwoSections = (node) => {
+        const pageRoot = document.querySelector('.site-shell > main') || document.querySelector('main.inner-page') || document.querySelector('main') || document.body;
+        const topLevelSections = Array.from(pageRoot.children).filter((node) => node.matches('section'));
+        const firstThreeSections = topLevelSections.slice(0, 3);
+        const firstThreeSectionSet = new Set(firstThreeSections);
+
+        firstThreeSections.forEach((section) => {
+            section.setAttribute('data-no-scroll-motion', '');
+        });
+
+        const isInFirstThreeSections = (node) => {
             const section = node?.closest('section');
-            return Boolean(section && firstTwoSectionSet.has(section));
+            return Boolean(section && firstThreeSectionSet.has(section));
         };
-        const isMotionExcluded = (node) => Boolean(node?.closest('[data-no-scroll-motion]')) || isInFirstTwoSections(node);
+        const isMotionExcluded = (node) => Boolean(node?.closest('[data-no-scroll-motion]')) || isInFirstThreeSections(node);
         const revealRoots = [
             '.hero__content',
             '.section__head',
@@ -310,8 +316,8 @@ document.addEventListener('DOMContentLoaded', () => {
             element.classList.add(mode === 0 ? 'motion-reveal--up' : mode === 1 ? 'motion-reveal--left' : 'motion-reveal--right');
         });
 
-        if (firstTwoSections.length) {
-            firstTwoSections.forEach((section) => {
+        if (firstThreeSections.length) {
+            firstThreeSections.forEach((section) => {
                 section.querySelectorAll('.motion-reveal').forEach((element) => {
                     element.classList.add('is-revealed');
                 });
