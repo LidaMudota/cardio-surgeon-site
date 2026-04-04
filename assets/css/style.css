@@ -1097,14 +1097,26 @@ button {
 .footer__inner {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-items: start;
     gap: 24px;
-    padding: 0 0 22px;
+    padding: 0 0 16px;
+}
+
+.footer__column {
+    display: grid;
+    align-content: start;
+    padding-top: 25px;
+    gap: 10px;
+}
+
+.footer__column .footer__link:last-child {
+    margin-bottom: 0;
 }
 
 .footer__cta {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     gap: 20px;
 }
 
