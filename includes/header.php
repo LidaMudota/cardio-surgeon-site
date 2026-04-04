@@ -22,22 +22,22 @@
                     <div class="header__socials">
                         <a
                             class="header__icon-link"
-                            href="https://t.me/your_username"
+                            href="https://max.ru/u/f9LHodD0cOLWF6kfyPzTNz7iR2jJ-pAWTKwQgZP74NvgrrP-LNTwd7H9_Kw"
                             target="_blank"
                             rel="noopener noreferrer"
-                            aria-label="Telegram"
-                            title="Telegram"
+                            aria-label="max"
+                            title="max"
                         >
                             <img src="assets/img/icons/max.svg" alt="max" class="header__icon-image">
                         </a>
 
                         <a
                             class="header__icon-link"
-                            href="https://wa.me/79990000000"
+                            href="https://t.me/korobkovdr"
                             target="_blank"
                             rel="noopener noreferrer"
-                            aria-label="WhatsApp"
-                            title="WhatsApp"
+                            aria-label="telegram"
+                            title="telegram"
                         >
                             <img src="assets/img/icons/telegram.svg" alt="telegram" class="header__icon-image">
                         </a>

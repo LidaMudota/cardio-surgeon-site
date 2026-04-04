@@ -22,24 +22,28 @@
             <div class="header__socials">
                 <a
                     class="header__icon-link"
-                    href="https://wa.me/79990000000"
+                    href="https://t.me/korobkovdr"
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label="WhatsApp"
-                    title="WhatsApp"
+                    aria-label="telegram"
+                    title="telegram"
                 >
                     <img src="assets/img/icons/telega.svg" alt="telegram" class="header__icon-image">
                 </a>
                 <a
                     class="header__icon-link"
-                    href="https://t.me/your_username"
+                    href="https://max.ru/u/f9LHodD0cOLWF6kfyPzTNz7iR2jJ-pAWTKwQgZP74NvgrrP-LNTwd7H9_Kw"
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label="Telegram"
-                    title="Telegram"
+                    aria-label="max"
+                    title="max"
                 >
                     <img src="assets/img/icons/maxim.svg" alt="max" class="header__icon-image">
                 </a>
+            </div>
+            <div class="footer__contacts" aria-label="Контактные данные">
+                <a class="footer__contact footer__contact--phone" href="tel:+79166930333">+7 (916) 693-03-33</a>
+                <a class="footer__contact footer__contact--mail" href="mailto:aokorobkov@yandex.ru">aokorobkov@yandex.ru</a>
             </div>
             <a class="button button--accent button--small" href="index.php#consultation">Записаться</a>
         </div>
@@ -90,8 +94,10 @@
 
             <section class="footer__tablet-block footer__tablet-contacts" aria-labelledby="footer-tablet-contacts">
                 <h2 class="footer__tablet-title" id="footer-tablet-contacts">Контакты</h2>
-                <a class="footer__link" href="tel:+70000000000">+7 (000) 000-00-00</a>
-                <a class="footer__link" href="mailto:info@example.com">info@example.com</a>
+                <div class="footer__contacts footer__contacts--tablet" aria-label="Контактные данные">
+                    <a class="footer__contact footer__contact--phone" href="tel:+79166930333">+7 (916) 693-03-33</a>
+                    <a class="footer__contact footer__contact--mail" href="mailto:aokorobkov@yandex.ru">aokorobkov@yandex.ru</a>
+                </div>
                 <p class="footer__tablet-address">г. Москва, ул. Примерная, д. 1</p>
                 <a class="button button--accent button--small footer__tablet-cta" href="index.php#consultation">Записаться</a>
             </section>
