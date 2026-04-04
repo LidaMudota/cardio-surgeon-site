@@ -44,6 +44,7 @@
             <div class="footer__contacts" aria-label="Контактные данные">
                 <a class="footer__contact footer__contact--phone" href="tel:+79166930333">+7 (916) 693-03-33</a>
                 <a class="footer__contact footer__contact--mail" href="mailto:aokorobkov@yandex.ru">aokorobkov@yandex.ru</a>
+                <p class="footer__contact footer__contact--address">125047, г. Москва, 2-й Тверской-Ямской пер., 10</p>
             </div>
             <a class="button button--accent button--small" href="index.php#consultation">Записаться</a>
         </div>
@@ -97,8 +98,8 @@
                 <div class="footer__contacts footer__contacts--tablet" aria-label="Контактные данные">
                     <a class="footer__contact footer__contact--phone" href="tel:+79166930333">+7 (916) 693-03-33</a>
                     <a class="footer__contact footer__contact--mail" href="mailto:aokorobkov@yandex.ru">aokorobkov@yandex.ru</a>
+                    <p class="footer__contact footer__contact--address">125047, г. Москва, 2-й Тверской-Ямской пер., 10</p>
                 </div>
-                <p class="footer__tablet-address">г. Москва, ул. Примерная, д. 1</p>
                 <a class="button button--accent button--small footer__tablet-cta" href="index.php#consultation">Записаться</a>
             </section>
         </div>

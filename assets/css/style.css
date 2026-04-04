@@ -1134,9 +1134,23 @@ button {
     color: rgba(255, 255, 255, 0.78);
 }
 
+.footer__contact--address {
+    margin: 4px 0 0;
+    max-width: 34ch;
+    font-size: 14px;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.62);
+    text-wrap: pretty;
+}
+
 .footer__contact:hover,
 .footer__contact:focus-visible {
     color: var(--color-accent);
+}
+
+.footer__contact--address:hover,
+.footer__contact--address:focus-visible {
+    color: rgba(255, 255, 255, 0.62);
 }
 
 .footer__socials {
@@ -1694,6 +1708,10 @@ body:not(.is-page-ready) .site-shell > .inner-page {
 
     .footer .footer__contact--phone {
         font-size: 19px;
+    }
+
+    .footer .footer__contact--address {
+        max-width: 100%;
     }
 
     .footer .footer__cta .header__socials {
@@ -2260,11 +2278,8 @@ body:not(.is-page-ready) .site-shell > .inner-page {
         font-size: 14px;
     }
 
-    .footer--index .footer__tablet-address {
-        margin: 0;
-        font-size: 15px;
-        line-height: 1.5;
-        color: var(--color-text);
+    .footer--index .footer__tablet-contacts .footer__contact--address {
+        font-size: 14px;
     }
 
     .footer--index .footer__tablet-cta {
