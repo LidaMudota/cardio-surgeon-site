@@ -15,6 +15,7 @@ if (!is_file($autoloadPath)) {
 
 require_once $autoloadPath;
 require_once __DIR__ . '/../lib/Mailer.php';
+require_once __DIR__ . '/../includes/url.php';
 
 $config = require __DIR__ . '/../config/mail.php';
 
@@ -51,7 +52,7 @@ function buildRedirect(string $status): string
 
     $page = in_array($formPage, $allowedPages, true) ? $formPage : 'index.php';
 
-    return '../' . $page . '?status=' . $status;
+    return project_url($page . '?status=' . $status);
 }
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -59,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
         'success' => false,
         'message' => 'Метод не поддерживается. Используйте POST.',
         'code' => 'method_not_allowed',
-    ], '../index.php?status=invalid');
+    ], project_url('index.php?status=invalid'));
 }
 
 $csrfToken = trim((string) ($_POST['csrf_token'] ?? ''));
@@ -193,5 +194,5 @@ respond(200, [
     'success' => true,
     'message' => 'Заявка успешно отправлена. Мы свяжемся с вами в ближайшее время.',
     'code' => 'ok',
-    'redirect' => '../spasibo.php',
-], '../spasibo.php');
+    'redirect' => project_url('spasibo.php'),
+], project_url('spasibo.php'));

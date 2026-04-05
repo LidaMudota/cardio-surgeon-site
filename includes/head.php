@@ -11,6 +11,9 @@ $noindex = !empty($meta['noindex']);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <?php if (!empty($useProjectBaseTag)): ?>
+        <base href="<?= e(project_url()); ?>">
+    <?php endif; ?>
     <title><?= e($title); ?></title>
     <meta name="description" content="<?= e($description); ?>">
     <?php if ($noindex): ?>
