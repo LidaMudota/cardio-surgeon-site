@@ -11,31 +11,70 @@ require __DIR__ . '/includes/header.php';
 require __DIR__ . '/includes/page-start.php';
 ?>
 
-    <section class="inner-section doctor-page doctor-page--tone-mid specialization-page">
+    <section class="section section--tight" id="specialization">
         <div class="container">
-            <h2 class="section__title section__title--left">Основные направления</h2>
-            <div class="doctor-specialties" aria-label="Основные направления эндоваскулярной хирургии">
-                <article class="info-card doctor-specialty">
-                    <h3>Коронарное стентирование</h3>
-                    <p>с применением ВСУЗИ</p>
+            <div class="section__head">
+            </div>
+
+            <div class="spec-grid">
+                <article class="spec-card spec-card--heart">
+                    <div class="spec-card__icon" aria-hidden="true">
+                        <img src="assets/img/icons/spec-vascular.svg" alt="">
+                    </div>
+                    <div class="spec-card__content">
+                        <h3 class="spec-card__title">КОРОНАРНОЕ СТЕНТИРОВАНИЕ</h3>
+                        <p class="spec-card__text">с применением ВСУЗИ</p>
+                    </div>
                 </article>
-                <article class="info-card doctor-specialty">
-                    <h3>Стентирование сонных артерий</h3>
+
+                <article class="spec-card">
+                    <div class="spec-card__icon" aria-hidden="true">
+                        <img src="assets/img/icons/sonnayaArteriya0.png" alt="">
+                    </div>
+                    <div class="spec-card__content">
+                        <h3 class="spec-card__title">СТЕНТИРОВАНИЕ СОННЫХ АРТЕРИЙ</h3>
+                        <p class="spec-card__text">стентирование для профилактики инсульта</p>
+                    </div>
                 </article>
-                <article class="info-card doctor-specialty">
-                    <h3>Баллонная ангиопластика и стентирование артерий нижних конечностей</h3>
-                    <p>с применением ротационной атерэктомии и ВСУЗИ</p>
+
+                <article class="spec-card">
+                    <div class="spec-card__icon" aria-hidden="true">
+                        <img src="assets/img/icons/nijnieKonechnosti3.png" alt="">
+                    </div>
+                    <div class="spec-card__content">
+                        <h3 class="spec-card__title">АРТЕРИИ НИЖНИХ КОНЕЧНОСТЕЙ</h3>
+                        <p class="spec-card__text">ангиопластика баллонами с лекарственным покрытием, стентирование с применением ротационной атерэктомии и ВСУЗИ</p>
+                    </div>
                 </article>
-                <article class="info-card doctor-specialty">
-                    <h3>Стентирование глубоких вен</h3>
-                    <p>посттромботический синдром, синдром Мэй-Тернера, щелкунчика</p>
+
+                <article class="spec-card">
+                    <div class="spec-card__icon" aria-hidden="true">
+                        <img src="assets/img/icons/stentirovanieVen0.png" alt="">
+                    </div>
+                    <div class="spec-card__content">
+                        <h3 class="spec-card__title">ВЕНОЗНОЕ СТЕНТИРОВАНИЕ</h3>
+                        <p class="spec-card__text">лечение синдрома Мэй-Тернера, щелкунчика и посттромботического синдрома</p>
+                    </div>
                 </article>
-                <article class="info-card doctor-specialty">
-                    <h3>Эмболизация маточных артерий</h3>
+
+                <article class="spec-card">
+                    <div class="spec-card__icon" aria-hidden="true">
+                        <img src="assets/img/icons/spec-uterine-embolization.png" alt="">
+                    </div>
+                    <div class="spec-card__content">
+                        <h3 class="spec-card__title">ЭМБОЛИЗАЦИЯ МАТОЧНЫХ АРТЕРИЙ</h3>
+                        <p class="spec-card__text">эндоваскулярное лечение миомы матки</p>
+                    </div>
                 </article>
-                <article class="info-card doctor-specialty">
-                    <h3>Эмболизация вен</h3>
-                    <p>при варикоцеле и эректильной дисфункции</p>
+
+                <article class="spec-card">
+                    <div class="spec-card__icon" aria-hidden="true">
+                        <img src="assets/img/icons/spec-varicocele-embolization0.png" alt="">
+                    </div>
+                    <div class="spec-card__content">
+                        <h3 class="spec-card__title">ЭМБОЛИЗАЦИЯ ВЕН ПРИ ВАРИКОЦЕЛЕ И ЭРЕКТИЛЬНОЙ ДИСФУНКЦИИ</h3>
+                        <p class="spec-card__text">малоинвазивное эндоваскулярное лечение венозных нарушений</p>
+                    </div>
                 </article>
             </div>
         </div>
