@@ -1,42 +1,44 @@
-<section class="section section--consultation" id="consultation-form">
+<?php
+$formPage = basename($_SERVER['PHP_SELF'] ?? 'index.php');
+?>
+<section class="section section--consultation" id="consultation">
     <div class="container">
         <div class="consultation">
             <div class="consultation__header">
-                <h2 class="consultation__title"><?= e($formTitle ?? 'Запись на консультацию'); ?></h2>
-                <p class="consultation__subtitle"><?= e($formSubtitle ?? 'Оставьте заявку, и мы свяжемся с вами в ближайшее время.'); ?></p>
+                <h2 class="consultation__title">Записаться на консультацию</h2>
+                <p class="consultation__subtitle">Оставьте заявку, и мы свяжемся с вами в ближайшее время.</p>
             </div>
 
             <?php if ($successMessage): ?>
-                <div class="alert alert--success" role="status"><?= e($successMessage); ?></div>
+                <div class="alert alert--success" role="status"><?= htmlspecialchars($successMessage, ENT_QUOTES, 'UTF-8'); ?></div>
             <?php endif; ?>
 
             <?php if ($errorMessage): ?>
-                <div class="alert alert--error" role="alert"><?= e($errorMessage); ?></div>
+                <div class="alert alert--error" role="alert"><?= htmlspecialchars($errorMessage, ENT_QUOTES, 'UTF-8'); ?></div>
             <?php endif; ?>
 
             <form class="consultation__form" action="forms/send.php" method="post" novalidate data-consultation-form>
-                <input type="hidden" name="csrf_token" value="<?= e($_SESSION['csrf_token']); ?>">
+                <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token'], ENT_QUOTES, 'UTF-8'); ?>">
                 <input type="hidden" name="form_started_at" value="<?= time(); ?>">
-                <input type="hidden" name="form_page" value="<?= e($currentPath); ?>">
-
+                <input type="hidden" name="form_page" value="<?= htmlspecialchars($formPage, ENT_QUOTES, 'UTF-8'); ?>">
                 <div class="form-field form-field--honeypot" aria-hidden="true">
-                    <label for="website-<?= e($currentPath); ?>">Оставьте это поле пустым</label>
-                    <input type="text" name="website" id="website-<?= e($currentPath); ?>" tabindex="-1" autocomplete="off">
+                    <label for="website">Оставьте это поле пустым</label>
+                    <input type="text" name="website" id="website" tabindex="-1" autocomplete="off">
                 </div>
 
                 <div class="form-field">
-                    <label class="visually-hidden" for="name-<?= e($currentPath); ?>">Ваше имя</label>
-                    <input class="input" type="text" id="name-<?= e($currentPath); ?>" name="name" placeholder="Ваше имя" required>
+                    <label class="visually-hidden" for="name">Ваше имя</label>
+                    <input class="input" type="text" id="name" name="name" placeholder="Ваше имя" required>
                 </div>
 
                 <div class="form-field">
-                    <label class="visually-hidden" for="phone-<?= e($currentPath); ?>">Номер телефона</label>
-                    <input class="input" type="tel" id="phone-<?= e($currentPath); ?>" name="phone" placeholder="Номер телефона" required data-phone-input>
+                    <label class="visually-hidden" for="phone">Номер телефона</label>
+                    <input class="input" type="tel" id="phone" name="phone" placeholder="Номер телефона" required data-phone-input>
                 </div>
 
                 <div class="form-field">
-                    <label class="visually-hidden" for="message-<?= e($currentPath); ?>">Комментарий</label>
-                    <textarea class="input input--textarea" id="message-<?= e($currentPath); ?>" name="message" placeholder="Комментарий / тема обращения"></textarea>
+                    <label class="visually-hidden" for="message">Комментарий</label>
+                    <textarea class="input input--textarea" id="message" name="message" placeholder="Комментарий / тема обращения"></textarea>
                 </div>
 
                 <div class="form-field form-field--submit">
@@ -46,10 +48,9 @@
                 <label class="checkbox">
                     <input class="checkbox__input" type="checkbox" name="agreement" value="1" required>
                     <span class="checkbox__box"></span>
-                    <span class="checkbox__text">Я согласен(а) на обработку персональных данных и принимаю <a href="politika-konfidentsialnosti.php">политику конфиденциальности</a> и <a href="soglasie-na-obrabotku-personalnykh-dannykh.php">согласие на обработку персональных данных</a>.</span>
+                    <span class="checkbox__text">Я согласен(а) на обработку персональных данных. <a href="politika-konfidentsialnosti.php">Политикой конфиденциальности</a> и <a href="soglasie-na-obrabotku-personalnykh-dannykh.php">согласием на обработку персональных данных</a></span>
                 </label>
             </form>
-            <p class="medical-note">Медицинская информация на сайте не заменяет очный приём. <!-- TODO: Вставить реальные тексты от клиента --></p>
         </div>
     </div>
 </section>

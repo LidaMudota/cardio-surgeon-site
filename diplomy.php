@@ -166,5 +166,7 @@ require __DIR__ . '/includes/page-start.php';
     </div>
 </section>
 
+<?php require __DIR__ . '/includes/form-block.php'; ?>
+
 </main>
 <?php require __DIR__ . '/includes/footer.php'; ?>
