@@ -143,10 +143,17 @@ require __DIR__ . '/includes/page-start.php';
     <section class="inner-section doctor-page doctor-page--tone-soft">
         <div class="container">
             <h2 class="section__title section__title--left">Дипломы и сертификаты</h2>
-            <div class="doctor-docs-placeholder info-card">
-                <p class="doctor-docs-placeholder__title">Раздел готов к публикации документов</p>
-                <p>Фотографии дипломов и сертификатов будут добавлены в эту секцию после передачи материалов.</p>
-            </div>
+            <article class="doctor-docs-cta" aria-label="Переход к странице дипломов и сертификатов">
+                <div class="doctor-docs-cta__content">
+                    <p class="doctor-docs-cta__eyebrow">Проверяемая профессиональная база</p>
+                    <p class="doctor-docs-cta__title">Все дипломы и сертификаты врача собраны на отдельной странице в удобном формате для просмотра.</p>
+                    <p class="doctor-docs-cta__support">Документы подтверждают профильную подготовку, повышение квалификации и допуски к клинической практике.</p>
+                    <p class="doctor-docs-cta__support">Откройте раздел, чтобы ознакомиться с материалами полностью.</p>
+                </div>
+                <div class="doctor-docs-cta__action">
+                    <a href="diplomy.php" class="button doctor-docs-cta__button">Смотреть дипломы</a>
+                </div>
+            </article>
         </div>
     </section>
 
