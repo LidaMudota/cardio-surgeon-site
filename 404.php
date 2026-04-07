@@ -1,7 +1,7 @@
 <?php
 http_response_code(404);
 require __DIR__ . '/includes/init.php';
-$meta = ['title' => '404 — страница не найдена', 'description' => 'Запрашиваемая страница не найдена.'];
+$meta = ['title' => '404 — страница не найдена', 'description' => 'Запрашиваемая страница не найдена.', 'noindex' => true];
 $pageTitle = 'Страница не найдена';
 $pageSubtitle = 'Проверьте адрес страницы или воспользуйтесь навигацией.';
 $useProjectBaseTag = true;
