@@ -1,67 +1,12 @@
 <?php
-session_start();
-
-if (empty($_SESSION['csrf_token'])) {
-    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
-}
-
-$status = $_GET['status'] ?? null;
-$successMessage = null;
-$errorMessage = null;
-
-switch ($status) {
-    case 'success':
-        $successMessage = 'Заявка успешно отправлена. Мы свяжемся с вами в ближайшее время.';
-        break;
-    case 'invalid':
-        $errorMessage = 'Проверьте корректность заполнения обязательных полей.';
-        break;
-    case 'csrf':
-        $errorMessage = 'Сессия формы истекла. Обновите страницу и отправьте форму повторно.';
-        break;
-    case 'spam':
-        $errorMessage = 'Форма отклонена системой защиты от спама.';
-        break;
-    case 'rate':
-        $errorMessage = 'Слишком частая отправка формы. Подождите немного и попробуйте снова.';
-        break;
-    case 'config':
-        $errorMessage = 'Email для получения заявок еще не настроен. Укажите его в config/mail.php.';
-        break;
-    case 'error':
-        $errorMessage = 'Не удалось отправить заявку. Попробуйте позже.';
-        break;
-    default:
-        break;
-}
+require __DIR__ . '/includes/init.php';
+$meta = [
+    'title' => 'Коробков Александр Олегович — врач эндоваскулярный хирург',
+    'description' => 'Официальный сайт врача эндоваскулярного хирурга Коробкова Александра Олеговича: консультации, направления лечения, памятки пациентам и контакты для записи.',
+];
+require __DIR__ . '/includes/head.php';
+require __DIR__ . '/includes/header.php';
 ?>
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Эндоваскулярный хирург — главная страница</title>
-    <meta name="description" content="Главная страница сайта врача-эндоваскулярного хирурга. Запись на консультацию, направления помощи, информация о специалисте и результаты практики.">
-    <meta property="og:type" content="website">
-    <meta property="og:locale" content="ru_RU">
-    <meta property="og:title" content="Эндоваскулярный хирург — главная страница">
-    <meta property="og:description" content="Главная страница сайта врача-эндоваскулярного хирурга. Запись на консультацию, направления помощи, информация о специалисте и результаты практики.">
-    <meta property="og:url" content="https://example.com/index.php">
-    <meta property="og:image" content="https://example.com/assets/img/content/hero-doctor.png">
-    <link rel="canonical" href="https://example.com/index.php">
-    <link rel="icon" type="image/svg+xml" href="assets/img/icons/spec-heart-transplant.svg">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/internal.css">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Physician","name":"Эндоваскулярный хирург","url":"https://example.com/index.php","medicalSpecialty":"Cardiovascular"}</script>
-</head>
-<body>
-    <div class="site-shell">
-        <?php require __DIR__ . '/includes/header.php'; ?>
 
 
         <main>

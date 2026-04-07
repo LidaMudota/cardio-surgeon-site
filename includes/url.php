@@ -8,14 +8,13 @@ function project_base_path(): string
         return $basePath;
     }
 
-    $configured = getenv('APP_BASE_PATH');
-    if (is_string($configured) && $configured !== '') {
-        $trimmedConfigured = trim($configured);
-        if ($trimmedConfigured === '/' || $trimmedConfigured === '') {
-            return $basePath = '';
-        }
+    $configured = trim((string) getenv('APP_BASE_PATH'));
+    if ($configured !== '') {
+        $parsed = parse_url($configured, PHP_URL_PATH);
+        $configuredPath = is_string($parsed) && $parsed !== '' ? $parsed : $configured;
+        $normalized = trim($configuredPath, '/');
 
-        return $basePath = '/' . trim($trimmedConfigured, '/');
+        return $basePath = $normalized === '' ? '' : '/' . $normalized;
     }
 
     $documentRoot = realpath((string) ($_SERVER['DOCUMENT_ROOT'] ?? ''));

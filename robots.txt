@@ -1,6 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /forms/
-Disallow: /config/
 
-Sitemap: https://example.com/sitemap.xml
+Sitemap: https://aokorobkov.ru/sitemap.xml

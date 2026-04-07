@@ -1,7 +1,11 @@
 <?php
 session_start();
 
+require_once __DIR__ . '/env.php';
 require_once __DIR__ . '/url.php';
+require_once __DIR__ . '/seo.php';
+
+enforce_canonical_host_if_needed();
 
 if (empty($_SESSION['csrf_token'])) {
     $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
@@ -39,7 +43,3 @@ switch ($status) {
         $errorMessage = 'Не удалось отправить заявку. Попробуйте позже.';
         break;
 }
-
-$siteUrl = 'https://example.com'; // TODO: Заменить на реальный домен сайта
-$currentPath = basename($_SERVER['PHP_SELF'] ?? 'index.php');
-$canonical = $siteUrl . '/' . $currentPath;

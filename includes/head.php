@@ -1,9 +1,15 @@
 <?php
-$title = $meta['title'] ?? 'Сайт врача';
-$description = $meta['description'] ?? 'Официальный сайт врача.';
-$ogTitle = $meta['og_title'] ?? $title;
-$ogDescription = $meta['og_description'] ?? $description;
+$meta = resolve_seo_meta($meta ?? []);
+$title = $meta['title'];
+$description = $meta['description'];
+$ogTitle = $meta['og_title'];
+$ogDescription = $meta['og_description'];
+$canonical = $meta['canonical'];
 $noindex = !empty($meta['noindex']);
+$ogImage = $meta['og_image'];
+$ogType = $meta['og_type'];
+$twitterCard = $meta['twitter_card'];
+$schemas = $meta['schema'] ?? [];
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -20,13 +26,18 @@ $noindex = !empty($meta['noindex']);
         <meta name="robots" content="noindex, nofollow">
     <?php endif; ?>
     <link rel="canonical" href="<?= e($canonical); ?>">
-    <meta property="og:type" content="website">
+    <meta property="og:type" content="<?= e($ogType); ?>">
     <meta property="og:locale" content="ru_RU">
     <meta property="og:title" content="<?= e($ogTitle); ?>">
     <meta property="og:description" content="<?= e($ogDescription); ?>">
     <meta property="og:url" content="<?= e($canonical); ?>">
-    <meta property="og:image" content="<?= e($siteUrl); ?>/assets/img/content/hero-doctor.svg">
+    <meta property="og:image" content="<?= e($ogImage); ?>">
+    <meta name="twitter:card" content="<?= e($twitterCard); ?>">
+    <meta name="twitter:title" content="<?= e($ogTitle); ?>">
+    <meta name="twitter:description" content="<?= e($ogDescription); ?>">
+    <meta name="twitter:image" content="<?= e($ogImage); ?>">
     <link rel="icon" type="image/svg+xml" href="assets/img/icons/spec-heart-transplant.svg">
+    <link rel="manifest" href="site.webmanifest">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -37,6 +48,9 @@ $noindex = !empty($meta['noindex']);
             <link rel="stylesheet" href="<?= e($stylesheet); ?>">
         <?php endforeach; ?>
     <?php endif; ?>
+    <?php foreach ($schemas as $schema): ?>
+        <script type="application/ld+json"><?= json_encode($schema, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES); ?></script>
+    <?php endforeach; ?>
 </head>
 <body>
 <div class="site-shell">
