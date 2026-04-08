@@ -1,7 +1,7 @@
 <?php
 $formPage = basename($_SERVER['PHP_SELF'] ?? 'index.php');
 ?>
-<section class="section section--consultation" id="consultation">
+<section class="section section--consultation section--consultation-request" id="consultation">
     <div class="container">
         <div class="consultation">
             <div class="consultation__header">
