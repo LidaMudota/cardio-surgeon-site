@@ -2565,7 +2565,7 @@ body:not(.is-page-ready) .site-shell > .inner-page {
 
 @media (max-width: 991px) {
     #hero.hero {
-        height: 666px;
+        height: 700px;
         min-height: auto;
         padding: 24px 0 18px;
         overflow: hidden;
@@ -2683,7 +2683,7 @@ body:not(.is-page-ready) .site-shell > .inner-page {
     }
 
     #hero .hero__image {
-        --hero-image-offset-y: -12px;
+        --hero-image-offset-y: 0px;
     }
 }
 
