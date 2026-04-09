@@ -496,6 +496,38 @@
         display: inline-flex;
         align-items: center;
     }
+
+    .thanks-page-section .thanks-urgent-card {
+        display: grid;
+        gap: 12px;
+        padding: 18px;
+        border-radius: 16px;
+        border-color: rgba(255, 255, 255, 0.14);
+    }
+
+    .thanks-page-section .thanks-urgent-card__text {
+        margin: 0;
+        max-width: 30ch;
+        font-size: 16px;
+        line-height: 1.55;
+        color: var(--color-text);
+        text-wrap: balance;
+    }
+
+    .thanks-page-section .thanks-urgent-card > p:empty {
+        display: none;
+    }
+
+    .thanks-page-section .thanks-urgent-card__button {
+        width: 100%;
+        min-height: 48px;
+        border-radius: 12px;
+        padding: 0 16px;
+    }
+
+    .thanks-page-section .thanks-urgent-card__button--secondary {
+        margin-top: 2px;
+    }
 }
 
 @media (max-width: 575px) {
@@ -563,6 +595,22 @@
     .prep-topic h3,
     .prep-subblock h3 {
         font-size: 17px;
+    }
+
+    .thanks-page-section .thanks-urgent-card {
+        gap: 10px;
+        padding: 16px;
+        border-radius: 14px;
+    }
+
+    .thanks-page-section .thanks-urgent-card__text {
+        font-size: 15px;
+        line-height: 1.53;
+        max-width: 28ch;
+    }
+
+    .thanks-page-section .thanks-urgent-card__button {
+        min-height: 46px;
     }
 }
 
