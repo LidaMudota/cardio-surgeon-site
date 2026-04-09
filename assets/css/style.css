@@ -1089,6 +1089,113 @@ button {
     line-height: 1.5;
 }
 
+@media (min-width: 1200px) {
+    .section--consultation-request .consultation {
+        padding: 40px 44px 34px;
+    }
+
+    .section--consultation-request .consultation__header {
+        margin-bottom: 22px;
+    }
+
+    .section--consultation-request .consultation__subtitle {
+        max-width: 52ch;
+        line-height: 1.45;
+    }
+
+    .section--consultation-request .consultation__form {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px 16px;
+        margin-left: auto;
+        margin-right: auto;
+        width: min(100%, 860px);
+    }
+
+    .section--consultation-request .consultation__form .form-field:nth-of-type(3) {
+        grid-column: 1 / -1;
+    }
+
+    .section--consultation-request .consultation__form .form-field--submit {
+        grid-column: 1 / -1;
+        margin-top: 2px;
+    }
+
+    .section--consultation-request .consultation__form .checkbox {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: 20px minmax(0, 1fr);
+        align-items: start;
+        column-gap: 10px;
+        row-gap: 0;
+        margin-top: 0;
+        max-width: 760px;
+    }
+
+    .section--consultation-request .input {
+        min-height: 56px;
+        padding: 0 18px;
+        border-radius: 14px;
+        border: 1px solid rgba(8, 22, 30, 0.18);
+        background: rgba(255, 255, 255, 0.98);
+        color: #071219;
+        box-shadow: 0 8px 18px rgba(8, 24, 30, 0.08);
+    }
+
+    .section--consultation-request .input:hover {
+        border-color: rgba(8, 22, 30, 0.3);
+        box-shadow: 0 10px 22px rgba(8, 24, 30, 0.11);
+    }
+
+    .section--consultation-request .input:focus {
+        border-color: rgba(6, 16, 20, 0.4);
+        box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.24), 0 12px 22px rgba(8, 24, 30, 0.12);
+    }
+
+    .section--consultation-request .input::placeholder {
+        color: #5a6671;
+    }
+
+    .section--consultation-request .input--textarea {
+        min-height: 132px;
+        padding-top: 14px;
+        padding-bottom: 14px;
+        resize: vertical;
+    }
+
+    .section--consultation-request .consultation__form .button--dark {
+        min-height: 54px;
+        border-radius: 14px;
+        letter-spacing: 0.03em;
+        box-shadow: 0 10px 22px rgba(7, 13, 18, 0.22);
+    }
+
+    .section--consultation-request .consultation__form .button--dark:hover,
+    .section--consultation-request .consultation__form .button--dark:focus-visible {
+        box-shadow: 0 12px 24px rgba(7, 13, 18, 0.26);
+    }
+
+    .section--consultation-request .checkbox__box {
+        width: 20px;
+        height: 20px;
+        margin-top: 2px;
+        border-radius: 7px;
+        border-color: rgba(8, 22, 30, 0.28);
+        background: rgba(255, 255, 255, 0.96);
+    }
+
+    .section--consultation-request .checkbox__input:checked + .checkbox__box::after {
+        top: 3px;
+        left: 6px;
+    }
+
+    .section--consultation-request .checkbox__text {
+        max-width: 72ch;
+        font-size: 13px;
+        line-height: 1.55;
+        color: rgba(6, 34, 39, 0.94);
+    }
+}
+
 .footer {
     padding: 32px 0 0;
     background-color: #000000;
