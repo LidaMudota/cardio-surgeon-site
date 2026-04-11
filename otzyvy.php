@@ -707,15 +707,6 @@ require __DIR__ . '/includes/header.php';
 require __DIR__ . '/includes/page-start.php';
 ?>
 
-    <section class="inner-section reviews-page__intro" data-no-scroll-motion>
-        <div class="container">
-            <article class="reviews-page__intro-card" aria-label="О странице отзывов">
-                <p class="reviews-page__intro-lead">Здесь представлены отзывы пациентов о консультации, лечении и коммуникации с врачом. Для прозрачности каждый отзыв можно проверить на внешней площадке.</p>
-                <p class="reviews-page__intro-meta"><?= e($reviewsPageData['summary']['updated_at']); ?></p>
-            </article>
-        </div>
-    </section>
-
     <section class="inner-section reviews-page__summary" id="reviews-summary" data-no-scroll-motion>
         <div class="container">
             <div class="reviews-page__summary-grid">
@@ -791,7 +782,7 @@ require __DIR__ . '/includes/page-start.php';
             <aside class="reviews-page__sidebar" aria-label="Сводка по отзывам">
                 <div class="reviews-page__sidebar-card">
                     <h2 class="reviews-page__sidebar-title">Сводка</h2>
-                    <p class="reviews-page__sidebar-value"><?= e($reviewsPageData['summary']['average_rating']); ?> / 5</p>
+                    <p class="reviews-page__sidebar-value"><?= e($reviewsPageData['summary']['average_rating']); ?> / 5.0</p>
                     <p class="reviews-page__sidebar-muted"><?= e($reviewsPageData['summary']['total_reviews']); ?> отзывов с внешней проверкой</p>
                 </div>
                 <div class="reviews-page__sidebar-card">
