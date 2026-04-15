@@ -5,6 +5,7 @@ $meta = [
     'description' => 'Информация о клинике, лицензии и реквизитах медицинской организации, где ведется прием.'
 ];
 $pageTitle = 'О клинике';
+$clinicHeading = 'АО «Медицина» (клиника академика Ройтберга) –';
 $pageSubtitle = 'Ваше здоровье в руках абсолютных лидеров российской медицины.';
 require __DIR__ . '/includes/head.php';
 require __DIR__ . '/includes/header.php';
@@ -21,6 +22,7 @@ require __DIR__ . '/includes/header.php';
                         <span><?= e($pageTitle); ?></span>
                     </nav>
                     <h1 class="clinic-page__title" id="clinic-page-title"><?= e($pageTitle); ?></h1>
+                    <p class="clinic-page__heading"><?= e($clinicHeading); ?></p>
                     <p class="clinic-page__lead"><?= e($pageSubtitle); ?></p>
                 </div>
             </div>
@@ -28,10 +30,10 @@ require __DIR__ . '/includes/header.php';
             <aside class="clinic-page__hero-aside" aria-label="Ключевые преимущества клиники">
                 <div class="clinic-page__hero-aside-inner">
                     <ul class="clinic-page__features">
-                        <li class="clinic-page__feature">• Аккредитация JCI: первая клиника в РФ, чья безопасность и качество услуг признаны на уровне мировых лидеров здравоохранения.</li>
-                        <li class="clinic-page__feature">• Признание лидерства: абсолютный лидер по качеству и безопасности медицинской деятельности в России.</li>
-                        <li class="clinic-page__feature">• Высшие награды: лауреат Премии Правительства РФ в области качества, призёр европейского конкурса EFQM Awards 2012, победитель фестиваля «Формула жизни-2012» в номинации «Лучшая частная клиника Москвы».</li>
-                        <li class="clinic-page__feature">• Стандартизация процессов: сертифицированы по международному стандарту ISO 9001:2015, что гарантирует эффективность системы менеджмента качества.</li>
+                        <li class="clinic-page__feature">Аккредитация JCI: Первая клиника в РФ, чья безопасность и качество услуг признаны на уровне мировых лидеров здравоохранения.</li>
+                        <li class="clinic-page__feature">Признание лидерства: Абсолютный лидер по качеству и безопасности медицинской деятельности в России.</li>
+                        <li class="clinic-page__feature">Высшие награды: Лауреат Премии Правительства РФ в области качества, призер европейского конкурса EFQM Awards 2012, победитель фестиваля «Формула жизни-2012» в номинации «Лучшая частная клиника Москвы».</li>
+                        <li class="clinic-page__feature">Стандартизация процессов: Сертифицированы по международному стандарту ISO 9001:2015, что гарантирует эффективность системы менеджмента качества.</li>
                     </ul>
                 </div>
             </aside>
@@ -40,7 +42,12 @@ require __DIR__ . '/includes/header.php';
 
     <section class="inner-section clinic-page__section clinic-page__section--secondary" aria-label="Информационный блок о клинике">
         <div class="container clinic-page__section-shell" role="presentation">
-            <p class="clinic-page__section-note">Качество • Безопасность • Лидерство</p>
+            <div class="clinic-page__details">
+                <a class="clinic-page__section-note" href="https://www.medicina.ru/" target="_blank" rel="noopener noreferrer">https://www.medicina.ru/</a>
+                <p class="clinic-page__detail">Лицензия Л041-00110-77/00363409 Срок действия: бессрочная</p>
+                <p class="clinic-page__detail">Дата создания документа: 16.03.2018</p>
+                <p class="clinic-page__detail">Документ изменён: 09.02.2026</p>
+            </div>
         </div>
     </section>
 

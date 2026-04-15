@@ -886,6 +886,14 @@
     line-height: 1.5;
 }
 
+.clinic-page__heading {
+    margin: 0 0 12px;
+    max-width: 32ch;
+    color: rgba(230, 237, 250, 0.94);
+    font-size: clamp(20px, 2.2vw, 30px);
+    line-height: 1.35;
+}
+
 .clinic-page__hero-aside {
     background:
         linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0) 22%),
@@ -929,8 +937,10 @@
 .clinic-page__section-shell {
     min-height: clamp(140px, 17vw, 220px);
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     border-top: 1px solid rgba(255, 255, 255, 0.12);
+    padding-top: 40px;
+    padding-bottom: 42px;
 }
 
 .clinic-page__section-note {
@@ -939,6 +949,26 @@
     text-transform: uppercase;
     color: rgba(230, 237, 250, 0.66);
     font-size: 13px;
+}
+
+.clinic-page__details {
+    display: grid;
+    gap: 12px;
+}
+
+.clinic-page__details .clinic-page__section-note {
+    text-transform: none;
+    letter-spacing: normal;
+    color: #f2f4f7;
+    font-size: 17px;
+    line-height: 1.55;
+}
+
+.clinic-page__detail {
+    margin: 0;
+    color: rgba(230, 237, 250, 0.85);
+    font-size: 15px;
+    line-height: 1.6;
 }
 
 @media (max-width: 1440px) {
@@ -986,6 +1016,8 @@
 
     .clinic-page__section-shell {
         min-height: 150px;
+        padding-top: 34px;
+        padding-bottom: 36px;
     }
 }
 
@@ -1013,6 +1045,11 @@
         max-width: 33ch;
     }
 
+    .clinic-page__heading {
+        font-size: clamp(19px, 3vw, 24px);
+        line-height: 1.45;
+    }
+
     .clinic-page__hero-aside-inner {
         padding: 32px 24px 36px;
     }
@@ -1025,6 +1062,8 @@
 
     .clinic-page__section-shell {
         min-height: 136px;
+        padding-top: 30px;
+        padding-bottom: 32px;
     }
 }
 
@@ -1054,6 +1093,13 @@
         line-height: 1.57;
     }
 
+    .clinic-page__heading {
+        margin-bottom: 10px;
+        max-width: 100%;
+        font-size: 18px;
+        line-height: 1.5;
+    }
+
     .clinic-page__hero-aside-inner {
         padding: 28px 16px 34px;
     }
@@ -1066,11 +1112,27 @@
 
     .clinic-page__section-shell {
         min-height: 120px;
+        padding-top: 24px;
+        padding-bottom: 26px;
     }
 
     .clinic-page__section-note {
         letter-spacing: 0.12em;
         font-size: 12px;
+    }
+
+    .clinic-page__details {
+        gap: 10px;
+    }
+
+    .clinic-page__details .clinic-page__section-note {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    .clinic-page__detail {
+        font-size: 14px;
+        line-height: 1.55;
     }
 }
 
