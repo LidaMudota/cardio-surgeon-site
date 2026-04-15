@@ -49,6 +49,42 @@ function configured_canonical_origin(): string
 
 define('APP_CANONICAL_ORIGIN', configured_canonical_origin());
 
+function canonical_host(): string
+{
+    $host = parse_url(APP_CANONICAL_ORIGIN, PHP_URL_HOST);
+    return is_string($host) ? strtolower($host) : '';
+}
+
+function request_host(): string
+{
+    $host = strtolower((string) ($_SERVER['HTTP_HOST'] ?? ''));
+    $serverName = strtolower((string) ($_SERVER['SERVER_NAME'] ?? ''));
+    $effectiveHost = $host !== '' ? $host : $serverName;
+
+    return preg_replace('/:\\d+$/', '', $effectiveHost);
+}
+
+function request_scheme(): string
+{
+    $forwardedProto = strtolower(trim((string) ($_SERVER['HTTP_X_FORWARDED_PROTO'] ?? '')));
+    if (in_array($forwardedProto, ['http', 'https'], true)) {
+        return $forwardedProto;
+    }
+
+    $https = !empty($_SERVER['HTTPS']) && strtolower((string) $_SERVER['HTTPS']) !== 'off';
+    return $https ? 'https' : 'http';
+}
+
+function request_origin(): string
+{
+    $host = request_host();
+    if ($host === '') {
+        $host = 'localhost';
+    }
+
+    return request_scheme() . '://' . $host;
+}
+
 function app_env(): string
 {
     static $env;
@@ -66,9 +102,7 @@ function app_env(): string
         return $env = 'local';
     }
 
-    $host = strtolower((string) ($_SERVER['HTTP_HOST'] ?? ''));
-    $serverName = strtolower((string) ($_SERVER['SERVER_NAME'] ?? ''));
-    $effectiveHost = preg_replace('/:\d+$/', '', $host !== '' ? $host : $serverName);
+    $effectiveHost = request_host();
 
     $isLocalHost = $effectiveHost === 'localhost'
         || $effectiveHost === '127.0.0.1'
@@ -79,21 +113,70 @@ function app_env(): string
     return $env = $isLocalHost ? 'local' : APP_DEFAULT_ENV;
 }
 
+function normalized_host_list(string $value): array
+{
+    if ($value === '') {
+        return [];
+    }
+
+    $items = preg_split('/[\\s,;]+/', $value) ?: [];
+    $hosts = [];
+
+    foreach ($items as $item) {
+        $host = strtolower(trim($item));
+        $host = preg_replace('/:\\d+$/', '', $host);
+
+        if ($host !== '') {
+            $hosts[] = $host;
+        }
+    }
+
+    return array_values(array_unique($hosts));
+}
+
+function production_hosts(): array
+{
+    $canonicalHost = canonical_host();
+    $configuredAliases = normalized_host_list(trim((string) getenv('APP_PRODUCTION_HOST_ALIASES')));
+
+    $hosts = $canonicalHost !== '' ? [$canonicalHost] : [];
+    foreach ($configuredAliases as $alias) {
+        $hosts[] = $alias;
+    }
+
+    return array_values(array_unique($hosts));
+}
+
+function is_production_host(): bool
+{
+    $requestHost = request_host();
+    if ($requestHost === '') {
+        return false;
+    }
+
+    return in_array($requestHost, production_hosts(), true);
+}
+
 function is_production_env(): bool
 {
-    return app_env() === 'production';
+    return app_env() === 'production' && is_production_host();
+}
+
+function is_non_production_env(): bool
+{
+    return !is_production_env();
 }
 
 function should_index_site(): bool
 {
     $mode = strtolower(trim((string) getenv('APP_INDEXING_MODE')));
 
-    if (in_array($mode, ['on', 'index', 'allow'], true)) {
-        return true;
-    }
-
     if (in_array($mode, ['off', 'noindex', 'deny'], true)) {
         return false;
+    }
+
+    if (in_array($mode, ['on', 'index', 'allow'], true)) {
+        return is_production_env();
     }
 
     return is_production_env();
@@ -105,11 +188,7 @@ function canonical_origin(): string
         return APP_CANONICAL_ORIGIN;
     }
 
-    $https = !empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off';
-    $scheme = $https ? 'https' : 'http';
-    $host = (string) ($_SERVER['HTTP_HOST'] ?? 'localhost');
-
-    return $scheme . '://' . $host;
+    return request_origin();
 }
 
 function request_path(): string
@@ -136,11 +215,10 @@ function enforce_canonical_host_if_needed(): void
         return;
     }
 
-    $currentHost = strtolower((string) ($_SERVER['HTTP_HOST'] ?? ''));
-    $currentHost = preg_replace('/:\d+$/', '', $currentHost);
-    $canonicalHost = parse_url(APP_CANONICAL_ORIGIN, PHP_URL_HOST);
+    $currentHost = request_host();
+    $canonicalHost = canonical_host();
 
-    if (!is_string($canonicalHost) || $canonicalHost === '' || $canonicalHost === $currentHost) {
+    if ($canonicalHost === '' || $canonicalHost === $currentHost) {
         return;
     }
 
