@@ -107,55 +107,22 @@ require __DIR__ . '/includes/header.php';
                     <div class="about__content">
                         <h2 class="section__title section__title--left"><!-- TODO: Заменить на реальные данные врача -->Коробков<br>Александр Олегович</h2>
                         <p class="about__lead"><!-- TODO: Заменить на реальные данные врача -->ВРАЧ ЭНДОВАСКУЛЯРНЫЙ ХИРУРГ</p>
-                        <p class="about__text"><!-- TODO: Заменить на реальные данные врача -->Коробков Александр Олегович — эндоваскулярный хирург, врач высшей квалифицированной категории, 16 лет клинической практики, соискатель ученой степени кандидата медицинских наук в ФГБНУ «РНЦХ им. акад. Б. В. Петровского». В 2010 году с отличием закончил ММА им. И. М. Сеченова, а в 2012 году был первым выпускником в стране ординатуры по специальности «рентгенэндоваскулярные диагностика и лечение». На базе ФГАУ «НМИЦ ЛРЦ» Минздрава России при участии Коробкова Александра Олеговича были разработаны и утверждены Министерством здравоохранения РФ к практическому применению 7 протоколов клинических апробаций. Доктор специализируется на коронарном стентировании с применением ВСУЗИ, стентировании сонных артерий, баллонной ангиопластике и стентировании артерий нижних конечностей с применением ротационной атерэктомии и ВСУЗИ, венозном стентировании и эмболизации. Сегодня выступает спикером на профильных конгрессах по эндоваскулярной хирургии в России и проводит обучение хирургов.</p>
+                        <p class="about__text"><!-- TODO: Заменить на реальные данные врача -->Коробков Александр Олегович — эндоваскулярный хирург, 16 лет клинической практики, врач высшей квалифицированной категории, соискатель ученой степени кандидата медицинских наук в ФГБНУ «РНЦХ им. акад. Б.В. Петровского».
+
+В 2010 году с отличием закончил бюджетную форму обучения в ММА им. И.М. Сеченова.
+
+В 2012 году был первым выпускником в стране ординатуры по специальности «рентгенэндоваскулярные диагностика и лечение» на базе ФГБНУ «РНЦХ им. акад. Б.В. Петровского».
+
+На базе ФГАУ "НМИЦ ЛРЦ" Минздрава России при участии Коробкова Александра Олеговича были разработаны и утверждены Министерством здравоохранения РФ к практическому применению 7 протоколов клинических апробаций.
+
+Сегодня выступает спикером на профильных конгрессах по эндоваскулярной хирургии в России и проводит обучение хирургов.
+
+Доктор специализируется на операциях: коронарное стентирование с применением ВСУЗИ, стентирование сонных артерий, баллонная ангиопластика и стентирование артерий нижних конечностей с применением ротационной атерэктомии и ВСУЗИ, стентирование глубоких вен (посттромботический синдром, синдром Мэй-Тернера, щелкунчика), эмболизация маточных артерий, эмболизация вен при варикоцеле и эректильной дисфункции.</p>
                     </div>
 
                     <div class="about__visual">
                         <!-- TODO: Вставить изображение about-doctor.webp в /assets/img/content/ -->
                         <img src="assets/img/content/fotoVracha.png" alt="Портрет врача" class="about__image">
-                    </div>
-                </div>
-            </section>
-
-            <section class="section section--results" id="results">
-                <div class="container">
-                    <div class="section__head section__head--results">
-                        <h2 class="section__title">Результаты операций</h2>
-                    </div>
-
-                    <div class="results-slider-area">
-                        <div class="results-nav">
-                            <button class="results-nav__button" type="button" data-results-prev aria-label="Предыдущий слайд">
-                                <img src="assets/img/icons/results-arrow-prev.svg" alt="" aria-hidden="true">
-                            </button>
-                            <button class="results-nav__button" type="button" data-results-next aria-label="Следующий слайд">
-                                <img src="assets/img/icons/results-arrow-next.svg" alt="" aria-hidden="true">
-                            </button>
-                        </div>
-
-                        <div class="results-slider" data-results-slider>
-                            <article class="result-card">
-                                <!-- TODO: Вставить изображение result-01.webp в /assets/img/content/ -->
-                                <img src="assets/img/content/result-01.svg" alt="Результат операции 1" class="result-card__image">
-                                <div class="result-card__meta" aria-hidden="true">
-                                    <p class="result-card__meta-title">Результат операции 1</p>
-                                </div>
-                            </article>
-                            <article class="result-card">
-                                <!-- TODO: Вставить изображение result-02.webp в /assets/img/content/ -->
-                                <img src="assets/img/content/result-02.svg" alt="Результат операции 2" class="result-card__image">
-                                <div class="result-card__meta" aria-hidden="true">
-                                    <p class="result-card__meta-title">Результат операции 2</p>
-                                </div>
-                            </article>
-                            <article class="result-card">
-                                <!-- TODO: Вставить изображение result-03.webp в /assets/img/content/ -->
-                                <img src="assets/img/content/result-03.svg" alt="Результат операции 3" class="result-card__image">
-                                <div class="result-card__meta" aria-hidden="true">
-                                    <p class="result-card__meta-title">Результат операции 3</p>
-                                </div>
-                            </article>
-                        </div>
                     </div>
                 </div>
             </section>
