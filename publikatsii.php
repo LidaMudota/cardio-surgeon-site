@@ -54,6 +54,11 @@ require __DIR__ . '/includes/page-start.php';
                         <li class="prep-document__item page-publications__item"><p><?= e($publication); ?></p></li>
                     <?php endforeach; ?>
                 </ol>
+                <div class="page-publications__actions">
+                    <a class="page-publications__elibrary-button" href="https://elibrary.ru/author_items.asp?authorid=1254633&pubrole=100&show_refs=1&pubcat=risc" aria-label="Смотреть публикации на eLibrary">
+                        Смотреть публикации на eLibrary
+                    </a>
+                </div>
             </article>
         </div>
     </section>
