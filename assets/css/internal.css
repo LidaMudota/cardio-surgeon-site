@@ -559,7 +559,7 @@
     }
 
     .prep-topic h2 {
-        font-size: clamp(20px, 7vw, 26px);
+        font-size: 18px;
     }
 
     .prep-comments__item h3 {
