@@ -176,6 +176,57 @@
     outline-offset: 2px;
 }
 
+.doctor-navigation__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.doctor-navigation__card {
+    display: grid;
+    gap: 16px;
+    align-content: start;
+    padding: clamp(24px, 2.8vw, 34px);
+    border-color: rgba(255, 255, 255, 0.14);
+    background: linear-gradient(145deg, rgba(20, 24, 28, 0.96), rgba(13, 16, 19, 0.98));
+    transition: border-color 220ms ease, transform 220ms ease, box-shadow 220ms ease;
+}
+
+.doctor-navigation__card:hover,
+.doctor-navigation__card:focus-within {
+    transform: translateY(-2px);
+    border-color: rgba(24, 198, 198, 0.38);
+    box-shadow: 0 16px 34px rgba(0, 0, 0, 0.2);
+}
+
+.doctor-navigation__label {
+    margin: 0;
+    color: rgba(24, 198, 198, 0.9);
+    font-size: 12px;
+    line-height: 1.45;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.doctor-navigation__title {
+    margin: 0;
+    font-size: clamp(24px, 2.5vw, 32px);
+    line-height: 1.24;
+}
+
+.doctor-navigation__text {
+    margin: 0;
+    color: var(--color-text-muted);
+    line-height: 1.68;
+    max-width: 50ch;
+}
+
+.doctor-navigation__button {
+    width: fit-content;
+    margin-top: 4px;
+}
+
 .doctor-clinic__card .section__title { margin-bottom: 18px; }
 .doctor-clinic__card p { margin: 0; color: var(--color-text-muted); }
 .doctor-clinic__card p + p { margin-top: 9px; }
@@ -345,7 +396,8 @@
     .doctor-specialties,
     .doctor-contribution,
     .doctor-facts,
-    .page-link-cards { grid-template-columns: 1fr; }
+    .page-link-cards,
+    .doctor-navigation__grid { grid-template-columns: 1fr; }
 
     .doctor-intro__image { min-height: 380px; }
 

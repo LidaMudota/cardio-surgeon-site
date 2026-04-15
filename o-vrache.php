@@ -91,6 +91,26 @@ require __DIR__ . '/includes/page-start.php';
         </div>
     </section>
 
+    <section class="inner-section doctor-page doctor-page--tone-elevated doctor-navigation">
+        <div class="container">
+            <div class="doctor-navigation__grid" aria-label="Навигация по разделам о враче">
+                <article class="info-card doctor-navigation__card">
+                    <p class="doctor-navigation__label">Профессиональное подтверждение</p>
+                    <h2 class="doctor-navigation__title">Дипломы и документы</h2>
+                    <p class="doctor-navigation__text">Собранный раздел с дипломами, сертификатами и материалами, подтверждающими квалификацию и профильную подготовку врача.</p>
+                    <a class="button doctor-navigation__button" href="diplomy.php">Перейти к документам</a>
+                </article>
+
+                <article class="info-card doctor-navigation__card">
+                    <p class="doctor-navigation__label">Клинические направления</p>
+                    <h2 class="doctor-navigation__title">Специализация врача</h2>
+                    <p class="doctor-navigation__text">Подробный обзор основных направлений эндоваскулярной практики и видов операций, выполняемых в ежедневной клинической работе.</p>
+                    <a class="button doctor-navigation__button" href="specializatsiya.php">Смотреть специализацию</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
 <?php
 $formTitle = 'Записаться на консультацию';
 $formSubtitle = 'Оставьте контакты, и администратор свяжется с вами.';
