@@ -120,13 +120,14 @@
 }
 
 #work-directions-page .directions-slider {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    display: flex;
     gap: 18px;
     padding: 2px;
     scroll-padding: 2px;
 }
 
 #work-directions-page .directions-slide {
+    flex: 0 0 calc((100% - 18px) / 2);
     min-width: calc((100% - 18px) / 2);
     aspect-ratio: 1 / 0.72;
     border-radius: 20px;
@@ -155,6 +156,7 @@
     }
 
     #work-directions-page .directions-slide {
+        flex-basis: 100%;
         min-width: 100%;
     }
 
