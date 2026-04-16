@@ -80,6 +80,96 @@
     }
 }
 
+#work-directions-page .inner-hero {
+    border-bottom-color: rgba(255, 255, 255, 0.07);
+}
+
+#work-directions-page .directions-intro .two-col {
+    grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr);
+    align-items: stretch;
+}
+
+#work-directions-page .directions-intro__content,
+#work-directions-page .directions-intro__note {
+    border-radius: 20px;
+    padding: 28px;
+}
+
+#work-directions-page .directions-intro__content p {
+    margin: 0;
+    line-height: 1.72;
+    color: var(--color-text-muted);
+}
+
+#work-directions-page .directions-intro__content p + p {
+    margin-top: 14px;
+}
+
+#work-directions-page .directions-intro__note h3 {
+    margin: 0 0 12px;
+    font-size: clamp(22px, 2.6vw, 28px);
+}
+
+#work-directions-page .directions-intro__note .info-list {
+    display: grid;
+    gap: 10px;
+}
+
+#work-directions-page .directions-gallery .section__head {
+    margin-bottom: 20px;
+}
+
+#work-directions-page .directions-slider {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    padding: 2px;
+    scroll-padding: 2px;
+}
+
+#work-directions-page .directions-slide {
+    min-width: calc((100% - 18px) / 2);
+    aspect-ratio: 1 / 0.72;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+#work-directions-page .directions-slide__image {
+    height: 100%;
+    aspect-ratio: auto;
+    object-fit: cover;
+}
+
+#work-directions-page .directions-gallery__nav .results-nav__button {
+    width: 50px;
+    height: 50px;
+}
+
+#work-directions-page .directions-gallery__nav .results-nav__button img {
+    width: 50px;
+    height: 50px;
+}
+
+@media (max-width: 1100px) {
+    #work-directions-page .directions-intro .two-col {
+        grid-template-columns: 1fr;
+    }
+
+    #work-directions-page .directions-slide {
+        min-width: 100%;
+    }
+
+    #work-directions-page .directions-gallery__nav {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    #work-directions-page .directions-intro__content,
+    #work-directions-page .directions-intro__note {
+        padding: 20px;
+    }
+}
+
 .doctor-page { position: relative; background: #111111; }
 .doctor-page--tone-base { background: #000000; }
 .doctor-page--tone-deep { background: #111111; }

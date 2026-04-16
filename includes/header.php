@@ -7,7 +7,7 @@
 
                 <nav class="header__nav nav" aria-label="Основная навигация">
                     <a class="nav__link" href="o-vrache.php">ОБО МНЕ</a>
-                    <a class="nav__link" href="rezultaty-rabot.php">РЕЗУЛЬТАТЫ РАБОТ</a>
+                    <a class="nav__link" href="rezultaty-rabot.php">НАПРАВЛЕНИЯ РАБОТЫ</a>
                     <a class="nav__link" href="pamyatki-patsientam.php">ПАМЯТКИ ПАЦИЕНТАМ</a>
                     <a class="nav__link" href="dlya-vrachey.php">ДЛЯ ВРАЧЕЙ</a>
                     <a class="nav__link" href="kontakty.php">КОНТАКТЫ</a>
@@ -88,7 +88,7 @@
                     <div class="mobile-nav__group">
                         <p class="mobile-nav__group-title">Разделы</p>
                         <a class="mobile-nav__link" href="o-vrache.php">Обо мне</a>
-                        <a class="mobile-nav__link" href="rezultaty-rabot.php">Результаты работ</a>
+                        <a class="mobile-nav__link" href="rezultaty-rabot.php">Направления работы</a>
                         <a class="mobile-nav__link" href="pamyatki-patsientam.php">Памятки пациентам</a>
                         <a class="mobile-nav__link" href="dlya-vrachey.php">Для врачей</a>
                         <a class="mobile-nav__link" href="kontakty.php">Контакты</a>
