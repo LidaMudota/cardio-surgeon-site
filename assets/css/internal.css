@@ -97,6 +97,36 @@
     outline-offset: 3px;
 }
 
+#work-directions-page #specialization .spec-card__details {
+    align-self: flex-start;
+    margin-top: 12px;
+    padding: 0 14px;
+    min-height: 34px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.03);
+    color: rgba(245, 247, 251, 0.9);
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1;
+    cursor: pointer;
+    transition: background-color 0.18s ease, border-color 0.18s ease, color 0.18s ease, transform 0.18s ease;
+}
+
+#work-directions-page #specialization .spec-card__details:hover {
+    background: rgba(24, 198, 198, 0.1);
+    border-color: rgba(24, 198, 198, 0.44);
+}
+
+#work-directions-page #specialization .spec-card__details:active {
+    transform: translateY(1px);
+}
+
+#work-directions-page #specialization .spec-card__details:focus-visible {
+    outline: 2px solid rgba(24, 198, 198, 0.58);
+    outline-offset: 2px;
+}
+
 #work-directions-page .direction-modal {
     position: fixed;
     inset: 0;
@@ -114,9 +144,9 @@
 #work-directions-page .direction-modal__overlay {
     position: absolute;
     inset: 0;
-    background: rgba(4, 7, 12, 0.68);
+    background: rgba(4, 7, 12, 0.56);
     opacity: 0;
-    transition: opacity 0.22s ease;
+    transition: opacity 0.16s ease-out;
 }
 
 #work-directions-page .direction-modal__dialog {
@@ -130,10 +160,10 @@
     border-radius: 24px;
     border: 1px solid rgba(255, 255, 255, 0.16);
     background: linear-gradient(150deg, rgba(12, 16, 23, 0.98), rgba(8, 12, 18, 0.98));
-    box-shadow: 0 32px 84px rgba(0, 0, 0, 0.52);
-    transform: translateY(8px);
+    box-shadow: 0 26px 68px rgba(0, 0, 0, 0.48);
+    transform: translateY(4px) scale(0.995);
     opacity: 0;
-    transition: opacity 0.24s ease, transform 0.24s ease;
+    transition: opacity 0.17s ease-out, transform 0.17s cubic-bezier(0.2, 0.6, 0.2, 1);
 }
 
 #work-directions-page .direction-modal.is-open .direction-modal__overlay {
@@ -151,7 +181,7 @@
 
 #work-directions-page .direction-modal.is-closing .direction-modal__dialog {
     opacity: 0;
-    transform: translateY(8px);
+    transform: translateY(4px) scale(0.995);
 }
 
 #work-directions-page .direction-modal__media {
@@ -170,10 +200,13 @@
 
 #work-directions-page .direction-modal__body {
     padding: clamp(24px, 3vw, 34px);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
 #work-directions-page .direction-modal__label {
-    margin: 0 0 10px;
+    margin: 0;
     color: rgba(24, 198, 198, 0.92);
     text-transform: uppercase;
     letter-spacing: 0.08em;
@@ -189,13 +222,9 @@
 }
 
 #work-directions-page .direction-modal__text {
-    margin: 16px 0 0;
+    margin: 0;
     color: var(--color-text-muted);
     line-height: 1.72;
-}
-
-#work-directions-page .direction-modal__cta {
-    margin-top: 24px;
 }
 
 #work-directions-page .direction-modal__close {
@@ -249,7 +278,7 @@ body.modal-open {
         max-height: min(90vh, 720px);
         border-radius: 22px 22px 0 0;
         grid-template-columns: 1fr;
-        transform: translateY(12px);
+        transform: translateY(6px) scale(0.996);
     }
 
     #work-directions-page .direction-modal__media {
@@ -265,6 +294,7 @@ body.modal-open {
 
     #work-directions-page .direction-modal__body {
         padding: 20px 18px 22px;
+        gap: 10px;
     }
 
     #work-directions-page .direction-modal__title {

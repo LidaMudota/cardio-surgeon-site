@@ -286,22 +286,30 @@ document.addEventListener('DOMContentLoaded', () => {
                 activeDirectionTrigger.focus();
             }
             activeDirectionTrigger = null;
-        }, 260);
+        }, 180);
     };
 
     directionCards.forEach((card) => {
+        const detailsButton = card.querySelector('[data-direction-open]');
         card.setAttribute('tabindex', '0');
         card.setAttribute('role', 'button');
         card.setAttribute('aria-haspopup', 'dialog');
 
-        card.addEventListener('click', () => {
+        card.addEventListener('click', (event) => {
+            if (event.target.closest('[data-direction-open]')) return;
             openDirectionModal(card, card);
         });
 
         card.addEventListener('keydown', (event) => {
+            if (event.target !== card) return;
             if (event.key !== 'Enter' && event.key !== ' ') return;
             event.preventDefault();
             openDirectionModal(card, card);
+        });
+
+        detailsButton?.addEventListener('click', (event) => {
+            event.stopPropagation();
+            openDirectionModal(card, detailsButton);
         });
     });
 

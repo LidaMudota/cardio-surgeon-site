@@ -24,6 +24,7 @@ require __DIR__ . '/includes/page-start.php';
                     <div class="spec-card__content">
                         <h3 class="spec-card__title">КОРОНАРНОЕ СТЕНТИРОВАНИЕ</h3>
                         <p class="spec-card__text">с применением ВСУЗИ</p>
+                        <button class="spec-card__details" type="button" data-direction-open>Подробнее</button>
                     </div>
                 </article>
 
@@ -34,6 +35,7 @@ require __DIR__ . '/includes/page-start.php';
                     <div class="spec-card__content">
                         <h3 class="spec-card__title">СТЕНТИРОВАНИЕ СОННЫХ АРТЕРИЙ</h3>
                         <p class="spec-card__text">стентирование для профилактики инсульта</p>
+                        <button class="spec-card__details" type="button" data-direction-open>Подробнее</button>
                     </div>
                 </article>
 
@@ -44,6 +46,7 @@ require __DIR__ . '/includes/page-start.php';
                     <div class="spec-card__content">
                         <h3 class="spec-card__title">АРТЕРИИ НИЖНИХ КОНЕЧНОСТЕЙ</h3>
                         <p class="spec-card__text">ангиопластика баллонами с лекарственным покрытием, стентирование с применением ротационной атерэктомии и ВСУЗИ</p>
+                        <button class="spec-card__details" type="button" data-direction-open>Подробнее</button>
                     </div>
                 </article>
 
@@ -54,6 +57,7 @@ require __DIR__ . '/includes/page-start.php';
                     <div class="spec-card__content">
                         <h3 class="spec-card__title">ВЕНОЗНОЕ СТЕНТИРОВАНИЕ</h3>
                         <p class="spec-card__text">лечение синдрома Мэй-Тернера, щелкунчика и посттромботического синдрома</p>
+                        <button class="spec-card__details" type="button" data-direction-open>Подробнее</button>
                     </div>
                 </article>
 
@@ -64,6 +68,7 @@ require __DIR__ . '/includes/page-start.php';
                     <div class="spec-card__content">
                         <h3 class="spec-card__title">ЭМБОЛИЗАЦИЯ МАТОЧНЫХ АРТЕРИЙ</h3>
                         <p class="spec-card__text">эндоваскулярное лечение миомы матки</p>
+                        <button class="spec-card__details" type="button" data-direction-open>Подробнее</button>
                     </div>
                 </article>
 
@@ -74,6 +79,7 @@ require __DIR__ . '/includes/page-start.php';
                     <div class="spec-card__content">
                         <h3 class="spec-card__title">ЭМБОЛИЗАЦИЯ ВЕН ПРИ ВАРИКОЦЕЛЕ И ЭРЕКТИЛЬНОЙ ДИСФУНКЦИИ</h3>
                         <p class="spec-card__text">малоинвазивное эндоваскулярное лечение венозных нарушений</p>
+                        <button class="spec-card__details" type="button" data-direction-open>Подробнее</button>
                     </div>
                 </article>
             </div>
@@ -99,7 +105,6 @@ require __DIR__ . '/includes/page-start.php';
                         <p class="direction-modal__label">Направление работы</p>
                         <h3 class="direction-modal__title" id="direction-modal-title" data-direction-modal-title></h3>
                         <p class="direction-modal__text" id="direction-modal-text" data-direction-modal-text></p>
-                        <a class="button button--accent direction-modal__cta" href="kontakty.php">Связаться</a>
                     </div>
                 </div>
             </div>
