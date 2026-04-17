@@ -80,24 +80,24 @@
     }
 }
 
-#work-directions-page .inner-hero {
+:is(#work-directions-page, #home-page) .inner-hero {
     border-bottom-color: rgba(255, 255, 255, 0.07);
 }
 
-#work-directions-page #specialization .section__head {
+:is(#work-directions-page, #home-page) #specialization .section__head {
     margin-bottom: 24px;
 }
 
-#work-directions-page #specialization .spec-card {
+:is(#work-directions-page, #home-page) #specialization .spec-card {
     cursor: pointer;
 }
 
-#work-directions-page #specialization .spec-card:focus-visible {
+:is(#work-directions-page, #home-page) #specialization .spec-card:focus-visible {
     outline: 2px solid rgba(24, 198, 198, 0.8);
     outline-offset: 3px;
 }
 
-#work-directions-page #specialization .spec-card__details {
+:is(#work-directions-page, #home-page) #specialization .spec-card__details {
     align-self: flex-start;
     margin-top: 12px;
     padding: 0 14px;
@@ -113,22 +113,26 @@
     transition: background-color 0.18s ease, border-color 0.18s ease, color 0.18s ease, transform 0.18s ease;
 }
 
-#work-directions-page #specialization .spec-card__details:hover {
+:is(#work-directions-page, #home-page) #specialization .spec-card__details:hover {
     background: rgba(24, 198, 198, 0.1);
     border-color: rgba(24, 198, 198, 0.44);
 }
 
-#work-directions-page #specialization .spec-card__details:active {
+:is(#work-directions-page, #home-page) #specialization .spec-card__details:active {
     transform: translateY(1px);
 }
 
-#work-directions-page #specialization .spec-card__details:focus-visible {
+:is(#work-directions-page, #home-page) #specialization .spec-card__details:focus-visible {
     outline: 2px solid rgba(24, 198, 198, 0.58);
     outline-offset: 2px;
 }
 
 @media (max-width: 767px) {
-    #work-directions-page #specialization .spec-card__details {
+    #work-directions-page #specialization {
+        padding-top: 0;
+    }
+
+    :is(#work-directions-page, #home-page) #specialization .spec-card__details {
         display: inline-flex;
         align-items: center;
         justify-content: center;
@@ -138,7 +142,7 @@
     }
 }
 
-#work-directions-page .direction-modal {
+:is(#work-directions-page, #home-page) .direction-modal {
     position: fixed;
     inset: 0;
     z-index: 70;
@@ -148,11 +152,11 @@
     padding: 28px;
 }
 
-#work-directions-page .direction-modal[hidden] {
+:is(#work-directions-page, #home-page) .direction-modal[hidden] {
     display: none;
 }
 
-#work-directions-page .direction-modal__overlay {
+:is(#work-directions-page, #home-page) .direction-modal__overlay {
     position: absolute;
     inset: 0;
     background: rgba(4, 7, 12, 0.56);
@@ -160,7 +164,7 @@
     transition: opacity 0.16s ease-out;
 }
 
-#work-directions-page .direction-modal__dialog {
+:is(#work-directions-page, #home-page) .direction-modal__dialog {
     position: relative;
     z-index: 1;
     width: min(940px, calc(100vw - 56px));
@@ -177,25 +181,25 @@
     transition: opacity 0.17s ease-out, transform 0.17s cubic-bezier(0.2, 0.6, 0.2, 1);
 }
 
-#work-directions-page .direction-modal.is-open .direction-modal__overlay {
+:is(#work-directions-page, #home-page) .direction-modal.is-open .direction-modal__overlay {
     opacity: 1;
 }
 
-#work-directions-page .direction-modal.is-open .direction-modal__dialog {
+:is(#work-directions-page, #home-page) .direction-modal.is-open .direction-modal__dialog {
     opacity: 1;
     transform: translateY(0);
 }
 
-#work-directions-page .direction-modal.is-closing .direction-modal__overlay {
+:is(#work-directions-page, #home-page) .direction-modal.is-closing .direction-modal__overlay {
     opacity: 0;
 }
 
-#work-directions-page .direction-modal.is-closing .direction-modal__dialog {
+:is(#work-directions-page, #home-page) .direction-modal.is-closing .direction-modal__dialog {
     opacity: 0;
     transform: translateY(4px) scale(0.995);
 }
 
-#work-directions-page .direction-modal__media {
+:is(#work-directions-page, #home-page) .direction-modal__media {
     background: radial-gradient(circle at 28% 20%, rgba(24, 198, 198, 0.26), rgba(7, 11, 17, 0));
     border-right: 1px solid rgba(255, 255, 255, 0.08);
     display: grid;
@@ -203,20 +207,20 @@
     padding: 40px 28px;
 }
 
-#work-directions-page .direction-modal__media img {
+:is(#work-directions-page, #home-page) .direction-modal__media img {
     width: min(180px, 100%);
     max-height: 220px;
     object-fit: contain;
 }
 
-#work-directions-page .direction-modal__body {
+:is(#work-directions-page, #home-page) .direction-modal__body {
     padding: clamp(24px, 3vw, 34px);
     display: flex;
     flex-direction: column;
     gap: 12px;
 }
 
-#work-directions-page .direction-modal__label {
+:is(#work-directions-page, #home-page) .direction-modal__label {
     margin: 0;
     color: rgba(24, 198, 198, 0.92);
     text-transform: uppercase;
@@ -225,20 +229,20 @@
     font-weight: 700;
 }
 
-#work-directions-page .direction-modal__title {
+:is(#work-directions-page, #home-page) .direction-modal__title {
     margin: 0;
     font-size: clamp(24px, 2.8vw, 33px);
     line-height: 1.2;
     text-wrap: balance;
 }
 
-#work-directions-page .direction-modal__text {
+:is(#work-directions-page, #home-page) .direction-modal__text {
     margin: 0;
     color: var(--color-text-muted);
     line-height: 1.72;
 }
 
-#work-directions-page .direction-modal__close {
+:is(#work-directions-page, #home-page) .direction-modal__close {
     position: absolute;
     top: 14px;
     right: 14px;
@@ -257,8 +261,8 @@
     transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
-#work-directions-page .direction-modal__close:hover,
-#work-directions-page .direction-modal__close:focus-visible {
+:is(#work-directions-page, #home-page) .direction-modal__close:hover,
+:is(#work-directions-page, #home-page) .direction-modal__close:focus-visible {
     background: rgba(15, 22, 31, 0.94);
     border-color: rgba(24, 198, 198, 0.72);
 }
@@ -268,23 +272,23 @@ body.modal-open {
 }
 
 @media (max-width: 1100px) {
-    #work-directions-page .direction-modal {
+    :is(#work-directions-page, #home-page) .direction-modal {
         padding: 20px;
     }
 
-    #work-directions-page .direction-modal__dialog {
+    :is(#work-directions-page, #home-page) .direction-modal__dialog {
         width: min(840px, calc(100vw - 40px));
         max-height: calc(100vh - 40px);
     }
 }
 
 @media (max-width: 768px) {
-    #work-directions-page .direction-modal {
+    :is(#work-directions-page, #home-page) .direction-modal {
         align-items: end;
         padding: 0;
     }
 
-    #work-directions-page .direction-modal__dialog {
+    :is(#work-directions-page, #home-page) .direction-modal__dialog {
         width: 100%;
         max-height: min(90vh, 720px);
         border-radius: 22px 22px 0 0;
@@ -292,27 +296,27 @@ body.modal-open {
         transform: translateY(6px) scale(0.996);
     }
 
-    #work-directions-page .direction-modal__media {
+    :is(#work-directions-page, #home-page) .direction-modal__media {
         border-right: 0;
         border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         padding: 28px 22px;
     }
 
-    #work-directions-page .direction-modal__media img {
+    :is(#work-directions-page, #home-page) .direction-modal__media img {
         width: min(140px, 100%);
         max-height: 160px;
     }
 
-    #work-directions-page .direction-modal__body {
+    :is(#work-directions-page, #home-page) .direction-modal__body {
         padding: 20px 18px 22px;
         gap: 10px;
     }
 
-    #work-directions-page .direction-modal__title {
+    :is(#work-directions-page, #home-page) .direction-modal__title {
         font-size: clamp(21px, 6vw, 28px);
     }
 
-    #work-directions-page .direction-modal__close {
+    :is(#work-directions-page, #home-page) .direction-modal__close {
         top: 10px;
         right: 10px;
         width: 34px;
@@ -322,14 +326,14 @@ body.modal-open {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    #work-directions-page .direction-modal__overlay,
-    #work-directions-page .direction-modal__dialog,
-    #work-directions-page .direction-modal__close {
+    :is(#work-directions-page, #home-page) .direction-modal__overlay,
+    :is(#work-directions-page, #home-page) .direction-modal__dialog,
+    :is(#work-directions-page, #home-page) .direction-modal__close {
         transition: none !important;
         animation: none !important;
     }
 
-    #work-directions-page .direction-modal__dialog {
+    :is(#work-directions-page, #home-page) .direction-modal__dialog {
         transform: none;
     }
 }

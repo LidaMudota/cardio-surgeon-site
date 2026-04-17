@@ -8,8 +8,7 @@ require __DIR__ . '/includes/head.php';
 require __DIR__ . '/includes/header.php';
 ?>
 
-
-        <main>
+        <main id="home-page">
             <section class="hero" id="hero">
                 <div class="container hero__grid">
                     <div class="hero__visual">
@@ -35,10 +34,10 @@ require __DIR__ . '/includes/header.php';
             <section class="section section--tight" id="specialization">
                 <div class="container">
                     <div class="section__head">
-                        <h2 class="section__title">Специализация</h2>
+                        <h2 class="section__title">Направления работы</h2>
                     </div>
 
-                    <div class="spec-grid">
+                    <div class="spec-grid" aria-label="Карточки направлений работы">
                         <article class="spec-card spec-card--heart">
                             <div class="spec-card__icon" aria-hidden="true">
                                 <img src="assets/img/icons/spec-vascular.svg" alt="">
@@ -46,6 +45,7 @@ require __DIR__ . '/includes/header.php';
                             <div class="spec-card__content">
                                 <h3 class="spec-card__title">КОРОНАРНОЕ СТЕНТИРОВАНИЕ</h3>
                                 <p class="spec-card__text">с применением ВСУЗИ</p>
+                                <button class="spec-card__details" type="button" data-direction-open>Подробнее</button>
                             </div>
                         </article>
 
@@ -56,6 +56,7 @@ require __DIR__ . '/includes/header.php';
                             <div class="spec-card__content">
                                 <h3 class="spec-card__title">СТЕНТИРОВАНИЕ СОННЫХ АРТЕРИЙ</h3>
                                 <p class="spec-card__text">стентирование для профилактики инсульта</p>
+                                <button class="spec-card__details" type="button" data-direction-open>Подробнее</button>
                             </div>
                         </article>
 
@@ -66,6 +67,7 @@ require __DIR__ . '/includes/header.php';
                             <div class="spec-card__content">
                                 <h3 class="spec-card__title">АРТЕРИИ НИЖНИХ КОНЕЧНОСТЕЙ</h3>
                                 <p class="spec-card__text">ангиопластика баллонами с лекарственным покрытием, стентирование с применением ротационной атерэктомии и ВСУЗИ</p>
+                                <button class="spec-card__details" type="button" data-direction-open>Подробнее</button>
                             </div>
                         </article>
 
@@ -76,6 +78,7 @@ require __DIR__ . '/includes/header.php';
                             <div class="spec-card__content">
                                 <h3 class="spec-card__title">ВЕНОЗНОЕ СТЕНТИРОВАНИЕ</h3>
                                 <p class="spec-card__text">лечение синдрома Мэй-Тернера, щелкунчика и посттромботического синдрома</p>
+                                <button class="spec-card__details" type="button" data-direction-open>Подробнее</button>
                             </div>
                         </article>
 
@@ -86,6 +89,7 @@ require __DIR__ . '/includes/header.php';
                             <div class="spec-card__content">
                                 <h3 class="spec-card__title">ЭМБОЛИЗАЦИЯ МАТОЧНЫХ АРТЕРИЙ</h3>
                                 <p class="spec-card__text">эндоваскулярное лечение миомы матки</p>
+                                <button class="spec-card__details" type="button" data-direction-open>Подробнее</button>
                             </div>
                         </article>
 
@@ -96,8 +100,34 @@ require __DIR__ . '/includes/header.php';
                             <div class="spec-card__content">
                                 <h3 class="spec-card__title">ЭМБОЛИЗАЦИЯ ВЕН ПРИ ВАРИКОЦЕЛЕ И ЭРЕКТИЛЬНОЙ ДИСФУНКЦИИ</h3>
                                 <p class="spec-card__text">малоинвазивное эндоваскулярное лечение венозных нарушений</p>
+                                <button class="spec-card__details" type="button" data-direction-open>Подробнее</button>
                             </div>
                         </article>
+                    </div>
+
+                    <div class="direction-modal" data-direction-modal hidden>
+                        <div class="direction-modal__overlay" data-direction-close></div>
+                        <div
+                            class="direction-modal__dialog"
+                            role="dialog"
+                            aria-modal="true"
+                            aria-labelledby="direction-modal-title"
+                            aria-describedby="direction-modal-text"
+                        >
+                            <button class="direction-modal__close" type="button" data-direction-close aria-label="Закрыть окно">
+                                <span aria-hidden="true">×</span>
+                            </button>
+
+                            <div class="direction-modal__media">
+                                <img src="" alt="" data-direction-modal-image>
+                            </div>
+
+                            <div class="direction-modal__body">
+                                <p class="direction-modal__label">Направление работы</p>
+                                <h3 class="direction-modal__title" id="direction-modal-title" data-direction-modal-title></h3>
+                                <p class="direction-modal__text" id="direction-modal-text" data-direction-modal-text></p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
