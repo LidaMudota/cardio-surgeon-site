@@ -3076,8 +3076,14 @@ body:not(.is-page-ready) .site-shell > .inner-page {
 
     #specialization .spec-card {
         grid-template-columns: 60px minmax(0, 1fr);
+        height: 188px;
         padding: 14px;
         gap: 10px;
+    }
+
+    #specialization .spec-card__content {
+        height: 100%;
+        justify-content: flex-start;
     }
 
     #specialization .spec-card__icon {
@@ -3099,10 +3105,18 @@ body:not(.is-page-ready) .site-shell > .inner-page {
         margin-bottom: 6px;
         font-size: 15px;
         line-height: 1.22;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
     }
 
     #specialization .spec-card__text {
         font-size: 13px;
         line-height: 1.35;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
     }
 }

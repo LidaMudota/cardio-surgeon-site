@@ -127,6 +127,12 @@
     outline-offset: 2px;
 }
 
+@media (max-width: 767px) {
+    #work-directions-page #specialization .spec-card__details {
+        margin-top: auto;
+    }
+}
+
 #work-directions-page .direction-modal {
     position: fixed;
     inset: 0;
