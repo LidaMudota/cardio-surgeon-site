@@ -25,7 +25,7 @@ require __DIR__ . '/includes/header.php';
                             <p class="hero__subtitle"><!-- TODO: Заменить на реальные данные врача -->Стаж работы 16 лет</p>
 
                             <div class="hero__actions">
-                                <a class="button button--accent" href="#consultation">Записаться</a>
+                                <a class="button button--accent" href="kontakty.php">Записаться</a>
                             </div>
                         </div>
                     </div>

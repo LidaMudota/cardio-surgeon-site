@@ -1515,7 +1515,7 @@ body:not(.is-page-ready) .site-shell > .inner-page {
     .header__nav,
     .header__menu-button,
     .header__socials,
-    .button--small[href="#consultation"] {
+    .header__actions > .button--small {
         display: none;
     }
 

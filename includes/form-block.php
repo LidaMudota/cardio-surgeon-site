@@ -1,5 +1,10 @@
 <?php
 $formPage = basename($_SERVER['PHP_SELF'] ?? 'index.php');
+$consultationFormEnabled = $consultationFormEnabled ?? false;
+
+if (!$consultationFormEnabled) {
+    return;
+}
 ?>
 <section class="section section--consultation section--consultation-request" id="consultation">
     <div class="container">
