@@ -8,13 +8,46 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileViewport = window.matchMedia('(max-width: 1024px)');
     const phoneInputs = document.querySelectorAll('[data-phone-input]');
     const forms = document.querySelectorAll('[data-consultation-form]');
-    const directionCards = document.querySelectorAll('[data-direction-card]');
+    const workDirectionsPage = document.getElementById('work-directions-page');
+    const directionCards = workDirectionsPage?.querySelectorAll('#specialization .spec-card') || [];
     const directionModal = document.querySelector('[data-direction-modal]');
     const directionModalTitle = directionModal?.querySelector('[data-direction-modal-title]');
     const directionModalText = directionModal?.querySelector('[data-direction-modal-text]');
     const directionModalImage = directionModal?.querySelector('[data-direction-modal-image]');
-    const directionOpenButtons = document.querySelectorAll('[data-direction-open]');
     const directionCloseButtons = directionModal?.querySelectorAll('[data-direction-close]');
+
+    const directionDetailsMap = {
+        'КОРОНАРНОЕ СТЕНТИРОВАНИЕ': {
+            text: 'Коронарное стентирование с применением ВСУЗИ помогает восстановить кровоток в сосудах сердца через малоинвазивный доступ и сократить время реабилитации.',
+            image: 'assets/img/icons/spec-vascular.svg',
+            imageAlt: 'Коронарное стентирование'
+        },
+        'СТЕНТИРОВАНИЕ СОННЫХ АРТЕРИЙ': {
+            text: 'Стентирование сонных артерий выполняется для профилактики ишемического инсульта и сохранения стабильного кровоснабжения головного мозга.',
+            image: 'assets/img/icons/sonnayaArteriya0.png',
+            imageAlt: 'Стентирование сонных артерий'
+        },
+        'АРТЕРИИ НИЖНИХ КОНЕЧНОСТЕЙ': {
+            text: 'Для артерий нижних конечностей применяются ангиопластика баллонами с лекарственным покрытием, стентирование, а также ротационная атерэктомия и ВСУЗИ при необходимости.',
+            image: 'assets/img/icons/nijnieKonechnosti3.png',
+            imageAlt: 'Лечение артерий нижних конечностей'
+        },
+        'ВЕНОЗНОЕ СТЕНТИРОВАНИЕ': {
+            text: 'Эндоваскулярное лечение при синдроме Мэй-Тернера, щелкунчика и посттромботическом синдроме направлено на восстановление венозного оттока и снижение хронических симптомов.',
+            image: 'assets/img/icons/stentirovanieVen0.png',
+            imageAlt: 'Венозное стентирование'
+        },
+        'ЭМБОЛИЗАЦИЯ МАТОЧНЫХ АРТЕРИЙ': {
+            text: 'Эмболизация маточных артерий — малоинвазивный метод лечения миомы матки с контролируемым перекрытием кровотока в питающих сосудах.',
+            image: 'assets/img/icons/spec-uterine-embolization.png',
+            imageAlt: 'Эмболизация маточных артерий'
+        },
+        'ЭМБОЛИЗАЦИЯ ВЕН ПРИ ВАРИКОЦЕЛЕ И ЭРЕКТИЛЬНОЙ ДИСФУНКЦИИ': {
+            text: 'Малоинвазивная эмболизация вен используется для лечения варикоцеле и венозно-обусловленной эректильной дисфункции, снижая травматичность вмешательства.',
+            image: 'assets/img/icons/spec-varicocele-embolization0.png',
+            imageAlt: 'Эмболизация вен'
+        }
+    };
 
     const toggleSection = (button, section) => {
         if (!button || !section) return;
@@ -218,11 +251,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const openDirectionModal = (card, trigger) => {
         if (!directionModal || !directionModalTitle || !directionModalText || !directionModalImage || !card) return;
 
+        const title = card.querySelector('.spec-card__title')?.textContent?.trim() || '';
+        const icon = card.querySelector('.spec-card__icon img');
+        const details = directionDetailsMap[title] || {};
+
         activeDirectionTrigger = trigger || card;
-        directionModalTitle.textContent = card.dataset.directionTitle || '';
-        directionModalText.textContent = card.dataset.directionText || '';
-        directionModalImage.src = card.dataset.directionImage || '';
-        directionModalImage.alt = card.dataset.directionImageAlt || card.dataset.directionTitle || 'Иллюстрация направления работы';
+        directionModalTitle.textContent = title;
+        directionModalText.textContent = details.text || '';
+        directionModalImage.src = details.image || icon?.getAttribute('src') || '';
+        directionModalImage.alt = details.imageAlt || title || 'Иллюстрация направления работы';
 
         directionModal.removeAttribute('hidden');
         directionModal.classList.remove('is-closing');
@@ -249,12 +286,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 activeDirectionTrigger.focus();
             }
             activeDirectionTrigger = null;
-        }, 380);
+        }, 260);
     };
 
     directionCards.forEach((card) => {
-        card.addEventListener('click', (event) => {
-            if (event.target.closest('[data-direction-open]')) return;
+        card.setAttribute('tabindex', '0');
+        card.setAttribute('role', 'button');
+        card.setAttribute('aria-haspopup', 'dialog');
+
+        card.addEventListener('click', () => {
             openDirectionModal(card, card);
         });
 
@@ -262,14 +302,6 @@ document.addEventListener('DOMContentLoaded', () => {
             if (event.key !== 'Enter' && event.key !== ' ') return;
             event.preventDefault();
             openDirectionModal(card, card);
-        });
-    });
-
-    directionOpenButtons.forEach((button) => {
-        button.addEventListener('click', (event) => {
-            event.stopPropagation();
-            const card = button.closest('[data-direction-card]');
-            openDirectionModal(card, button);
         });
     });
 
