@@ -44,7 +44,7 @@ function buildRedirect(string $status): string
 {
     $formPage = basename((string) ($_POST['form_page'] ?? 'index.php'));
     $allowedPages = [
-        'index.php', 'o-vrache.php', 'o-klinike.php', 'specializatsiya.php', 'uslugi-i-tseny.php', 'konsultatsiya.php',
+        'index.php', 'o-vrache.php', 'o-klinike.php', 'uslugi-i-tseny.php', 'konsultatsiya.php',
         'rezultaty-rabot.php', 'otzyvy.php', 'publikatsii.php', 'diplomy.php', 'analizy.php', 'anesteziya.php',
         'kak-prokhodit-operatsiya.php', 'kak-prokhodit-konsultatsiya.php', 'pamyatki-patsientam.php', 'dlya-vrachey.php',
         'patsientam-iz-drugogo-goroda.php', 'podgotovka-k-operatsii.php', 'posle-operatsii.php', 'kontakty.php',

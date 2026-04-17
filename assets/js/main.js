@@ -8,9 +8,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileViewport = window.matchMedia('(max-width: 1024px)');
     const phoneInputs = document.querySelectorAll('[data-phone-input]');
     const forms = document.querySelectorAll('[data-consultation-form]');
-    const slider = document.querySelector('[data-results-slider]');
-    const prevButton = document.querySelector('[data-results-prev]');
-    const nextButton = document.querySelector('[data-results-next]');
+    const directionCards = document.querySelectorAll('[data-direction-card]');
+    const directionModal = document.querySelector('[data-direction-modal]');
+    const directionModalTitle = directionModal?.querySelector('[data-direction-modal-title]');
+    const directionModalText = directionModal?.querySelector('[data-direction-modal-text]');
+    const directionModalImage = directionModal?.querySelector('[data-direction-modal-image]');
+    const directionOpenButtons = document.querySelectorAll('[data-direction-open]');
+    const directionCloseButtons = directionModal?.querySelectorAll('[data-direction-close]');
 
     const toggleSection = (button, section) => {
         if (!button || !section) return;
@@ -71,6 +75,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.addEventListener('keydown', (event) => {
         if (event.key !== 'Escape') return;
+        if (directionModal && !directionModal.hasAttribute('hidden')) {
+            closeDirectionModal();
+        }
         if (megaMenu && !megaMenu.hasAttribute('hidden')) {
             megaMenu.setAttribute('hidden', 'hidden');
             menuToggle?.setAttribute('aria-expanded', 'false');
@@ -204,17 +211,71 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    const scrollCard = (direction) => {
-        if (!slider) return;
-        const card = slider.querySelector('.result-card');
-        const sliderStyles = window.getComputedStyle(slider);
-        const gap = parseFloat(sliderStyles.columnGap || sliderStyles.gap || '0') || 0;
-        const scrollAmount = card ? card.getBoundingClientRect().width + gap : 300;
-        slider.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+    let activeDirectionTrigger = null;
+
+    const focusableSelector = 'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
+
+    const openDirectionModal = (card, trigger) => {
+        if (!directionModal || !directionModalTitle || !directionModalText || !directionModalImage || !card) return;
+
+        activeDirectionTrigger = trigger || card;
+        directionModalTitle.textContent = card.dataset.directionTitle || '';
+        directionModalText.textContent = card.dataset.directionText || '';
+        directionModalImage.src = card.dataset.directionImage || '';
+        directionModalImage.alt = card.dataset.directionImageAlt || card.dataset.directionTitle || 'Иллюстрация направления работы';
+
+        directionModal.removeAttribute('hidden');
+        directionModal.classList.remove('is-closing');
+        document.body.classList.add('modal-open');
+
+        requestAnimationFrame(() => {
+            directionModal.classList.add('is-open');
+            const firstFocusable = directionModal.querySelector(focusableSelector);
+            firstFocusable?.focus();
+        });
     };
 
-    prevButton?.addEventListener('click', () => scrollCard(-1));
-    nextButton?.addEventListener('click', () => scrollCard(1));
+    const closeDirectionModal = () => {
+        if (!directionModal || directionModal.hasAttribute('hidden')) return;
+
+        directionModal.classList.remove('is-open');
+        directionModal.classList.add('is-closing');
+
+        window.setTimeout(() => {
+            directionModal.classList.remove('is-closing');
+            directionModal.setAttribute('hidden', 'hidden');
+            document.body.classList.remove('modal-open');
+            if (activeDirectionTrigger instanceof HTMLElement) {
+                activeDirectionTrigger.focus();
+            }
+            activeDirectionTrigger = null;
+        }, 380);
+    };
+
+    directionCards.forEach((card) => {
+        card.addEventListener('click', (event) => {
+            if (event.target.closest('[data-direction-open]')) return;
+            openDirectionModal(card, card);
+        });
+
+        card.addEventListener('keydown', (event) => {
+            if (event.key !== 'Enter' && event.key !== ' ') return;
+            event.preventDefault();
+            openDirectionModal(card, card);
+        });
+    });
+
+    directionOpenButtons.forEach((button) => {
+        button.addEventListener('click', (event) => {
+            event.stopPropagation();
+            const card = button.closest('[data-direction-card]');
+            openDirectionModal(card, button);
+        });
+    });
+
+    directionCloseButtons?.forEach((closeButton) => {
+        closeButton.addEventListener('click', closeDirectionModal);
+    });
 
     const diplomaTriggers = document.querySelectorAll('[data-diploma-open]');
     const diplomaModal = document.querySelector('[data-diploma-modal]');
@@ -231,6 +292,33 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     diplomaClose?.addEventListener('click', () => diplomaModal?.setAttribute('hidden', 'hidden'));
+
+    directionModal?.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            event.preventDefault();
+            closeDirectionModal();
+            return;
+        }
+
+        if (event.key !== 'Tab') return;
+
+        const focusables = Array.from(directionModal.querySelectorAll(focusableSelector))
+            .filter((node) => !node.hasAttribute('disabled') && node.getAttribute('aria-hidden') !== 'true');
+
+        if (!focusables.length) return;
+
+        const first = focusables[0];
+        const last = focusables[focusables.length - 1];
+        const active = document.activeElement;
+
+        if (event.shiftKey && active === first) {
+            event.preventDefault();
+            last.focus();
+        } else if (!event.shiftKey && active === last) {
+            event.preventDefault();
+            first.focus();
+        }
+    });
 
 
     const mediaQueryReduced = window.matchMedia('(prefers-reduced-motion: reduce)');

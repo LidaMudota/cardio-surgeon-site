@@ -103,9 +103,9 @@ require __DIR__ . '/includes/page-start.php';
 
                 <article class="info-card doctor-navigation__card">
                     <p class="doctor-navigation__label">Клинические направления</p>
-                    <h2 class="doctor-navigation__title">Специализация врача</h2>
+                    <h2 class="doctor-navigation__title">Направления работы</h2>
                     <p class="doctor-navigation__text">Подробный обзор основных направлений эндоваскулярной практики и видов операций, выполняемых в ежедневной клинической работе.</p>
-                    <a class="button doctor-navigation__button" href="specializatsiya.php">Смотреть специализацию</a>
+                    <a class="button doctor-navigation__button" href="rezultaty-rabot.php">Смотреть направления</a>
                 </article>
             </div>
         </div>
