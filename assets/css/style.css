@@ -3071,29 +3071,37 @@ body:not(.is-page-ready) .site-shell > .inner-page {
 @media (max-width: 767px) {
     #specialization .spec-grid {
         grid-template-columns: 1fr;
-        gap: 10px;
+        gap: 12px;
     }
 
     #specialization .spec-card {
-        grid-template-columns: 60px minmax(0, 1fr);
-        height: 188px;
-        padding: 14px;
-        gap: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        min-height: 222px;
+        padding: 16px;
     }
 
     #specialization .spec-card__content {
-        height: 100%;
+        width: 100%;
+        min-height: 0;
+        display: flex;
+        flex: 1;
+        flex-direction: column;
         justify-content: flex-start;
     }
 
     #specialization .spec-card__icon {
         width: 60px;
         height: 60px;
+        margin: 0;
+        align-self: flex-start;
     }
 
     #specialization .spec-card__icon img {
         width: 46px;
-        height: 46px;
+        height: auto;
     }
 
     #specialization .spec-card--heart .spec-card__icon img {
@@ -3102,9 +3110,9 @@ body:not(.is-page-ready) .site-shell > .inner-page {
     }
 
     #specialization .spec-card__title {
-        margin-bottom: 6px;
-        font-size: 15px;
-        line-height: 1.22;
+        margin: 0 0 8px;
+        font-size: 16px;
+        line-height: 1.25;
         display: -webkit-box;
         -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
@@ -3112,10 +3120,10 @@ body:not(.is-page-ready) .site-shell > .inner-page {
     }
 
     #specialization .spec-card__text {
+        margin: 0;
         font-size: 13px;
         line-height: 1.35;
         display: -webkit-box;
-        -webkit-line-clamp: 3;
         -webkit-box-orient: vertical;
         overflow: hidden;
     }

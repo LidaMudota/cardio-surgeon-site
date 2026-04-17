@@ -129,7 +129,12 @@
 
 @media (max-width: 767px) {
     #work-directions-page #specialization .spec-card__details {
-        margin-top: auto;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 15px;
+        min-height: 40px;
+        padding: 0 16px;
     }
 }
 
