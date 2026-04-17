@@ -8,8 +8,9 @@
                 <nav class="header__nav nav" aria-label="Основная навигация">
                     <a class="nav__link" href="o-vrache.php">ОБО МНЕ</a>
                     <a class="nav__link" href="rezultaty-rabot.php">НАПРАВЛЕНИЯ РАБОТЫ</a>
-                    <a class="nav__link" href="pamyatki-patsientam.php">ПАМЯТКИ ПАЦИЕНТАМ</a>
-                    <a class="nav__link" href="dlya-vrachey.php">ДЛЯ ВРАЧЕЙ</a>
+                    <a class="nav__link" href="o-klinike.php">О КЛИНИКЕ</a>
+                    <a class="nav__link" href="otzyvy.php">ОТЗЫВЫ</a>
+                    <a class="nav__link" href="diplomy.php">ДИПЛОМЫ</a>
                     <a class="nav__link" href="kontakty.php">КОНТАКТЫ</a>
                 </nav>
 
@@ -60,6 +61,8 @@
                         <a class="mega-menu__link" href="otzyvy.php">Отзывы</a>
                         <a class="mega-menu__link" href="publikatsii.php">Публикации</a>
                         <a class="mega-menu__link" href="diplomy.php">Дипломы</a>
+                        <a class="mega-menu__link" href="pamyatki-patsientam.php">Памятки пациентам</a>
+                        <a class="mega-menu__link" href="dlya-vrachey.php">Для врачей</a>
                     </div>
 
                     <div class="mega-menu__column">
