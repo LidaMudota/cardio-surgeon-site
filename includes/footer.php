@@ -46,7 +46,7 @@
                 <a class="footer__contact footer__contact--mail" href="mailto:aokorobkov@yandex.ru">aokorobkov@yandex.ru</a>
                 <p class="footer__contact footer__contact--address">125047, г. Москва, 2-й Тверской-Ямской пер., 10</p>
             </div>
-            <a class="button button--accent button--small" href="kontakty.php">Записаться</a>
+            <a class="button button--accent button--small" href="kontakty.php">Связаться</a>
         </div>
     </div>
 
@@ -100,7 +100,7 @@
                     <a class="footer__contact footer__contact--mail" href="mailto:aokorobkov@yandex.ru">aokorobkov@yandex.ru</a>
                     <p class="footer__contact footer__contact--address">125047, г. Москва, 2-й Тверской-Ямской пер., 10</p>
                 </div>
-                <a class="button button--accent button--small footer__tablet-cta" href="kontakty.php">Записаться</a>
+                <a class="button button--accent button--small footer__tablet-cta" href="kontakty.php">Связаться</a>
             </section>
         </div>
     </div>

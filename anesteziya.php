@@ -54,7 +54,7 @@ require __DIR__ . '/includes/page-start.php';
     </section>
 
 <?php
-$formTitle = 'Записаться на консультацию';
+$formTitle = 'Связаться';
 $formSubtitle = 'Оставьте контакты, и администратор свяжется с вами.';
 require __DIR__ . '/includes/form-block.php';
 ?>

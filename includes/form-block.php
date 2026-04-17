@@ -10,7 +10,7 @@ if (!$consultationFormEnabled) {
     <div class="container">
         <div class="consultation">
             <div class="consultation__header">
-                <h2 class="consultation__title">Записаться на консультацию</h2>
+                <h2 class="consultation__title">Связаться</h2>
                 <p class="consultation__subtitle">Оставьте заявку, и мы свяжемся с вами в ближайшее время.</p>
             </div>
 
