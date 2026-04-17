@@ -3,15 +3,17 @@
         <div class="footer__column">
             <a class="footer__link" href="index.php">Главная</a>
             <a class="footer__link" href="o-vrache.php">Обо мне</a>
+            <a class="footer__link" href="rezultaty-rabot.php">Направления работы</a>
         </div>
 
         <div class="footer__column">
-            <a class="footer__link" href="rezultaty-rabot.php">Направления работы</a>
-            <a class="footer__link" href="konsultatsiya.php">Консультация</a>
+            <a class="footer__link" href="analizy.php">Анализы</a>
+            <a class="footer__link" href="anesteziya.php">Анастезия</a>
+            <a class="footer__link" href="kak-prokhodit-konsultatsiya.php">Как проходит консультация</a>
         </div>
 
         <div class="footer__column footer__column--contacts">
-            <a class="footer__link" href="rezultaty-rabot.php">Направления работы</a>
+            <a class="footer__link" href="podgotovka-k-operatsii.php">Подготовка к операции</a>
             <a class="footer__link" href="otzyvy.php">Отзывы</a>
             <a class="footer__link" href="kontakty.php">Контакты</a>
         </div>
@@ -84,7 +86,10 @@
                 <a class="footer__link" href="index.php">Главная</a>
                 <a class="footer__link" href="o-vrache.php">Обо мне</a>
                 <a class="footer__link" href="rezultaty-rabot.php">Направления работы</a>
-                <a class="footer__link" href="konsultatsiya.php">Консультация</a>
+                <a class="footer__link" href="analizy.php">Анализы</a>
+                <a class="footer__link" href="anesteziya.php">Анастезия</a>
+                <a class="footer__link" href="kak-prokhodit-konsultatsiya.php">Как проходит консультация</a>
+                <a class="footer__link" href="podgotovka-k-operatsii.php">Подготовка к операции</a>
                 <a class="footer__link" href="otzyvy.php">Отзывы</a>
                 <a class="footer__link" href="kontakty.php">Контакты</a>
             </section>
