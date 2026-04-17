@@ -5,7 +5,6 @@ $meta = [
     'description' => 'Контакты для записи на консультацию, адрес клиники в Москве и карта проезда.'
 ];
 $pageTitle = 'Контакты';
-$pageSubtitle = 'Оперативная связь по вопросам консультации и лечения. Ниже представлены актуальные контакты и адрес приема.';
 require __DIR__ . '/includes/head.php';
 require __DIR__ . '/includes/header.php';
 require __DIR__ . '/includes/page-start.php';
@@ -16,7 +15,6 @@ require __DIR__ . '/includes/page-start.php';
             <article class="contacts-page-hero__card info-card">
                 <p class="contacts-page-hero__lead">Контактный центр</p>
                 <h2 class="contacts-page-hero__title">Свяжитесь удобным для вас способом</h2>
-                <p class="contacts-page-hero__text">Все каналы связи, размещенные на странице, актуальны для первичного обращения, уточнения организационных вопросов и записи на консультацию.</p>
             </article>
         </div>
     </section>
@@ -71,14 +69,6 @@ require __DIR__ . '/includes/page-start.php';
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section class="inner-section contacts-page-note">
-        <div class="container">
-            <article class="info-card contacts-page-note__card">
-                <p class="contacts-page-note__text">Ответ на обращения в мессенджерах и по электронной почте предоставляется в рабочем порядке. При необходимости срочной связи используйте телефон.</p>
-            </article>
         </div>
     </section>
 
