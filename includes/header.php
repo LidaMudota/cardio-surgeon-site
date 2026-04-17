@@ -11,7 +11,6 @@
                     <a class="nav__link" href="pamyatki-patsientam.php">ПАМЯТКИ ПАЦИЕНТАМ</a>
                     <a class="nav__link" href="dlya-vrachey.php">ДЛЯ ВРАЧЕЙ</a>
                     <a class="nav__link" href="kontakty.php">КОНТАКТЫ</a>
-                    <a class="nav__link" href="uslugi-i-tseny.php">УСЛУГИ И ЦЕНЫ</a>
                 </nav>
 
                 <div class="header__actions">
@@ -92,7 +91,6 @@
                         <a class="mobile-nav__link" href="pamyatki-patsientam.php">Памятки пациентам</a>
                         <a class="mobile-nav__link" href="dlya-vrachey.php">Для врачей</a>
                         <a class="mobile-nav__link" href="kontakty.php">Контакты</a>
-                        <a class="mobile-nav__link" href="uslugi-i-tseny.php">Услуги и цены</a>
                     </div>
 
                     <div class="mobile-nav__group">

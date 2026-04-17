@@ -3,7 +3,6 @@
         <div class="footer__column">
             <a class="footer__link" href="index.php">Главная</a>
             <a class="footer__link" href="o-vrache.php">Обо мне</a>
-            <a class="footer__link" href="uslugi-i-tseny.php">Цены</a>
         </div>
 
         <div class="footer__column">
@@ -84,7 +83,6 @@
                 <h2 class="footer__tablet-title" id="footer-tablet-links">Быстрые ссылки</h2>
                 <a class="footer__link" href="index.php">Главная</a>
                 <a class="footer__link" href="o-vrache.php">Обо мне</a>
-                <a class="footer__link" href="uslugi-i-tseny.php">Цены</a>
                 <a class="footer__link" href="rezultaty-rabot.php">Направления работы</a>
                 <a class="footer__link" href="konsultatsiya.php">Консультация</a>
                 <a class="footer__link" href="otzyvy.php">Отзывы</a>
