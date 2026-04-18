@@ -147,9 +147,9 @@
     }
 
     .consultation-page__overview-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-        align-items: start;
+        grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+        gap: 24px;
+        align-items: center;
     }
 
     .consultation-page__overview-content,
@@ -158,24 +158,26 @@
     }
 
     .consultation-page__details-block {
-        max-width: 68ch;
+        max-width: none;
     }
 
     .consultation-page__photo-panel {
-        justify-content: center;
+        justify-content: flex-end;
+        align-self: stretch;
     }
 
     .consultation-page__photo-shell {
-        max-width: 620px;
+        width: 100%;
+        max-width: 460px;
         padding: 16px;
     }
 
     .consultation-page__photo-placeholder {
-        min-height: 0;
+        min-height: clamp(300px, 48vw, 420px);
     }
 
     .consultation-page__photo-placeholder img {
-        aspect-ratio: 4 / 4;
+        height: 100%;
         object-fit: cover;
     }
 }
