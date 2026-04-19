@@ -23,11 +23,13 @@
     --diploma-cards-gap: 24px;
     --diploma-nav-offset: 16px;
     --diploma-card-max-width: 392px;
+    --diploma-hover-safe-inline: 10px;
     position: relative;
 }
 
 .diplomas-page__viewport {
     min-width: 0;
+    padding-inline: var(--diploma-hover-safe-inline);
     overflow-x: auto;
     overflow-y: hidden;
     scrollbar-width: none;
@@ -44,8 +46,11 @@
 .diplomas-page__track {
     display: flex;
     gap: var(--diploma-cards-gap);
-    min-width: 100%;
+    width: calc(100% + (var(--diploma-hover-safe-inline) * 2));
+    min-width: calc(100% + (var(--diploma-hover-safe-inline) * 2));
+    margin-inline: calc(var(--diploma-hover-safe-inline) * -1);
 }
+
 
 .diplomas-page__slide {
     flex: 0 0 min(var(--diploma-card-max-width), calc((100% - (var(--diploma-cards-gap) * 2)) / 3));
@@ -62,7 +67,7 @@
     text-decoration: none;
     color: inherit;
     border: 4.8px solid rgba(255, 255, 255, 0.2);
-    overflow: hidden;
+    overflow: visible;
     background: linear-gradient(175deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
     box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
     transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
@@ -70,7 +75,7 @@
 
 .diplomas-page__card-link:hover,
 .diplomas-page__card-link:focus-visible {
-    transform: translateY(-3px);
+    transform: translateY(-3px) scale(1.018);
     border-color: rgba(24, 198, 198, 0.4);
     box-shadow: 0 16px 30px rgba(0, 0, 0, 0.26);
 }
