@@ -129,15 +129,6 @@ require __DIR__ . '/includes/page-start.php';
             </div>
 
             <div class="diplomas-page__carousel" data-diplomas-carousel>
-                <button
-                    class="diplomas-page__nav diplomas-page__nav--prev"
-                    type="button"
-                    aria-label="Показать предыдущий документ"
-                    data-carousel-prev
-                >
-                    <span aria-hidden="true">‹</span>
-                </button>
-
                 <div class="diplomas-page__viewport" data-carousel-viewport>
                     <div class="diplomas-page__track" data-carousel-track>
                         <?php foreach ($documents as $document): ?>
@@ -168,14 +159,25 @@ require __DIR__ . '/includes/page-start.php';
                     </div>
                 </div>
 
-                <button
-                    class="diplomas-page__nav diplomas-page__nav--next"
-                    type="button"
-                    aria-label="Показать следующий документ"
-                    data-carousel-next
-                >
-                    <span aria-hidden="true">›</span>
-                </button>
+                <div class="diplomas-page__controls">
+                    <button
+                        class="diplomas-page__nav diplomas-page__nav--prev"
+                        type="button"
+                        aria-label="Показать предыдущий документ"
+                        data-carousel-prev
+                    >
+                        <span aria-hidden="true">‹</span>
+                    </button>
+
+                    <button
+                        class="diplomas-page__nav diplomas-page__nav--next"
+                        type="button"
+                        aria-label="Показать следующий документ"
+                        data-carousel-next
+                    >
+                        <span aria-hidden="true">›</span>
+                    </button>
+                </div>
             </div>
         </section>
     </div>

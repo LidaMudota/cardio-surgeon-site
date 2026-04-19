@@ -20,10 +20,10 @@
 }
 
 .diplomas-page__carousel {
-    display: grid;
-    grid-template-columns: auto minmax(0, 1fr) auto;
-    align-items: center;
-    gap: 14px;
+    --diploma-cards-gap: 24px;
+    --diploma-nav-offset: 16px;
+    --diploma-card-max-width: 392px;
+    position: relative;
 }
 
 .diplomas-page__viewport {
@@ -43,12 +43,12 @@
 
 .diplomas-page__track {
     display: flex;
-    gap: 16px;
+    gap: var(--diploma-cards-gap);
     min-width: 100%;
 }
 
 .diplomas-page__slide {
-    flex: 0 0 min(360px, calc((100% - 32px) / 3));
+    flex: 0 0 min(var(--diploma-card-max-width), calc((100% - (var(--diploma-cards-gap) * 2)) / 3));
     min-width: 0;
     scroll-snap-align: start;
 }
@@ -56,13 +56,12 @@
 .diplomas-page__card-link {
     width: 100%;
     height: 247.867px;
-    max-width: 360px;
+    max-width: none;
     display: block;
     box-sizing: border-box;
     text-decoration: none;
     color: inherit;
     border: 4.8px solid rgba(255, 255, 255, 0.2);
-    border-radius: 18px;
     overflow: hidden;
     background: linear-gradient(175deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
     box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
@@ -104,6 +103,8 @@
 }
 
 .diplomas-page__nav {
+    position: absolute;
+    top: 50%;
     width: 42px;
     height: 42px;
     border-radius: 50%;
@@ -115,12 +116,13 @@
     display: grid;
     place-items: center;
     cursor: pointer;
+    transform: translateY(-50%);
     transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
 }
 
 .diplomas-page__nav:hover,
 .diplomas-page__nav:focus-visible {
-    transform: translateY(-1px);
+    transform: translateY(calc(-50% - 1px));
     border-color: rgba(24, 198, 198, 0.45);
     background: rgba(11, 32, 47, 0.95);
 }
@@ -133,7 +135,45 @@
 .diplomas-page__nav[disabled] {
     opacity: 0.45;
     cursor: default;
-    transform: none;
+    transform: translateY(-50%);
+}
+
+.diplomas-page__controls {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.diplomas-page__controls .diplomas-page__nav {
+    pointer-events: auto;
+}
+
+.diplomas-page__nav--prev {
+    left: 0;
+    transform: translate(calc(-100% - var(--diploma-nav-offset)), -50%);
+}
+
+.diplomas-page__nav--next {
+    right: 0;
+    transform: translate(calc(100% + var(--diploma-nav-offset)), -50%);
+}
+
+.diplomas-page__nav--prev:hover,
+.diplomas-page__nav--prev:focus-visible {
+    transform: translate(calc(-100% - var(--diploma-nav-offset)), calc(-50% - 1px));
+}
+
+.diplomas-page__nav--next:hover,
+.diplomas-page__nav--next:focus-visible {
+    transform: translate(calc(100% + var(--diploma-nav-offset)), calc(-50% - 1px));
+}
+
+.diplomas-page__nav--prev[disabled] {
+    transform: translate(calc(-100% - var(--diploma-nav-offset)), -50%);
+}
+
+.diplomas-page__nav--next[disabled] {
+    transform: translate(calc(100% + var(--diploma-nav-offset)), -50%);
 }
 
 @media (max-width: 900px) {
@@ -143,17 +183,14 @@
     }
 
     .diplomas-page__carousel {
-        gap: 10px;
+        --diploma-cards-gap: 18px;
+        --diploma-nav-offset: 10px;
+        --diploma-card-max-width: 372px;
     }
 
 }
 
 @media (max-width: 640px) {
-    .diplomas-page__carousel {
-        grid-template-columns: 1fr;
-        gap: 12px;
-    }
-
     .diplomas-page__slide {
         flex-basis: 100%;
     }
