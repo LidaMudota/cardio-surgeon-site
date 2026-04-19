@@ -4,6 +4,7 @@ session_start();
 require_once __DIR__ . '/env.php';
 require_once __DIR__ . '/url.php';
 require_once __DIR__ . '/seo.php';
+require_once __DIR__ . '/clinic-location.php';
 
 enforce_canonical_host_if_needed();
 

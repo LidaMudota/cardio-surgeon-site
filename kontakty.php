@@ -44,7 +44,7 @@ require __DIR__ . '/includes/page-start.php';
 
                 <article class="info-card contacts-page-item contacts-page-item--wide">
                     <h2 class="contacts-page-item__title">Адрес</h2>
-                    <p class="contacts-page-item__address">125047, г. Москва, 2-й Тверской-Ямской пер., 10</p>
+                    <p class="contacts-page-item__address"><?= e(clinic_location_data()['address']) ?></p>
                 </article>
             </div>
         </div>
@@ -55,7 +55,7 @@ require __DIR__ . '/includes/page-start.php';
             <div class="contacts-page-location__layout">
                 <article class="info-card contacts-page-location__details">
                     <h2 class="contacts-page-location__title">Адрес и карта проезда</h2>
-                    <p class="contacts-page-location__address">125047, г. Москва, 2-й Тверской-Ямской пер., 10</p>
+                    <p class="contacts-page-location__address"><?= e(clinic_location_data()['address']) ?></p>
                     <p class="contacts-page-location__text">Для удобства построения маршрута используйте карту.</p>
                 </article>
 
@@ -65,10 +65,10 @@ require __DIR__ . '/includes/page-start.php';
                             <h3 class="location-map__title">Как нас найти</h3>
                             <p class="location-map__text">Откройте карту, чтобы построить путь из любой точки города.</p>
                         </div>
-                        <a class="location-map__action" href="https://yandex.ru/maps/?rtext=~55.775594,37.590075&rtt=auto" target="_blank" rel="noopener noreferrer">Построить маршрут</a>
+                        <a class="location-map__action" href="<?= e(clinic_location_route_url()) ?>" target="_blank" rel="noopener noreferrer">Построить маршрут</a>
                     </div>
                     <div class="location-map__frame" aria-label="Карта расположения клиники">
-                        <script type="text/plain" data-cookie-category="optional" data-cookie-src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A47f7c01e0e45c8af8c3b6758b11905f24df3bf364d201d50108de2cc9d03153e&amp;width=500&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>
+                        <script type="text/plain" data-cookie-category="optional" data-cookie-src="<?= e(clinic_location_constructor_script_url()) ?>"></script>
                             <noscript>Для отображения карты включите JavaScript.</noscript>
                     </div>
                 </div>

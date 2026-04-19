@@ -167,10 +167,10 @@ require __DIR__ . '/includes/header.php';
                                 <h2 class="location-map__title">Как нас найти</h2>
                                 <p class="location-map__text">Клиника удобно расположена в городе, а маршрут до входа отображается прямо на карте. Откройте карту, чтобы построить путь из любой точки.</p>
                             </div>
-                            <a class="location-map__action" href="https://yandex.ru/maps/?rtext=~55.775594,37.590075&rtt=auto" target="_blank" rel="noopener noreferrer">Построить маршрут</a>
+                            <a class="location-map__action" href="<?= e(clinic_location_route_url()) ?>" target="_blank" rel="noopener noreferrer">Построить маршрут</a>
                         </div>
                         <div class="location-map__frame" aria-label="Карта расположения клиники">
-                            <script type="text/plain" data-cookie-category="optional" data-cookie-src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A47f7c01e0e45c8af8c3b6758b11905f24df3bf364d201d50108de2cc9d03153e&amp;width=500&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>
+                            <script type="text/plain" data-cookie-category="optional" data-cookie-src="<?= e(clinic_location_constructor_script_url()) ?>"></script>
                             <noscript>Для отображения карты включите JavaScript.</noscript>
                         </div>
                     </div>
