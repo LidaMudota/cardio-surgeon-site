@@ -333,6 +333,48 @@ document.addEventListener('DOMContentLoaded', () => {
 
     diplomaClose?.addEventListener('click', () => diplomaModal?.setAttribute('hidden', 'hidden'));
 
+    const diplomaCarousels = document.querySelectorAll('[data-diplomas-carousel]');
+
+    diplomaCarousels.forEach((carousel) => {
+        const viewport = carousel.querySelector('[data-carousel-viewport]');
+        const track = carousel.querySelector('[data-carousel-track]');
+        const slides = Array.from(track?.children || []);
+        const prevButton = carousel.querySelector('[data-carousel-prev]');
+        const nextButton = carousel.querySelector('[data-carousel-next]');
+
+        if (!viewport || !track || slides.length < 2) return;
+
+        const getStep = () => {
+            const firstSlide = slides[0];
+            if (!(firstSlide instanceof HTMLElement)) return viewport.clientWidth;
+            const trackStyles = window.getComputedStyle(track);
+            const gap = Number.parseFloat(trackStyles.columnGap || trackStyles.gap || '0') || 0;
+            return firstSlide.getBoundingClientRect().width + gap;
+        };
+
+        const syncButtons = () => {
+            if (!prevButton || !nextButton) return;
+            const maxScrollLeft = Math.max(0, viewport.scrollWidth - viewport.clientWidth);
+            const currentScroll = Math.round(viewport.scrollLeft);
+            prevButton.disabled = currentScroll <= 1;
+            nextButton.disabled = currentScroll >= Math.round(maxScrollLeft) - 1;
+        };
+
+        const scrollByStep = (direction) => {
+            viewport.scrollBy({
+                left: getStep() * direction,
+                behavior: 'smooth',
+            });
+        };
+
+        prevButton?.addEventListener('click', () => scrollByStep(-1));
+        nextButton?.addEventListener('click', () => scrollByStep(1));
+        viewport.addEventListener('scroll', syncButtons, { passive: true });
+        window.addEventListener('resize', syncButtons);
+
+        syncButtons();
+    });
+
     directionModal?.addEventListener('keydown', (event) => {
         if (event.key === 'Escape') {
             event.preventDefault();
