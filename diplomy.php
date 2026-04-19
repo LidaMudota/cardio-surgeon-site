@@ -162,14 +162,6 @@ require __DIR__ . '/includes/page-start.php';
                                             height="680"
                                         >
                                     </figure>
-                                    <div class="diplomas-page__card-meta">
-                                        <p class="diplomas-page__card-group"><?= e($document['group']); ?></p>
-                                        <p class="diplomas-page__card-type"><?= e($document['type']); ?></p>
-                                        <h3 class="diplomas-page__card-title"><?= e($document['title']); ?></h3>
-                                        <?php if (!empty($document['period'])): ?>
-                                            <p class="diplomas-page__card-period"><?= e($document['period']); ?></p>
-                                        <?php endif; ?>
-                                    </div>
                                 </a>
                             </article>
                         <?php endforeach; ?>
