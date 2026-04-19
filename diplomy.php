@@ -144,8 +144,18 @@ require __DIR__ . '/includes/page-start.php';
                         aria-label="Показать предыдущий документ"
                         data-carousel-prev
                     >
-                        <span aria-hidden="true">‹</span>
+                        <span class="diplomas-page__nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                                <path d="M14.5 5.5L8 12l6.5 6.5" />
+                            </svg>
+                        </span>
                     </button>
+
+                    <p class="diplomas-page__status" data-carousel-status aria-live="polite" aria-atomic="true">
+                        <span data-carousel-current>1</span>
+                        <span class="diplomas-page__status-separator" aria-hidden="true">/</span>
+                        <span data-carousel-total><?= count($documents); ?></span>
+                    </p>
 
                     <button
                         class="diplomas-page__nav diplomas-page__nav--next"
@@ -153,7 +163,11 @@ require __DIR__ . '/includes/page-start.php';
                         aria-label="Показать следующий документ"
                         data-carousel-next
                     >
-                        <span aria-hidden="true">›</span>
+                        <span class="diplomas-page__nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+                                <path d="M9.5 5.5L16 12l-6.5 6.5" />
+                            </svg>
+                        </span>
                     </button>
                 </div>
             </div>

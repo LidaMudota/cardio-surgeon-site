@@ -423,6 +423,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const originalSlides = Array.from(track?.children || []);
         const prevButton = carousel.querySelector('[data-carousel-prev]');
         const nextButton = carousel.querySelector('[data-carousel-next]');
+        const currentSlideIndicator = carousel.querySelector('[data-carousel-current]');
+        const totalSlidesIndicator = carousel.querySelector('[data-carousel-total]');
 
         if (!viewport || !track || originalSlides.length < 2) return;
 
@@ -441,6 +443,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const realSlidesCount = originalSlides.length;
         let settleTimerId = null;
         let resizeRafId = null;
+        let indicatorRafId = null;
+
+        if (totalSlidesIndicator) {
+            totalSlidesIndicator.textContent = String(realSlidesCount);
+        }
 
         const getStep = () => {
             const firstSlide = slides[cloneCount];
@@ -489,6 +496,16 @@ document.addEventListener('DOMContentLoaded', () => {
             setScrollWithoutAnimation(prependWidth);
         };
 
+        const updateSlideIndicator = () => {
+            if (!currentSlideIndicator) return;
+            const { step, prependWidth } = getLoopMetrics();
+            if (!step) return;
+
+            const rawIndex = Math.round((viewport.scrollLeft - prependWidth) / step);
+            const normalizedIndex = ((rawIndex % realSlidesCount) + realSlidesCount) % realSlidesCount;
+            currentSlideIndicator.textContent = String(normalizedIndex + 1);
+        };
+
         const scheduleNormalize = () => {
             if (settleTimerId !== null) {
                 window.clearTimeout(settleTimerId);
@@ -507,9 +524,20 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         };
 
+        const scheduleIndicatorUpdate = () => {
+            if (indicatorRafId !== null) return;
+            indicatorRafId = window.requestAnimationFrame(() => {
+                indicatorRafId = null;
+                updateSlideIndicator();
+            });
+        };
+
         prevButton?.addEventListener('click', () => scrollByStep(-1));
         nextButton?.addEventListener('click', () => scrollByStep(1));
-        viewport.addEventListener('scroll', scheduleNormalize, { passive: true });
+        viewport.addEventListener('scroll', () => {
+            scheduleNormalize();
+            scheduleIndicatorUpdate();
+        }, { passive: true });
         viewport.addEventListener('pointerup', normalizeLoopPosition);
         viewport.addEventListener('touchend', normalizeLoopPosition, { passive: true });
         window.addEventListener('resize', () => {
@@ -520,10 +548,12 @@ document.addEventListener('DOMContentLoaded', () => {
             resizeRafId = window.requestAnimationFrame(() => {
                 resizeRafId = null;
                 normalizeLoopPosition();
+                updateSlideIndicator();
             });
         });
 
         scrollToInitialRealSlide();
+        updateSlideIndicator();
     });
 
     directionModal?.addEventListener('keydown', (event) => {
