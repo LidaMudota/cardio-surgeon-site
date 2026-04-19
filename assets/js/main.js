@@ -338,26 +338,84 @@ document.addEventListener('DOMContentLoaded', () => {
     diplomaCarousels.forEach((carousel) => {
         const viewport = carousel.querySelector('[data-carousel-viewport]');
         const track = carousel.querySelector('[data-carousel-track]');
-        const slides = Array.from(track?.children || []);
+        const originalSlides = Array.from(track?.children || []);
         const prevButton = carousel.querySelector('[data-carousel-prev]');
         const nextButton = carousel.querySelector('[data-carousel-next]');
 
-        if (!viewport || !track || slides.length < 2) return;
+        if (!viewport || !track || originalSlides.length < 2) return;
+
+        const cloneCount = originalSlides.length;
+        const prependClones = originalSlides.map((slide) => slide.cloneNode(true));
+        const appendClones = originalSlides.map((slide) => slide.cloneNode(true));
+
+        prependClones.forEach((slide) => {
+            track.insertBefore(slide, track.firstChild);
+        });
+        appendClones.forEach((slide) => {
+            track.appendChild(slide);
+        });
+
+        const slides = Array.from(track.children);
+        const realSlidesCount = originalSlides.length;
+        let settleTimerId = null;
+        let resizeRafId = null;
 
         const getStep = () => {
-            const firstSlide = slides[0];
+            const firstSlide = slides[cloneCount];
             if (!(firstSlide instanceof HTMLElement)) return viewport.clientWidth;
             const trackStyles = window.getComputedStyle(track);
             const gap = Number.parseFloat(trackStyles.columnGap || trackStyles.gap || '0') || 0;
             return firstSlide.getBoundingClientRect().width + gap;
         };
 
-        const syncButtons = () => {
-            if (!prevButton || !nextButton) return;
-            const maxScrollLeft = Math.max(0, viewport.scrollWidth - viewport.clientWidth);
-            const currentScroll = Math.round(viewport.scrollLeft);
-            prevButton.disabled = currentScroll <= 1;
-            nextButton.disabled = currentScroll >= Math.round(maxScrollLeft) - 1;
+        const getLoopMetrics = () => {
+            const step = getStep();
+            const prependWidth = cloneCount * step;
+            const realTrackWidth = realSlidesCount * step;
+            return { step, prependWidth, realTrackWidth };
+        };
+
+        const setScrollWithoutAnimation = (left) => {
+            const prevSnapType = viewport.style.scrollSnapType;
+            viewport.style.scrollSnapType = 'none';
+            viewport.scrollTo({ left, behavior: 'auto' });
+            requestAnimationFrame(() => {
+                viewport.style.scrollSnapType = prevSnapType;
+            });
+        };
+
+        const normalizeLoopPosition = () => {
+            const { step, prependWidth, realTrackWidth } = getLoopMetrics();
+            if (!step || !realTrackWidth) return;
+
+            const beforeRealSlides = prependWidth - step * 0.5;
+            const afterRealSlides = prependWidth + realTrackWidth - step * 0.5;
+            const currentScroll = viewport.scrollLeft;
+
+            if (currentScroll < beforeRealSlides) {
+                setScrollWithoutAnimation(currentScroll + realTrackWidth);
+                return;
+            }
+
+            if (currentScroll >= afterRealSlides) {
+                setScrollWithoutAnimation(currentScroll - realTrackWidth);
+            }
+        };
+
+        const scrollToInitialRealSlide = () => {
+            const { prependWidth } = getLoopMetrics();
+            setScrollWithoutAnimation(prependWidth);
+        };
+
+        const scheduleNormalize = () => {
+            if (settleTimerId !== null) {
+                window.clearTimeout(settleTimerId);
+            }
+
+            settleTimerId = window.setTimeout(() => {
+                settleTimerId = null;
+                normalizeLoopPosition();
+            }, 90);
         };
 
         const scrollByStep = (direction) => {
@@ -369,10 +427,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
         prevButton?.addEventListener('click', () => scrollByStep(-1));
         nextButton?.addEventListener('click', () => scrollByStep(1));
-        viewport.addEventListener('scroll', syncButtons, { passive: true });
-        window.addEventListener('resize', syncButtons);
+        viewport.addEventListener('scroll', scheduleNormalize, { passive: true });
+        viewport.addEventListener('pointerup', normalizeLoopPosition);
+        viewport.addEventListener('touchend', normalizeLoopPosition, { passive: true });
+        window.addEventListener('resize', () => {
+            if (resizeRafId !== null) {
+                window.cancelAnimationFrame(resizeRafId);
+            }
 
-        syncButtons();
+            resizeRafId = window.requestAnimationFrame(() => {
+                resizeRafId = null;
+                normalizeLoopPosition();
+            });
+        });
+
+        scrollToInitialRealSlide();
     });
 
     directionModal?.addEventListener('keydown', (event) => {
