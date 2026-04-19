@@ -29,6 +29,9 @@
 
 .diplomas-page__viewport {
     min-width: 0;
+    --diploma-hover-safe-block: 8px;
+    margin-block: calc(var(--diploma-hover-safe-block) * -1);
+    padding-block: var(--diploma-hover-safe-block);
     padding-inline: var(--diploma-hover-safe-inline);
     overflow-x: auto;
     overflow-y: hidden;
