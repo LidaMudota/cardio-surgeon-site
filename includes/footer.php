@@ -109,20 +109,24 @@
     <div class="footer__bottom" data-no-scroll-motion>
         <div class="container footer__bottom-inner">
             <p class="footer__caption">2026 Все права защищены</p>
-            <a class="footer__link" href="politika-konfidentsialnosti.php">Политика конфиденциальности</a>
+            <a class="footer__link" href="politika-konfidentsialnosti.php">Политика обработки ПДн</a>
             <a class="footer__link" href="soglasie-na-obrabotku-personalnykh-dannykh.php">Согласие на обработку ПДн</a>
+            <a class="footer__link" href="politika-ispolzovaniya-cookie-faylov.php">Политика cookie-файлов</a>
         </div>
     </div>
 
     <div class="footer__bottom footer__bottom--tablet" data-no-scroll-motion>
         <div class="container footer__bottom-inner footer__bottom-inner--tablet">
             <p class="footer__caption">2026 Все права защищены</p>
-            <a class="footer__link" href="politika-konfidentsialnosti.php">Политика конфиденциальности</a>
+            <a class="footer__link" href="politika-konfidentsialnosti.php">Политика обработки ПДн</a>
             <a class="footer__link" href="soglasie-na-obrabotku-personalnykh-dannykh.php">Согласие на обработку ПДн</a>
+            <a class="footer__link" href="politika-ispolzovaniya-cookie-faylov.php">Политика cookie-файлов</a>
         </div>
     </div>
 </footer>
 </div>
+
+<?php require __DIR__ . '/cookie-consent.php'; ?>
 
 <script src="assets/js/main.js"></script>
 </body>

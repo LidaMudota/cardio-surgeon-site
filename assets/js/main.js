@@ -16,6 +16,86 @@ document.addEventListener('DOMContentLoaded', () => {
     const directionModalImage = directionModal?.querySelector('[data-direction-modal-image]');
     const directionCloseButtons = directionModal?.querySelectorAll('[data-direction-close]');
 
+
+    const cookieNotice = document.querySelector('[data-cookie-notice]');
+    const cookieAcceptButton = document.querySelector('[data-cookie-accept]');
+    const cookieRejectButton = document.querySelector('[data-cookie-reject]');
+    const cookiePreferenceKey = 'site_cookie_preference';
+
+    const setCookiePreference = (value) => {
+        try {
+            localStorage.setItem(cookiePreferenceKey, value);
+        } catch (error) {
+            return;
+        }
+    };
+
+    const getCookiePreference = () => {
+        try {
+            return localStorage.getItem(cookiePreferenceKey);
+        } catch (error) {
+            return null;
+        }
+    };
+
+    const hideCookieNotice = () => {
+        if (cookieNotice) {
+            cookieNotice.setAttribute('hidden', 'hidden');
+        }
+    };
+
+    const loadOptionalScripts = () => {
+        const scripts = document.querySelectorAll('script[data-cookie-category="optional"]');
+
+        scripts.forEach((script) => {
+            if (script.dataset.cookieLoaded === '1') return;
+
+            const src = script.dataset.cookieSrc;
+            if (!src) return;
+
+            const runtimeScript = document.createElement('script');
+            runtimeScript.src = src;
+            runtimeScript.async = true;
+            runtimeScript.charset = script.getAttribute('charset') || 'utf-8';
+            runtimeScript.dataset.cookieLoaded = '1';
+            script.parentNode?.insertBefore(runtimeScript, script.nextSibling);
+            script.dataset.cookieLoaded = '1';
+        });
+    };
+
+    const applyCookiePreference = (value) => {
+        if (value === 'accepted') {
+            loadOptionalScripts();
+        }
+
+        if (value === 'accepted' || value === 'necessary') {
+            hideCookieNotice();
+        }
+    };
+
+    const setupCookieNotice = () => {
+        if (!cookieNotice) return;
+
+        const preference = getCookiePreference();
+
+        if (preference === 'accepted' || preference === 'necessary') {
+            applyCookiePreference(preference);
+            return;
+        }
+
+        cookieNotice.removeAttribute('hidden');
+
+        cookieAcceptButton?.addEventListener('click', () => {
+            setCookiePreference('accepted');
+            applyCookiePreference('accepted');
+        });
+
+        cookieRejectButton?.addEventListener('click', () => {
+            setCookiePreference('necessary');
+            applyCookiePreference('necessary');
+        });
+    };
+
     const directionDetailsMap = {
         'КОРОНАРНОЕ СТЕНТИРОВАНИЕ': {
             text: 'Коронарное стентирование с применением ВСУЗИ помогает восстановить кровоток в сосудах сердца через малоинвазивный доступ и сократить время реабилитации.',
@@ -134,6 +214,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     mobileViewport.addEventListener('change', syncNavByViewport);
     syncNavByViewport();
+
+    setupCookieNotice();
 
     window.addEventListener('scroll', () => {
         header?.classList.toggle('is-scrolled', window.scrollY > 12);

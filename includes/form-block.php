@@ -46,15 +46,15 @@ if (!$consultationFormEnabled) {
                     <textarea class="input input--textarea" id="message" name="message" placeholder="Комментарий / тема обращения"></textarea>
                 </div>
 
-                <div class="form-field form-field--submit">
-                    <button class="button button--dark button--wide" type="submit">ОТПРАВИТЬ ЗАЯВКУ</button>
-                </div>
-
                 <label class="checkbox">
                     <input class="checkbox__input" type="checkbox" name="agreement" value="1" required>
                     <span class="checkbox__box"></span>
-                    <span class="checkbox__text">Я согласен(а) на обработку персональных данных. <a href="politika-konfidentsialnosti.php">Политикой конфиденциальности</a> и <a href="soglasie-na-obrabotku-personalnykh-dannykh.php">согласием на обработку персональных данных</a></span>
+                    <span class="checkbox__text">Я даю согласие на обработку персональных данных и подтверждаю ознакомление с <a href="politika-konfidentsialnosti.php" target="_blank" rel="noopener noreferrer">Политикой в отношении обработки персональных данных</a> и <a href="soglasie-na-obrabotku-personalnykh-dannykh.php" target="_blank" rel="noopener noreferrer">Согласием на обработку персональных данных</a>.</span>
                 </label>
+
+                <div class="form-field form-field--submit">
+                    <button class="button button--dark button--wide" type="submit">ОТПРАВИТЬ ЗАЯВКУ</button>
+                </div>
             </form>
         </div>
     </div>
