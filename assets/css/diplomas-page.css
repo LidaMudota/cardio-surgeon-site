@@ -89,8 +89,10 @@
 }
 
 .diplomas-page__preview {
-    --diploma-preview-extra-height: 0px;
-    --diploma-preview-offset-y: 0px;
+    --diploma-preview-base-extra-height: 0px;
+    --diploma-preview-base-offset-y: 0px;
+    --diploma-preview-doc-scale: 1;
+    --diploma-preview-doc-offset-y: 0px;
 
     position: relative;
     margin: 0;
@@ -104,11 +106,28 @@
     position: absolute;
     inset: 0;
     width: 100%;
-    height: calc(100% + var(--diploma-preview-extra-height));
+    height: calc((100% + var(--diploma-preview-base-extra-height)) * var(--diploma-preview-doc-scale));
     object-fit: cover;
     object-position: center;
-    transform: translateY(var(--diploma-preview-offset-y));
+    transform: translateY(calc(var(--diploma-preview-base-offset-y) + var(--diploma-preview-doc-offset-y)));
 }
+
+/*
+ * Ручная настройка каждого документа:
+ * --diploma-preview-doc-scale: масштаб превью внутри карточки (нейтрально: 1)
+ * --diploma-preview-doc-offset-y: вертикальный сдвиг превью (нейтрально: 0px)
+ */
+.diplomas-page__doc--1 .diplomas-page__preview { --diploma-preview-base-extra-height: 0px; --diploma-preview-base-offset-y: 0px; --diploma-preview-doc-scale: 1; --diploma-preview-doc-offset-y: 0px; }
+.diplomas-page__doc--2 .diplomas-page__preview { --diploma-preview-base-extra-height: 20px; --diploma-preview-base-offset-y: 0px; --diploma-preview-doc-scale: 1; --diploma-preview-doc-offset-y: 0px; }
+.diplomas-page__doc--3 .diplomas-page__preview { --diploma-preview-base-extra-height: 18px; --diploma-preview-base-offset-y: -4px; --diploma-preview-doc-scale: 1; --diploma-preview-doc-offset-y: 0px; }
+.diplomas-page__doc--4 .diplomas-page__preview { --diploma-preview-base-extra-height: 28px; --diploma-preview-base-offset-y: -8px; --diploma-preview-doc-scale: 1; --diploma-preview-doc-offset-y: 0px; }
+.diplomas-page__doc--5 .diplomas-page__preview { --diploma-preview-base-extra-height: 16px; --diploma-preview-base-offset-y: -2px; --diploma-preview-doc-scale: 1; --diploma-preview-doc-offset-y: 0px; }
+.diplomas-page__doc--6 .diplomas-page__preview { --diploma-preview-base-extra-height: 14px; --diploma-preview-base-offset-y: -2px; --diploma-preview-doc-scale: 1; --diploma-preview-doc-offset-y: 0px; }
+.diplomas-page__doc--7 .diplomas-page__preview { --diploma-preview-base-extra-height: 12px; --diploma-preview-base-offset-y: -1px; --diploma-preview-doc-scale: 1; --diploma-preview-doc-offset-y: 0px; }
+.diplomas-page__doc--8 .diplomas-page__preview { --diploma-preview-base-extra-height: 22px; --diploma-preview-base-offset-y: -6px; --diploma-preview-doc-scale: 1; --diploma-preview-doc-offset-y: 0px; }
+.diplomas-page__doc--9 .diplomas-page__preview { --diploma-preview-base-extra-height: 10px; --diploma-preview-base-offset-y: -3px; --diploma-preview-doc-scale: 1; --diploma-preview-doc-offset-y: 0px; }
+.diplomas-page__doc--10 .diplomas-page__preview { --diploma-preview-base-extra-height: 12px; --diploma-preview-base-offset-y: 0px; --diploma-preview-doc-scale: 1; --diploma-preview-doc-offset-y: 0px; }
+.diplomas-page__doc--11 .diplomas-page__preview { --diploma-preview-base-extra-height: 14px; --diploma-preview-base-offset-y: 0px; --diploma-preview-doc-scale: 1; --diploma-preview-doc-offset-y: 0px; }
 
 .diplomas-page__nav {
     position: absolute;

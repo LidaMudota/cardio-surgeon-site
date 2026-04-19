@@ -14,8 +14,6 @@ $featuredDocuments = [
         'type' => 'Диплом',
         'period' => null,
         'group' => 'Основные документы',
-        'preview_extra_height' => 0,
-        'preview_offset_y' => 0,
         'image' => 'assets/img/content/honorsDiplomaInEducation.jpg',
     ],
     [
@@ -23,8 +21,6 @@ $featuredDocuments = [
         'type' => 'Аккредитация по РЭДиЛ',
         'period' => '2022–2027',
         'group' => 'Основные документы',
-        'preview_extra_height' => 20,
-        'preview_offset_y' => 0,
         'image' => 'assets/img/content/accreditationREDiL2022to2027.jpg',
     ],
     [
@@ -32,8 +28,6 @@ $featuredDocuments = [
         'type' => 'Высшая квалификационная категория',
         'period' => '2025',
         'group' => 'Основные документы',
-        'preview_extra_height' => 18,
-        'preview_offset_y' => -4,
         'image' => 'assets/img/content/extract_highest_category_MONICA_2025.jpeg',
     ],
 ];
@@ -44,8 +38,6 @@ $archiveDocuments = [
         'type' => 'Сертификат',
         'period' => null,
         'group' => 'Повышение квалификации',
-        'preview_extra_height' => 28,
-        'preview_offset_y' => -8,
         'image' => 'assets/img/content/certRadialAccess0001.jpg',
     ],
     [
@@ -53,8 +45,6 @@ $archiveDocuments = [
         'type' => 'Сертификат',
         'period' => null,
         'group' => 'Повышение квалификации',
-        'preview_extra_height' => 16,
-        'preview_offset_y' => -2,
         'image' => 'assets/img/content/march29Doc4byIScanner.jpg',
     ],
     [
@@ -62,8 +52,6 @@ $archiveDocuments = [
         'type' => 'Сертификат участия',
         'period' => null,
         'group' => 'Повышение квалификации',
-        'preview_extra_height' => 14,
-        'preview_offset_y' => -2,
         'image' => 'assets/img/content/scannedDocument13.jpg',
     ],
     [
@@ -71,8 +59,6 @@ $archiveDocuments = [
         'type' => 'Сертификат',
         'period' => null,
         'group' => 'Повышение квалификации',
-        'preview_extra_height' => 12,
-        'preview_offset_y' => -1,
         'image' => 'assets/img/content/scannedDocument18.jpg',
     ],
     [
@@ -80,8 +66,6 @@ $archiveDocuments = [
         'type' => 'Повышение квалификации',
         'period' => '2024',
         'group' => 'Повышение квалификации',
-        'preview_extra_height' => 22,
-        'preview_offset_y' => -6,
         'image' => 'assets/img/content/advanced_training_ports_301024_GKB_Yudina.jpg',
     ],
     [
@@ -89,8 +73,6 @@ $archiveDocuments = [
         'type' => 'Сертификат',
         'period' => null,
         'group' => 'Повышение квалификации',
-        'preview_extra_height' => 10,
-        'preview_offset_y' => -3,
         'image' => 'assets/img/content/march29Doc2byIScanner.jpg',
     ],
     [
@@ -98,8 +80,6 @@ $archiveDocuments = [
         'type' => 'Сертификат',
         'period' => null,
         'group' => 'Повышение квалификации',
-        'preview_extra_height' => 12,
-        'preview_offset_y' => 0,
         'image' => 'assets/img/content/scannedDocument16.jpg',
     ],
     [
@@ -107,8 +87,6 @@ $archiveDocuments = [
         'type' => 'Сертификат',
         'period' => null,
         'group' => 'Повышение квалификации',
-        'preview_extra_height' => 14,
-        'preview_offset_y' => 0,
         'image' => 'assets/img/content/scannedDocument19.jpg',
     ],
 ];
@@ -131,8 +109,9 @@ require __DIR__ . '/includes/page-start.php';
             <div class="diplomas-page__carousel" data-diplomas-carousel>
                 <div class="diplomas-page__viewport" data-carousel-viewport>
                     <div class="diplomas-page__track" data-carousel-track>
-                        <?php foreach ($documents as $document): ?>
-                            <article class="diplomas-page__slide">
+                        <?php foreach ($documents as $index => $document): ?>
+                            <?php $docNumber = $index + 1; ?>
+                            <article class="diplomas-page__slide diplomas-page__doc diplomas-page__doc--<?= $docNumber; ?>">
                                 <a
                                     class="diplomas-page__card-link"
                                     href="<?= e($document['image']); ?>"
@@ -140,10 +119,7 @@ require __DIR__ . '/includes/page-start.php';
                                     rel="noopener"
                                     aria-label="Открыть документ: <?= e($document['title']); ?>"
                                 >
-                                    <figure
-                                        class="diplomas-page__preview"
-                                        style="--diploma-preview-extra-height: <?= (int) $document['preview_extra_height']; ?>px; --diploma-preview-offset-y: <?= (int) $document['preview_offset_y']; ?>px;"
-                                    >
+                                    <figure class="diplomas-page__preview">
                                         <img
                                             src="<?= e($document['image']); ?>"
                                             alt="<?= e($document['title']); ?>"
