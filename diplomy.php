@@ -28,7 +28,7 @@ $featuredDocuments = [
         'type' => 'Высшая квалификационная категория',
         'period' => '2025',
         'group' => 'Основные документы',
-        'image' => 'assets/img/content/extract_highest_category_MONICA_2025.jpeg',
+        'image' => 'assets/img/content/normalVypiska.png',
     ],
 ];
 
@@ -120,14 +120,16 @@ require __DIR__ . '/includes/page-start.php';
                                     aria-label="Открыть документ: <?= e($document['title']); ?>"
                                 >
                                     <figure class="diplomas-page__preview">
-                                        <img
-                                            src="<?= e($document['image']); ?>"
-                                            alt="<?= e($document['title']); ?>"
-                                            loading="lazy"
-                                            decoding="async"
-                                            width="900"
-                                            height="680"
-                                        >
+                                        <div class="diplomas-page__preview-media">
+                                            <img
+                                                src="<?= e($document['image']); ?>"
+                                                alt="<?= e($document['title']); ?>"
+                                                loading="lazy"
+                                                decoding="async"
+                                                width="900"
+                                                height="680"
+                                            >
+                                        </div>
                                     </figure>
                                 </a>
                             </article>
