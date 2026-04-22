@@ -64,6 +64,7 @@
 .diplomas-page__card-link {
     width: 100%;
     height: 247.867px;
+    aspect-ratio: 392 / 247.867;
     max-width: none;
     display: block;
     box-sizing: border-box;
@@ -245,17 +246,12 @@
         --diploma-card-max-width: 372px;
     }
 
-}
-
-@media (max-width: 640px) {
     .diplomas-page__slide {
-        flex-basis: 100%;
+        flex-basis: min(var(--diploma-card-max-width), calc((100% - var(--diploma-cards-gap)) / 2));
     }
 
     .diplomas-page__card-link {
-        max-width: none;
         height: auto;
-        aspect-ratio: 360 / 247.867;
     }
 
     .diplomas-page__controls {
@@ -273,8 +269,8 @@
         position: static;
         top: auto;
         transform: none;
-        width: 46px;
-        height: 40px;
+        width: 48px;
+        height: 42px;
         border-radius: 12px;
         border-color: rgba(255, 255, 255, 0.2);
         background:
@@ -337,5 +333,20 @@
         color: rgba(204, 221, 229, 0.86);
         font-variant-numeric: tabular-nums;
         user-select: none;
+    }
+}
+
+@media (max-width: 640px) {
+    .diplomas-page__slide {
+        flex-basis: 100%;
+    }
+
+    .diplomas-page__card-link {
+        aspect-ratio: 360 / 247.867;
+    }
+
+    .diplomas-page__nav {
+        width: 46px;
+        height: 40px;
     }
 }

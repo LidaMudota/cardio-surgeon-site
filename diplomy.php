@@ -4,8 +4,7 @@ $meta = [
     'title' => 'Дипломы — эндоваскулярный хирург',
     'description' => 'Документы об образовании, аккредитации и повышении квалификации.'
 ];
-$pageTitle = 'Дипломы';
-$pageSubtitle = 'Профессиональные документы: образование, аккредитация и повышение квалификации.';
+$pageTitle = 'Документы об образовании и квалификации';
 $extraStylesheets = ['assets/css/diplomas-page.css'];
 
 $featuredDocuments = [
@@ -102,7 +101,6 @@ require __DIR__ . '/includes/page-start.php';
     <div class="container">
         <section class="diplomas-page__gallery" aria-labelledby="diplomas-gallery-title">
             <div class="diplomas-page__section-head">
-                <h2 id="diplomas-gallery-title" class="section__title section__title--left">Документы об образовании и квалификации</h2>
                 <p class="diplomas-page__section-note">Все документы собраны в единую карусель для удобного просмотра. Клик по карточке открывает оригинал документа в полном размере.</p>
             </div>
 
