@@ -61,11 +61,11 @@
                         <a class="mega-menu__link" href="otzyvy.php">Отзывы</a>
                         <a class="mega-menu__link" href="publikatsii.php">Публикации</a>
                         <a class="mega-menu__link" href="diplomy.php">Дипломы</a>
-                        <a class="mega-menu__link" href="pamyatki-patsientam.php">Памятки пациентам</a>
                         <a class="mega-menu__link" href="dlya-vrachey.php">Для врачей</a>
                     </div>
 
                     <div class="mega-menu__column">
+                        <a class="mega-menu__link" href="pamyatki-patsientam.php">Памятки пациентам</a>
                         <a class="mega-menu__link" href="analizy.php">АНАЛИЗЫ</a>
                         <a class="mega-menu__link" href="anesteziya.php">Анастезия</a>
                         <a class="mega-menu__link" href="kak-prokhodit-operatsiya.php">Как проходит операция</a>
