@@ -885,6 +885,14 @@ button {
     color: #DEDEDE;
 }
 
+.about__text p {
+    margin: 0 0 10px;
+}
+
+.about__text p:last-child {
+    margin-bottom: 0;
+}
+
 .about__visual {
     overflow: hidden;
     border-radius: 28px;
