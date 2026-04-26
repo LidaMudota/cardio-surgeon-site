@@ -91,7 +91,6 @@
                         <p class="mobile-nav__group-title">Разделы</p>
                         <a class="mobile-nav__link" href="o-vrache.php">Обо мне</a>
                         <a class="mobile-nav__link" href="rezultaty-rabot.php">Направления работы</a>
-                        <a class="mobile-nav__link" href="pamyatki-patsientam.php">Памятки пациентам</a>
                         <a class="mobile-nav__link" href="dlya-vrachey.php">Для врачей</a>
                         <a class="mobile-nav__link" href="kontakty.php">Контакты</a>
                     </div>
@@ -106,6 +105,7 @@
 
                     <div class="mobile-nav__group">
                         <p class="mobile-nav__group-title">Пациентам</p>
+                        <a class="mobile-nav__link" href="pamyatki-patsientam.php">Памятки пациентам</a>
                         <a class="mobile-nav__link" href="analizy.php">Анализы</a>
                         <a class="mobile-nav__link" href="anesteziya.php">Анестезия</a>
                         <a class="mobile-nav__link" href="kak-prokhodit-operatsiya.php">Как проходит операция</a>
