@@ -8,13 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileViewport = window.matchMedia('(max-width: 1024px)');
     const phoneInputs = document.querySelectorAll('[data-phone-input]');
     const forms = document.querySelectorAll('[data-consultation-form]');
-    const directionsScope = document.querySelector('#work-directions-page, #home-page');
-    const directionCards = directionsScope?.querySelectorAll('#specialization .spec-card') || [];
-    const directionModal = directionsScope?.querySelector('[data-direction-modal]');
-    const directionModalTitle = directionModal?.querySelector('[data-direction-modal-title]');
-    const directionModalText = directionModal?.querySelector('[data-direction-modal-text]');
-    const directionModalImage = directionModal?.querySelector('[data-direction-modal-image]');
-    const directionCloseButtons = directionModal?.querySelectorAll('[data-direction-close]');
 
 
     const cookieNotice = document.querySelector('[data-cookie-notice]');
@@ -96,38 +89,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
-    const directionDetailsMap = {
-        'КОРОНАРНОЕ СТЕНТИРОВАНИЕ': {
-            text: 'Коронарное стентирование с применением ВСУЗИ помогает восстановить кровоток в сосудах сердца через малоинвазивный доступ и сократить время реабилитации.',
-            image: 'assets/img/icons/spec-vascular.svg',
-            imageAlt: 'Коронарное стентирование'
-        },
-        'СТЕНТИРОВАНИЕ СОННЫХ АРТЕРИЙ': {
-            text: 'Стентирование сонных артерий выполняется для профилактики ишемического инсульта и сохранения стабильного кровоснабжения головного мозга.',
-            image: 'assets/img/icons/sonnayaArteriya0.png',
-            imageAlt: 'Стентирование сонных артерий'
-        },
-        'АРТЕРИИ НИЖНИХ КОНЕЧНОСТЕЙ': {
-            text: 'Для артерий нижних конечностей применяются ангиопластика баллонами с лекарственным покрытием, стентирование, а также ротационная атерэктомия и ВСУЗИ при необходимости.',
-            image: 'assets/img/icons/nijnieKonechnosti3.png',
-            imageAlt: 'Лечение артерий нижних конечностей'
-        },
-        'ВЕНОЗНОЕ СТЕНТИРОВАНИЕ': {
-            text: 'Эндоваскулярное лечение при синдроме Мэй-Тернера, щелкунчика и посттромботическом синдроме направлено на восстановление венозного оттока и снижение хронических симптомов.',
-            image: 'assets/img/icons/stentirovanieVen0.png',
-            imageAlt: 'Венозное стентирование'
-        },
-        'ЭМБОЛИЗАЦИЯ МАТОЧНЫХ АРТЕРИЙ': {
-            text: 'Эмболизация маточных артерий — малоинвазивный метод лечения миомы матки с контролируемым перекрытием кровотока в питающих сосудах.',
-            image: 'assets/img/icons/spec-uterine-embolization.png',
-            imageAlt: 'Эмболизация маточных артерий'
-        },
-        'ЭМБОЛИЗАЦИЯ ВЕН ПРИ ВАРИКОЦЕЛЕ И ЭРЕКТИЛЬНОЙ ДИСФУНКЦИИ': {
-            text: 'Малоинвазивная эмболизация вен используется для лечения варикоцеле и венозно-обусловленной эректильной дисфункции, снижая травматичность вмешательства.',
-            image: 'assets/img/icons/spec-varicocele-embolization0.png',
-            imageAlt: 'Эмболизация вен'
-        }
-    };
 
     const toggleSection = (button, section) => {
         if (!button || !section) return;
@@ -188,9 +149,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.addEventListener('keydown', (event) => {
         if (event.key !== 'Escape') return;
-        if (directionModal && !directionModal.hasAttribute('hidden')) {
-            closeDirectionModal();
-        }
         if (megaMenu && !megaMenu.hasAttribute('hidden')) {
             megaMenu.setAttribute('hidden', 'hidden');
             menuToggle?.setAttribute('aria-expanded', 'false');
@@ -324,79 +282,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 submitButton?.removeAttribute('disabled');
             }
         });
-    });
-
-    let activeDirectionTrigger = null;
-
-    const focusableSelector = 'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
-
-    const openDirectionModal = (card, trigger) => {
-        if (!directionModal || !directionModalTitle || !directionModalText || !directionModalImage || !card) return;
-
-        const title = card.querySelector('.spec-card__title')?.textContent?.trim() || '';
-        const icon = card.querySelector('.spec-card__icon img');
-        const details = directionDetailsMap[title] || {};
-
-        activeDirectionTrigger = trigger || card;
-        directionModalTitle.textContent = title;
-        directionModalText.textContent = details.text || '';
-        directionModalImage.src = details.image || icon?.getAttribute('src') || '';
-        directionModalImage.alt = details.imageAlt || title || 'Иллюстрация направления работы';
-
-        directionModal.removeAttribute('hidden');
-        directionModal.classList.remove('is-closing');
-        document.body.classList.add('modal-open');
-
-        requestAnimationFrame(() => {
-            directionModal.classList.add('is-open');
-            const firstFocusable = directionModal.querySelector(focusableSelector);
-            firstFocusable?.focus();
-        });
-    };
-
-    const closeDirectionModal = () => {
-        if (!directionModal || directionModal.hasAttribute('hidden')) return;
-
-        directionModal.classList.remove('is-open');
-        directionModal.classList.add('is-closing');
-
-        window.setTimeout(() => {
-            directionModal.classList.remove('is-closing');
-            directionModal.setAttribute('hidden', 'hidden');
-            document.body.classList.remove('modal-open');
-            if (activeDirectionTrigger instanceof HTMLElement) {
-                activeDirectionTrigger.focus();
-            }
-            activeDirectionTrigger = null;
-        }, 180);
-    };
-
-    directionCards.forEach((card) => {
-        const detailsButton = card.querySelector('[data-direction-open]');
-        card.setAttribute('tabindex', '0');
-        card.setAttribute('role', 'button');
-        card.setAttribute('aria-haspopup', 'dialog');
-
-        card.addEventListener('click', (event) => {
-            if (event.target.closest('[data-direction-open]')) return;
-            openDirectionModal(card, card);
-        });
-
-        card.addEventListener('keydown', (event) => {
-            if (event.target !== card) return;
-            if (event.key !== 'Enter' && event.key !== ' ') return;
-            event.preventDefault();
-            openDirectionModal(card, card);
-        });
-
-        detailsButton?.addEventListener('click', (event) => {
-            event.stopPropagation();
-            openDirectionModal(card, detailsButton);
-        });
-    });
-
-    directionCloseButtons?.forEach((closeButton) => {
-        closeButton.addEventListener('click', closeDirectionModal);
     });
 
     const diplomaTriggers = document.querySelectorAll('[data-diploma-open]');
@@ -555,34 +440,6 @@ document.addEventListener('DOMContentLoaded', () => {
         scrollToInitialRealSlide();
         updateSlideIndicator();
     });
-
-    directionModal?.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape') {
-            event.preventDefault();
-            closeDirectionModal();
-            return;
-        }
-
-        if (event.key !== 'Tab') return;
-
-        const focusables = Array.from(directionModal.querySelectorAll(focusableSelector))
-            .filter((node) => !node.hasAttribute('disabled') && node.getAttribute('aria-hidden') !== 'true');
-
-        if (!focusables.length) return;
-
-        const first = focusables[0];
-        const last = focusables[focusables.length - 1];
-        const active = document.activeElement;
-
-        if (event.shiftKey && active === first) {
-            event.preventDefault();
-            last.focus();
-        } else if (!event.shiftKey && active === last) {
-            event.preventDefault();
-            first.focus();
-        }
-    });
-
 
     const mediaQueryReduced = window.matchMedia('(prefers-reduced-motion: reduce)');
     const mediaQueryDesktop = window.matchMedia('(min-width: 992px)');
