@@ -38,7 +38,7 @@
     list-style: none;
     counter-reset: outtown-step;
     display: grid;
-    gap: 12px;
+    gap: 0;
 }
 
 #outtown-page .outtown-page__step {
@@ -48,11 +48,16 @@
     font-size: clamp(16px, 1.62vw, 18px);
     line-height: 1.72;
     letter-spacing: 0.01em;
-    padding: clamp(14px, 2vw, 18px) clamp(14px, 2.2vw, 18px) clamp(14px, 2vw, 18px) clamp(54px, 5vw, 62px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 14px;
+    padding: clamp(18px, 2.2vw, 22px) clamp(14px, 2.2vw, 18px) clamp(18px, 2.2vw, 22px) clamp(54px, 5vw, 62px);
+    border: 0;
+    border-radius: 0;
     hyphens: none;
     overflow-wrap: break-word;
+    background: linear-gradient(145deg, rgba(17, 22, 27, 0.95), rgba(13, 17, 21, 0.98));
+}
+
+#outtown-page .outtown-page__step + .outtown-page__step {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 #outtown-page .outtown-page__step::before {
@@ -64,14 +69,6 @@
     color: rgba(24, 198, 198, 0.9);
     font-weight: 700;
     line-height: 1;
-}
-
-#outtown-page .outtown-page__step:nth-child(odd) {
-    background: linear-gradient(130deg, rgba(24, 198, 198, 0.14), rgba(9, 11, 16, 0.96));
-}
-
-#outtown-page .outtown-page__step:nth-child(even) {
-    background: linear-gradient(145deg, rgba(17, 22, 27, 0.95), rgba(13, 17, 21, 0.98));
 }
 
 #outtown-page .outtown-page__step a {
@@ -118,7 +115,7 @@
     }
 
     #outtown-page .outtown-page__steps {
-        gap: 10px;
+        gap: 0;
     }
 
     #outtown-page .outtown-page__step {
