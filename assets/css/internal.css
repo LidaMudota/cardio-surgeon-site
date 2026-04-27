@@ -35,6 +35,16 @@
     line-height: 1.62;
     letter-spacing: 0.002em;
 }
+
+#home-page .legal-note {
+    width: 100%;
+    max-width: none;
+}
+
+#home-page .legal-note__text {
+    font-size: 12.8px;
+    line-height: 1.56;
+}
 .doc-grid { display:grid; grid-template-columns: repeat(4,1fr); gap:14px; }
 .doc-card { border:1px solid var(--color-card-border); border-radius:12px; background:var(--color-card); padding:12px; }
 .doc-card button { width:100%; background:none; border:none; color:var(--color-text); }
@@ -77,6 +87,11 @@
     .legal-note__text {
         font-size: 13px;
         line-height: 1.58;
+    }
+
+    #home-page .legal-note__text {
+        font-size: 12.8px;
+        line-height: 1.54;
     }
 }
 
