@@ -46,7 +46,7 @@ function buildRedirect(string $status): string
     $allowedPages = [
         'index.php', 'o-vrache.php', 'o-klinike.php', 'konsultatsiya.php',
         'rezultaty-rabot.php', 'otzyvy.php', 'publikatsii.php', 'diplomy.php', 'analizy.php', 'anesteziya.php',
-        'kak-prokhodit-operatsiya.php', 'kak-prokhodit-konsultatsiya.php', 'pamyatki-patsientam.php', 'dlya-vrachey.php',
+        'kak-prokhodit-operatsiya.php', 'kak-prokhodit-konsultatsiya.php', 'dlya-vrachey.php',
         'patsientam-iz-drugogo-goroda.php', 'podgotovka-k-operatsii.php', 'posle-operatsii.php', 'kontakty.php',
     ];
 

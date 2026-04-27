@@ -22,7 +22,6 @@ $pages = [
     '/anesteziya.php',
     '/kak-prokhodit-operatsiya.php',
     '/kak-prokhodit-konsultatsiya.php',
-    '/pamyatki-patsientam.php',
     '/dlya-vrachey.php',
     '/patsientam-iz-drugogo-goroda.php',
     '/podgotovka-k-operatsii.php',
