@@ -157,24 +157,6 @@ require __DIR__ . '/includes/header.php';
 
             <?php require __DIR__ . '/includes/form-block.php'; ?>
 
-            <section class="section section--location" id="location">
-                <div class="container">
-                    <div class="location-map motion-reveal motion-reveal--up" data-map-panel>
-                        <div class="location-map__top" data-map-copy>
-                            <div class="location-map__copy">
-                                <h2 class="location-map__title">Как нас найти</h2>
-                                <p class="location-map__text">Клиника удобно расположена в городе, а маршрут до входа отображается прямо на карте. Откройте карту, чтобы построить путь из любой точки.</p>
-                            </div>
-                            <a class="location-map__action" href="<?= e(clinic_location_route_url()) ?>" target="_blank" rel="noopener noreferrer">Построить маршрут</a>
-                        </div>
-                        <div class="location-map__frame" aria-label="Карта расположения клиники">
-                            <script type="text/plain" data-cookie-category="optional" data-cookie-src="<?= e(clinic_location_constructor_script_url()) ?>"></script>
-                            <noscript>Для отображения карты включите JavaScript.</noscript>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
             <section class="legal-note-section" aria-label="Юридическое примечание">
                 <div class="container">
                     <div class="legal-note" role="note">
