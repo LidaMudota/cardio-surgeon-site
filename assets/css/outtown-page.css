@@ -1,0 +1,101 @@
+#outtown-page {
+    overflow-x: clip;
+}
+
+#outtown-page .inner-hero {
+    border-bottom-color: rgba(255, 255, 255, 0.07);
+}
+
+#outtown-page .outtown-page__section {
+    padding-top: clamp(36px, 5vw, 58px);
+    padding-bottom: clamp(44px, 6vw, 72px);
+}
+
+#outtown-page .outtown-page__container {
+    max-width: 980px;
+}
+
+#outtown-page .outtown-page__article {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    background:
+        linear-gradient(160deg, rgba(15, 24, 35, 0.88), rgba(11, 18, 29, 0.95)),
+        radial-gradient(circle at 0% 0%, rgba(24, 198, 198, 0.12), rgba(24, 198, 198, 0));
+    padding: clamp(22px, 3.2vw, 36px);
+    box-shadow: 0 18px 48px rgba(0, 0, 0, 0.24);
+}
+
+#outtown-page .outtown-page__steps {
+    margin: 0;
+    padding-left: clamp(22px, 2.6vw, 28px);
+    display: grid;
+    gap: clamp(16px, 2.2vw, 22px);
+}
+
+#outtown-page .outtown-page__step {
+    color: rgba(245, 247, 251, 0.92);
+    font-size: clamp(16px, 1.62vw, 18px);
+    line-height: 1.72;
+    letter-spacing: 0.01em;
+    padding-bottom: clamp(14px, 2vw, 18px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+    hyphens: none;
+    overflow-wrap: break-word;
+}
+
+#outtown-page .outtown-page__step:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+#outtown-page .outtown-page__step a {
+    color: rgba(24, 198, 198, 0.94);
+    text-decoration-line: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+#outtown-page .outtown-page__step a:hover {
+    color: rgba(88, 226, 226, 0.98);
+    text-decoration-color: rgba(88, 226, 226, 0.9);
+}
+
+#outtown-page .outtown-page__step a:focus-visible {
+    outline: 2px solid rgba(88, 226, 226, 0.8);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+#outtown-page .outtown-page__warning {
+    margin-top: clamp(20px, 2.6vw, 28px);
+    border-left: 4px solid rgba(24, 198, 198, 0.88);
+    border-radius: 14px;
+    border: 1px solid rgba(24, 198, 198, 0.28);
+    background: linear-gradient(180deg, rgba(12, 20, 31, 0.94), rgba(9, 15, 25, 0.96));
+    padding: clamp(16px, 2.6vw, 22px);
+}
+
+#outtown-page .outtown-page__warning p {
+    margin: 0;
+    color: rgba(245, 247, 251, 0.95);
+    font-size: clamp(15px, 1.5vw, 17px);
+    line-height: 1.58;
+    letter-spacing: 0.01em;
+    hyphens: none;
+}
+
+@media (max-width: 768px) {
+    #outtown-page .outtown-page__article {
+        border-radius: 16px;
+    }
+
+    #outtown-page .outtown-page__steps {
+        padding-left: 20px;
+        gap: 14px;
+    }
+
+    #outtown-page .outtown-page__step {
+        line-height: 1.62;
+    }
+}

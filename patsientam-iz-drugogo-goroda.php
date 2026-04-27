@@ -1,54 +1,38 @@
 <?php
 require __DIR__ . '/includes/init.php';
 $meta = [
-    'title' => 'Пациентам из другого города — эндоваскулярный хирург',
-    'description' => 'Организация дистанционного этапа, поездки и очного визита. Запись через форму на сайте.'
+    'title' => 'Пациентам из другого города — Коробков Александр Олегович',
+    'description' => 'Пациентам из другого города: порядок консультации, предоперационного обследования и госпитализации.'
 ];
 $pageTitle = 'Пациентам из другого города';
-$pageSubtitle = 'Организация дистанционного этапа, поездки и очного визита.';
+$pageSubtitle = '';
+$innerPageAttrs = ' id="outtown-page"';
+$extraStylesheets = ['assets/css/outtown-page.css'];
 require __DIR__ . '/includes/head.php';
 require __DIR__ . '/includes/header.php';
 require __DIR__ . '/includes/page-start.php';
 ?>
 
-    <section class="inner-section">
-        <div class="container two-col">
-            <div class="info-card">
-                <h2>Ключевая информация</h2>
-                <p>Осмысленный временный текст для демонстрации полноценной страницы. <!-- TODO: Вставить реальные тексты от клиента --></p>
-                <ul class="info-list">
-                    <li>Структурированный блок для удобного восприятия пациентом.</li>
-                    <li>Практические пояснения и шаги для подготовки.</li>
-                    <li>Понятные ориентиры по срокам и результатам.</li>
-                </ul>
-            </div>
-            <div class="media-placeholder">TODO: Вставить реальное фото клиники<br>TODO: Заменить на реальное фото врача</div>
-        </div>
-    </section>
+<section class="inner-section outtown-page__section">
+    <div class="container outtown-page__container">
+        <article class="outtown-page__article" aria-label="Информация для пациентов из другого города">
+            <ol class="outtown-page__steps">
+                <li class="outtown-page__step">Для начала необходима предварительная консультация - <a href="kak-prokhodit-konsultatsiya.php">Как проходит консультация</a>. Возможна дистанционная телемедицинская консультация. На ней будет определена дата операции.</li>
+                <li class="outtown-page__step">После согласования даты операции необходимо пройти предоперационное обследование (<a href="analizy.php">Анализы и обследования перед госпитализацией</a> и <a href="podgotovka-k-operatsii.php">Подготовка к госпитализации</a>) любым удобным Вам способом.</li>
+                <li class="outtown-page__step">Необходимо иметь в виду, что в случае прохождения предоперационного обследования в клинике «АО Медицина» срок госпитализации может быть увеличен на время проведения обследования (до нескольких дней).</li>
+            </ol>
+        </article>
 
-    <section class="inner-section">
-        <div class="container">
-            <h2 class="section__title section__title--left">Разделы страницы</h2>
-            <div class="inner-grid">
-                <article class="info-card"><h3>Блок 1</h3><p>Тематическое описание раздела без lorem ipsum.</p></article>
-                <article class="info-card"><h3>Блок 2</h3><p>Тематическое описание раздела без lorem ipsum.</p></article>
-                <article class="info-card"><h3>Блок 3</h3><p>Тематическое описание раздела без lorem ipsum.</p></article>
-            </div>
-        </div>
-    </section>
+        <aside class="outtown-page__warning" aria-label="Медицинское предупреждение">
+            <p>Имеются противопоказания, необходима консультация специалиста</p>
+        </aside>
+    </div>
+</section>
 
-    <section class="inner-section faq">
-        <div class="container">
-            <h2 class="section__title section__title--left">Частые вопросы</h2>
-            <details><summary>Как подготовиться?</summary><p>Подготовьте документы, анализы и выписки. <!-- TODO: Вставить реальные данные по анализам --></p></details>
-            <details><summary>Когда ожидать обратную связь?</summary><p>Обычно в рабочее время в день обращения.</p></details>
-        </div>
-    </section>
-
-<?php if (true):
-    $formTitle = 'Связаться';
-    $formSubtitle = 'Оставьте контакты, и администратор свяжется с вами.';
-    require __DIR__ . '/includes/form-block.php';
-endif; ?>
+<?php
+$formTitle = 'Связаться';
+$formSubtitle = 'Оставьте контакты, и администратор свяжется с вами.';
+require __DIR__ . '/includes/form-block.php';
+?>
 </main>
 <?php require __DIR__ . '/includes/footer.php'; ?>

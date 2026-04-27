@@ -66,7 +66,7 @@
 
                     <div class="mega-menu__column">
                         <a class="mega-menu__link" href="analizy.php">АНАЛИЗЫ</a>
-                        <a class="mega-menu__link" href="anesteziya.php">Анастезия</a>
+                        <a class="mega-menu__link" href="anesteziya.php">Анестезия</a>
                         <a class="mega-menu__link" href="kak-prokhodit-operatsiya.php">Как проходит операция</a>
                         <a class="mega-menu__link" href="kak-prokhodit-konsultatsiya.php">Как проходит консультация</a>
                         <a class="mega-menu__link" href="patsientam-iz-drugogo-goroda.php">Пациентам из другого города</a>
