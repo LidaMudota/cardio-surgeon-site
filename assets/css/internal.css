@@ -97,6 +97,10 @@
         line-height: 1.54;
         text-align: left;
         text-align-last: auto;
+        hyphens: none;
+        word-break: normal;
+        overflow-wrap: normal;
+        word-wrap: normal;
     }
 }
 
