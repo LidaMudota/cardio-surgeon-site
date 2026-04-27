@@ -17,28 +17,13 @@
     background: linear-gradient(138deg, rgba(24, 198, 198, 0.08), rgba(24, 198, 198, 0.02) 36%, #141414 100%);
 }
 
-.inner-page[data-page="anesthesia"] .anesthesia-page__section--accent {
-    background: #1e1e1e;
-}
-
-.inner-page[data-page="anesthesia"] .anesthesia-page__section--safety {
-    background: #141414;
-}
-
 .inner-page[data-page="anesthesia"] .anesthesia-page__section--final {
     background: #202020;
 }
 
 .inner-page[data-page="anesthesia"] .anesthesia-page__content {
     max-width: 860px;
-}
-
-.inner-page[data-page="anesthesia"] .anesthesia-page__heading {
-    margin: 0 0 14px;
-    font-size: clamp(30px, 3vw, 42px);
-    line-height: 1.18;
-    letter-spacing: -0.02em;
-    text-wrap: balance;
+    margin-inline: auto;
 }
 
 .inner-page[data-page="anesthesia"] .anesthesia-page__text {
@@ -47,6 +32,22 @@
     color: var(--color-text-muted);
     font-size: clamp(17px, 1.35vw, 20px);
     line-height: 1.78;
+    hyphens: none;
+}
+
+.inner-page[data-page="anesthesia"] .anesthesia-page__text + .anesthesia-page__text {
+    margin-top: 18px;
+}
+
+.inner-page[data-page="anesthesia"] .anesthesia-page__warning {
+    margin: 0;
+    padding: 24px 28px;
+    border: 1px solid rgba(24, 198, 198, 0.28);
+    border-radius: 20px;
+    background: rgba(24, 198, 198, 0.08);
+    color: #f1f6f6;
+    font-size: clamp(18px, 1.4vw, 22px);
+    line-height: 1.45;
 }
 
 @media (max-width: 900px) {
@@ -55,15 +56,15 @@
         padding-bottom: 54px;
     }
 
-    .inner-page[data-page="anesthesia"] .anesthesia-page__heading {
-        margin-bottom: 12px;
-        font-size: clamp(26px, 4.2vw, 34px);
-    }
-
     .inner-page[data-page="anesthesia"] .anesthesia-page__text {
         max-width: 100%;
         font-size: 17px;
         line-height: 1.72;
+    }
+
+    .inner-page[data-page="anesthesia"] .anesthesia-page__warning {
+        padding: 20px 22px;
+        font-size: 19px;
     }
 }
 
@@ -73,13 +74,14 @@
         padding-bottom: 42px;
     }
 
-    .inner-page[data-page="anesthesia"] .anesthesia-page__heading {
-        font-size: 28px;
-        line-height: 1.22;
-    }
-
     .inner-page[data-page="anesthesia"] .anesthesia-page__text {
         font-size: 16px;
         line-height: 1.68;
+    }
+
+    .inner-page[data-page="anesthesia"] .anesthesia-page__warning {
+        padding: 18px;
+        font-size: 17px;
+        line-height: 1.5;
     }
 }
