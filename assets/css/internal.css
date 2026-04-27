@@ -1467,134 +1467,80 @@ body.modal-open {
     gap: 20px;
 }
 
-.analizy-intro {
-    display: grid;
-    gap: 10px;
-    border-color: rgba(24, 198, 198, 0.34);
-    background: linear-gradient(130deg, rgba(24, 198, 198, 0.14), rgba(9, 11, 16, 0.96));
-}
-
-.analizy-intro__title {
-    margin: 0;
-    font-size: clamp(28px, 3.6vw, 40px);
-    line-height: 1.2;
-}
-
-.analizy-intro__text {
-    margin: 0;
-    color: var(--color-text-muted);
-    line-height: 1.7;
-}
-
-.analizy-section__title {
-    margin-bottom: 14px;
+.analizy-checklist {
+    border-color: rgba(24, 198, 198, 0.28);
 }
 
 .analizy-list {
     margin: 0;
     padding: 0;
     list-style: none;
-    display: grid;
-    gap: 12px;
     counter-reset: analizy-counter;
 }
 
 .analizy-list__item {
     position: relative;
     margin: 0;
-    padding: 16px 18px 16px 66px;
-    line-height: 1.7;
+    padding: 14px 0 14px 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    line-height: 1.68;
     color: var(--color-text-muted);
+    hyphens: none;
+    word-break: normal;
+    overflow-wrap: normal;
+}
+
+.analizy-list__item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.analizy-list__item:first-child {
+    padding-top: 0;
 }
 
 .analizy-list__item::before {
     counter-increment: analizy-counter;
     content: counter(analizy-counter) ".";
     position: absolute;
-    left: 20px;
-    top: 16px;
+    left: 0;
+    top: 14px;
     color: var(--color-accent);
     font-weight: 700;
 }
 
-.analizy-notes {
-    display: grid;
-    gap: 10px;
+.analizy-list__item:first-child::before {
+    top: 0;
 }
 
-.analizy-notes p {
+.analizy-note {
     margin: 0;
-    line-height: 1.7;
+    line-height: 1.68;
     color: var(--color-text-muted);
+    hyphens: none;
+    word-break: normal;
+    overflow-wrap: normal;
 }
 
-.analizy-notes a,
-.analizy-final a {
+.analizy-warning {
+    border: 1px solid rgba(24, 198, 198, 0.38);
+    border-radius: var(--radius-card);
+    padding: clamp(16px, 2vw, 22px) clamp(18px, 2.2vw, 24px);
+    background: linear-gradient(132deg, rgba(24, 198, 198, 0.16), rgba(9, 11, 16, 0.95));
+}
+
+.analizy-warning p {
+    margin: 0;
+    line-height: 1.68;
     color: var(--color-text);
-    text-decoration: underline;
-    text-underline-offset: 3px;
-    text-decoration-color: rgba(24, 198, 198, 0.7);
-}
-
-.analizy-page .analizy-asterisk {
-    color: #d52b1e;
-}
-
-.analizy-comments {
-    display: grid;
-    gap: 12px;
-}
-
-.analizy-comments__item {
-    margin: 0;
-    line-height: 1.7;
-    color: var(--color-text-muted);
-}
-
-.analizy-preparation {
-    display: grid;
-    gap: 12px;
-}
-
-.analizy-preparation__card {
-    display: grid;
-    gap: 10px;
-}
-
-.analizy-preparation__card h3,
-.analizy-preparation__card p {
-    margin: 0;
-}
-
-.analizy-preparation__card h3 {
-    font-size: clamp(18px, 2.2vw, 24px);
-    line-height: 1.45;
-}
-
-.analizy-preparation__card p {
-    color: var(--color-text-muted);
-    line-height: 1.7;
-}
-
-.analizy-final {
-    display: grid;
-    gap: 10px;
-    border-color: rgba(24, 198, 198, 0.46);
-    background: linear-gradient(130deg, rgba(24, 198, 198, 0.18), rgba(9, 11, 16, 0.95));
-}
-
-.analizy-final p {
-    margin: 0;
-    line-height: 1.72;
+    hyphens: none;
+    word-break: normal;
+    overflow-wrap: normal;
 }
 
 @media (max-width: 991px) {
     .analizy-list__item {
-        padding-left: 58px;
-    }
-
-    .analizy-list__item::before {
-        left: 16px;
+        padding-left: 36px;
     }
 }
 
@@ -1603,28 +1549,16 @@ body.modal-open {
         gap: 16px;
     }
 
-    .analizy-intro__title {
-        font-size: clamp(24px, 8vw, 30px);
-    }
-
     .analizy-list__item {
-        padding: 14px 14px 14px 48px;
+        padding-left: 32px;
         font-size: 15px;
-        line-height: 1.62;
+        line-height: 1.6;
     }
 
-    .analizy-list__item::before {
-        left: 14px;
-        top: 14px;
-    }
-
-    .analizy-comments__item,
-    .analizy-notes p,
-    .analizy-preparation__card p,
-    .analizy-final p,
-    .analizy-intro__text {
+    .analizy-note,
+    .analizy-warning p {
         font-size: 15px;
-        line-height: 1.62;
+        line-height: 1.6;
     }
 }
 
