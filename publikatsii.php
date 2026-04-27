@@ -57,7 +57,7 @@ require __DIR__ . '/includes/page-start.php';
                 </ol>
                 <div class="page-publications__actions">
                     <a class="page-publications__elibrary-button" href="https://elibrary.ru/author_items.asp?authorid=1254633&pubrole=100&show_refs=1&pubcat=risc" aria-label="Смотреть публикации на eLibrary">
-                        Смотреть публикации на eLibrary
+                        Смотреть публикации на eLIBRARY.RU
                     </a>
                 </div>
             </article>
