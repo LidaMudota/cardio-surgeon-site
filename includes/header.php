@@ -70,7 +70,7 @@
                         <a class="mega-menu__link" href="kak-prokhodit-operatsiya.php">Как проходит операция</a>
                         <a class="mega-menu__link" href="kak-prokhodit-konsultatsiya.php">Как проходит консультация</a>
                         <a class="mega-menu__link" href="patsientam-iz-drugogo-goroda.php">Пациентам из другого города</a>
-                        <a class="mega-menu__link" href="podgotovka-k-operatsii.php">Подготовка к операции</a>
+                        <a class="mega-menu__link" href="podgotovka-k-operatsii.php">Подготовка к госпитализации</a>
                         <a class="mega-menu__link" href="posle-operatsii.php">После операции</a>
                     </div>
 
@@ -109,7 +109,7 @@
                         <a class="mobile-nav__link" href="kak-prokhodit-operatsiya.php">Как проходит операция</a>
                         <a class="mobile-nav__link" href="kak-prokhodit-konsultatsiya.php">Как проходит консультация</a>
                         <a class="mobile-nav__link" href="patsientam-iz-drugogo-goroda.php">Пациентам из другого города</a>
-                        <a class="mobile-nav__link" href="podgotovka-k-operatsii.php">Подготовка к операции</a>
+                        <a class="mobile-nav__link" href="podgotovka-k-operatsii.php">Подготовка к госпитализации</a>
                         <a class="mobile-nav__link" href="posle-operatsii.php">После операции</a>
                     </div>
                 </div>
