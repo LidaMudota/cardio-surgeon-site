@@ -25,11 +25,11 @@
 }
 
 #outtown-page .outtown-page__article {
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-    background: linear-gradient(145deg, rgba(20, 24, 28, 0.96), rgba(13, 16, 19, 0.98));
-    padding: clamp(22px, 3.2vw, 36px);
-    box-shadow: 0 20px 42px rgba(0, 0, 0, 0.18);
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    padding: 0;
+    box-shadow: none;
 }
 
 #outtown-page .outtown-page__steps {
@@ -110,10 +110,6 @@
 }
 
 @media (max-width: 768px) {
-    #outtown-page .outtown-page__article {
-        border-radius: 16px;
-    }
-
     #outtown-page .outtown-page__steps {
         gap: 0;
     }
