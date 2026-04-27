@@ -1,0 +1,108 @@
+#operation-page .inner-hero {
+    padding-bottom: 30px;
+}
+
+.operation-page__section {
+    padding-top: 34px;
+}
+
+.operation-page__cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.operation-page__card {
+    position: relative;
+    background: linear-gradient(155deg, rgba(10, 14, 21, 0.96), rgba(8, 11, 17, 0.92));
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 20px;
+    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.28);
+}
+
+.operation-page__card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 22px;
+    width: 48px;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(24, 198, 198, 0.82), rgba(24, 198, 198, 0));
+}
+
+.operation-page__card-title {
+    margin: 0 0 14px;
+    font-size: clamp(21px, 2.4vw, 25px);
+    line-height: 1.26;
+    letter-spacing: 0.01em;
+}
+
+.operation-page__card p {
+    margin: 0;
+    color: rgba(245, 247, 251, 0.83);
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.operation-page__card p + p {
+    margin-top: 12px;
+}
+
+.operation-page__section--notice {
+    padding-top: 12px;
+    padding-bottom: 56px;
+}
+
+.operation-page__disclaimer {
+    margin: 0;
+    padding: 18px 22px;
+    border-radius: 16px;
+    border: 1px solid rgba(24, 198, 198, 0.34);
+    background: linear-gradient(145deg, rgba(24, 198, 198, 0.12), rgba(24, 198, 198, 0.04));
+    max-width: 100%;
+}
+
+.operation-page__disclaimer p {
+    margin: 0;
+    color: rgba(245, 247, 251, 0.96);
+    font-size: 16px;
+    line-height: 1.6;
+    font-weight: 600;
+}
+
+@media (max-width: 1100px) {
+    .operation-page__cards {
+        gap: 16px;
+    }
+
+    .operation-page__card-title {
+        font-size: clamp(20px, 2.2vw, 23px);
+    }
+}
+
+@media (max-width: 768px) {
+    .operation-page__section {
+        padding-top: 24px;
+    }
+
+    .operation-page__cards {
+        grid-template-columns: 1fr;
+    }
+
+    .operation-page__card {
+        padding: 20px 18px;
+        border-radius: 16px;
+    }
+
+    .operation-page__card p {
+        font-size: 15px;
+    }
+
+    .operation-page__section--notice {
+        padding-bottom: 34px;
+    }
+
+    .operation-page__disclaimer {
+        padding: 16px;
+    }
+}
