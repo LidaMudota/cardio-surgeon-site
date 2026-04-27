@@ -889,6 +889,36 @@ button {
     margin: 0 0 10px;
 }
 
+#home-page #about .about__text p + p {
+    position: relative;
+    margin-top: 16px;
+    padding-top: 16px;
+}
+
+#home-page #about .about__text p + p::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 1px;
+    background:
+        linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(191, 199, 214, 0.15) 20%, rgba(191, 199, 214, 0.15) 80%, rgba(255, 255, 255, 0));
+    pointer-events: none;
+}
+
+#home-page #about .about__text p + p::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 1px;
+    height: 1px;
+    background:
+        linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.06) 26%, rgba(255, 255, 255, 0.06) 74%, rgba(255, 255, 255, 0));
+    pointer-events: none;
+}
+
 .about__text p:last-child {
     margin-bottom: 0;
 }
