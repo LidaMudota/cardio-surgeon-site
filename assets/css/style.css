@@ -1390,6 +1390,11 @@ button {
     font-size: 13px;
 }
 
+.footer__legal-link {
+    font-size: 13px;
+    line-height: 1.5;
+}
+
 .footer__mobile-only {
     display: none;
 }
@@ -1940,6 +1945,11 @@ body:not(.is-page-ready) .site-shell > .inner-page {
 
     .footer .footer__bottom-inner .footer__caption {
         margin: 0;
+    }
+
+    .footer .footer__legal-link {
+        font-size: 0.8125rem;
+        line-height: 1.45;
     }
 
     .footer-mobile {
