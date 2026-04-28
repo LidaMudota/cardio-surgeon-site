@@ -291,6 +291,39 @@
     line-height: 1.5;
 }
 
+:is(#work-directions-page, #home-page) .direction-modal__divider {
+    position: relative;
+    margin: 2px 0;
+    height: 2px;
+}
+
+:is(#work-directions-page, #home-page) .direction-modal__divider[hidden] {
+    display: none;
+}
+
+:is(#work-directions-page, #home-page) .direction-modal__divider::after,
+:is(#work-directions-page, #home-page) .direction-modal__divider::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    pointer-events: none;
+}
+
+:is(#work-directions-page, #home-page) .direction-modal__divider::after {
+    top: 0;
+    height: 1px;
+    background:
+        linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(191, 199, 214, 0.15) 20%, rgba(191, 199, 214, 0.15) 80%, rgba(255, 255, 255, 0));
+}
+
+:is(#work-directions-page, #home-page) .direction-modal__divider::before {
+    top: 1px;
+    height: 1px;
+    background:
+        linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.06) 26%, rgba(255, 255, 255, 0.06) 74%, rgba(255, 255, 255, 0));
+}
+
 :is(#work-directions-page, #home-page) .direction-modal__gallery {
     margin-top: 4px;
     display: grid;
@@ -314,19 +347,38 @@
     min-width: 0;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 0;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 12px;
+    background: rgba(8, 13, 20, 0.86);
+    overflow: hidden;
 }
 
 :is(#work-directions-page, #home-page) .direction-modal__gallery-item--single {
     height: 100%;
 }
 
+:is(#work-directions-page, #home-page) .direction-modal__gallery-caption {
+    margin: 0;
+    min-height: 34px;
+    padding: 9px 10px 8px;
+    color: rgba(245, 247, 251, 0.92);
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.35;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.02);
+}
+
 :is(#work-directions-page, #home-page) .direction-modal__gallery-media {
     width: 100%;
     aspect-ratio: 4 / 3;
-    border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    background: rgba(8, 13, 20, 0.86);
+    border-radius: 0;
+    border: 0;
+    background: transparent;
     display: grid;
     place-items: center;
     overflow: hidden;
@@ -339,16 +391,6 @@
     height: 100%;
     object-fit: contain;
     object-position: center;
-}
-
-:is(#work-directions-page, #home-page) .direction-modal__gallery-caption {
-    margin: 0;
-    color: rgba(245, 247, 251, 0.92);
-    font-size: 12px;
-    font-weight: 700;
-    line-height: 1.35;
-    letter-spacing: 0.03em;
-    text-transform: uppercase;
 }
 
 :is(#work-directions-page, #home-page) .direction-modal__close {

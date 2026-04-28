@@ -16,6 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const directionModalImage = directionModal?.querySelector('[data-direction-modal-image]');
     const directionModalWarning = directionModal?.querySelector('[data-direction-modal-warning]');
     const directionModalGallery = directionModal?.querySelector('[data-direction-modal-gallery]');
+    const directionModalTextDivider = directionModal?.querySelector('[data-direction-modal-divider-text]');
+    const directionModalGalleryDivider = directionModal?.querySelector('[data-direction-modal-divider-gallery]');
     const directionCloseButtons = directionModal?.querySelectorAll('[data-direction-close]');
     const directionDataScript = directionsScope?.querySelector('[data-work-directions-json]');
 
@@ -377,9 +379,16 @@ document.addEventListener('DOMContentLoaded', () => {
         return entries;
     };
 
-    const createDirectionGalleryItem = (image, title) => {
+    const createDirectionGalleryItem = (image, title, caption = '') => {
         const figureElement = document.createElement('figure');
         figureElement.className = 'direction-modal__gallery-item';
+
+        if (caption) {
+            const captionElement = document.createElement('figcaption');
+            captionElement.className = 'direction-modal__gallery-caption';
+            captionElement.textContent = caption;
+            figureElement.append(captionElement);
+        }
 
         const mediaElement = document.createElement('div');
         mediaElement.className = 'direction-modal__gallery-media';
@@ -442,17 +451,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         const pairElement = document.createElement('div');
                         pairElement.className = 'direction-modal__gallery-pair';
 
-                        const beforeItem = createDirectionGalleryItem(entry.before, details.title || title);
-                        const beforeCaption = document.createElement('figcaption');
-                        beforeCaption.className = 'direction-modal__gallery-caption';
-                        beforeCaption.textContent = 'До';
-                        beforeItem.append(beforeCaption);
-
-                        const afterItem = createDirectionGalleryItem(entry.after, details.title || title);
-                        const afterCaption = document.createElement('figcaption');
-                        afterCaption.className = 'direction-modal__gallery-caption';
-                        afterCaption.textContent = 'После';
-                        afterItem.append(afterCaption);
+                        const beforeItem = createDirectionGalleryItem(entry.before, details.title || title, 'До');
+                        const afterItem = createDirectionGalleryItem(entry.after, details.title || title, 'После');
 
                         pairElement.append(beforeItem, afterItem);
                         directionModalGallery.append(pairElement);
@@ -469,6 +469,15 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 directionModalGallery.setAttribute('hidden', 'hidden');
             }
+        }
+
+        if (directionModalTextDivider) {
+            const shouldShowTextDivider = paragraphs.length > 0 || Boolean(details.warning) || images.length > 0;
+            directionModalTextDivider.toggleAttribute('hidden', !shouldShowTextDivider);
+        }
+
+        if (directionModalGalleryDivider) {
+            directionModalGalleryDivider.toggleAttribute('hidden', images.length === 0);
         }
 
         directionModal.removeAttribute('hidden');
