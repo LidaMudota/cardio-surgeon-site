@@ -14,7 +14,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const directionModalTitle = directionModal?.querySelector('[data-direction-modal-title]');
     const directionModalText = directionModal?.querySelector('[data-direction-modal-text]');
     const directionModalImage = directionModal?.querySelector('[data-direction-modal-image]');
+    const directionModalWarning = directionModal?.querySelector('[data-direction-modal-warning]');
+    const directionModalGallery = directionModal?.querySelector('[data-direction-modal-gallery]');
     const directionCloseButtons = directionModal?.querySelectorAll('[data-direction-close]');
+    const directionDataScript = directionsScope?.querySelector('[data-work-directions-json]');
 
 
     const cookieNotice = document.querySelector('[data-cookie-notice]');
@@ -96,38 +99,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
-    const directionDetailsMap = {
-        'КОРОНАРНОЕ СТЕНТИРОВАНИЕ': {
-            text: 'Коронарное стентирование с применением ВСУЗИ помогает восстановить кровоток в сосудах сердца через малоинвазивный доступ и сократить время реабилитации.',
-            image: 'assets/img/icons/spec-vascular.svg',
-            imageAlt: 'Коронарное стентирование'
-        },
-        'СТЕНТИРОВАНИЕ СОННЫХ АРТЕРИЙ': {
-            text: 'Стентирование сонных артерий выполняется для профилактики ишемического инсульта и сохранения стабильного кровоснабжения головного мозга.',
-            image: 'assets/img/icons/sonnayaArteriya0.png',
-            imageAlt: 'Стентирование сонных артерий'
-        },
-        'АРТЕРИИ НИЖНИХ КОНЕЧНОСТЕЙ': {
-            text: 'Для артерий нижних конечностей применяются ангиопластика баллонами с лекарственным покрытием, стентирование, а также ротационная атерэктомия и ВСУЗИ при необходимости.',
-            image: 'assets/img/icons/nijnieKonechnosti3.png',
-            imageAlt: 'Лечение артерий нижних конечностей'
-        },
-        'ВЕНОЗНОЕ СТЕНТИРОВАНИЕ': {
-            text: 'Эндоваскулярное лечение при синдроме Мэй-Тернера, щелкунчика и посттромботическом синдроме направлено на восстановление венозного оттока и снижение хронических симптомов.',
-            image: 'assets/img/icons/stentirovanieVen0.png',
-            imageAlt: 'Венозное стентирование'
-        },
-        'ЭМБОЛИЗАЦИЯ МАТОЧНЫХ АРТЕРИЙ': {
-            text: 'Эмболизация маточных артерий — малоинвазивный метод лечения миомы матки с контролируемым перекрытием кровотока в питающих сосудах.',
-            image: 'assets/img/icons/spec-uterine-embolization.png',
-            imageAlt: 'Эмболизация маточных артерий'
-        },
-        'ЭМБОЛИЗАЦИЯ ВЕН ПРИ ВАРИКОЦЕЛЕ И ЭРЕКТИЛЬНОЙ ДИСФУНКЦИИ': {
-            text: 'Малоинвазивная эмболизация вен используется для лечения варикоцеле и венозно-обусловленной эректильной дисфункции, снижая травматичность вмешательства.',
-            image: 'assets/img/icons/spec-varicocele-embolization0.png',
-            imageAlt: 'Эмболизация вен'
+    const directionDetailsMap = (() => {
+        if (!directionDataScript) return {};
+
+        try {
+            return JSON.parse(directionDataScript.textContent || '{}');
+        } catch (error) {
+            return {};
         }
-    };
+    })();
 
     const toggleSection = (button, section) => {
         if (!button || !section) return;
@@ -335,13 +315,53 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const title = card.querySelector('.spec-card__title')?.textContent?.trim() || '';
         const icon = card.querySelector('.spec-card__icon img');
-        const details = directionDetailsMap[title] || {};
+        const directionId = card.dataset.directionId || '';
+        const details = directionDetailsMap[directionId] || {};
+        const paragraphs = Array.isArray(details.paragraphs) ? details.paragraphs : [];
+        const images = Array.isArray(details.images) ? details.images : [];
+        const primaryImage = images[0]?.src || details.icon || icon?.getAttribute('src') || '';
+        const primaryImageAlt = images[0]?.alt || details.title || title || 'Иллюстрация направления работы';
 
         activeDirectionTrigger = trigger || card;
-        directionModalTitle.textContent = title;
-        directionModalText.textContent = details.text || '';
-        directionModalImage.src = details.image || icon?.getAttribute('src') || '';
-        directionModalImage.alt = details.imageAlt || title || 'Иллюстрация направления работы';
+        directionModalTitle.textContent = details.title || title;
+        directionModalText.replaceChildren();
+        paragraphs.forEach((paragraph) => {
+            const paragraphElement = document.createElement('p');
+            paragraphElement.className = 'direction-modal__paragraph';
+            paragraphElement.textContent = paragraph;
+            directionModalText.append(paragraphElement);
+        });
+
+        directionModalImage.src = primaryImage;
+        directionModalImage.alt = primaryImageAlt;
+
+        if (directionModalWarning) {
+            if (details.warning) {
+                directionModalWarning.textContent = details.warning;
+                directionModalWarning.removeAttribute('hidden');
+            } else {
+                directionModalWarning.textContent = '';
+                directionModalWarning.setAttribute('hidden', 'hidden');
+            }
+        }
+
+        if (directionModalGallery) {
+            directionModalGallery.replaceChildren();
+            if (images.length > 0) {
+                images.forEach((image) => {
+                    if (!image?.src) return;
+                    const imageElement = document.createElement('img');
+                    imageElement.src = image.src;
+                    imageElement.alt = image.alt || details.title || title || 'Изображение направления работы';
+                    imageElement.loading = 'lazy';
+                    imageElement.decoding = 'async';
+                    directionModalGallery.append(imageElement);
+                });
+                directionModalGallery.removeAttribute('hidden');
+            } else {
+                directionModalGallery.setAttribute('hidden', 'hidden');
+            }
+        }
 
         directionModal.removeAttribute('hidden');
         directionModal.classList.remove('is-closing');
