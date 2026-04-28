@@ -366,6 +366,18 @@
     justify-content: center;
 }
 
+:is(#work-directions-page, #home-page) .direction-modal__case-title {
+    margin: 0;
+    grid-column: 1 / -1;
+    text-align: center;
+    font-size: 15px;
+    line-height: 1.35;
+    letter-spacing: 0.01em;
+    font-weight: 500;
+    color: rgba(245, 247, 251, 0.92);
+    overflow-wrap: anywhere;
+}
+
 :is(#work-directions-page, #home-page) .direction-modal__image-block {
     display: flex;
     flex-direction: column;
@@ -582,6 +594,14 @@ body.modal-open {
     :is(#work-directions-page, #home-page) .direction-modal__mobile-case {
         display: grid;
         gap: 10px;
+    }
+
+    :is(#work-directions-page, #home-page) .direction-modal__mobile-case .direction-modal__case-title {
+        font-size: 12px;
+        line-height: 1.4;
+        letter-spacing: 0.02em;
+        color: rgba(245, 247, 251, 0.9);
+        padding: 0 4px;
     }
 
     :is(#work-directions-page, #home-page) .direction-modal__mobile-case[hidden] {

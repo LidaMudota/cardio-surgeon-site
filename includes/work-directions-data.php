@@ -31,26 +31,32 @@ $workDirectionsData = [
             [
                 'before' => ['src' => 'assets/img/work-directions/stvol_do.jpg', 'alt' => 'Ствол до'],
                 'after' => ['src' => 'assets/img/work-directions/stvol_posle.jpg', 'alt' => 'Ствол после'],
+                'clinical_title' => 'Пример стентирования ствола левой коронарной артерии и ветви тупого края (ВТК)',
             ],
             [
                 'before' => ['src' => 'assets/img/work-directions/stvol_3_do.jpg', 'alt' => 'Ствол 3 до'],
                 'after' => ['src' => 'assets/img/work-directions/stvol_3_posle.jpg', 'alt' => 'Ствол 3 после'],
+                'clinical_title' => 'Пример стентирования ствола левой коронарной артерии, огибающей артерии (ОА) и ветви тупого края (ВТК)',
             ],
             [
                 'before' => ['src' => 'assets/img/work-directions/OA_do.jpg', 'alt' => 'ОА до'],
                 'after' => ['src' => 'assets/img/work-directions/OA_posle.jpg', 'alt' => 'ОА после'],
+                'clinical_title' => 'Пример стентирования огибающей артерии (ОА)',
             ],
             [
                 'before' => ['src' => 'assets/img/work-directions/PMZHA_do.jpg', 'alt' => 'ПМЖА 1 до'],
                 'after' => ['src' => 'assets/img/work-directions/PMZHA_posle.jpg', 'alt' => 'ПМЖА 1 после'],
+                'clinical_title' => 'Пример стентирования передней межжелудочковой артерии (ПМЖА)',
             ],
             [
                 'before' => ['src' => 'assets/img/work-directions/PKA_do.jpg', 'alt' => 'ПКА 1 до'],
                 'after' => ['src' => 'assets/img/work-directions/PKA_posle.jpg', 'alt' => 'ПКА 1 после'],
+                'clinical_title' => 'Пример стентирования правой коронарной артерии (ПКА)',
             ],
             [
                 'before' => ['src' => 'assets/img/work-directions/rek_PKA_do.jpg', 'alt' => 'Рек ПКА до'],
                 'after' => ['src' => 'assets/img/work-directions/rek_PKA_posle.jpg', 'alt' => 'Рек ПКА после'],
+                'clinical_title' => 'Пример реканализации и стентирования правой коронарной артерии (ПКА)',
             ],
         ],
         'warning' => 'Имеются противопоказания, необходима консультация специалиста',
@@ -75,6 +81,7 @@ $workDirectionsData = [
             [
                 'before' => ['src' => 'assets/img/work-directions/sonnaya_do_angio.jpg', 'alt' => 'Сонная до ангио'],
                 'after' => ['src' => 'assets/img/work-directions/sonnaya_posle.jpg', 'alt' => 'Сонная после ангио'],
+                'clinical_title' => 'Пример стентирования правой внутренней сонной артерии (ВСА)',
             ],
         ],
         'warning' => 'Имеются противопоказания, необходима консультация специалиста',

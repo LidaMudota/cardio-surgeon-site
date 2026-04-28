@@ -325,6 +325,7 @@ document.addEventListener('DOMContentLoaded', () => {
             .map((pair) => ({
                 before: pair?.before?.src ? pair.before : null,
                 after: pair?.after?.src ? pair.after : null,
+                clinicalTitle: typeof pair?.clinical_title === 'string' ? pair.clinical_title : '',
             }))
             .filter((pair) => pair.before && pair.after);
     };
@@ -358,6 +359,13 @@ document.addEventListener('DOMContentLoaded', () => {
         return imageBlock;
     };
 
+    const createClinicalCaseTitle = (text) => {
+        const title = document.createElement('p');
+        title.className = 'direction-modal__case-title';
+        title.textContent = text;
+        return title;
+    };
+
     const createDirectionArrowButton = (direction, ariaLabel) => {
         const button = document.createElement('button');
         button.type = 'button';
@@ -387,9 +395,12 @@ document.addEventListener('DOMContentLoaded', () => {
             pairElement.className = 'direction-modal__desktop-pair carousel-pair';
             pairElement.classList.toggle('is-active', index === 0);
             pairElement.hidden = index !== 0;
+            const beforeAlt = `До стентирования — ${pair.clinicalTitle || title}`;
+            const afterAlt = `После стентирования — ${pair.clinicalTitle || title}`;
             pairElement.append(
-                createDirectionImageBlock(pair.before, `${title} до`, 'До'),
-                createDirectionImageBlock(pair.after, `${title} после`, 'После')
+                createClinicalCaseTitle(pair.clinicalTitle || title),
+                createDirectionImageBlock(pair.before, beforeAlt, 'До стентирования'),
+                createDirectionImageBlock(pair.after, afterAlt, 'После стентирования')
             );
             viewport.append(pairElement);
         });
@@ -427,9 +438,12 @@ document.addEventListener('DOMContentLoaded', () => {
             slide.className = 'direction-modal__mobile-case';
             slide.hidden = index !== 0;
 
+            const beforeAlt = `До стентирования — ${pair.clinicalTitle || title}`;
+            const afterAlt = `После стентирования — ${pair.clinicalTitle || title}`;
             slide.append(
-                createDirectionImageBlock(pair.before, `${title} до`, 'До'),
-                createDirectionImageBlock(pair.after, `${title} после`, 'После')
+                createClinicalCaseTitle(pair.clinicalTitle || title),
+                createDirectionImageBlock(pair.before, beforeAlt, 'До стентирования'),
+                createDirectionImageBlock(pair.after, afterAlt, 'После стентирования')
             );
             viewport.append(slide);
         });
