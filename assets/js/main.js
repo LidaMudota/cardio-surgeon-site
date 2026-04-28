@@ -351,21 +351,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const createDesktopPairsCarousel = (pairs, title) => {
         const desktopCarousel = document.createElement('section');
-        desktopCarousel.className = 'direction-modal__carousel direction-modal__carousel--desktop';
+        desktopCarousel.className = 'direction-modal__carousel direction-modal__carousel--desktop desktop-carousel';
         desktopCarousel.setAttribute('aria-label', 'Карусель пар фотографий');
         desktopCarousel.setAttribute('data-carousel', 'desktop');
         desktopCarousel.dataset.index = '0';
         desktopCarousel.dataset.max = String(Math.max(0, pairs.length - 1));
 
-        const prevButton = createDirectionArrowButton('prev', 'Предыдущие фото');
-        const nextButton = createDirectionArrowButton('next', 'Следующие фото');
+        const prevButton = createDirectionArrowButton('prev', 'Предыдущая пара фото');
+        const nextButton = createDirectionArrowButton('next', 'Следующая пара фото');
         const viewport = document.createElement('div');
         viewport.className = 'direction-modal__desktop-viewport';
         viewport.setAttribute('data-carousel-viewport', 'desktop');
 
         pairs.forEach((pair, index) => {
             const pairElement = document.createElement('div');
-            pairElement.className = 'direction-modal__desktop-pair';
+            pairElement.className = 'direction-modal__desktop-pair carousel-pair';
+            pairElement.classList.toggle('is-active', index === 0);
             pairElement.hidden = index !== 0;
             pairElement.append(
                 createDirectionImageSquare(pair.before, `${title} до`),
@@ -419,6 +420,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const nextButton = carousel.querySelector('[data-carousel-nav="next"]');
 
         pairs.forEach((pair, pairIndex) => {
+            pair.classList.toggle('is-active', pairIndex === currentIndex);
             pair.hidden = pairIndex !== currentIndex;
         });
 
@@ -452,7 +454,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const desktopCarousel = createDesktopPairsCarousel(pairs, title);
         const mobileCarousels = document.createElement('div');
-        mobileCarousels.className = 'direction-modal__mobile-list';
+        mobileCarousels.className = 'direction-modal__mobile-list mobile-carousel-list';
 
         pairs.forEach((pair, index) => {
             mobileCarousels.append(createMobilePairCarousel(pair, index, title));

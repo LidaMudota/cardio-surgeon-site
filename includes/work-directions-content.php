@@ -80,9 +80,9 @@ $assetExists = static function (string $path) use ($projectRoot): bool {
             <h3 class="direction-modal__title" id="direction-modal-title" data-direction-modal-title></h3>
             <div class="direction-modal__text" id="direction-modal-text" data-direction-modal-text></div>
             <div class="direction-modal__divider" data-direction-modal-divider-text></div>
-            <p class="direction-modal__warning" data-direction-modal-warning hidden></p>
             <div class="direction-modal__divider" data-direction-modal-divider-gallery hidden></div>
             <div class="direction-modal__gallery" data-direction-modal-gallery hidden></div>
+            <p class="direction-modal__warning" data-direction-modal-warning hidden></p>
         </div>
     </div>
 </div>

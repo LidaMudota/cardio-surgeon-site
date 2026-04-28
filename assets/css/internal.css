@@ -328,7 +328,7 @@
     margin-top: 4px;
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    gap: 12px;
     overflow-x: clip;
 }
 
@@ -337,11 +337,12 @@
 }
 
 :is(#work-directions-page, #home-page) .direction-modal__carousel {
-    --direction-gallery-size: min(238px, calc((100% - 54px) / 2));
+    --direction-gallery-size: 300px;
     width: 100%;
     display: flex;
     align-items: center;
-    gap: 8px;
+    justify-content: center;
+    gap: 10px;
     min-width: 0;
 }
 
@@ -350,15 +351,20 @@
 }
 
 :is(#work-directions-page, #home-page) .direction-modal__desktop-viewport {
-    width: calc((var(--direction-gallery-size) * 2) + 10px);
+    width: calc((var(--direction-gallery-size) * 2) + 12px);
     max-width: 100%;
 }
 
 :is(#work-directions-page, #home-page) .direction-modal__desktop-pair {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, var(--direction-gallery-size)));
-    gap: 10px;
+    gap: 25px;
     justify-content: center;
+}
+
+:is(#work-directions-page, #home-page) .direction-modal__desktop-pair:not(.is-active),
+:is(#work-directions-page, #home-page) .direction-modal__image[hidden] {
+    display: none;
 }
 
 :is(#work-directions-page, #home-page) .direction-modal__mobile-list {
@@ -368,7 +374,8 @@
 }
 
 :is(#work-directions-page, #home-page) .direction-modal__mobile-viewport {
-    width: min(260px, 100%);
+    width: var(--direction-gallery-size);
+    max-width: 100%;
     min-width: 0;
 }
 
@@ -379,7 +386,7 @@
     aspect-ratio: 1 / 1;
     object-fit: cover;
     object-position: center;
-    border: 1px solid rgba(255, 255, 255, 0.14);
+    border: 5px solid #00a29a;
     border-radius: 0;
 }
 
@@ -486,7 +493,7 @@ body.modal-open {
     }
 
     :is(#work-directions-page, #home-page) .direction-modal__carousel--mobile {
-        --direction-gallery-size: min(260px, 100%);
+        --direction-gallery-size: min(260px, calc(100vw - 112px));
         justify-content: center;
     }
 
@@ -497,7 +504,7 @@ body.modal-open {
     }
 
     :is(#work-directions-page, #home-page) .direction-modal__mobile-viewport {
-        width: min(260px, calc(100vw - 112px));
+        width: var(--direction-gallery-size);
     }
 
     :is(#work-directions-page, #home-page) .direction-modal__close {
