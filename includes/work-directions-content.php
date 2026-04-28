@@ -4,6 +4,16 @@ if (!isset($workDirectionsData) || !is_array($workDirectionsData)) {
 }
 
 $directionMap = [];
+$projectRoot = dirname(__DIR__);
+$assetExists = static function (string $path) use ($projectRoot): bool {
+    $normalized = trim($path);
+    if ($normalized === '') {
+        return false;
+    }
+
+    $normalized = ltrim($normalized, '/');
+    return is_file($projectRoot . DIRECTORY_SEPARATOR . str_replace(['/', '\\'], DIRECTORY_SEPARATOR, $normalized));
+};
 ?>
 <div class="spec-grid" aria-label="Карточки направлений работы">
     <?php foreach ($workDirectionsData as $direction): ?>
@@ -21,7 +31,16 @@ $directionMap = [];
         $directionMap[$directionId] = [
             'title' => (string) ($direction['full_title'] ?? $cardTitle),
             'paragraphs' => array_values(array_filter($direction['paragraphs'] ?? [], static fn ($item) => is_string($item) && $item !== '')),
-            'images' => array_values(array_filter($direction['images'] ?? [], static fn ($item) => is_array($item) && !empty($item['src']))),
+            'images' => array_values(array_filter($direction['images'] ?? [], fn ($item) => is_array($item) && !empty($item['src']) && $assetExists((string) $item['src']))),
+            'imagePairs' => array_values(array_filter($direction['imagePairs'] ?? [], static function ($pair) use ($assetExists): bool {
+                return is_array($pair)
+                    && is_array($pair['before'] ?? null)
+                    && is_array($pair['after'] ?? null)
+                    && !empty($pair['before']['src'])
+                    && !empty($pair['after']['src'])
+                    && $assetExists((string) $pair['before']['src'])
+                    && $assetExists((string) $pair['after']['src']);
+            })),
             'warning' => (string) ($direction['warning'] ?? ''),
             'icon' => $icon,
         ];

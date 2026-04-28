@@ -326,100 +326,89 @@
 
 :is(#work-directions-page, #home-page) .direction-modal__gallery {
     margin-top: 4px;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    overflow-x: clip;
 }
 
 :is(#work-directions-page, #home-page) .direction-modal__gallery[hidden] {
     display: none;
 }
 
-:is(#work-directions-page, #home-page) .direction-modal__gallery-pair {
-    grid-column: 1 / -1;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px;
-}
-
-:is(#work-directions-page, #home-page) .direction-modal__gallery-pair--with-divider {
-    position: relative;
-    margin-block-end: clamp(16px, 2vw, 22px);
-    padding-block-end: clamp(16px, 2vw, 22px);
-}
-
-:is(#work-directions-page, #home-page) .direction-modal__gallery-pair--with-divider::after,
-:is(#work-directions-page, #home-page) .direction-modal__gallery-pair--with-divider::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    pointer-events: none;
-}
-
-:is(#work-directions-page, #home-page) .direction-modal__gallery-pair--with-divider::after {
-    bottom: 1px;
-    height: 1px;
-    background:
-        linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(191, 199, 214, 0.15) 20%, rgba(191, 199, 214, 0.15) 80%, rgba(255, 255, 255, 0));
-}
-
-:is(#work-directions-page, #home-page) .direction-modal__gallery-pair--with-divider::before {
-    bottom: 0;
-    height: 1px;
-    background:
-        linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.06) 26%, rgba(255, 255, 255, 0.06) 74%, rgba(255, 255, 255, 0));
-}
-
-:is(#work-directions-page, #home-page) .direction-modal__gallery-item {
-    margin: 0;
-    min-width: 0;
+:is(#work-directions-page, #home-page) .direction-modal__carousel {
+    --direction-gallery-size: min(238px, calc((100% - 54px) / 2));
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    gap: 0;
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    border-radius: 12px;
-    background: rgba(8, 13, 20, 0.86);
-    overflow: hidden;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
 }
 
-:is(#work-directions-page, #home-page) .direction-modal__gallery-item--single {
-    height: 100%;
+:is(#work-directions-page, #home-page) .direction-modal__carousel--desktop {
+    justify-content: center;
 }
 
-:is(#work-directions-page, #home-page) .direction-modal__gallery-caption {
-    margin: 0;
-    min-height: 34px;
-    padding: 9px 10px 8px;
-    color: rgba(245, 247, 251, 0.92);
-    font-size: 12px;
-    font-weight: 700;
-    line-height: 1.35;
-    letter-spacing: 0.03em;
-    text-transform: uppercase;
-    text-align: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    background: rgba(255, 255, 255, 0.02);
+:is(#work-directions-page, #home-page) .direction-modal__desktop-viewport {
+    width: calc((var(--direction-gallery-size) * 2) + 10px);
+    max-width: 100%;
 }
 
-:is(#work-directions-page, #home-page) .direction-modal__gallery-media {
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    border-radius: 0;
-    border: 0;
-    background: transparent;
+:is(#work-directions-page, #home-page) .direction-modal__desktop-pair {
     display: grid;
-    place-items: center;
-    overflow: hidden;
-    padding: clamp(8px, 1.2vw, 11px);
+    grid-template-columns: repeat(2, minmax(0, var(--direction-gallery-size)));
+    gap: 10px;
+    justify-content: center;
 }
 
-:is(#work-directions-page, #home-page) .direction-modal__gallery-media img {
+:is(#work-directions-page, #home-page) .direction-modal__mobile-list {
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+}
+
+:is(#work-directions-page, #home-page) .direction-modal__mobile-viewport {
+    width: min(260px, 100%);
+    min-width: 0;
+}
+
+:is(#work-directions-page, #home-page) .direction-modal__image {
     display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+    width: var(--direction-gallery-size);
+    max-width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
     object-position: center;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 0;
+}
+
+:is(#work-directions-page, #home-page) .direction-modal__carousel-arrow {
+    width: 36px;
+    height: 36px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 999px;
+    background: rgba(7, 12, 18, 0.72);
+    color: rgba(245, 247, 251, 0.95);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    line-height: 1;
+    padding: 0;
+    cursor: pointer;
+    transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+:is(#work-directions-page, #home-page) .direction-modal__carousel-arrow:hover,
+:is(#work-directions-page, #home-page) .direction-modal__carousel-arrow:focus-visible {
+    border-color: rgba(24, 198, 198, 0.72);
+    background: rgba(15, 22, 31, 0.94);
+}
+
+:is(#work-directions-page, #home-page) .direction-modal__carousel-arrow:disabled {
+    opacity: 0.4;
+    cursor: default;
 }
 
 :is(#work-directions-page, #home-page) .direction-modal__close {
@@ -484,16 +473,31 @@ body.modal-open {
     }
 
     :is(#work-directions-page, #home-page) .direction-modal__gallery {
-        grid-template-columns: 1fr;
+        margin-top: 2px;
+        gap: 10px;
     }
 
-    :is(#work-directions-page, #home-page) .direction-modal__gallery-pair {
-        grid-template-columns: 1fr;
+    :is(#work-directions-page, #home-page) .direction-modal__carousel--desktop {
+        display: none;
     }
 
-    :is(#work-directions-page, #home-page) .direction-modal__gallery-pair--with-divider {
-        margin-block-end: 14px;
-        padding-block-end: 14px;
+    :is(#work-directions-page, #home-page) .direction-modal__mobile-list {
+        display: flex;
+    }
+
+    :is(#work-directions-page, #home-page) .direction-modal__carousel--mobile {
+        --direction-gallery-size: min(260px, 100%);
+        justify-content: center;
+    }
+
+    :is(#work-directions-page, #home-page) .direction-modal__carousel-arrow {
+        width: 34px;
+        height: 34px;
+        font-size: 26px;
+    }
+
+    :is(#work-directions-page, #home-page) .direction-modal__mobile-viewport {
+        width: min(260px, calc(100vw - 112px));
     }
 
     :is(#work-directions-page, #home-page) .direction-modal__close {

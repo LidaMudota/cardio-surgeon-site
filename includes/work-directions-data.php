@@ -27,6 +27,32 @@ $workDirectionsData = [
             ['src' => 'assets/img/work-directions/rek_PKA_do.jpg', 'alt' => 'Реканализация ПКА до операции'],
             ['src' => 'assets/img/work-directions/rek_PKA_posle.jpg', 'alt' => 'Реканализация ПКА после операции'],
         ],
+        'imagePairs' => [
+            [
+                'before' => ['src' => 'assets/img/work-directions/stvol_do.jpg', 'alt' => 'Ствол до'],
+                'after' => ['src' => 'assets/img/work-directions/stvol_posle.jpg', 'alt' => 'Ствол после'],
+            ],
+            [
+                'before' => ['src' => 'assets/img/work-directions/stvol_3_do.jpg', 'alt' => 'Ствол 3 до'],
+                'after' => ['src' => 'assets/img/work-directions/stvol_3_posle.jpg', 'alt' => 'Ствол 3 после'],
+            ],
+            [
+                'before' => ['src' => 'assets/img/work-directions/OA_do.jpg', 'alt' => 'ОА до'],
+                'after' => ['src' => 'assets/img/work-directions/OA_posle.jpg', 'alt' => 'ОА после'],
+            ],
+            [
+                'before' => ['src' => 'assets/img/work-directions/PMZHA_do.jpg', 'alt' => 'ПМЖА 1 до'],
+                'after' => ['src' => 'assets/img/work-directions/PMZHA_posle.jpg', 'alt' => 'ПМЖА 1 после'],
+            ],
+            [
+                'before' => ['src' => 'assets/img/work-directions/PKA_do.jpg', 'alt' => 'ПКА 1 до'],
+                'after' => ['src' => 'assets/img/work-directions/PKA_posle.jpg', 'alt' => 'ПКА 1 после'],
+            ],
+            [
+                'before' => ['src' => 'assets/img/work-directions/rek_PKA_do.jpg', 'alt' => 'Рек ПКА до'],
+                'after' => ['src' => 'assets/img/work-directions/rek_PKA_posle.jpg', 'alt' => 'Рек ПКА после'],
+            ],
+        ],
         'warning' => 'Имеются противопоказания, необходима консультация специалиста',
     ],
     [
@@ -44,6 +70,12 @@ $workDirectionsData = [
             ['src' => 'assets/img/work-directions/sonnaya_do.jpg', 'alt' => 'Сонная артерия до стентирования'],
             ['src' => 'assets/img/work-directions/sonnaya_do_angio.jpg', 'alt' => 'Ангиография сонной артерии до стентирования'],
             ['src' => 'assets/img/work-directions/sonnaya_posle.jpg', 'alt' => 'Сонная артерия после стентирования'],
+        ],
+        'imagePairs' => [
+            [
+                'before' => ['src' => 'assets/img/work-directions/sonnaya_do_angio.jpg', 'alt' => 'Сонная до ангио'],
+                'after' => ['src' => 'assets/img/work-directions/sonnaya_posle.jpg', 'alt' => 'Сонная после ангио'],
+            ],
         ],
         'warning' => 'Имеются противопоказания, необходима консультация специалиста',
     ],
@@ -92,6 +124,16 @@ $workDirectionsData = [
             ['src' => 'assets/img/work-directions/EMA_emboly_posle.jpg', 'alt' => 'Эмболизация маточных артерий после операции эмболами'],
             ['src' => 'assets/img/work-directions/EMA_spirali_do.jpg', 'alt' => 'Эмболизация маточных артерий до операции спиралями'],
             ['src' => 'assets/img/work-directions/EMA_spirali_posle.jpg', 'alt' => 'Эмболизация маточных артерий после операции спиралями'],
+        ],
+        'imagePairs' => [
+            [
+                'before' => ['src' => 'assets/img/work-directions/EMA_emboly_do.jpg', 'alt' => 'ЭМА эмболы до'],
+                'after' => ['src' => 'assets/img/work-directions/EMA_emboly_posle.jpg', 'alt' => 'ЭМА эмболы после'],
+            ],
+            [
+                'before' => ['src' => 'assets/img/work-directions/EMA_spirali_do.jpg', 'alt' => 'ЭМА спирали до'],
+                'after' => ['src' => 'assets/img/work-directions/EMA_spirali_posle.jpg', 'alt' => 'ЭМА спирали после'],
+            ],
         ],
         'warning' => 'Имеются противопоказания, необходима консультация специалиста',
     ],

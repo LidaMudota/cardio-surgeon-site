@@ -319,89 +319,147 @@ document.addEventListener('DOMContentLoaded', () => {
         directionModal.style.setProperty('--direction-modal-top-offset', `${topOffset}px`);
     };
 
-    const getImagePairMeta = (src) => {
-        const fileName = String(src || '').split('/').pop() || '';
-        const nameWithoutExt = fileName.replace(/\.[^.]+$/, '');
-        const normalized = nameWithoutExt.toLowerCase();
-
-        const beforePattern = /(^|[_-])do(?=$|[_-])/;
-        const afterPattern = /(^|[_-])posle(?=$|[_-])/;
-
-        if (beforePattern.test(normalized)) {
-            const key = normalized.replace(beforePattern, '_').replace(/[_-]+/g, '_').replace(/^_|_$/g, '');
-            return { kind: 'before', key };
-        }
-
-        if (afterPattern.test(normalized)) {
-            const key = normalized.replace(afterPattern, '_').replace(/[_-]+/g, '_').replace(/^_|_$/g, '');
-            return { kind: 'after', key };
-        }
-
-        return null;
+    const normalizeDirectionImagePairs = (details) => {
+        const pairs = Array.isArray(details.imagePairs) ? details.imagePairs : [];
+        return pairs
+            .map((pair) => ({
+                before: pair?.before?.src ? pair.before : null,
+                after: pair?.after?.src ? pair.after : null,
+            }))
+            .filter((pair) => pair.before && pair.after);
     };
 
-    const buildDirectionGalleryEntries = (images) => {
-        const imageMeta = images.map((image, index) => {
-            const meta = getImagePairMeta(image?.src);
-            return { image, index, meta };
-        });
-
-        const afterByKey = new Map();
-        imageMeta.forEach((item) => {
-            if (item.meta?.kind !== 'after') return;
-            const list = afterByKey.get(item.meta.key) || [];
-            list.push(item);
-            afterByKey.set(item.meta.key, list);
-        });
-
-        const usedIndexes = new Set();
-        const entries = [];
-
-        imageMeta.forEach((item) => {
-            if (usedIndexes.has(item.index)) return;
-
-            if (item.meta?.kind === 'before') {
-                const matches = afterByKey.get(item.meta.key) || [];
-                const matched = matches.find((candidate) => candidate.index > item.index && !usedIndexes.has(candidate.index));
-
-                if (matched) {
-                    usedIndexes.add(item.index);
-                    usedIndexes.add(matched.index);
-                    entries.push({ type: 'pair', before: item.image, after: matched.image });
-                    return;
-                }
-            }
-
-            usedIndexes.add(item.index);
-            entries.push({ type: 'single', image: item.image });
-        });
-
-        return entries;
-    };
-
-    const createDirectionGalleryItem = (image, title, caption = '') => {
-        const figureElement = document.createElement('figure');
-        figureElement.className = 'direction-modal__gallery-item';
-
-        if (caption) {
-            const captionElement = document.createElement('figcaption');
-            captionElement.className = 'direction-modal__gallery-caption';
-            captionElement.textContent = caption;
-            figureElement.append(captionElement);
-        }
-
-        const mediaElement = document.createElement('div');
-        mediaElement.className = 'direction-modal__gallery-media';
-
+    const createDirectionImageSquare = (image, fallbackAlt) => {
         const imageElement = document.createElement('img');
+        imageElement.className = 'direction-modal__image';
         imageElement.src = image.src;
-        imageElement.alt = image.alt || title || 'Изображение направления работы';
+        imageElement.alt = image.alt || fallbackAlt;
         imageElement.loading = 'lazy';
         imageElement.decoding = 'async';
-        mediaElement.append(imageElement);
+        return imageElement;
+    };
 
-        figureElement.append(mediaElement);
-        return figureElement;
+    const createDirectionArrowButton = (direction, ariaLabel) => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = `direction-modal__carousel-arrow direction-modal__carousel-arrow--${direction}`;
+        button.setAttribute('data-carousel-nav', direction);
+        button.setAttribute('aria-label', ariaLabel);
+        button.innerHTML = direction === 'prev' ? '&#8249;' : '&#8250;';
+        return button;
+    };
+
+    const createDesktopPairsCarousel = (pairs, title) => {
+        const desktopCarousel = document.createElement('section');
+        desktopCarousel.className = 'direction-modal__carousel direction-modal__carousel--desktop';
+        desktopCarousel.setAttribute('aria-label', 'Карусель пар фотографий');
+        desktopCarousel.setAttribute('data-carousel', 'desktop');
+        desktopCarousel.dataset.index = '0';
+        desktopCarousel.dataset.max = String(Math.max(0, pairs.length - 1));
+
+        const prevButton = createDirectionArrowButton('prev', 'Предыдущие фото');
+        const nextButton = createDirectionArrowButton('next', 'Следующие фото');
+        const viewport = document.createElement('div');
+        viewport.className = 'direction-modal__desktop-viewport';
+        viewport.setAttribute('data-carousel-viewport', 'desktop');
+
+        pairs.forEach((pair, index) => {
+            const pairElement = document.createElement('div');
+            pairElement.className = 'direction-modal__desktop-pair';
+            pairElement.hidden = index !== 0;
+            pairElement.append(
+                createDirectionImageSquare(pair.before, `${title} до`),
+                createDirectionImageSquare(pair.after, `${title} после`)
+            );
+            viewport.append(pairElement);
+        });
+
+        const hasNavigation = pairs.length > 1;
+        prevButton.disabled = !hasNavigation;
+        nextButton.disabled = !hasNavigation;
+        prevButton.hidden = !hasNavigation;
+        nextButton.hidden = !hasNavigation;
+
+        desktopCarousel.append(prevButton, viewport, nextButton);
+        return desktopCarousel;
+    };
+
+    const createMobilePairCarousel = (pair, index, title) => {
+        const mobileCarousel = document.createElement('section');
+        mobileCarousel.className = 'direction-modal__carousel direction-modal__carousel--mobile';
+        mobileCarousel.setAttribute('aria-label', `Карусель пары фотографий ${index + 1}`);
+        mobileCarousel.setAttribute('data-carousel', 'mobile');
+        mobileCarousel.dataset.index = '0';
+        mobileCarousel.dataset.max = '1';
+
+        const prevButton = createDirectionArrowButton('prev', 'Предыдущее фото');
+        const nextButton = createDirectionArrowButton('next', 'Следующее фото');
+        const viewport = document.createElement('div');
+        viewport.className = 'direction-modal__mobile-viewport';
+        viewport.setAttribute('data-carousel-viewport', 'mobile');
+
+        const beforeImage = createDirectionImageSquare(pair.before, `${title} до`);
+        const afterImage = createDirectionImageSquare(pair.after, `${title} после`);
+        beforeImage.hidden = false;
+        afterImage.hidden = true;
+        viewport.append(beforeImage, afterImage);
+
+        prevButton.disabled = true;
+        nextButton.disabled = false;
+
+        mobileCarousel.append(prevButton, viewport, nextButton);
+        return mobileCarousel;
+    };
+
+    const updateDesktopCarousel = (carousel) => {
+        const pairs = Array.from(carousel.querySelectorAll('.direction-modal__desktop-pair'));
+        const currentIndex = Number.parseInt(carousel.dataset.index || '0', 10);
+        const maxIndex = Number.parseInt(carousel.dataset.max || '0', 10);
+        const prevButton = carousel.querySelector('[data-carousel-nav="prev"]');
+        const nextButton = carousel.querySelector('[data-carousel-nav="next"]');
+
+        pairs.forEach((pair, pairIndex) => {
+            pair.hidden = pairIndex !== currentIndex;
+        });
+
+        if (prevButton instanceof HTMLButtonElement) prevButton.disabled = currentIndex <= 0;
+        if (nextButton instanceof HTMLButtonElement) nextButton.disabled = currentIndex >= maxIndex;
+    };
+
+    const updateMobileCarousel = (carousel) => {
+        const slides = Array.from(carousel.querySelectorAll('.direction-modal__image'));
+        const currentIndex = Number.parseInt(carousel.dataset.index || '0', 10);
+        const maxIndex = Number.parseInt(carousel.dataset.max || '1', 10);
+        const prevButton = carousel.querySelector('[data-carousel-nav="prev"]');
+        const nextButton = carousel.querySelector('[data-carousel-nav="next"]');
+
+        slides.forEach((slide, slideIndex) => {
+            slide.hidden = slideIndex !== currentIndex;
+        });
+
+        if (prevButton instanceof HTMLButtonElement) prevButton.disabled = currentIndex <= 0;
+        if (nextButton instanceof HTMLButtonElement) nextButton.disabled = currentIndex >= maxIndex;
+    };
+
+    const renderDirectionGallery = (pairs, title) => {
+        if (!directionModalGallery) return;
+        directionModalGallery.replaceChildren();
+
+        if (pairs.length === 0) {
+            directionModalGallery.setAttribute('hidden', 'hidden');
+            return;
+        }
+
+        const desktopCarousel = createDesktopPairsCarousel(pairs, title);
+        const mobileCarousels = document.createElement('div');
+        mobileCarousels.className = 'direction-modal__mobile-list';
+
+        pairs.forEach((pair, index) => {
+            mobileCarousels.append(createMobilePairCarousel(pair, index, title));
+        });
+
+        directionModalGallery.append(desktopCarousel, mobileCarousels);
+        directionModalGallery.removeAttribute('hidden');
     };
 
     const openDirectionModal = (card, trigger) => {
@@ -413,6 +471,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const details = directionDetailsMap[directionId] || {};
         const paragraphs = Array.isArray(details.paragraphs) ? details.paragraphs : [];
         const images = Array.isArray(details.images) ? details.images : [];
+        const imagePairs = normalizeDirectionImagePairs(details);
         const primaryImage = images[0]?.src || details.icon || icon?.getAttribute('src') || '';
         const primaryImageAlt = images[0]?.alt || details.title || title || 'Иллюстрация направления работы';
 
@@ -440,51 +499,15 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        if (directionModalGallery) {
-            directionModalGallery.replaceChildren();
-            if (images.length > 0) {
-                const validImages = images.filter((image) => image?.src);
-                const galleryEntries = buildDirectionGalleryEntries(validImages);
-                const lastPairIndex = galleryEntries.reduce(
-                    (lastIndex, entry, index) => (entry.type === 'pair' ? index : lastIndex),
-                    -1
-                );
-
-                galleryEntries.forEach((entry, index) => {
-                    if (entry.type === 'pair' && entry.before?.src && entry.after?.src) {
-                        const pairElement = document.createElement('div');
-                        pairElement.className = 'direction-modal__gallery-pair';
-                        if (index < lastPairIndex) {
-                            pairElement.classList.add('direction-modal__gallery-pair--with-divider');
-                        }
-
-                        const beforeItem = createDirectionGalleryItem(entry.before, details.title || title, 'До');
-                        const afterItem = createDirectionGalleryItem(entry.after, details.title || title, 'После');
-
-                        pairElement.append(beforeItem, afterItem);
-                        directionModalGallery.append(pairElement);
-                        return;
-                    }
-
-                    if (entry.type === 'single' && entry.image?.src) {
-                        const singleItem = createDirectionGalleryItem(entry.image, details.title || title);
-                        singleItem.classList.add('direction-modal__gallery-item--single');
-                        directionModalGallery.append(singleItem);
-                    }
-                });
-                directionModalGallery.removeAttribute('hidden');
-            } else {
-                directionModalGallery.setAttribute('hidden', 'hidden');
-            }
-        }
+        renderDirectionGallery(imagePairs, details.title || title);
 
         if (directionModalTextDivider) {
-            const shouldShowTextDivider = paragraphs.length > 0 || Boolean(details.warning) || images.length > 0;
+            const shouldShowTextDivider = paragraphs.length > 0 || Boolean(details.warning) || imagePairs.length > 0;
             directionModalTextDivider.toggleAttribute('hidden', !shouldShowTextDivider);
         }
 
         if (directionModalGalleryDivider) {
-            directionModalGalleryDivider.toggleAttribute('hidden', images.length === 0);
+            directionModalGalleryDivider.toggleAttribute('hidden', imagePairs.length === 0);
         }
 
         directionModal.removeAttribute('hidden');
@@ -541,6 +564,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
     directionCloseButtons?.forEach((closeButton) => {
         closeButton.addEventListener('click', closeDirectionModal);
+    });
+
+    directionModalGallery?.addEventListener('click', (event) => {
+        const button = event.target.closest('[data-carousel-nav]');
+        if (!(button instanceof HTMLButtonElement)) return;
+
+        const carousel = button.closest('[data-carousel]');
+        if (!(carousel instanceof HTMLElement)) return;
+
+        const direction = button.dataset.carouselNav;
+        if (direction !== 'prev' && direction !== 'next') return;
+
+        const currentIndex = Number.parseInt(carousel.dataset.index || '0', 10);
+        const maxIndex = Number.parseInt(carousel.dataset.max || '0', 10);
+        const nextIndex = direction === 'next'
+            ? Math.min(currentIndex + 1, maxIndex)
+            : Math.max(currentIndex - 1, 0);
+
+        if (nextIndex === currentIndex) return;
+        carousel.dataset.index = String(nextIndex);
+
+        if (carousel.dataset.carousel === 'desktop') {
+            updateDesktopCarousel(carousel);
+            return;
+        }
+
+        updateMobileCarousel(carousel);
     });
 
     window.addEventListener('resize', () => {
