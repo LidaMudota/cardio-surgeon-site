@@ -1386,8 +1386,9 @@ button {
 }
 
 .footer__caption {
-    margin: auto;
+    margin: 0;
     font-size: 13px;
+    line-height: 1.5;
 }
 
 .footer__legal-link {
