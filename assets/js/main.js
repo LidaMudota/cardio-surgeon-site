@@ -317,6 +317,84 @@ document.addEventListener('DOMContentLoaded', () => {
         directionModal.style.setProperty('--direction-modal-top-offset', `${topOffset}px`);
     };
 
+    const getImagePairMeta = (src) => {
+        const fileName = String(src || '').split('/').pop() || '';
+        const nameWithoutExt = fileName.replace(/\.[^.]+$/, '');
+        const normalized = nameWithoutExt.toLowerCase();
+
+        const beforePattern = /(^|[_-])do(?=$|[_-])/;
+        const afterPattern = /(^|[_-])posle(?=$|[_-])/;
+
+        if (beforePattern.test(normalized)) {
+            const key = normalized.replace(beforePattern, '_').replace(/[_-]+/g, '_').replace(/^_|_$/g, '');
+            return { kind: 'before', key };
+        }
+
+        if (afterPattern.test(normalized)) {
+            const key = normalized.replace(afterPattern, '_').replace(/[_-]+/g, '_').replace(/^_|_$/g, '');
+            return { kind: 'after', key };
+        }
+
+        return null;
+    };
+
+    const buildDirectionGalleryEntries = (images) => {
+        const imageMeta = images.map((image, index) => {
+            const meta = getImagePairMeta(image?.src);
+            return { image, index, meta };
+        });
+
+        const afterByKey = new Map();
+        imageMeta.forEach((item) => {
+            if (item.meta?.kind !== 'after') return;
+            const list = afterByKey.get(item.meta.key) || [];
+            list.push(item);
+            afterByKey.set(item.meta.key, list);
+        });
+
+        const usedIndexes = new Set();
+        const entries = [];
+
+        imageMeta.forEach((item) => {
+            if (usedIndexes.has(item.index)) return;
+
+            if (item.meta?.kind === 'before') {
+                const matches = afterByKey.get(item.meta.key) || [];
+                const matched = matches.find((candidate) => candidate.index > item.index && !usedIndexes.has(candidate.index));
+
+                if (matched) {
+                    usedIndexes.add(item.index);
+                    usedIndexes.add(matched.index);
+                    entries.push({ type: 'pair', before: item.image, after: matched.image });
+                    return;
+                }
+            }
+
+            usedIndexes.add(item.index);
+            entries.push({ type: 'single', image: item.image });
+        });
+
+        return entries;
+    };
+
+    const createDirectionGalleryItem = (image, title) => {
+        const figureElement = document.createElement('figure');
+        figureElement.className = 'direction-modal__gallery-item';
+
+        const mediaElement = document.createElement('div');
+        mediaElement.className = 'direction-modal__gallery-media';
+
+        const imageElement = document.createElement('img');
+        imageElement.src = image.src;
+        imageElement.alt = image.alt || title || 'Изображение направления работы';
+        imageElement.loading = 'lazy';
+        imageElement.decoding = 'async';
+        mediaElement.append(imageElement);
+
+        figureElement.append(mediaElement);
+        return figureElement;
+    };
+
     const openDirectionModal = (card, trigger) => {
         if (!directionModal || !directionModalTitle || !directionModalText || !directionModalImage || !card) return;
 
@@ -356,14 +434,36 @@ document.addEventListener('DOMContentLoaded', () => {
         if (directionModalGallery) {
             directionModalGallery.replaceChildren();
             if (images.length > 0) {
-                images.forEach((image) => {
-                    if (!image?.src) return;
-                    const imageElement = document.createElement('img');
-                    imageElement.src = image.src;
-                    imageElement.alt = image.alt || details.title || title || 'Изображение направления работы';
-                    imageElement.loading = 'lazy';
-                    imageElement.decoding = 'async';
-                    directionModalGallery.append(imageElement);
+                const validImages = images.filter((image) => image?.src);
+                const galleryEntries = buildDirectionGalleryEntries(validImages);
+
+                galleryEntries.forEach((entry) => {
+                    if (entry.type === 'pair' && entry.before?.src && entry.after?.src) {
+                        const pairElement = document.createElement('div');
+                        pairElement.className = 'direction-modal__gallery-pair';
+
+                        const beforeItem = createDirectionGalleryItem(entry.before, details.title || title);
+                        const beforeCaption = document.createElement('figcaption');
+                        beforeCaption.className = 'direction-modal__gallery-caption';
+                        beforeCaption.textContent = 'До';
+                        beforeItem.append(beforeCaption);
+
+                        const afterItem = createDirectionGalleryItem(entry.after, details.title || title);
+                        const afterCaption = document.createElement('figcaption');
+                        afterCaption.className = 'direction-modal__gallery-caption';
+                        afterCaption.textContent = 'После';
+                        afterItem.append(afterCaption);
+
+                        pairElement.append(beforeItem, afterItem);
+                        directionModalGallery.append(pairElement);
+                        return;
+                    }
+
+                    if (entry.type === 'single' && entry.image?.src) {
+                        const singleItem = createDirectionGalleryItem(entry.image, details.title || title);
+                        singleItem.classList.add('direction-modal__gallery-item--single');
+                        directionModalGallery.append(singleItem);
+                    }
                 });
                 directionModalGallery.removeAttribute('hidden');
             } else {
