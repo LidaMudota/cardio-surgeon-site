@@ -339,6 +339,18 @@ document.addEventListener('DOMContentLoaded', () => {
         return imageElement;
     };
 
+    const createDirectionImageBlock = (image, fallbackAlt, labelText) => {
+        const imageBlock = document.createElement('div');
+        imageBlock.className = 'direction-modal__image-block';
+
+        const label = document.createElement('p');
+        label.className = 'direction-modal__image-label';
+        label.textContent = labelText;
+
+        imageBlock.append(label, createDirectionImageSquare(image, fallbackAlt));
+        return imageBlock;
+    };
+
     const createDirectionArrowButton = (direction, ariaLabel) => {
         const button = document.createElement('button');
         button.type = 'button';
@@ -369,8 +381,8 @@ document.addEventListener('DOMContentLoaded', () => {
             pairElement.classList.toggle('is-active', index === 0);
             pairElement.hidden = index !== 0;
             pairElement.append(
-                createDirectionImageSquare(pair.before, `${title} до`),
-                createDirectionImageSquare(pair.after, `${title} после`)
+                createDirectionImageBlock(pair.before, `${title} до`, 'До'),
+                createDirectionImageBlock(pair.after, `${title} после`, 'После')
             );
             viewport.append(pairElement);
         });
@@ -399,6 +411,11 @@ document.addEventListener('DOMContentLoaded', () => {
         viewport.className = 'direction-modal__mobile-viewport';
         viewport.setAttribute('data-carousel-viewport', 'mobile');
 
+        const label = document.createElement('p');
+        label.className = 'direction-modal__image-label direction-modal__image-label--mobile';
+        label.setAttribute('data-carousel-mobile-label', '');
+        label.textContent = 'До';
+
         const beforeImage = createDirectionImageSquare(pair.before, `${title} до`);
         const afterImage = createDirectionImageSquare(pair.after, `${title} после`);
         beforeImage.hidden = false;
@@ -408,7 +425,7 @@ document.addEventListener('DOMContentLoaded', () => {
         prevButton.disabled = true;
         nextButton.disabled = false;
 
-        mobileCarousel.append(prevButton, viewport, nextButton);
+        mobileCarousel.append(prevButton, label, viewport, nextButton);
         return mobileCarousel;
     };
 
@@ -434,10 +451,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const maxIndex = Number.parseInt(carousel.dataset.max || '1', 10);
         const prevButton = carousel.querySelector('[data-carousel-nav="prev"]');
         const nextButton = carousel.querySelector('[data-carousel-nav="next"]');
+        const mobileLabel = carousel.querySelector('[data-carousel-mobile-label]');
 
         slides.forEach((slide, slideIndex) => {
             slide.hidden = slideIndex !== currentIndex;
         });
+
+        if (mobileLabel instanceof HTMLElement) {
+            mobileLabel.textContent = currentIndex === 0 ? 'До' : 'После';
+        }
 
         if (prevButton instanceof HTMLButtonElement) prevButton.disabled = currentIndex <= 0;
         if (nextButton instanceof HTMLButtonElement) nextButton.disabled = currentIndex >= maxIndex;
