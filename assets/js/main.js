@@ -405,8 +405,8 @@ document.addEventListener('DOMContentLoaded', () => {
         mobileCarousel.dataset.index = '0';
         mobileCarousel.dataset.max = String(Math.max(0, pairs.length - 1));
 
-        const prevButton = createDirectionArrowButton('prev', 'Предыдущий клинический случай');
-        const nextButton = createDirectionArrowButton('next', 'Следующий клинический случай');
+        const prevButton = createDirectionArrowButton('prev', 'Предыдущая пара До/После');
+        const nextButton = createDirectionArrowButton('next', 'Следующая пара До/После');
         const viewport = document.createElement('div');
         viewport.className = 'direction-modal__mobile-viewport';
         viewport.setAttribute('data-carousel-viewport', 'mobile');
