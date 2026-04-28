@@ -397,35 +397,38 @@ document.addEventListener('DOMContentLoaded', () => {
         return desktopCarousel;
     };
 
-    const createMobilePairCarousel = (pair, index, title) => {
+    const createMobileCasesCarousel = (pairs, title) => {
         const mobileCarousel = document.createElement('section');
         mobileCarousel.className = 'direction-modal__carousel direction-modal__carousel--mobile';
-        mobileCarousel.setAttribute('aria-label', `Карусель пары фотографий ${index + 1}`);
+        mobileCarousel.setAttribute('aria-label', 'Карусель клинических случаев до и после');
         mobileCarousel.setAttribute('data-carousel', 'mobile');
         mobileCarousel.dataset.index = '0';
-        mobileCarousel.dataset.max = '1';
+        mobileCarousel.dataset.max = String(Math.max(0, pairs.length - 1));
 
-        const prevButton = createDirectionArrowButton('prev', 'Предыдущее фото');
-        const nextButton = createDirectionArrowButton('next', 'Следующее фото');
+        const prevButton = createDirectionArrowButton('prev', 'Предыдущий клинический случай');
+        const nextButton = createDirectionArrowButton('next', 'Следующий клинический случай');
         const viewport = document.createElement('div');
         viewport.className = 'direction-modal__mobile-viewport';
         viewport.setAttribute('data-carousel-viewport', 'mobile');
 
-        const label = document.createElement('p');
-        label.className = 'direction-modal__image-label direction-modal__image-label--mobile';
-        label.setAttribute('data-carousel-mobile-label', '');
-        label.textContent = 'До';
+        const counter = document.createElement('p');
+        counter.className = 'direction-modal__mobile-counter';
+        counter.setAttribute('data-carousel-mobile-counter', '');
 
-        const beforeImage = createDirectionImageSquare(pair.before, `${title} до`);
-        const afterImage = createDirectionImageSquare(pair.after, `${title} после`);
-        beforeImage.hidden = false;
-        afterImage.hidden = true;
-        viewport.append(beforeImage, afterImage);
+        pairs.forEach((pair, index) => {
+            const slide = document.createElement('article');
+            slide.className = 'direction-modal__mobile-case';
+            slide.hidden = index !== 0;
 
-        prevButton.disabled = true;
-        nextButton.disabled = false;
+            slide.append(
+                createDirectionImageBlock(pair.before, `${title} до`, 'До'),
+                createDirectionImageBlock(pair.after, `${title} после`, 'После')
+            );
+            viewport.append(slide);
+        });
 
-        mobileCarousel.append(prevButton, label, viewport, nextButton);
+        mobileCarousel.append(prevButton, counter, viewport, nextButton);
+        updateMobileCarousel(mobileCarousel);
         return mobileCarousel;
     };
 
@@ -446,19 +449,19 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const updateMobileCarousel = (carousel) => {
-        const slides = Array.from(carousel.querySelectorAll('.direction-modal__image'));
+        const slides = Array.from(carousel.querySelectorAll('.direction-modal__mobile-case'));
         const currentIndex = Number.parseInt(carousel.dataset.index || '0', 10);
-        const maxIndex = Number.parseInt(carousel.dataset.max || '1', 10);
+        const maxIndex = Number.parseInt(carousel.dataset.max || '0', 10);
         const prevButton = carousel.querySelector('[data-carousel-nav="prev"]');
         const nextButton = carousel.querySelector('[data-carousel-nav="next"]');
-        const mobileLabel = carousel.querySelector('[data-carousel-mobile-label]');
+        const mobileCounter = carousel.querySelector('[data-carousel-mobile-counter]');
 
         slides.forEach((slide, slideIndex) => {
             slide.hidden = slideIndex !== currentIndex;
         });
 
-        if (mobileLabel instanceof HTMLElement) {
-            mobileLabel.textContent = currentIndex === 0 ? 'До' : 'После';
+        if (mobileCounter instanceof HTMLElement) {
+            mobileCounter.textContent = `${currentIndex + 1} из ${maxIndex + 1}`;
         }
 
         if (prevButton instanceof HTMLButtonElement) prevButton.disabled = currentIndex <= 0;
@@ -475,15 +478,55 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         const desktopCarousel = createDesktopPairsCarousel(pairs, title);
-        const mobileCarousels = document.createElement('div');
-        mobileCarousels.className = 'direction-modal__mobile-list mobile-carousel-list';
+        const mobileCarousel = createMobileCasesCarousel(pairs, title);
 
-        pairs.forEach((pair, index) => {
-            mobileCarousels.append(createMobilePairCarousel(pair, index, title));
-        });
-
-        directionModalGallery.append(desktopCarousel, mobileCarousels);
+        directionModalGallery.append(desktopCarousel, mobileCarousel);
         directionModalGallery.removeAttribute('hidden');
+    };
+
+    let mobileGallerySwipeState = null;
+
+    const handleMobileGalleryTouchStart = (event) => {
+        const target = event.target.closest('[data-carousel="mobile"]');
+        if (!(target instanceof HTMLElement)) return;
+        if (!window.matchMedia('(max-width: 768px)').matches) return;
+        const touch = event.changedTouches?.[0];
+        if (!touch) return;
+        mobileGallerySwipeState = { x: touch.clientX, y: touch.clientY, carousel: target };
+    };
+
+    const handleMobileGalleryTouchEnd = (event) => {
+        if (!mobileGallerySwipeState) return;
+        const touch = event.changedTouches?.[0];
+        if (!touch) {
+            mobileGallerySwipeState = null;
+            return;
+        }
+
+        const deltaX = touch.clientX - mobileGallerySwipeState.x;
+        const deltaY = touch.clientY - mobileGallerySwipeState.y;
+        const horizontalThreshold = 44;
+        const verticalThreshold = 30;
+
+        if (Math.abs(deltaX) < horizontalThreshold || Math.abs(deltaY) > verticalThreshold) {
+            mobileGallerySwipeState = null;
+            return;
+        }
+
+        const carousel = mobileGallerySwipeState.carousel;
+        const direction = deltaX < 0 ? 'next' : 'prev';
+        const currentIndex = Number.parseInt(carousel.dataset.index || '0', 10);
+        const maxIndex = Number.parseInt(carousel.dataset.max || '0', 10);
+        const nextIndex = direction === 'next'
+            ? Math.min(currentIndex + 1, maxIndex)
+            : Math.max(currentIndex - 1, 0);
+
+        if (nextIndex !== currentIndex) {
+            carousel.dataset.index = String(nextIndex);
+            updateMobileCarousel(carousel);
+        }
+
+        mobileGallerySwipeState = null;
     };
 
     const openDirectionModal = (card, trigger) => {
@@ -616,6 +659,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         updateMobileCarousel(carousel);
     });
+
+    directionModalGallery?.addEventListener('touchstart', handleMobileGalleryTouchStart, { passive: true });
+    directionModalGallery?.addEventListener('touchend', handleMobileGalleryTouchEnd, { passive: true });
 
     window.addEventListener('resize', () => {
         if (!directionModal || directionModal.hasAttribute('hidden')) return;
