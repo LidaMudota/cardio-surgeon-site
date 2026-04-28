@@ -347,7 +347,14 @@ document.addEventListener('DOMContentLoaded', () => {
         label.className = 'direction-modal__image-label';
         label.textContent = labelText;
 
-        imageBlock.append(label, createDirectionImageSquare(image, fallbackAlt));
+        const imageLink = document.createElement('a');
+        imageLink.href = image.src;
+        imageLink.target = '_blank';
+        imageLink.rel = 'noopener noreferrer';
+        imageLink.setAttribute('aria-label', `Открыть изображение ${labelText} в полном размере`);
+
+        imageLink.append(createDirectionImageSquare(image, fallbackAlt));
+        imageBlock.append(label, imageLink);
         return imageBlock;
     };
 
