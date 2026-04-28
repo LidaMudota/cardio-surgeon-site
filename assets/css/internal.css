@@ -509,12 +509,35 @@ body.modal-open {
     }
 
     :is(#work-directions-page, #home-page) .direction-modal__body {
-        padding: 48px 16px 20px;
-        gap: 10px;
+        padding: 46px 14px 16px;
+        gap: 8px;
+    }
+
+    :is(#work-directions-page, #home-page) .direction-modal__label {
+        font-size: 10px;
+        letter-spacing: 0.075em;
     }
 
     :is(#work-directions-page, #home-page) .direction-modal__title {
-        font-size: clamp(21px, 6vw, 28px);
+        font-size: clamp(19px, 5.4vw, 24px);
+        line-height: 1.25;
+    }
+
+    :is(#work-directions-page, #home-page) .direction-modal__text {
+        font-size: 14px;
+        line-height: 1.58;
+        overflow-wrap: anywhere;
+    }
+
+    :is(#work-directions-page, #home-page) .direction-modal__paragraph + .direction-modal__paragraph {
+        margin-top: 10px;
+    }
+
+    :is(#work-directions-page, #home-page) .direction-modal__warning {
+        margin-top: 6px;
+        padding: 10px 12px;
+        font-size: 13px;
+        line-height: 1.5;
     }
 
     :is(#work-directions-page, #home-page) .direction-modal__gallery {
