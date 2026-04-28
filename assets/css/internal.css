@@ -508,18 +508,22 @@ body.modal-open {
 
     :is(#work-directions-page, #home-page) .direction-modal__mobile-list {
         display: flex;
+        gap: 14px;
     }
 
     :is(#work-directions-page, #home-page) .direction-modal__carousel--mobile {
         --direction-gallery-size: min(260px, calc(100vw - 112px));
-        flex-wrap: wrap;
-        justify-content: center;
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr) auto;
+        align-items: center;
+        justify-items: center;
+        column-gap: 8px;
         row-gap: 6px;
     }
 
     :is(#work-directions-page, #home-page) .direction-modal__image-label--mobile {
-        flex: 0 0 100%;
-        order: -1;
+        grid-column: 1 / -1;
+        text-transform: none;
     }
 
     :is(#work-directions-page, #home-page) .direction-modal__carousel-arrow {
@@ -529,7 +533,9 @@ body.modal-open {
     }
 
     :is(#work-directions-page, #home-page) .direction-modal__mobile-viewport {
+        grid-column: 2;
         width: var(--direction-gallery-size);
+        min-width: 0;
     }
 
     :is(#work-directions-page, #home-page) .direction-modal__close {
