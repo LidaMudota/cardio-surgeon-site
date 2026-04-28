@@ -10,43 +10,28 @@ require __DIR__ . '/includes/header.php';
 require __DIR__ . '/includes/page-start.php';
 ?>
 
-    <section class="inner-section contacts-page-hero">
-        <div class="container">
-            <article class="contacts-page-hero__card info-card">
-                <p class="contacts-page-hero__lead">Контактный центр</p>
-                <h2 class="contacts-page-hero__title">Свяжитесь удобным для вас способом</h2>
-            </article>
-        </div>
-    </section>
-
     <section class="inner-section contacts-page-contacts">
         <div class="container">
-            <div class="contacts-page-grid" aria-label="Контактные данные">
-                <article class="info-card contacts-page-item">
-                    <h2 class="contacts-page-item__title">Телефон</h2>
-                    <a class="contacts-page-item__link" href="tel:+79166930333">+7916 693 03 33</a>
-                </article>
-
-                <article class="info-card contacts-page-item">
-                    <h2 class="contacts-page-item__title">Электронная почта</h2>
-                    <a class="contacts-page-item__link" href="mailto:aokorobkov@yandex.ru">aokorobkov@yandex.ru</a>
-                </article>
-
-                <article class="info-card contacts-page-item">
-                    <h2 class="contacts-page-item__title">Telegram</h2>
-                    <a class="contacts-page-item__link" href="https://t.me/korobkovdr" target="_blank" rel="noopener noreferrer">T.me/korobkovdr</a>
-                </article>
-
-                <article class="info-card contacts-page-item contacts-page-item--wide">
-                    <h2 class="contacts-page-item__title">Max</h2>
-                    <a class="contacts-page-item__link contacts-page-item__link--long" href="https://max.ru/u/f9LHodD0cOLWF6kfyPzTNz7iR2jJ-pAWTKwQgZP74NvgrrP-LNTwd7H9_Kw" target="_blank" rel="noopener noreferrer">https://max.ru/u/f9LHodD0cOLWF6kfyPzTNz7iR2jJ-pAWTKwQgZP74NvgrrP-LNTwd7H9_Kw</a>
-                </article>
-
-                <article class="info-card contacts-page-item contacts-page-item--wide">
-                    <h2 class="contacts-page-item__title">Адрес</h2>
-                    <p class="contacts-page-item__address"><?= e(clinic_location_data()['address']) ?></p>
-                </article>
-            </div>
+            <article class="info-card contacts-page-panel" aria-label="Контактные данные">
+                <ul class="contacts-page-list">
+                    <li class="contacts-page-list__item">
+                        <p class="contacts-page-list__label">Телефон</p>
+                        <a class="contacts-page-list__value" href="tel:+79166930333">+7916 693 03 33</a>
+                    </li>
+                    <li class="contacts-page-list__item">
+                        <p class="contacts-page-list__label">Электронная почта</p>
+                        <a class="contacts-page-list__value" href="mailto:aokorobkov@yandex.ru">aokorobkov@yandex.ru</a>
+                    </li>
+                    <li class="contacts-page-list__item">
+                        <p class="contacts-page-list__label">Telegram</p>
+                        <a class="contacts-page-list__value" href="https://t.me/korobkovdr" target="_blank" rel="noopener noreferrer">T.me/korobkovdr</a>
+                    </li>
+                    <li class="contacts-page-list__item contacts-page-list__item--wide">
+                        <p class="contacts-page-list__label">Max</p>
+                        <a class="contacts-page-list__value contacts-page-list__value--long" href="https://max.ru/u/f9LHodD0cOLWF6kfyPzTNz7iR2jJ-pAWTKwQgZP74NvgrrP-LNTwd7H9_Kw" target="_blank" rel="noopener noreferrer">https://max.ru/u/f9LHodD0cOLWF6kfyPzTNz7iR2jJ-pAWTKwQgZP74NvgrrP-LNTwd7H9_Kw</a>
+                    </li>
+                </ul>
+            </article>
         </div>
     </section>
 
@@ -62,7 +47,7 @@ require __DIR__ . '/includes/page-start.php';
                 <div class="location-map contacts-page-location__map" aria-label="Карта расположения клиники">
                     <div class="location-map__top">
                         <div class="location-map__copy">
-                            <h3 class="location-map__title">Как нас найти</h3>
+                            <h3 class="location-map__title">Как добраться</h3>
                             <p class="location-map__text">Откройте карту, чтобы построить путь из любой точки города.</p>
                         </div>
                         <a class="location-map__action" href="<?= e(clinic_location_route_url()) ?>" target="_blank" rel="noopener noreferrer">Построить маршрут</a>
@@ -73,6 +58,16 @@ require __DIR__ . '/includes/page-start.php';
                     </div>
                 </div>
             </div>
+
+            <article class="info-card contacts-page-route">
+                <h2 class="contacts-page-route__title">Как добраться до клиники:</h2>
+                <h3 class="contacts-page-route__subtitle">На метро:</h3>
+                <p class="contacts-page-route__text">От станции метро «Маяковская» время ходьбы 10 мин. Выход из метро №1, из стеклянных дверей направо, прямо по 1-й Тверской-Ямской ул. до дома №12, далее поворот направо на 2-й Тверской-Ямской переулок. Далее прямо, после второго перекрестка вы увидите здание клиники, вход со стороны 2-го Тверского-Ямского переулка.</p>
+                <h3 class="contacts-page-route__subtitle">На автомобиле:</h3>
+                <p class="contacts-page-route__text">В навигатор ввести – «АО Медицина».</p>
+                <p class="contacts-page-route__text">Из центра по 1-й Тверской-Ямской ул., после Садового кольца поворот направо на 2-й Тверской-Ямской переулок. Далее прямо, через 200 м Вы увидите здание клиники.</p>
+                <p class="contacts-page-route__text">Перед входом в клинику - платная городская парковка — 380 ₽/ч., есть несколько парковочных мест для людей с инвалидностью.</p>
+            </article>
         </div>
     </section>
 
