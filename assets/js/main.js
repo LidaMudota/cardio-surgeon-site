@@ -445,11 +445,18 @@ document.addEventListener('DOMContentLoaded', () => {
             if (images.length > 0) {
                 const validImages = images.filter((image) => image?.src);
                 const galleryEntries = buildDirectionGalleryEntries(validImages);
+                const lastPairIndex = galleryEntries.reduce(
+                    (lastIndex, entry, index) => (entry.type === 'pair' ? index : lastIndex),
+                    -1
+                );
 
-                galleryEntries.forEach((entry) => {
+                galleryEntries.forEach((entry, index) => {
                     if (entry.type === 'pair' && entry.before?.src && entry.after?.src) {
                         const pairElement = document.createElement('div');
                         pairElement.className = 'direction-modal__gallery-pair';
+                        if (index < lastPairIndex) {
+                            pairElement.classList.add('direction-modal__gallery-pair--with-divider');
+                        }
 
                         const beforeItem = createDirectionGalleryItem(entry.before, details.title || title, 'До');
                         const afterItem = createDirectionGalleryItem(entry.after, details.title || title, 'После');

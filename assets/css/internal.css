@@ -342,6 +342,35 @@
     gap: 10px;
 }
 
+:is(#work-directions-page, #home-page) .direction-modal__gallery-pair--with-divider {
+    position: relative;
+    margin-block-end: clamp(16px, 2vw, 22px);
+    padding-block-end: clamp(16px, 2vw, 22px);
+}
+
+:is(#work-directions-page, #home-page) .direction-modal__gallery-pair--with-divider::after,
+:is(#work-directions-page, #home-page) .direction-modal__gallery-pair--with-divider::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    pointer-events: none;
+}
+
+:is(#work-directions-page, #home-page) .direction-modal__gallery-pair--with-divider::after {
+    bottom: 1px;
+    height: 1px;
+    background:
+        linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(191, 199, 214, 0.15) 20%, rgba(191, 199, 214, 0.15) 80%, rgba(255, 255, 255, 0));
+}
+
+:is(#work-directions-page, #home-page) .direction-modal__gallery-pair--with-divider::before {
+    bottom: 0;
+    height: 1px;
+    background:
+        linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.06) 26%, rgba(255, 255, 255, 0.06) 74%, rgba(255, 255, 255, 0));
+}
+
 :is(#work-directions-page, #home-page) .direction-modal__gallery-item {
     margin: 0;
     min-width: 0;
@@ -460,6 +489,11 @@ body.modal-open {
 
     :is(#work-directions-page, #home-page) .direction-modal__gallery-pair {
         grid-template-columns: 1fr;
+    }
+
+    :is(#work-directions-page, #home-page) .direction-modal__gallery-pair--with-divider {
+        margin-block-end: 14px;
+        padding-block-end: 14px;
     }
 
     :is(#work-directions-page, #home-page) .direction-modal__close {
