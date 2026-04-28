@@ -310,6 +310,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const focusableSelector = 'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
 
+    const updateDirectionModalOffset = () => {
+        if (!directionModal) return;
+        const headerHeight = header?.offsetHeight || 0;
+        const topOffset = Math.max(headerHeight + 16, 76);
+        directionModal.style.setProperty('--direction-modal-top-offset', `${topOffset}px`);
+    };
+
     const openDirectionModal = (card, trigger) => {
         if (!directionModal || !directionModalTitle || !directionModalText || !directionModalImage || !card) return;
 
@@ -323,6 +330,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const primaryImageAlt = images[0]?.alt || details.title || title || 'Иллюстрация направления работы';
 
         activeDirectionTrigger = trigger || card;
+        updateDirectionModalOffset();
         directionModalTitle.textContent = details.title || title;
         directionModalText.replaceChildren();
         paragraphs.forEach((paragraph) => {
@@ -417,6 +425,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     directionCloseButtons?.forEach((closeButton) => {
         closeButton.addEventListener('click', closeDirectionModal);
+    });
+
+    window.addEventListener('resize', () => {
+        if (!directionModal || directionModal.hasAttribute('hidden')) return;
+        updateDirectionModalOffset();
     });
 
     const diplomaTriggers = document.querySelectorAll('[data-diploma-open]');
