@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const directionModalGalleryDivider = directionModal?.querySelector('[data-direction-modal-divider-gallery]');
     const directionCloseButtons = directionModal?.querySelectorAll('[data-direction-close]');
     const directionDataScript = directionsScope?.querySelector('[data-work-directions-json]');
+    const modalRoot = document.body;
 
 
     const cookieNotice = document.querySelector('[data-cookie-notice]');
@@ -309,6 +310,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     let activeDirectionTrigger = null;
+    let savedScrollY = 0;
+    let isScrollLocked = false;
 
     const focusableSelector = 'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
 
@@ -317,6 +320,28 @@ document.addEventListener('DOMContentLoaded', () => {
         const headerHeight = header?.offsetHeight || 0;
         const topOffset = Math.max(headerHeight + 16, 76);
         directionModal.style.setProperty('--direction-modal-top-offset', `${topOffset}px`);
+    };
+
+    const ensureModalInBody = (modalElement) => {
+        if (!(modalElement instanceof HTMLElement)) return;
+        if (modalElement.parentElement === modalRoot) return;
+        modalRoot.appendChild(modalElement);
+    };
+
+    const lockPageScroll = () => {
+        if (isScrollLocked) return;
+        savedScrollY = window.scrollY || window.pageYOffset || 0;
+        document.body.classList.add('modal-open');
+        document.body.style.top = `-${savedScrollY}px`;
+        isScrollLocked = true;
+    };
+
+    const unlockPageScroll = () => {
+        if (!isScrollLocked) return;
+        document.body.classList.remove('modal-open');
+        document.body.style.removeProperty('top');
+        window.scrollTo(0, savedScrollY);
+        isScrollLocked = false;
     };
 
     const normalizeDirectionImagePairs = (details) => {
@@ -564,6 +589,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const primaryImageAlt = images[0]?.alt || details.title || title || 'Иллюстрация направления работы';
 
         activeDirectionTrigger = trigger || card;
+        ensureModalInBody(directionModal);
         updateDirectionModalOffset();
         directionModalTitle.textContent = details.title || title;
         directionModalText.replaceChildren();
@@ -600,7 +626,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         directionModal.removeAttribute('hidden');
         directionModal.classList.remove('is-closing');
-        document.body.classList.add('modal-open');
+        lockPageScroll();
 
         requestAnimationFrame(() => {
             directionModal.classList.add('is-open');
@@ -618,7 +644,7 @@ document.addEventListener('DOMContentLoaded', () => {
         window.setTimeout(() => {
             directionModal.classList.remove('is-closing');
             directionModal.setAttribute('hidden', 'hidden');
-            document.body.classList.remove('modal-open');
+            unlockPageScroll();
             if (activeDirectionTrigger instanceof HTMLElement) {
                 activeDirectionTrigger.focus();
             }
