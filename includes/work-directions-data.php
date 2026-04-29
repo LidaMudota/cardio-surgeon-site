@@ -31,12 +31,12 @@ $workDirectionsData = [
             [
                 'before' => ['src' => 'assets/img/work-directions/stvol_do.jpg', 'alt' => 'Ствол до'],
                 'after' => ['src' => 'assets/img/work-directions/stvol_posle.jpg', 'alt' => 'Ствол после'],
-                'clinical_title' => 'Пример стентирования ствола левой коронарной артерии и ветви тупого края (ВТК)',
+                'clinical_title' => 'Пример стентирования ствола левой коронарной артерии, огибающей артерии (ОА) и ветви тупого края (ВТК)',
             ],
             [
                 'before' => ['src' => 'assets/img/work-directions/stvol_3_do.jpg', 'alt' => 'Ствол 3 до'],
                 'after' => ['src' => 'assets/img/work-directions/stvol_3_posle.jpg', 'alt' => 'Ствол 3 после'],
-                'clinical_title' => 'Пример стентирования ствола левой коронарной артерии, огибающей артерии (ОА) и ветви тупого края (ВТК)',
+                'clinical_title' => 'Пример стентирования ствола левой коронарной артерии и ветви тупого края (ВТК)',
             ],
             [
                 'before' => ['src' => 'assets/img/work-directions/OA_do.jpg', 'alt' => 'ОА до'],

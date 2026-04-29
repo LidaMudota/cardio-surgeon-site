@@ -355,7 +355,7 @@ document.addEventListener('DOMContentLoaded', () => {
         imageLink.setAttribute('aria-label', `Открыть изображение ${labelText} в полном размере`);
 
         imageLink.append(createDirectionImageSquare(image, fallbackAlt));
-        imageBlock.append(label, imageLink);
+        imageBlock.append(imageLink, label);
         return imageBlock;
     };
 
