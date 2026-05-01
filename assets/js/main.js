@@ -338,9 +338,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const unlockPageScroll = () => {
         if (!isScrollLocked) return;
+
+        const lockedOffset = Number.parseInt(document.body.style.top || '0', 10);
+        const restoreScrollY = Number.isNaN(lockedOffset) ? savedScrollY : Math.abs(lockedOffset);
+        const htmlScrollBehavior = document.documentElement.style.scrollBehavior;
+
+        document.documentElement.style.scrollBehavior = 'auto';
         document.body.classList.remove('modal-open');
         document.body.style.removeProperty('top');
-        window.scrollTo(0, savedScrollY);
+        window.scrollTo(0, restoreScrollY);
+        document.documentElement.style.scrollBehavior = htmlScrollBehavior;
+
         isScrollLocked = false;
     };
 
