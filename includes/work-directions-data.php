@@ -136,10 +136,12 @@ $workDirectionsData = [
             [
                 'before' => ['src' => 'assets/img/work-directions/EMA_emboly_do.jpg', 'alt' => 'ЭМА эмболы до'],
                 'after' => ['src' => 'assets/img/work-directions/EMA_emboly_posle.jpg', 'alt' => 'ЭМА эмболы после'],
+                'clinical_title' => 'Пример эмболизации маточных артерий микроэмболами',
             ],
             [
                 'before' => ['src' => 'assets/img/work-directions/EMA_spirali_do.jpg', 'alt' => 'ЭМА спирали до'],
                 'after' => ['src' => 'assets/img/work-directions/EMA_spirali_posle.jpg', 'alt' => 'ЭМА спирали после'],
+                'clinical_title' => 'Пример эмболизации маточных артерий спиралями',
             ],
         ],
         'warning' => 'Имеются противопоказания, необходима консультация специалиста',
