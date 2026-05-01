@@ -353,59 +353,14 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
 
-    const directionImageCropConfig = {
-        default: {
-            desktop: { scale: 1, offsetX: 0, offsetY: 0 },
-            tablet: { scale: 1, offsetX: 0, offsetY: 0 },
-            mobile: { scale: 1, offsetX: 0, offsetY: 0 },
-        },
-        bySrc: {
-            'assets/img/work-directions/stvol_do.jpg': { desktop: { scale: 1, offsetX: 0, offsetY: 0 }, tablet: { scale: 1, offsetX: 0, offsetY: 0 }, mobile: { scale: 1, offsetX: 0, offsetY: 0 } },
-            'assets/img/work-directions/stvol_posle.jpg': { desktop: { scale: 1, offsetX: 0, offsetY: 0 }, tablet: { scale: 1, offsetX: 0, offsetY: 0 }, mobile: { scale: 1, offsetX: 0, offsetY: 0 } },
-            'assets/img/work-directions/stvol_3_do.jpg': { desktop: { scale: 1, offsetX: 0, offsetY: 0 }, tablet: { scale: 1, offsetX: 0, offsetY: 0 }, mobile: { scale: 1, offsetX: 0, offsetY: 0 } },
-            'assets/img/work-directions/stvol_3_posle.jpg': { desktop: { scale: 1, offsetX: 0, offsetY: 0 }, tablet: { scale: 1, offsetX: 0, offsetY: 0 }, mobile: { scale: 1, offsetX: 0, offsetY: 0 } },
-            'assets/img/work-directions/OA_do.jpg': { desktop: { scale: 1, offsetX: 0, offsetY: 0 }, tablet: { scale: 1, offsetX: 0, offsetY: 0 }, mobile: { scale: 1, offsetX: 0, offsetY: 0 } },
-            'assets/img/work-directions/OA_posle.jpg': { desktop: { scale: 1, offsetX: 0, offsetY: 0 }, tablet: { scale: 1, offsetX: 0, offsetY: 0 }, mobile: { scale: 1, offsetX: 0, offsetY: 0 } },
-            'assets/img/work-directions/PMZHA_do.jpg': { desktop: { scale: 1, offsetX: 0, offsetY: 0 }, tablet: { scale: 1, offsetX: 0, offsetY: 0 }, mobile: { scale: 1, offsetX: 0, offsetY: 0 } },
-            'assets/img/work-directions/PMZHA_posle.jpg': { desktop: { scale: 1, offsetX: 0, offsetY: 0 }, tablet: { scale: 1, offsetX: 0, offsetY: 0 }, mobile: { scale: 1, offsetX: 0, offsetY: 0 } },
-            'assets/img/work-directions/PKA_do.jpg': { desktop: { scale: 1, offsetX: 0, offsetY: 0 }, tablet: { scale: 1, offsetX: 0, offsetY: 0 }, mobile: { scale: 1, offsetX: 0, offsetY: 0 } },
-            'assets/img/work-directions/PKA_posle.jpg': { desktop: { scale: 1, offsetX: 0, offsetY: 0 }, tablet: { scale: 1, offsetX: 0, offsetY: 0 }, mobile: { scale: 1, offsetX: 0, offsetY: 0 } },
-            'assets/img/work-directions/rek_PKA_do.jpg': { desktop: { scale: 1, offsetX: 0, offsetY: 0 }, tablet: { scale: 1, offsetX: 0, offsetY: 0 }, mobile: { scale: 1, offsetX: 0, offsetY: 0 } },
-            'assets/img/work-directions/rek_PKA_posle.jpg': { desktop: { scale: 1, offsetX: 0, offsetY: 0 }, tablet: { scale: 1, offsetX: 0, offsetY: 0 }, mobile: { scale: 1, offsetX: 0, offsetY: 0 } },
-            'assets/img/work-directions/sonnaya_do.jpg': { desktop: { scale: 1, offsetX: 0, offsetY: 0 }, tablet: { scale: 1, offsetX: 0, offsetY: 0 }, mobile: { scale: 1, offsetX: 0, offsetY: 0 } },
-            'assets/img/work-directions/sonnaya_do_angio.jpg': { desktop: { scale: 1, offsetX: 0, offsetY: 0 }, tablet: { scale: 1, offsetX: 0, offsetY: 0 }, mobile: { scale: 1, offsetX: 0, offsetY: 0 } },
-            'assets/img/work-directions/sonnaya_posle.jpg': { desktop: { scale: 1, offsetX: 0, offsetY: 0 }, tablet: { scale: 1, offsetX: 0, offsetY: 0 }, mobile: { scale: 1, offsetX: 0, offsetY: 0 } },
-            'assets/img/work-directions/EMA_emboly_do.jpg': { desktop: { scale: 1, offsetX: 0, offsetY: 0 }, tablet: { scale: 1, offsetX: 0, offsetY: 0 }, mobile: { scale: 1, offsetX: 0, offsetY: 0 } },
-            'assets/img/work-directions/EMA_emboly_posle.jpg': { desktop: { scale: 1, offsetX: 0, offsetY: 0 }, tablet: { scale: 1, offsetX: 0, offsetY: 0 }, mobile: { scale: 1, offsetX: 0, offsetY: 0 } },
-            'assets/img/work-directions/EMA_spirali_do.jpg': { desktop: { scale: 1, offsetX: 0, offsetY: 0 }, tablet: { scale: 1, offsetX: 0, offsetY: 0 }, mobile: { scale: 1, offsetX: 0, offsetY: 0 } },
-            'assets/img/work-directions/EMA_spirali_posle.jpg': { desktop: { scale: 1, offsetX: 0, offsetY: 0 }, tablet: { scale: 1, offsetX: 0, offsetY: 0 }, mobile: { scale: 1, offsetX: 0, offsetY: 0 } },
-        },
-    };
+    const getDirectionImageCropClass = (src) => {
+        const normalized = String(src || '').split(/[?#]/, 1)[0].trim();
+        if (!normalized) return '';
 
-    const resolveDirectionImageCrop = (src = '') => {
-        const config = directionImageCropConfig.bySrc[src] || directionImageCropConfig.default;
-        return {
-            desktop: config.desktop || directionImageCropConfig.default.desktop,
-            tablet: config.tablet || directionImageCropConfig.default.tablet,
-            mobile: config.mobile || directionImageCropConfig.default.mobile,
-        };
-    };
+        const filename = normalized.split('/').pop();
+        if (!filename) return '';
 
-    const getDirectionImageViewportConfig = (crop) => {
-        if (window.matchMedia('(max-width: 768px)').matches) return crop.mobile;
-        if (window.matchMedia('(max-width: 1100px)').matches) return crop.tablet;
-        return crop.desktop;
-    };
-
-    const applyDirectionImageCrop = (imageElement, crop) => {
-        const viewport = getDirectionImageViewportConfig(crop);
-        const requestedScale = Math.max(Number(viewport.scale) || 1, 1);
-        const offsetX = Number(viewport.offsetX) || 0;
-        const offsetY = Number(viewport.offsetY) || 0;
-
-        imageElement.style.setProperty('--direction-image-safe-scale', String(requestedScale));
-        imageElement.style.setProperty('--direction-image-safe-offset-x', `${offsetX}px`);
-        imageElement.style.setProperty('--direction-image-safe-offset-y', `${offsetY}px`);
+        return `direction-modal__image--${filename.replace(/\.[^.]+$/, '').replace(/[^a-zA-Z0-9_-]+/g, '-').toLowerCase()}`;
     };
 
     const normalizeDirectionImagePairs = (details) => {
@@ -421,28 +376,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const createDirectionImageSquare = (image, fallbackAlt) => {
         const imageElement = document.createElement('img');
-        const crop = resolveDirectionImageCrop(image.src || '');
         imageElement.className = 'direction-modal__image';
+        const cropClass = getDirectionImageCropClass(image.src || '');
+        if (cropClass) {
+            imageElement.classList.add(cropClass);
+        }
         imageElement.src = image.src;
         imageElement.alt = image.alt || fallbackAlt;
         imageElement.loading = 'lazy';
         imageElement.decoding = 'async';
-        imageElement.style.setProperty('--direction-image-desktop-scale', String(crop.desktop.scale));
-        imageElement.style.setProperty('--direction-image-desktop-offset-x', `${crop.desktop.offsetX}px`);
-        imageElement.style.setProperty('--direction-image-desktop-offset-y', `${crop.desktop.offsetY}px`);
-        imageElement.style.setProperty('--direction-image-tablet-scale', String(crop.tablet.scale));
-        imageElement.style.setProperty('--direction-image-tablet-offset-x', `${crop.tablet.offsetX}px`);
-        imageElement.style.setProperty('--direction-image-tablet-offset-y', `${crop.tablet.offsetY}px`);
-        imageElement.style.setProperty('--direction-image-mobile-scale', String(crop.mobile.scale));
-        imageElement.style.setProperty('--direction-image-mobile-offset-x', `${crop.mobile.offsetX}px`);
-        imageElement.style.setProperty('--direction-image-mobile-offset-y', `${crop.mobile.offsetY}px`);
-
-        const syncCrop = () => applyDirectionImageCrop(imageElement, crop);
-        imageElement.addEventListener('load', syncCrop, { once: true });
-        if (imageElement.complete) {
-            syncCrop();
-        }
-        window.addEventListener('resize', syncCrop, { passive: true });
 
         return imageElement;
     };
