@@ -409,6 +409,16 @@ document.addEventListener('DOMContentLoaded', () => {
         return button;
     };
 
+    const getBeforeAfterLabels = (pair, title) => {
+        const caseTitle = (pair.clinicalTitle || title || '').toLowerCase();
+        const isEmaCase = caseTitle.includes('эмболизации маточных артерий');
+
+        return {
+            beforeText: isEmaCase ? 'До эмболизации' : 'До стентирования',
+            afterText: isEmaCase ? 'После эмболизации' : 'После стентирования'
+        };
+    };
+
     const createDesktopPairsCarousel = (pairs, title) => {
         const desktopCarousel = document.createElement('section');
         desktopCarousel.className = 'direction-modal__carousel direction-modal__carousel--desktop desktop-carousel';
@@ -428,12 +438,13 @@ document.addEventListener('DOMContentLoaded', () => {
             pairElement.className = 'direction-modal__desktop-pair carousel-pair';
             pairElement.classList.toggle('is-active', index === 0);
             pairElement.hidden = index !== 0;
-            const beforeAlt = `До стентирования — ${pair.clinicalTitle || title}`;
-            const afterAlt = `После стентирования — ${pair.clinicalTitle || title}`;
+            const { beforeText, afterText } = getBeforeAfterLabels(pair, title);
+            const beforeAlt = `${beforeText} — ${pair.clinicalTitle || title}`;
+            const afterAlt = `${afterText} — ${pair.clinicalTitle || title}`;
             pairElement.append(
                 createClinicalCaseTitle(pair.clinicalTitle || title),
-                createDirectionImageBlock(pair.before, beforeAlt, 'До стентирования'),
-                createDirectionImageBlock(pair.after, afterAlt, 'После стентирования')
+                createDirectionImageBlock(pair.before, beforeAlt, beforeText),
+                createDirectionImageBlock(pair.after, afterAlt, afterText)
             );
             viewport.append(pairElement);
         });
@@ -471,12 +482,13 @@ document.addEventListener('DOMContentLoaded', () => {
             slide.className = 'direction-modal__mobile-case';
             slide.hidden = index !== 0;
 
-            const beforeAlt = `До стентирования — ${pair.clinicalTitle || title}`;
-            const afterAlt = `После стентирования — ${pair.clinicalTitle || title}`;
+            const { beforeText, afterText } = getBeforeAfterLabels(pair, title);
+            const beforeAlt = `${beforeText} — ${pair.clinicalTitle || title}`;
+            const afterAlt = `${afterText} — ${pair.clinicalTitle || title}`;
             slide.append(
                 createClinicalCaseTitle(pair.clinicalTitle || title),
-                createDirectionImageBlock(pair.before, beforeAlt, 'До стентирования'),
-                createDirectionImageBlock(pair.after, afterAlt, 'После стентирования')
+                createDirectionImageBlock(pair.before, beforeAlt, beforeText),
+                createDirectionImageBlock(pair.after, afterAlt, afterText)
             );
             viewport.append(slide);
         });
