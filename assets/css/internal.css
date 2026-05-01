@@ -463,11 +463,12 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: calc(50% + var(--direction-image-safe-offset-x)) calc(50% + var(--direction-image-safe-offset-y));
     transform-origin: center center;
     --direction-image-safe-scale: var(--direction-image-desktop-scale);
     --direction-image-safe-offset-x: var(--direction-image-desktop-offset-x);
     --direction-image-safe-offset-y: var(--direction-image-desktop-offset-y);
-    transform: translate(var(--direction-image-safe-offset-x), var(--direction-image-safe-offset-y)) scale(var(--direction-image-safe-scale));
+    transform: scale(var(--direction-image-safe-scale));
     will-change: transform;
 }
 

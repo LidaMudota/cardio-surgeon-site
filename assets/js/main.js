@@ -397,31 +397,15 @@ document.addEventListener('DOMContentLoaded', () => {
         return crop.desktop;
     };
 
-    const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
-
     const applyDirectionImageCrop = (imageElement, crop) => {
-        const frame = imageElement.closest('.direction-modal__image-frame');
-        if (!frame) return;
         const viewport = getDirectionImageViewportConfig(crop);
         const requestedScale = Math.max(Number(viewport.scale) || 1, 1);
-        const frameRect = frame.getBoundingClientRect();
-        const containerWidth = frameRect.width;
-        const containerHeight = frameRect.height;
-        const naturalWidth = imageElement.naturalWidth;
-        const naturalHeight = imageElement.naturalHeight;
-        if (!containerWidth || !containerHeight || !naturalWidth || !naturalHeight) return;
-
-        const coverScale = Math.max(containerWidth / naturalWidth, containerHeight / naturalHeight);
-        const renderedWidth = naturalWidth * coverScale * requestedScale;
-        const renderedHeight = naturalHeight * coverScale * requestedScale;
-        const maxOffsetX = Math.max(0, (renderedWidth - containerWidth) / 2);
-        const maxOffsetY = Math.max(0, (renderedHeight - containerHeight) / 2);
-        const safeOffsetX = clamp(Number(viewport.offsetX) || 0, -maxOffsetX, maxOffsetX);
-        const safeOffsetY = clamp(Number(viewport.offsetY) || 0, -maxOffsetY, maxOffsetY);
+        const offsetX = Number(viewport.offsetX) || 0;
+        const offsetY = Number(viewport.offsetY) || 0;
 
         imageElement.style.setProperty('--direction-image-safe-scale', String(requestedScale));
-        imageElement.style.setProperty('--direction-image-safe-offset-x', `${safeOffsetX}px`);
-        imageElement.style.setProperty('--direction-image-safe-offset-y', `${safeOffsetY}px`);
+        imageElement.style.setProperty('--direction-image-safe-offset-x', `${offsetX}px`);
+        imageElement.style.setProperty('--direction-image-safe-offset-y', `${offsetY}px`);
     };
 
     const normalizeDirectionImagePairs = (details) => {
