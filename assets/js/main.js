@@ -390,6 +390,40 @@ document.addEventListener('DOMContentLoaded', () => {
             mobile: config.mobile || directionImageCropConfig.default.mobile,
         };
     };
+
+    const getDirectionImageViewportConfig = (crop) => {
+        if (window.matchMedia('(max-width: 768px)').matches) return crop.mobile;
+        if (window.matchMedia('(max-width: 1100px)').matches) return crop.tablet;
+        return crop.desktop;
+    };
+
+    const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
+
+    const applyDirectionImageCrop = (imageElement, crop) => {
+        const frame = imageElement.closest('.direction-modal__image-frame');
+        if (!frame) return;
+        const viewport = getDirectionImageViewportConfig(crop);
+        const requestedScale = Math.max(Number(viewport.scale) || 1, 1);
+        const frameRect = frame.getBoundingClientRect();
+        const containerWidth = frameRect.width;
+        const containerHeight = frameRect.height;
+        const naturalWidth = imageElement.naturalWidth;
+        const naturalHeight = imageElement.naturalHeight;
+        if (!containerWidth || !containerHeight || !naturalWidth || !naturalHeight) return;
+
+        const coverScale = Math.max(containerWidth / naturalWidth, containerHeight / naturalHeight);
+        const renderedWidth = naturalWidth * coverScale * requestedScale;
+        const renderedHeight = naturalHeight * coverScale * requestedScale;
+        const maxOffsetX = Math.max(0, (renderedWidth - containerWidth) / 2);
+        const maxOffsetY = Math.max(0, (renderedHeight - containerHeight) / 2);
+        const safeOffsetX = clamp(Number(viewport.offsetX) || 0, -maxOffsetX, maxOffsetX);
+        const safeOffsetY = clamp(Number(viewport.offsetY) || 0, -maxOffsetY, maxOffsetY);
+
+        imageElement.style.setProperty('--direction-image-safe-scale', String(requestedScale));
+        imageElement.style.setProperty('--direction-image-safe-offset-x', `${safeOffsetX}px`);
+        imageElement.style.setProperty('--direction-image-safe-offset-y', `${safeOffsetY}px`);
+    };
+
     const normalizeDirectionImagePairs = (details) => {
         const pairs = Array.isArray(details.imagePairs) ? details.imagePairs : [];
         return pairs
@@ -418,6 +452,14 @@ document.addEventListener('DOMContentLoaded', () => {
         imageElement.style.setProperty('--direction-image-mobile-scale', String(crop.mobile.scale));
         imageElement.style.setProperty('--direction-image-mobile-offset-x', `${crop.mobile.offsetX}px`);
         imageElement.style.setProperty('--direction-image-mobile-offset-y', `${crop.mobile.offsetY}px`);
+
+        const syncCrop = () => applyDirectionImageCrop(imageElement, crop);
+        imageElement.addEventListener('load', syncCrop, { once: true });
+        if (imageElement.complete) {
+            syncCrop();
+        }
+        window.addEventListener('resize', syncCrop, { passive: true });
+
         return imageElement;
     };
 
