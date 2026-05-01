@@ -352,6 +352,44 @@ document.addEventListener('DOMContentLoaded', () => {
         isScrollLocked = false;
     };
 
+
+    const directionImageCropConfig = {
+        default: {
+            desktop: { scale: 1, offsetX: 0, offsetY: 0 },
+            tablet: { scale: 1, offsetX: 0, offsetY: 0 },
+            mobile: { scale: 1, offsetX: 0, offsetY: 0 },
+        },
+        bySrc: {
+            'assets/img/work-directions/stvol_do.jpg': { desktop: { scale: 1, offsetX: 0, offsetY: 0 }, tablet: { scale: 1, offsetX: 0, offsetY: 0 }, mobile: { scale: 1, offsetX: 0, offsetY: 0 } },
+            'assets/img/work-directions/stvol_posle.jpg': { desktop: { scale: 1, offsetX: 0, offsetY: 0 }, tablet: { scale: 1, offsetX: 0, offsetY: 0 }, mobile: { scale: 1, offsetX: 0, offsetY: 0 } },
+            'assets/img/work-directions/stvol_3_do.jpg': { desktop: { scale: 1, offsetX: 0, offsetY: 0 }, tablet: { scale: 1, offsetX: 0, offsetY: 0 }, mobile: { scale: 1, offsetX: 0, offsetY: 0 } },
+            'assets/img/work-directions/stvol_3_posle.jpg': { desktop: { scale: 1, offsetX: 0, offsetY: 0 }, tablet: { scale: 1, offsetX: 0, offsetY: 0 }, mobile: { scale: 1, offsetX: 0, offsetY: 0 } },
+            'assets/img/work-directions/OA_do.jpg': { desktop: { scale: 1, offsetX: 0, offsetY: 0 }, tablet: { scale: 1, offsetX: 0, offsetY: 0 }, mobile: { scale: 1, offsetX: 0, offsetY: 0 } },
+            'assets/img/work-directions/OA_posle.jpg': { desktop: { scale: 1, offsetX: 0, offsetY: 0 }, tablet: { scale: 1, offsetX: 0, offsetY: 0 }, mobile: { scale: 1, offsetX: 0, offsetY: 0 } },
+            'assets/img/work-directions/PMZHA_do.jpg': { desktop: { scale: 1, offsetX: 0, offsetY: 0 }, tablet: { scale: 1, offsetX: 0, offsetY: 0 }, mobile: { scale: 1, offsetX: 0, offsetY: 0 } },
+            'assets/img/work-directions/PMZHA_posle.jpg': { desktop: { scale: 1, offsetX: 0, offsetY: 0 }, tablet: { scale: 1, offsetX: 0, offsetY: 0 }, mobile: { scale: 1, offsetX: 0, offsetY: 0 } },
+            'assets/img/work-directions/PKA_do.jpg': { desktop: { scale: 1, offsetX: 0, offsetY: 0 }, tablet: { scale: 1, offsetX: 0, offsetY: 0 }, mobile: { scale: 1, offsetX: 0, offsetY: 0 } },
+            'assets/img/work-directions/PKA_posle.jpg': { desktop: { scale: 1, offsetX: 0, offsetY: 0 }, tablet: { scale: 1, offsetX: 0, offsetY: 0 }, mobile: { scale: 1, offsetX: 0, offsetY: 0 } },
+            'assets/img/work-directions/rek_PKA_do.jpg': { desktop: { scale: 1, offsetX: 0, offsetY: 0 }, tablet: { scale: 1, offsetX: 0, offsetY: 0 }, mobile: { scale: 1, offsetX: 0, offsetY: 0 } },
+            'assets/img/work-directions/rek_PKA_posle.jpg': { desktop: { scale: 1, offsetX: 0, offsetY: 0 }, tablet: { scale: 1, offsetX: 0, offsetY: 0 }, mobile: { scale: 1, offsetX: 0, offsetY: 0 } },
+            'assets/img/work-directions/sonnaya_do.jpg': { desktop: { scale: 1, offsetX: 0, offsetY: 0 }, tablet: { scale: 1, offsetX: 0, offsetY: 0 }, mobile: { scale: 1, offsetX: 0, offsetY: 0 } },
+            'assets/img/work-directions/sonnaya_do_angio.jpg': { desktop: { scale: 1, offsetX: 0, offsetY: 0 }, tablet: { scale: 1, offsetX: 0, offsetY: 0 }, mobile: { scale: 1, offsetX: 0, offsetY: 0 } },
+            'assets/img/work-directions/sonnaya_posle.jpg': { desktop: { scale: 1, offsetX: 0, offsetY: 0 }, tablet: { scale: 1, offsetX: 0, offsetY: 0 }, mobile: { scale: 1, offsetX: 0, offsetY: 0 } },
+            'assets/img/work-directions/EMA_emboly_do.jpg': { desktop: { scale: 1, offsetX: 0, offsetY: 0 }, tablet: { scale: 1, offsetX: 0, offsetY: 0 }, mobile: { scale: 1, offsetX: 0, offsetY: 0 } },
+            'assets/img/work-directions/EMA_emboly_posle.jpg': { desktop: { scale: 1, offsetX: 0, offsetY: 0 }, tablet: { scale: 1, offsetX: 0, offsetY: 0 }, mobile: { scale: 1, offsetX: 0, offsetY: 0 } },
+            'assets/img/work-directions/EMA_spirali_do.jpg': { desktop: { scale: 1, offsetX: 0, offsetY: 0 }, tablet: { scale: 1, offsetX: 0, offsetY: 0 }, mobile: { scale: 1, offsetX: 0, offsetY: 0 } },
+            'assets/img/work-directions/EMA_spirali_posle.jpg': { desktop: { scale: 1, offsetX: 0, offsetY: 0 }, tablet: { scale: 1, offsetX: 0, offsetY: 0 }, mobile: { scale: 1, offsetX: 0, offsetY: 0 } },
+        },
+    };
+
+    const resolveDirectionImageCrop = (src = '') => {
+        const config = directionImageCropConfig.bySrc[src] || directionImageCropConfig.default;
+        return {
+            desktop: config.desktop || directionImageCropConfig.default.desktop,
+            tablet: config.tablet || directionImageCropConfig.default.tablet,
+            mobile: config.mobile || directionImageCropConfig.default.mobile,
+        };
+    };
     const normalizeDirectionImagePairs = (details) => {
         const pairs = Array.isArray(details.imagePairs) ? details.imagePairs : [];
         return pairs
@@ -365,11 +403,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const createDirectionImageSquare = (image, fallbackAlt) => {
         const imageElement = document.createElement('img');
+        const crop = resolveDirectionImageCrop(image.src || '');
         imageElement.className = 'direction-modal__image';
         imageElement.src = image.src;
         imageElement.alt = image.alt || fallbackAlt;
         imageElement.loading = 'lazy';
         imageElement.decoding = 'async';
+        imageElement.style.setProperty('--direction-image-desktop-scale', String(crop.desktop.scale));
+        imageElement.style.setProperty('--direction-image-desktop-offset-x', `${crop.desktop.offsetX}px`);
+        imageElement.style.setProperty('--direction-image-desktop-offset-y', `${crop.desktop.offsetY}px`);
+        imageElement.style.setProperty('--direction-image-tablet-scale', String(crop.tablet.scale));
+        imageElement.style.setProperty('--direction-image-tablet-offset-x', `${crop.tablet.offsetX}px`);
+        imageElement.style.setProperty('--direction-image-tablet-offset-y', `${crop.tablet.offsetY}px`);
+        imageElement.style.setProperty('--direction-image-mobile-scale', String(crop.mobile.scale));
+        imageElement.style.setProperty('--direction-image-mobile-offset-x', `${crop.mobile.offsetX}px`);
+        imageElement.style.setProperty('--direction-image-mobile-offset-y', `${crop.mobile.offsetY}px`);
         return imageElement;
     };
 
@@ -382,6 +430,7 @@ document.addEventListener('DOMContentLoaded', () => {
         label.textContent = labelText;
 
         const imageLink = document.createElement('a');
+        imageLink.className = 'direction-modal__image-frame';
         imageLink.href = image.src;
         imageLink.target = '_blank';
         imageLink.rel = 'noopener noreferrer';
