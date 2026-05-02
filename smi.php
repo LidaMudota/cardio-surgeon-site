@@ -33,20 +33,24 @@ require __DIR__ . '/includes/page-start.php';
 
 <section class="inner-section page-smi" data-no-scroll-motion>
     <div class="container page-smi__container">
-        <div class="page-smi__grid" aria-label="Материалы в СМИ">
-            <?php foreach ($mediaItems as $index => $item): ?>
-                <article class="page-smi__card" aria-label="<?= e($item['title']); ?>">
-                    <span class="page-smi__index"><?= str_pad((string) ($index + 1), 2, '0', STR_PAD_LEFT); ?></span>
-                    <p class="page-smi__type"><?= e($item['type']); ?></p>
-                    <h2 class="page-smi__title"><?= e($item['title']); ?></h2>
-                    <p class="page-smi__description"><?= e($item['description']); ?></p>
-                    <p class="page-smi__source">Источник: <span><?= e($item['source']); ?></span></p>
-                    <a class="page-smi__link" href="<?= e($item['url']); ?>" target="_blank" rel="noopener noreferrer">Открыть материал</a>
-                </article>
-            <?php endforeach; ?>
+        <div class="page-smi__materials">
+            <div class="page-smi__grid" aria-label="Материалы в СМИ">
+                <?php foreach ($mediaItems as $index => $item): ?>
+                    <article class="page-smi__card" aria-label="<?= e($item['title']); ?>">
+                        <span class="page-smi__index"><?= str_pad((string) ($index + 1), 2, '0', STR_PAD_LEFT); ?></span>
+                        <p class="page-smi__type"><?= e($item['type']); ?></p>
+                        <h2 class="page-smi__title"><?= e($item['title']); ?></h2>
+                        <p class="page-smi__description"><?= e($item['description']); ?></p>
+                        <p class="page-smi__source">Источник: <span><?= e($item['source']); ?></span></p>
+                        <a class="page-smi__link" href="<?= e($item['url']); ?>" target="_blank" rel="noopener noreferrer">Открыть материал</a>
+                    </article>
+                <?php endforeach; ?>
+            </div>
         </div>
 
-        <p class="page-smi__footnote">Раздел будет пополняться новыми материалами, подкастами, лекциями и публикациями.</p>
+        <div class="page-smi__note">
+            <p class="page-smi__footnote">Раздел будет пополняться новыми материалами, подкастами, лекциями и публикациями.</p>
+        </div>
     </div>
 </section>
 
