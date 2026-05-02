@@ -15,6 +15,7 @@
         <div class="footer__column footer__column--contacts">
             <a class="footer__link" href="podgotovka-k-operatsii.php">Подготовка к госпитализации</a>
             <a class="footer__link" href="otzyvy.php">Отзывы</a>
+            <a class="footer__link" href="smi.php">СМИ</a>
             <a class="footer__link" href="kontakty.php">Контакты</a>
         </div>
 
@@ -91,6 +92,7 @@
                 <a class="footer__link" href="kak-prokhodit-konsultatsiya.php">Как проходит консультация</a>
                 <a class="footer__link" href="podgotovka-k-operatsii.php">Подготовка к госпитализации</a>
                 <a class="footer__link" href="otzyvy.php">Отзывы</a>
+                <a class="footer__link" href="smi.php">СМИ</a>
                 <a class="footer__link" href="kontakty.php">Контакты</a>
             </section>
 

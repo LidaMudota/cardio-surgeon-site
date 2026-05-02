@@ -11,6 +11,7 @@
                     <a class="nav__link" href="o-klinike.php">О КЛИНИКЕ</a>
                     <a class="nav__link" href="otzyvy.php">ОТЗЫВЫ</a>
                     <a class="nav__link" href="diplomy.php">ДИПЛОМЫ</a>
+                    <a class="nav__link" href="smi.php">СМИ</a>
                     <a class="nav__link" href="kontakty.php">КОНТАКТЫ</a>
                 </nav>
 
@@ -60,6 +61,7 @@
                         <a class="mega-menu__link" href="o-klinike.php">О клинике</a> 
                         <a class="mega-menu__link" href="otzyvy.php">Отзывы</a>
                         <a class="mega-menu__link" href="publikatsii.php">Публикации</a>
+                        <a class="mega-menu__link" href="smi.php">СМИ</a>
                         <a class="mega-menu__link" href="diplomy.php">Дипломы</a>
                         <a class="mega-menu__link" href="dlya-vrachey.php">Для врачей</a>
                     </div>
@@ -99,6 +101,7 @@
                         <a class="mobile-nav__link" href="o-klinike.php">О клинике</a>
                         <a class="mobile-nav__link" href="otzyvy.php">Отзывы</a>
                         <a class="mobile-nav__link" href="publikatsii.php">Публикации</a>
+                        <a class="mobile-nav__link" href="smi.php">СМИ</a>
                         <a class="mobile-nav__link" href="diplomy.php">Дипломы</a>
                     </div>
 
