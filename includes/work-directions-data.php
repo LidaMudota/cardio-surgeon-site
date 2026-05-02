@@ -75,12 +75,12 @@ $workDirectionsData = [
         'images' => [
             ['src' => 'assets/img/work-directions/sonnaya_do.jpg', 'alt' => 'Сонная артерия до стентирования'],
             ['src' => 'assets/img/work-directions/sonnaya_do_angio.jpg', 'alt' => 'Ангиография сонной артерии до стентирования'],
-            ['src' => 'assets/img/work-directions/sonnaya_posle.jpg', 'alt' => 'Сонная артерия после стентирования'],
+            ['src' => 'assets/img/work-directions/sonnaya_posle_(2).jpg', 'alt' => 'Сонная артерия после стентирования'],
         ],
         'imagePairs' => [
             [
                 'before' => ['src' => 'assets/img/work-directions/sonnaya_do_angio.jpg', 'alt' => 'Сонная до ангио'],
-                'after' => ['src' => 'assets/img/work-directions/sonnaya_posle.jpg', 'alt' => 'Сонная после ангио'],
+                'after' => ['src' => 'assets/img/work-directions/sonnaya_posle_(2).jpg', 'alt' => 'Сонная после ангио'],
                 'clinical_title' => 'Пример стентирования правой внутренней сонной артерии (ВСА)',
             ],
         ],

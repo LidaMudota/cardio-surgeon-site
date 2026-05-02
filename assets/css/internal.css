@@ -450,15 +450,15 @@
 }
 
 .direction-modal__image {
-    --direction-image-desktop-scale: 1;
-    --direction-image-desktop-offset-x: 0px;
-    --direction-image-desktop-offset-y: 0px;
+    --direction-image-desktop-scale: 1.25;
+    --direction-image-desktop-offset-x: 25px;
+    --direction-image-desktop-offset-y: -75px;
     --direction-image-tablet-scale: 1;
     --direction-image-tablet-offset-x: 0px;
     --direction-image-tablet-offset-y: 0px;
-    --direction-image-mobile-scale: 1;
-    --direction-image-mobile-offset-x: 0px;
-    --direction-image-mobile-offset-y: 0px;
+    --direction-image-mobile-scale: 1.25;
+    --direction-image-mobile-offset-x: 19px;
+    --direction-image-mobile-offset-y: -50px;
     display: block;
     width: 100%;
     height: 100%;
@@ -472,24 +472,222 @@
     will-change: transform;
 }
 
-.direction-modal__image--stvol_do,
-.direction-modal__image--stvol_posle,
-.direction-modal__image--stvol_3_do,
-.direction-modal__image--stvol_3_posle,
-.direction-modal__image--oa_do,
-.direction-modal__image--oa_posle,
-.direction-modal__image--pmzha_do,
-.direction-modal__image--pmzha_posle,
-.direction-modal__image--pka_do,
-.direction-modal__image--pka_posle,
-.direction-modal__image--rek_pka_do,
-.direction-modal__image--rek_pka_posle,
-.direction-modal__image--sonnaya_do,
-.direction-modal__image--sonnaya_do_angio,
-.direction-modal__image--sonnaya_posle,
-.direction-modal__image--ema_emboly_do,
-.direction-modal__image--ema_emboly_posle,
-.direction-modal__image--ema_spirali_do,
+.direction-modal__image--stvol_do {
+    --direction-image-desktop-scale: 1;
+    --direction-image-desktop-offset-x: 0px;
+    --direction-image-desktop-offset-y: 0px;
+    --direction-image-tablet-scale: 1;
+    --direction-image-tablet-offset-x: 0px;
+    --direction-image-tablet-offset-y: 0px;
+    --direction-image-mobile-scale: 1;
+    --direction-image-mobile-offset-x: 0px;
+    --direction-image-mobile-offset-y: 0px;
+}
+
+.direction-modal__image--stvol_posle {
+    --direction-image-desktop-scale: 1;
+    --direction-image-desktop-offset-x: 0px;
+    --direction-image-desktop-offset-y: 0px;
+    --direction-image-tablet-scale: 1;
+    --direction-image-tablet-offset-x: 0px;
+    --direction-image-tablet-offset-y: 0px;
+    --direction-image-mobile-scale: 1;
+    --direction-image-mobile-offset-x: 0px;
+    --direction-image-mobile-offset-y: 0px;
+}
+
+.direction-modal__image--stvol_3_do {
+    --direction-image-desktop-scale: 1;
+    --direction-image-desktop-offset-x: 0px;
+    --direction-image-desktop-offset-y: 0px;
+    --direction-image-tablet-scale: 1;
+    --direction-image-tablet-offset-x: 0px;
+    --direction-image-tablet-offset-y: 0px;
+    --direction-image-mobile-scale: 1;
+    --direction-image-mobile-offset-x: 0px;
+    --direction-image-mobile-offset-y: 0px;
+}
+
+.direction-modal__image--stvol_3_posle {
+    --direction-image-desktop-scale: 1;
+    --direction-image-desktop-offset-x: 0px;
+    --direction-image-desktop-offset-y: 0px;
+    --direction-image-tablet-scale: 1;
+    --direction-image-tablet-offset-x: 0px;
+    --direction-image-tablet-offset-y: 0px;
+    --direction-image-mobile-scale: 1;
+    --direction-image-mobile-offset-x: 0px;
+    --direction-image-mobile-offset-y: 0px;
+}
+
+.direction-modal__image--oa_do {
+    --direction-image-desktop-scale: 1;
+    --direction-image-desktop-offset-x: 0px;
+    --direction-image-desktop-offset-y: -13px;
+    --direction-image-tablet-scale: 1;
+    --direction-image-tablet-offset-x: 0px;
+    --direction-image-tablet-offset-y: 0px;
+    --direction-image-mobile-scale: 1;
+    --direction-image-mobile-offset-x: 0px;
+    --direction-image-mobile-offset-y: 8px;
+}
+
+.direction-modal__image--oa_posle {
+    --direction-image-desktop-scale: 1;
+    --direction-image-desktop-offset-x: 0px;
+    --direction-image-desktop-offset-y: 17px;
+    --direction-image-tablet-scale: 1;
+    --direction-image-tablet-offset-x: 0px;
+    --direction-image-tablet-offset-y: 0px;
+    --direction-image-mobile-scale: 1;
+    --direction-image-mobile-offset-x: 0px;
+    --direction-image-mobile-offset-y: 10px;
+}
+
+.direction-modal__image--pmzha_do {
+    --direction-image-desktop-scale: 1;
+    --direction-image-desktop-offset-x: 0px;
+    --direction-image-desktop-offset-y: 0px;
+    --direction-image-tablet-scale: 1;
+    --direction-image-tablet-offset-x: 0px;
+    --direction-image-tablet-offset-y: 0px;
+    --direction-image-mobile-scale: 1;
+    --direction-image-mobile-offset-x: 0px;
+    --direction-image-mobile-offset-y: 0px;
+}
+
+.direction-modal__image--pmzha_posle {
+    --direction-image-desktop-scale: 1;
+    --direction-image-desktop-offset-x: 0px;
+    --direction-image-desktop-offset-y: 0px;
+    --direction-image-tablet-scale: 1;
+    --direction-image-tablet-offset-x: 0px;
+    --direction-image-tablet-offset-y: 0px;
+    --direction-image-mobile-scale: 1;
+    --direction-image-mobile-offset-x: 0px;
+    --direction-image-mobile-offset-y: 0px;
+}
+
+.direction-modal__image--pka_do {
+    --direction-image-desktop-scale: 1;
+    --direction-image-desktop-offset-x: 0px;
+    --direction-image-desktop-offset-y: 0px;
+    --direction-image-tablet-scale: 1;
+    --direction-image-tablet-offset-x: 0px;
+    --direction-image-tablet-offset-y: 0px;
+    --direction-image-mobile-scale: 1;
+    --direction-image-mobile-offset-x: 0px;
+    --direction-image-mobile-offset-y: 0px;
+}
+
+.direction-modal__image--pka_posle {
+    --direction-image-desktop-scale: 1;
+    --direction-image-desktop-offset-x: 25px;
+    --direction-image-desktop-offset-y: 0px;
+    --direction-image-tablet-scale: 1;
+    --direction-image-tablet-offset-x: 0px;
+    --direction-image-tablet-offset-y: 0px;
+    --direction-image-mobile-scale: 1;
+    --direction-image-mobile-offset-x: 15px;
+    --direction-image-mobile-offset-y: 0px;
+}
+
+.direction-modal__image--rek_pka_do {
+    --direction-image-desktop-scale: 1;
+    --direction-image-desktop-offset-x: 0px;
+    --direction-image-desktop-offset-y: 0px;
+    --direction-image-tablet-scale: 1;
+    --direction-image-tablet-offset-x: 0px;
+    --direction-image-tablet-offset-y: 0px;
+    --direction-image-mobile-scale: 1;
+    --direction-image-mobile-offset-x: 0px;
+    --direction-image-mobile-offset-y: 0px;
+}
+
+.direction-modal__image--rek_pka_posle {
+    --direction-image-desktop-scale: 1;
+    --direction-image-desktop-offset-x: 0px;
+    --direction-image-desktop-offset-y: 0px;
+    --direction-image-tablet-scale: 1;
+    --direction-image-tablet-offset-x: 0px;
+    --direction-image-tablet-offset-y: 0px;
+    --direction-image-mobile-scale: 1;
+    --direction-image-mobile-offset-x: 0px;
+    --direction-image-mobile-offset-y: 0px;
+}
+
+.direction-modal__image--sonnaya_do {
+    --direction-image-desktop-scale: 1;
+    --direction-image-desktop-offset-x: 0px;
+    --direction-image-desktop-offset-y: 0px;
+    --direction-image-tablet-scale: 1;
+    --direction-image-tablet-offset-x: 0px;
+    --direction-image-tablet-offset-y: 0px;
+    --direction-image-mobile-scale: 1;
+    --direction-image-mobile-offset-x: 0px;
+    --direction-image-mobile-offset-y: 0px;
+}
+
+.direction-modal__image--sonnaya_do_angio {
+    --direction-image-desktop-scale: 1;
+    --direction-image-desktop-offset-x: 0px;
+    --direction-image-desktop-offset-y: 25px;
+    --direction-image-tablet-scale: 1;
+    --direction-image-tablet-offset-x: 0px;
+    --direction-image-tablet-offset-y: 0px;
+    --direction-image-mobile-scale: 1;
+    --direction-image-mobile-offset-x: 0px;
+    --direction-image-mobile-offset-y: 0px;
+}
+
+.direction-modal__image--sonnaya_posle {
+    --direction-image-desktop-scale: 1.25;
+    --direction-image-desktop-offset-x: 25px;
+    --direction-image-desktop-offset-y: -75px;
+    --direction-image-tablet-scale: 1;
+    --direction-image-tablet-offset-x: 0px;
+    --direction-image-tablet-offset-y: 0px;
+    --direction-image-mobile-scale: 1.25;
+    --direction-image-mobile-offset-x: 15px;
+    --direction-image-mobile-offset-y: -50px;
+}
+
+.direction-modal__image--ema_emboly_do {
+    --direction-image-desktop-scale: 1;
+    --direction-image-desktop-offset-x: 0px;
+    --direction-image-desktop-offset-y: 0px;
+    --direction-image-tablet-scale: 1;
+    --direction-image-tablet-offset-x: 0px;
+    --direction-image-tablet-offset-y: 0px;
+    --direction-image-mobile-scale: 1;
+    --direction-image-mobile-offset-x: 0px;
+    --direction-image-mobile-offset-y: 0px;
+}
+
+.direction-modal__image--ema_emboly_posle {
+    --direction-image-desktop-scale: 1;
+    --direction-image-desktop-offset-x: 0px;
+    --direction-image-desktop-offset-y: 0px;
+    --direction-image-tablet-scale: 1;
+    --direction-image-tablet-offset-x: 0px;
+    --direction-image-tablet-offset-y: 0px;
+    --direction-image-mobile-scale: 1;
+    --direction-image-mobile-offset-x: 0px;
+    --direction-image-mobile-offset-y: 0px;
+}
+
+.direction-modal__image--ema_spirali_do {
+    --direction-image-desktop-scale: 1;
+    --direction-image-desktop-offset-x: 0px;
+    --direction-image-desktop-offset-y: 0px;
+    --direction-image-tablet-scale: 1;
+    --direction-image-tablet-offset-x: 0px;
+    --direction-image-tablet-offset-y: 0px;
+    --direction-image-mobile-scale: 1;
+    --direction-image-mobile-offset-x: 0px;
+    --direction-image-mobile-offset-y: 0px;
+}
+
 .direction-modal__image--ema_spirali_posle {
     --direction-image-desktop-scale: 1;
     --direction-image-desktop-offset-x: 0px;
