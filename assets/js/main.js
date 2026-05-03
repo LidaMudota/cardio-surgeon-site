@@ -111,14 +111,14 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const setupCookieNotice = () => {
-        if (!cookieNotice) return;
-
         const preference = getCookiePreference();
 
         if (preference === 'accepted' || preference === 'necessary') {
             applyCookiePreference(preference);
             return;
         }
+
+        if (!cookieNotice) return;
 
         cookieNotice.removeAttribute('hidden');
 
