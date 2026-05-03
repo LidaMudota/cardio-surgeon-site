@@ -30,8 +30,11 @@ $schemas = $meta['schema'] ?? [];
     <meta property="og:locale" content="ru_RU">
     <meta property="og:title" content="<?= e($ogTitle); ?>">
     <meta property="og:description" content="<?= e($ogDescription); ?>">
+    <meta property="og:site_name" content="Коробков Александр Олегович">
     <meta property="og:url" content="<?= e($canonical); ?>">
-    <meta property="og:image" content="<?= e($ogImage); ?>">
+    <?php if (!empty($ogImage)): ?>
+        <meta property="og:image" content="<?= e($ogImage); ?>">
+    <?php endif; ?>
     <meta name="twitter:card" content="<?= e($twitterCard); ?>">
     <meta name="twitter:title" content="<?= e($ogTitle); ?>">
     <meta name="twitter:description" content="<?= e($ogDescription); ?>">
