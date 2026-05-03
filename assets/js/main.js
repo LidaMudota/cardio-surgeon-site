@@ -27,6 +27,36 @@ document.addEventListener('DOMContentLoaded', () => {
     const cookieAcceptButton = document.querySelector('[data-cookie-accept]');
     const cookieRejectButton = document.querySelector('[data-cookie-reject]');
     const cookiePreferenceKey = 'site_cookie_preference';
+    const yandexMetrikaCounterId = 109023879; // Публичный ID счетчика; перед production-запуском заменить на ID клиента.
+
+    const loadYandexMetrika = () => {
+        if (window.__yandexMetrikaLoaded) return;
+        window.__yandexMetrikaLoaded = true;
+
+        (function (m, e, t, r, i, k, a) {
+            m[i] = m[i] || function () {
+                (m[i].a = m[i].a || []).push(arguments);
+            };
+            m[i].l = 1 * new Date();
+
+            for (let j = 0; j < document.scripts.length; j += 1) {
+                if (document.scripts[j].src === r) return;
+            }
+
+            k = e.createElement(t);
+            a = e.getElementsByTagName(t)[0];
+            k.async = 1;
+            k.src = r;
+            a.parentNode?.insertBefore(k, a);
+        })(window, document, 'script', `https://mc.yandex.ru/metrika/tag.js?id=${yandexMetrikaCounterId}`, 'ym');
+
+        window.ym(yandexMetrikaCounterId, 'init', {
+            ssr: true,
+            clickmap: true,
+            accurateTrackBounce: true,
+            trackLinks: true,
+        });
+    };
 
     const setCookiePreference = (value) => {
         try {
@@ -72,6 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const applyCookiePreference = (value) => {
         if (value === 'accepted') {
             loadOptionalScripts();
+            loadYandexMetrika();
         }
 
         if (value === 'accepted' || value === 'necessary') {
