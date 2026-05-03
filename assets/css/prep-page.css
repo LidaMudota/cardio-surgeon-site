@@ -49,10 +49,36 @@
 
 .prep-page .prep-page__disclaimer {
     margin: 0;
-    border: 1px solid rgba(24, 198, 198, 0.38);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: clamp(10px, 1.8vw, 14px);
+    align-items: start;
+    border: 1px solid rgba(87, 214, 165, 0.42);
+    border-left: 3px solid rgba(87, 214, 165, 0.8);
     border-radius: var(--radius-card);
     padding: clamp(16px, 2vw, 22px) clamp(18px, 2.2vw, 24px);
-    background: linear-gradient(132deg, rgba(24, 198, 198, 0.16), rgba(9, 11, 16, 0.95));
+    background: linear-gradient(132deg, rgba(87, 214, 165, 0.16), rgba(9, 11, 16, 0.95));
+}
+
+.prep-page .prep-page__disclaimer-icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: rgba(87, 214, 165, 0.2);
+    border: 1px solid rgba(87, 214, 165, 0.55);
+    color: rgba(149, 245, 208, 0.96);
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1;
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+.prep-page .prep-page__disclaimer-content {
+    display: grid;
+    gap: 8px;
 }
 
 .prep-page .prep-page__disclaimer p {
@@ -68,8 +94,8 @@
         line-height: 1.6;
     }
 
-    .prep-page .prep-page__important-note {
+    .prep-page .prep-page__important-note,
+    .prep-page .prep-page__disclaimer {
         gap: 10px;
-        padding: 12px;
     }
 }
