@@ -17,6 +17,7 @@ $pages = [
     '/rezultaty-rabot.php',
     '/otzyvy.php',
     '/publikatsii.php',
+    '/smi.php',
     '/diplomy.php',
     '/analizy.php',
     '/anesteziya.php',
@@ -29,6 +30,7 @@ $pages = [
     '/kontakty.php',
     '/politika-konfidentsialnosti.php',
     '/soglasie-na-obrabotku-personalnykh-dannykh.php',
+    '/politika-ispolzovaniya-cookie-faylov.php',
 ];
 
 $origin = rtrim(APP_CANONICAL_ORIGIN, '/');
