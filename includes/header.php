@@ -69,7 +69,7 @@
                     <div class="mega-menu__column">
                         <a class="mega-menu__link" href="analizy.php">АНАЛИЗЫ</a>
                         <a class="mega-menu__link" href="anesteziya.php">Анестезия</a>
-                        <a class="mega-menu__link" href="kak-prokhodit-operatsiya.php">Как проходит операция</a>
+                        <a class="mega-menu__link" href="kak-prokhodit-operatsiya.php">Как проходит эндоваскулярная операция</a>
                         <a class="mega-menu__link" href="kak-prokhodit-konsultatsiya.php">Как проходит консультация</a>
                         <a class="mega-menu__link" href="patsientam-iz-drugogo-goroda.php">Пациентам из другого города</a>
                         <a class="mega-menu__link" href="podgotovka-k-operatsii.php">Подготовка к госпитализации</a>
@@ -109,7 +109,7 @@
                         <p class="mobile-nav__group-title">Пациентам</p>
                         <a class="mobile-nav__link" href="analizy.php">Анализы</a>
                         <a class="mobile-nav__link" href="anesteziya.php">Анестезия</a>
-                        <a class="mobile-nav__link" href="kak-prokhodit-operatsiya.php">Как проходит операция</a>
+                        <a class="mobile-nav__link" href="kak-prokhodit-operatsiya.php">Как проходит эндоваскулярная операция</a>
                         <a class="mobile-nav__link" href="kak-prokhodit-konsultatsiya.php">Как проходит консультация</a>
                         <a class="mobile-nav__link" href="patsientam-iz-drugogo-goroda.php">Пациентам из другого города</a>
                         <a class="mobile-nav__link" href="podgotovka-k-operatsii.php">Подготовка к госпитализации</a>

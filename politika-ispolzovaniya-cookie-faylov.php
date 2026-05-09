@@ -16,7 +16,7 @@ require __DIR__ . '/includes/page-start.php';
         <article class="info-card cookie-policy-page__document" aria-label="Юридический документ">
             <a
                 class="cookie-policy-page__download"
-                href="assets/docs/legal/politika_ispolzovaniya_СOOKIE_fayilov_ot_18_04_2026.pdf"
+                href="assets/docs/legal/POLITIKA_ISPOLZOVANIYA_СOOKIE_FAYILOV_18_04_2026.pdf"
                 download
             >Скачать PDF-версию</a>
 
@@ -42,7 +42,9 @@ require __DIR__ . '/includes/page-start.php';
                 <p>Файлы cookies для персонализации: эти файлы cookies позволяют Вам выбрать или персонализировать определенные свойства Вебсайта, например, посредством определения региональной конфигурации или типа браузера.</p>
                 <p>Маркетинговые файлы cookies: Оператор использует такие cookies для того, чтобы отслеживать Ваше поведение на Вебсайте и на основании этого корректировать его содержание.</p>
                 <p>Аналитические файлы cookies: Оператор использует cookies для получения сведений о настройках браузеров и для анализа Вашего поведения на Вебсайте для целей улучшения производительности Вебсайта.</p>
-                <p>Оператор использует ряд инструментов, которые подразумевают использование вышеперечисленных категорий файлов cookies.</p>
+                <p>Оператор использует ряд инструментов, которые подразумевают использование вышеперечисленных категорий файлов cookies. В частности, Оператор использует следующие инструменты:</p>
+                <p>(A) Яндекс.Метрика:</p>
+                <p>Яндекс Метрика предоставляет всестороннюю веб-аналитику от тенденций трафика до движений мыши, которая помогает нам получить полное представление о нашей онлайн-аудитории. Вы можете найти дополнительную информацию о Яндекс.Метрика на: https://yandex.ru/support/metrika/.</p>
                 <p>Может оказаться, что некоторые файлы cookies, используемые на данном сайте, не имеют отношения к Оператору. Это связано с тем, что на некоторых страницах расположены элементы, полученные со страниц третьих лиц. Так как эти элементы получены с других страниц, Оператор не может контролировать конфигурацию этих файлов cookies. Если Вы хотите изменить свои предпочтения в отношении конфигурации файлов cookies, Вам следует обратиться за получением соответствующих сведений на сайты таких третьих лиц.</p>
             </section>
 
@@ -52,10 +54,10 @@ require __DIR__ . '/includes/page-start.php';
                 <p>Вы также можете в любой момент отозвать свое согласие на обработку файлов cookies и удалить файлы cookies, хранящиеся на Вашем компьютере, изменив настройки своего браузера. Ниже Вы найдете ссылки на дополнительную информацию о том, как изменить настройки соответствующего браузера.</p>
                 <ul class="cookie-policy-page__browser-list" aria-label="Инструкции по настройке cookies в браузерах">
                     <li>(A) Яндекс.Браузер (RU): <a href="https://browser.yandex.ru/help/ru/personal-data-protection/cookies" target="_blank" rel="noopener noreferrer">https://browser.yandex.ru/help/ru/personal-data-protection/cookies</a></li>
-                    <li>(B) Chrome (RU): <a href="https://support.google.com/chrome/answer/95647?hl=ru." target="_blank" rel="noopener noreferrer">https://support.google.com/chrome/answer/95647?hl=ru.</a></li>
-                    <li>(C) Microsoft Edge (RU): <a href="https://support.microsoft.com/ru-ru/help/17442/windows-internet-explorer-delete-manage-cookies." target="_blank" rel="noopener noreferrer">https://support.microsoft.com/ru-ru/help/17442/windows-internet-explorer-delete-manage-cookies.</a></li>
-                    <li>(D) Firefox (RU): <a href="https://support.mozilla.org/ru/kb/vklyuchenie-i-otklyuchenie-kukov-ispolzuemyh-veb-s." target="_blank" rel="noopener noreferrer">https://support.mozilla.org/ru/kb/vklyuchenie-i-otklyuchenie-kukov-ispolzuemyh-veb-s.</a></li>
-                    <li>(E) Safari (RU): <a href="https://support.apple.com/ru-ru/guide/safari/manage-cookies-and-website-data-sfri11471/mac." target="_blank" rel="noopener noreferrer">https://support.apple.com/ru-ru/guide/safari/manage-cookies-and-website-data-sfri11471/mac.</a></li>
+                    <li>(B) Chrome (RU):<a href="https://support.google.com/chrome/answer/95647?hl=ru" target="_blank" rel="noopener noreferrer">https://support.google.com/chrome/answer/95647?hl=ru</a>.</li>
+                    <li>(C) Microsoft Edge (RU): <a href="https://support.microsoft.com/ru-ru/help/17442/windows-internet-explorer-delete-manage-cookies" target="_blank" rel="noopener noreferrer">https://support.microsoft.com/ru-ru/help/17442/windows-internet-explorer-delete-manage-cookies</a>.</li>
+                    <li>(D) Firefox (RU): <a href="https://support.mozilla.org/ru/kb/vklyuchenie-i-otklyuchenie-kukov-ispolzuemyh-veb-s" target="_blank" rel="noopener noreferrer">https://support.mozilla.org/ru/kb/vklyuchenie-i-otklyuchenie-kukov-ispolzuemyh-veb-s</a>.</li>
+                    <li>(E) Safari (RU): <a href="https://support.apple.com/ru-ru/guide/safari/manage-cookies-and-website-data-sfri11471/mac" target="_blank" rel="noopener noreferrer">https://support.apple.com/ru-ru/guide/safari/manage-cookies-and-website-data-sfri11471/mac</a>.</li>
                 </ul>
                 <p>Наконец, если Вы хотите контролировать процесс установки файлов cookies, Вы можете установить в свой браузер специальные программы или дополнения, известные как инструменты запрета отслеживания, позволяющие Вам выбирать, какие файлы cookies Вы разрешаете хранить на своем устройстве.</p>
             </section>
@@ -69,7 +71,7 @@ require __DIR__ . '/includes/page-start.php';
 
             <section aria-labelledby="cookie-policy-section-5">
                 <h2 id="cookie-policy-section-5">5 Получение дополнительной информации</h2>
-                <p>Если у вас есть какие-либо вопросы по поводу настоящей Политики использования cookie-файлов, пожалуйста, свяжитесь с нами по адресу akorobkov86@yandex.ru.</p>
+                <p>Если у вас есть какие-либо вопросы по поводу настоящей Политики использования cookie-файлов, пожалуйста, свяжитесь с нами по адресу <a href="mailto:akorobkov86@yandex.ru">akorobkov86@yandex.ru</a>.</p>
             </section>
 
             <section class="cookie-policy-page__final" aria-label="Финальный блок">
@@ -80,7 +82,7 @@ require __DIR__ . '/includes/page-start.php';
 
             <a
                 class="cookie-policy-page__download cookie-policy-page__download--bottom"
-                href="assets/docs/legal/politika_ispolzovaniya_СOOKIE_fayilov_ot_18_04_2026.pdf"
+                href="assets/docs/legal/POLITIKA_ISPOLZOVANIYA_СOOKIE_FAYILOV_18_04_2026.pdf"
                 download
             >Скачать PDF-версию</a>
         </article>
