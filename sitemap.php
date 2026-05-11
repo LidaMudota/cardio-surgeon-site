@@ -13,7 +13,6 @@ $pages = [
     '/',
     '/o-vrache.php',
     '/o-klinike.php',
-    '/konsultatsiya.php',
     '/rezultaty-rabot.php',
     '/otzyvy.php',
     '/publikatsii.php',

@@ -5,46 +5,9 @@ const APP_DEFAULT_ENV = 'production';
 
 function configured_canonical_origin(): string
 {
-    static $origin;
-
-    if ($origin !== null) {
-        return $origin;
-    }
-
-    $candidates = [
-        trim((string) getenv('APP_CANONICAL_ORIGIN')),
-        trim((string) getenv('CANONICAL_HOST')),
-        trim((string) getenv('APP_BASE_URL')),
-        trim((string) getenv('BASE_URL')),
-    ];
-
-    foreach ($candidates as $candidate) {
-        if ($candidate === '') {
-            continue;
-        }
-
-        if (!preg_match('~^https?://~i', $candidate)) {
-            $candidate = 'https://' . ltrim($candidate, '/');
-        }
-
-        $validated = filter_var($candidate, FILTER_VALIDATE_URL);
-        if ($validated === false) {
-            continue;
-        }
-
-        $scheme = strtolower((string) parse_url($validated, PHP_URL_SCHEME));
-        $host = strtolower((string) parse_url($validated, PHP_URL_HOST));
-        if ($host === '' || !in_array($scheme, ['http', 'https'], true)) {
-            continue;
-        }
-
-        $path = trim((string) parse_url($validated, PHP_URL_PATH));
-        $normalizedPath = $path === '' || $path === '/' ? '' : '/' . trim($path, '/');
-
-        return $origin = $scheme . '://' . $host . $normalizedPath;
-    }
-
-    return $origin = APP_FALLBACK_CANONICAL_ORIGIN;
+    // Canonical URLs must always point to the approved production domain.
+    // Do not derive canonical URLs from staging/test hosts or environment aliases.
+    return APP_FALLBACK_CANONICAL_ORIGIN;
 }
 
 define('APP_CANONICAL_ORIGIN', configured_canonical_origin());

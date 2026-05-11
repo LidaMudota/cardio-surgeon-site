@@ -38,7 +38,9 @@ $schemas = $meta['schema'] ?? [];
     <meta name="twitter:card" content="<?= e($twitterCard); ?>">
     <meta name="twitter:title" content="<?= e($ogTitle); ?>">
     <meta name="twitter:description" content="<?= e($ogDescription); ?>">
-    <meta name="twitter:image" content="<?= e($ogImage); ?>">
+    <?php if (!empty($ogImage)): ?>
+        <meta name="twitter:image" content="<?= e($ogImage); ?>">
+    <?php endif; ?>
     <link rel="icon" type="image/svg+xml" href="assets/img/icons/spec-heart-transplant.svg">
     <link rel="manifest" href="site.webmanifest">
     <link rel="preconnect" href="https://fonts.googleapis.com">

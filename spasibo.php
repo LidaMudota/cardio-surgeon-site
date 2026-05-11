@@ -1,6 +1,10 @@
 <?php
 require __DIR__ . '/includes/init.php';
-$meta = ['title' => 'Спасибо за заявку', 'description' => 'Заявка успешно отправлена.', 'noindex' => true];
+$meta = [
+    'title' => 'Спасибо за заявку',
+    'description' => 'Заявка успешно отправлена.',
+    'noindex' => true,
+];
 $pageTitle = 'Спасибо за заявку';
 $pageSubtitle = 'Ваше обращение принято. Мы свяжемся с вами в ближайшее рабочее время.';
 require __DIR__ . '/includes/head.php';
