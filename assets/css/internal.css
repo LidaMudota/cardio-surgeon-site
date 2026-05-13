@@ -2239,7 +2239,7 @@ body.modal-open {
 }
 
 .contacts-page-location__map .location-map__frame,
-.contacts-page-location__map .location-map__frame > *,
+.contacts-page-location__map .location-map__frame > :not(script):not(noscript),
 .contacts-page-location__map .location-map__frame iframe {
     width: 100% !important;
 }

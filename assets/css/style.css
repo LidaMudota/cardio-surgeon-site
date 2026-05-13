@@ -512,7 +512,7 @@ button {
     background: #07090c;
 }
 
-.location-map__frame > :not(script[type="text/plain"][data-cookie-category="optional"]) {
+.location-map__frame > :not(script):not(noscript) {
     display: block;
     width: 100% !important;
     min-height: clamp(320px, 50vw, 480px);
@@ -1630,7 +1630,7 @@ body:not(.is-page-ready) .site-shell > .inner-page {
     }
 
     .location-map__frame,
-    .location-map__frame > *,
+    .location-map__frame > :not(script):not(noscript),
     .location-map__frame iframe {
         min-height: 340px;
         height: 340px !important;
@@ -1694,7 +1694,7 @@ body:not(.is-page-ready) .site-shell > .inner-page {
     }
 
     .location-map__frame,
-    .location-map__frame > *,
+    .location-map__frame > :not(script):not(noscript),
     .location-map__frame iframe {
         min-height: 270px;
         height: 270px !important;
@@ -1858,7 +1858,7 @@ body:not(.is-page-ready) .site-shell > .inner-page {
     }
 
     .location-map__frame,
-    .location-map__frame > *,
+    .location-map__frame > :not(script):not(noscript),
     .location-map__frame iframe {
         min-height: 260px;
         height: 260px !important;
@@ -2247,7 +2247,7 @@ body:not(.is-page-ready) .site-shell > .inner-page {
     }
 
     .location-map__frame,
-    .location-map__frame > *,
+    .location-map__frame > :not(script):not(noscript),
     .location-map__frame iframe {
         min-height: 220px;
         height: 220px !important;
