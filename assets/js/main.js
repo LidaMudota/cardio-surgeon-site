@@ -546,20 +546,33 @@ document.addEventListener('DOMContentLoaded', () => {
         return mobileCarousel;
     };
 
+    const getLoopedCarouselIndex = (currentIndex, maxIndex, direction) => {
+        if (maxIndex <= 0) return 0;
+
+        if (direction === 'next') {
+            const nextIndex = currentIndex + 1;
+            return nextIndex > maxIndex ? 0 : nextIndex;
+        }
+
+        const prevIndex = currentIndex - 1;
+        return prevIndex < 0 ? maxIndex : prevIndex;
+    };
+
     const updateDesktopCarousel = (carousel) => {
         const pairs = Array.from(carousel.querySelectorAll('.direction-modal__desktop-pair'));
         const currentIndex = Number.parseInt(carousel.dataset.index || '0', 10);
         const maxIndex = Number.parseInt(carousel.dataset.max || '0', 10);
         const prevButton = carousel.querySelector('[data-carousel-nav="prev"]');
         const nextButton = carousel.querySelector('[data-carousel-nav="next"]');
+        const hasNavigation = maxIndex > 0;
 
         pairs.forEach((pair, pairIndex) => {
             pair.classList.toggle('is-active', pairIndex === currentIndex);
             pair.hidden = pairIndex !== currentIndex;
         });
 
-        if (prevButton instanceof HTMLButtonElement) prevButton.disabled = currentIndex <= 0;
-        if (nextButton instanceof HTMLButtonElement) nextButton.disabled = currentIndex >= maxIndex;
+        if (prevButton instanceof HTMLButtonElement) prevButton.disabled = !hasNavigation;
+        if (nextButton instanceof HTMLButtonElement) nextButton.disabled = !hasNavigation;
     };
 
     const updateMobileCarousel = (carousel) => {
@@ -569,6 +582,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const prevButton = carousel.querySelector('[data-carousel-nav="prev"]');
         const nextButton = carousel.querySelector('[data-carousel-nav="next"]');
         const mobileCounter = carousel.querySelector('[data-carousel-mobile-counter]');
+        const hasNavigation = maxIndex > 0;
 
         slides.forEach((slide, slideIndex) => {
             slide.hidden = slideIndex !== currentIndex;
@@ -578,8 +592,8 @@ document.addEventListener('DOMContentLoaded', () => {
             mobileCounter.textContent = `${currentIndex + 1} из ${maxIndex + 1}`;
         }
 
-        if (prevButton instanceof HTMLButtonElement) prevButton.disabled = currentIndex <= 0;
-        if (nextButton instanceof HTMLButtonElement) nextButton.disabled = currentIndex >= maxIndex;
+        if (prevButton instanceof HTMLButtonElement) prevButton.disabled = !hasNavigation;
+        if (nextButton instanceof HTMLButtonElement) nextButton.disabled = !hasNavigation;
     };
 
     const renderDirectionGallery = (pairs, title) => {
@@ -631,9 +645,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const direction = deltaX < 0 ? 'next' : 'prev';
         const currentIndex = Number.parseInt(carousel.dataset.index || '0', 10);
         const maxIndex = Number.parseInt(carousel.dataset.max || '0', 10);
-        const nextIndex = direction === 'next'
-            ? Math.min(currentIndex + 1, maxIndex)
-            : Math.max(currentIndex - 1, 0);
+        const nextIndex = getLoopedCarouselIndex(currentIndex, maxIndex, direction);
 
         if (nextIndex !== currentIndex) {
             carousel.dataset.index = String(nextIndex);
@@ -760,9 +772,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const currentIndex = Number.parseInt(carousel.dataset.index || '0', 10);
         const maxIndex = Number.parseInt(carousel.dataset.max || '0', 10);
-        const nextIndex = direction === 'next'
-            ? Math.min(currentIndex + 1, maxIndex)
-            : Math.max(currentIndex - 1, 0);
+        const nextIndex = getLoopedCarouselIndex(currentIndex, maxIndex, direction);
 
         if (nextIndex === currentIndex) return;
         carousel.dataset.index = String(nextIndex);
