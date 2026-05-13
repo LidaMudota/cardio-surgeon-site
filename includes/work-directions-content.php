@@ -58,7 +58,7 @@ $assetExists = static function (string $path) use ($projectRoot): bool {
     <?php endforeach; ?>
 </div>
 
-<div class="direction-modal" data-direction-modal hidden>
+<div class="direction-modal" data-direction-modal data-lenis-prevent hidden>
     <div class="direction-modal__overlay" data-direction-close></div>
     <div
         class="direction-modal__dialog"

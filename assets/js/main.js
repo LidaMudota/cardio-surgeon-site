@@ -29,6 +29,122 @@ document.addEventListener('DOMContentLoaded', () => {
     const cookiePreferenceKey = 'site_cookie_preference';
     const yandexMetrikaCounterId = 109023879; // Публичный ID счетчика; перед production-запуском заменить на ID клиента.
 
+    const getLenisPreventElement = (node) => {
+        if (node instanceof Element) return node;
+        return node?.parentElement instanceof Element ? node.parentElement : null;
+    };
+
+    const shouldPreventLenis = (node) => {
+        const element = getLenisPreventElement(node);
+        if (!element) return false;
+
+        const excludedSelector = [
+            '[data-lenis-prevent]',
+            '[data-direction-modal]',
+            '[data-carousel]',
+            '[data-carousel-viewport]',
+            '.modal',
+            '.direction-modal',
+            '.mega-menu',
+            '.mobile-nav',
+            '.dropdown',
+            '.results-slider',
+            '.location-map__frame',
+            'textarea',
+            'select',
+            'input',
+            'iframe',
+            'object',
+            'embed',
+            '[contenteditable="true"]'
+        ].join(',');
+
+        if (element.closest(excludedSelector)) return true;
+
+        if (element.closest('[data-scrollable], .scrollable, .simplebar-content-wrapper')) return true;
+
+        let current = element;
+        while (current && current !== document.body && current !== document.documentElement) {
+            const computedStyle = window.getComputedStyle(current);
+            const canScrollY = /(auto|scroll)/.test(computedStyle.overflowY) && current.scrollHeight > current.clientHeight;
+            const canScrollX = /(auto|scroll)/.test(computedStyle.overflowX) && current.scrollWidth > current.clientWidth;
+
+            if (canScrollY || canScrollX) return true;
+            current = current.parentElement;
+        }
+
+        return false;
+    };
+
+    const initSmoothScroll = () => {
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        if (reduceMotion || typeof window.Lenis === 'undefined') {
+            return null;
+        }
+
+        const lenis = new window.Lenis({
+            duration: 1.12,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            smoothWheel: true,
+            syncTouch: false,
+            wheelMultiplier: 0.95,
+            touchMultiplier: 1,
+            autoResize: true,
+            anchors: false,
+            prevent: shouldPreventLenis,
+        });
+
+        document.documentElement.classList.add('lenis-active');
+        window.__siteLenis = lenis;
+
+        const scrollToHash = (hash) => {
+            if (!hash || hash === '#') return false;
+
+            const targetId = hash.slice(1);
+            const target = document.getElementById(targetId);
+            if (!(target instanceof Element)) return false;
+
+            const headerOffset = header?.offsetHeight || 0;
+            lenis.scrollTo(target, {
+                offset: -(headerOffset + 12),
+                lock: false,
+            });
+
+            return true;
+        };
+
+        document.addEventListener('click', (event) => {
+            const clickedElement = getLenisPreventElement(event.target);
+            const link = clickedElement?.closest('a[href^="#"]');
+            if (!(link instanceof HTMLAnchorElement)) return;
+            if (link.target || link.hasAttribute('download')) return;
+            if (shouldPreventLenis(link)) return;
+
+            const url = new URL(link.href, window.location.href);
+            if (url.pathname !== window.location.pathname || url.search !== window.location.search) return;
+            if (!scrollToHash(url.hash)) return;
+
+            event.preventDefault();
+            window.history.pushState(null, '', url.hash);
+        });
+
+        if (window.location.hash) {
+            requestAnimationFrame(() => scrollToHash(window.location.hash));
+        }
+
+        const raf = (time) => {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        };
+
+        requestAnimationFrame(raf);
+
+        return lenis;
+    };
+
+    const siteLenis = initSmoothScroll();
+
     const loadYandexMetrika = () => {
         if (window.__yandexMetrikaLoaded) return;
         window.__yandexMetrikaLoaded = true;
@@ -362,6 +478,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const lockPageScroll = () => {
         if (isScrollLocked) return;
         savedScrollY = window.scrollY || window.pageYOffset || 0;
+        siteLenis?.stop();
         document.body.classList.add('modal-open');
         document.body.style.top = `-${savedScrollY}px`;
         isScrollLocked = true;
@@ -378,6 +495,8 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.classList.remove('modal-open');
         document.body.style.removeProperty('top');
         window.scrollTo(0, restoreScrollY);
+        siteLenis?.scrollTo(restoreScrollY, { immediate: true, force: true });
+        siteLenis?.start();
         document.documentElement.style.scrollBehavior = htmlScrollBehavior;
 
         isScrollLocked = false;
@@ -472,6 +591,7 @@ document.addEventListener('DOMContentLoaded', () => {
         desktopCarousel.className = 'direction-modal__carousel direction-modal__carousel--desktop desktop-carousel';
         desktopCarousel.setAttribute('aria-label', 'Карусель пар фотографий');
         desktopCarousel.setAttribute('data-carousel', 'desktop');
+        desktopCarousel.setAttribute('data-lenis-prevent', '');
         desktopCarousel.dataset.index = '0';
         desktopCarousel.dataset.max = String(Math.max(0, pairs.length - 1));
 
@@ -512,6 +632,7 @@ document.addEventListener('DOMContentLoaded', () => {
         mobileCarousel.className = 'direction-modal__carousel direction-modal__carousel--mobile';
         mobileCarousel.setAttribute('aria-label', 'Карусель клинических случаев до и после');
         mobileCarousel.setAttribute('data-carousel', 'mobile');
+        mobileCarousel.setAttribute('data-lenis-prevent', '');
         mobileCarousel.dataset.index = '0';
         mobileCarousel.dataset.max = String(Math.max(0, pairs.length - 1));
 

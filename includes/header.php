@@ -54,7 +54,7 @@
                 </div>
             </div>
 
-            <div class="mega-menu" id="mega-menu" hidden>
+            <div class="mega-menu" id="mega-menu" data-lenis-prevent hidden>
                 <div class="container mega-menu__inner">
                     <div class="mega-menu__column">
                         <a class="mega-menu__link" href="o-vrache.php">О ВРАЧЕ</a>
@@ -86,7 +86,7 @@
                 </div>
             </div>
 
-            <div class="mobile-nav" id="mobile-nav" hidden>
+            <div class="mobile-nav" id="mobile-nav" data-lenis-prevent hidden>
                 <div class="container mobile-nav__inner">
                     <div class="mobile-nav__group">
                         <p class="mobile-nav__group-title">Разделы</p>

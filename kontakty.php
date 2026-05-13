@@ -52,7 +52,7 @@ require __DIR__ . '/includes/page-start.php';
                         </div>
                         <a class="location-map__action" href="<?= e(clinic_location_route_url()) ?>" target="_blank" rel="noopener noreferrer">Построить маршрут</a>
                     </div>
-                    <div class="location-map__frame" aria-label="Карта расположения клиники">
+                    <div class="location-map__frame" aria-label="Карта расположения клиники" data-lenis-prevent>
                         <script type="text/plain" data-cookie-category="optional" data-cookie-src="<?= e(clinic_location_constructor_script_url()) ?>"></script>
                             <noscript>Для отображения карты включите JavaScript.</noscript>
                     </div>

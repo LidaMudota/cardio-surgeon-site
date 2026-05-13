@@ -129,6 +129,7 @@
 
 <?php require __DIR__ . '/cookie-consent.php'; ?>
 
+<script src="assets/vendor/lenis/lenis.min.js"></script>
 <script src="assets/js/main.js"></script>
 </body>
 </html>

@@ -30,6 +30,10 @@ html {
     scroll-behavior: smooth;
 }
 
+html.lenis-active {
+    scroll-behavior: auto;
+}
+
 body {
     margin: 0;
     font-family: 'Manrope', Arial, sans-serif;
