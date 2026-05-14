@@ -6,7 +6,7 @@ $meta = [
 ];
 $pageTitle = 'О клинике';
 $clinicHeading = 'АО «Медицина» (клиника академика Ройтберга):';
-$pageSubtitle = 'Ваше здоровье в руках абсолютных лидеров российской медицины.';
+$pageSubtitle = 'Ваше здоровье в руках лидеров здравоохранения';
 require __DIR__ . '/includes/head.php';
 require __DIR__ . '/includes/header.php';
 ?>
@@ -23,7 +23,7 @@ require __DIR__ . '/includes/header.php';
                     </nav>
                     <h1 class="clinic-page__title" id="clinic-page-title"><?= e($pageTitle); ?></h1>
                     <p class="clinic-page__heading"><?= e($clinicHeading); ?></p>
-                    <p class="clinic-page__lead"><?= e($pageSubtitle); ?></p>
+                    <p class="clinic-page__lead"><?= e($pageSubtitle); ?><span class="clinic-page__lead-asterisk">*</span>.</p>
                 </div>
             </div>
 
@@ -31,10 +31,11 @@ require __DIR__ . '/includes/header.php';
                 <div class="clinic-page__hero-aside-inner">
                     <ul class="clinic-page__features">
                         <li class="clinic-page__feature">Аккредитация JCI: Первая клиника в РФ, чья безопасность и качество услуг признаны на уровне мировых лидеров здравоохранения.</li>
-                        <li class="clinic-page__feature">Признание лидерства: Абсолютный лидер по качеству и безопасности медицинской деятельности в России.</li>
+                        <li class="clinic-page__feature">Сертификация Росздравнадзора: лидер по качеству и безопасности медицинской деятельности в России.</li>
                         <li class="clinic-page__feature">Высшие награды: Лауреат Премии Правительства РФ в области качества, призер европейского конкурса EFQM Awards 2012, победитель фестиваля «Формула жизни-2012» в номинации «Лучшая частная клиника Москвы».</li>
                         <li class="clinic-page__feature">Стандартизация процессов: Сертифицированы по международному стандарту ISO 9001:2015, что гарантирует эффективность системы менеджмента качества.</li>
                     </ul>
+                    <p class="clinic-page__disclaimer"><span class="clinic-page__lead-asterisk">*</span> АО «Медицина» признано Росздравнадзором лидером по качеству и безопасности медицинской помощи среди медучреждений РФ.</p>
                 </div>
             </aside>
         </div>
