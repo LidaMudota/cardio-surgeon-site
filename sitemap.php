@@ -2,6 +2,7 @@
 require_once __DIR__ . '/includes/env.php';
 
 header('Content-Type: application/xml; charset=UTF-8');
+header('X-Robots-Tag: noindex, follow', true);
 
 if (!should_index_site()) {
     echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
@@ -12,24 +13,21 @@ if (!should_index_site()) {
 $pages = [
     '/',
     '/o-vrache.php',
-    '/o-klinike.php',
     '/rezultaty-rabot.php',
+    '/o-klinike.php',
     '/otzyvy.php',
+    '/diplomy.php',
     '/publikatsii.php',
     '/smi.php',
-    '/diplomy.php',
+    '/dlya-vrachey.php',
     '/analizy.php',
     '/anesteziya.php',
     '/kak-prokhodit-operatsiya.php',
     '/kak-prokhodit-konsultatsiya.php',
-    '/dlya-vrachey.php',
     '/patsientam-iz-drugogo-goroda.php',
     '/podgotovka-k-operatsii.php',
     '/posle-operatsii.php',
     '/kontakty.php',
-    '/politika-konfidentsialnosti.php',
-    '/soglasie-na-obrabotku-personalnykh-dannykh.php',
-    '/politika-ispolzovaniya-cookie-faylov.php',
 ];
 
 $origin = rtrim(APP_CANONICAL_ORIGIN, '/');

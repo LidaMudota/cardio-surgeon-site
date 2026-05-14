@@ -1,8 +1,19 @@
-# Staging-safe mode: keep site closed from crawling while SEO indexing is disabled.
 User-agent: *
-Disallow: /
+Disallow: /includes/
+Disallow: /config/
+Disallow: /content/
+Disallow: /lib/
+Disallow: /vendor/
+Disallow: /forms/
+Disallow: /assets/
+Disallow: /spasibo.php
+Disallow: /404.php
+Disallow: /sitemap.php
+Disallow: /robots.php
+Disallow: /konsultatsiya.php
+Disallow: /specializatsiya.php
+Disallow: /politika-konfidentsialnosti.php
+Disallow: /soglasie-na-obrabotku-personalnykh-dannykh.php
+Disallow: /politika-ispolzovaniya-cookie-faylov.php
 
-# Before final launch on https://aokorobkov.ru:
-# 1) Set APP_SEO_INDEXING_ENABLED=true
-# 2) Switch robots rules to Allow: /
-# 3) Add: Sitemap: https://aokorobkov.ru/sitemap.xml
+Sitemap: https://aokorobkov.ru/sitemap.xml

@@ -133,8 +133,9 @@ function is_non_production_env(): bool
 function should_index_site(): bool
 {
     // SEO switch for launch control:
-    // - default false: safe for staging/test domains (noindex).
-    // - set APP_SEO_INDEXING_ENABLED=true before final production launch on https://aokorobkov.ru.
+    // - production host https://aokorobkov.ru is open to indexing by default;
+    // - local/staging/test hosts stay closed because is_production_env() is false;
+    // - APP_SEO_INDEXING_ENABLED=false or APP_INDEXING_MODE=noindex can still close indexing.
     $indexingEnabled = strtolower(trim((string) getenv('APP_SEO_INDEXING_ENABLED')));
     if ($indexingEnabled !== '') {
         return in_array($indexingEnabled, ['1', 'true', 'yes', 'on'], true) && is_production_env();
@@ -150,7 +151,7 @@ function should_index_site(): bool
         return is_production_env();
     }
 
-    return false;
+    return is_production_env();
 }
 
 function canonical_origin(): string
