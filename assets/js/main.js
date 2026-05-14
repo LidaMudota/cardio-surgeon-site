@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const cookieAcceptButton = document.querySelector('[data-cookie-accept]');
     const cookieRejectButton = document.querySelector('[data-cookie-reject]');
     const cookiePreferenceKey = 'site_cookie_preference';
-    const yandexMetrikaCounterId = 109023879; // Публичный ID счетчика; перед production-запуском заменить на ID клиента.
+    const yandexMetrikaCounterId = 109206745; // Публичный ID счетчика; перед production-запуском заменить на ID клиента.
 
     const getLenisPreventElement = (node) => {
         if (node instanceof Element) return node;
