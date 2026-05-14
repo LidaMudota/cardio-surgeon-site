@@ -84,11 +84,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         const lenis = new window.Lenis({
-            duration: 1.12,
+            duration: 1.24,
             easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
             smoothWheel: true,
             syncTouch: false,
-            wheelMultiplier: 0.95,
+            wheelMultiplier: 1.5,
             touchMultiplier: 1,
             autoResize: true,
             anchors: false,
