@@ -3291,3 +3291,47 @@ body:not(.is-page-ready) .site-shell > .inner-page {
         width: 100%;
     }
 }
+
+/* Mobile-only overlap: фото врача визуально уходит под следующую секцию без влияния на desktop. */
+@media (max-width: 767px) {
+    #hero.hero {
+        height: auto;
+        min-height: 0;
+        padding-bottom: 0;
+        overflow: visible;
+    }
+
+    #hero .hero__grid {
+        gap: clamp(12px, 4vw, 18px);
+    }
+
+    #hero .hero__visual {
+        --hero-card-width: min(100%, clamp(300px, 90vw, 360px));
+        --hero-card-height: clamp(390px, 118vw, 500px);
+        --hero-card-shift-y: 0px;
+        --hero-mobile-overlap: clamp(30px, 9vw, 46px);
+        position: relative;
+        z-index: 1;
+        overflow: visible;
+        margin-bottom: calc(-1 * var(--hero-mobile-overlap));
+    }
+
+    #hero .hero__image-card {
+        width: var(--hero-card-width);
+        height: var(--hero-card-height);
+        background: transparent;
+        box-shadow: none;
+    }
+
+    #hero .hero__image {
+        --hero-image-offset-y: 0px;
+        object-position: center top;
+    }
+}
+
+@media (max-width: 767px) and (max-height: 620px) {
+    #hero .hero__visual {
+        --hero-card-height: clamp(370px, 112vw, 450px);
+        --hero-mobile-overlap: clamp(40px, 12vw, 56px);
+    }
+}

@@ -47,7 +47,7 @@ $assetExists = static function (string $path) use ($projectRoot): bool {
         ?>
         <article class="spec-card<?= $cardClass ?>" data-direction-id="<?= htmlspecialchars($directionId, ENT_QUOTES, 'UTF-8') ?>">
             <div class="spec-card__icon" aria-hidden="true">
-                <img src="<?= htmlspecialchars($icon, ENT_QUOTES, 'UTF-8') ?>" alt="">
+                <img src="<?= htmlspecialchars($icon, ENT_QUOTES, 'UTF-8') ?>" alt="" width="82" height="82" loading="lazy" decoding="async">
             </div>
             <div class="spec-card__content">
                 <h3 class="spec-card__title"><?= htmlspecialchars($cardTitle, ENT_QUOTES, 'UTF-8') ?></h3>
@@ -72,7 +72,7 @@ $assetExists = static function (string $path) use ($projectRoot): bool {
         </button>
 
         <div class="direction-modal__media">
-            <img src="" alt="" data-direction-modal-image loading="lazy">
+            <img src="" alt="" data-direction-modal-image loading="lazy" decoding="async">
         </div>
 
         <div class="direction-modal__body">

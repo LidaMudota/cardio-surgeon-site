@@ -13,7 +13,7 @@ require __DIR__ . '/includes/header.php';
                 <div class="container hero__grid">
                     <div class="hero__visual">
                         <div class="hero__image-card">
-                            <img src="assets/img/content/hero-doctor0.png" alt="Фото врача эндоваскулярного хирурга" class="hero__image" loading="eager" fetchpriority="high" decoding="async">
+                            <img src="assets/img/content/hero-doctor0.png" alt="Фото врача эндоваскулярного хирурга" class="hero__image" width="853" height="1280" loading="eager" fetchpriority="high" decoding="async">
                         </div>
                     </div>
 
@@ -60,7 +60,7 @@ require __DIR__ . '/includes/header.php';
 
                     <div class="about__visual">
                         <!-- TODO: Вставить изображение about-doctor.webp в /assets/img/content/ -->
-                        <img src="assets/img/content/fotoVracha.png" alt="Портрет врача" class="about__image">
+                        <img src="assets/img/content/fotoVracha.png" alt="Портрет врача" class="about__image" width="800" height="1200" loading="lazy" decoding="async">
                     </div>
                 </div>
             </section>
