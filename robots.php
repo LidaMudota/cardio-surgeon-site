@@ -12,7 +12,6 @@ if (should_index_site()) {
     echo "Disallow: /lib/\n";
     echo "Disallow: /vendor/\n";
     echo "Disallow: /forms/\n";
-    echo "Disallow: /assets/\n";
     echo "Disallow: /spasibo.php\n";
     echo "Disallow: /404.php\n";
     echo "Disallow: /sitemap.php\n";
