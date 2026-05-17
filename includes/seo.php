@@ -156,7 +156,7 @@ function resolve_seo_meta(array $meta = []): array
     $resolved['og_title'] = $resolved['og_title'] ?? $resolved['title'];
     $resolved['og_description'] = $resolved['og_description'] ?? $resolved['description'];
     $resolved['og_type'] = $resolved['og_type'] ?? 'website';
-    $resolved['og_image'] = $resolved['og_image'] ?? canonical_origin() . '/assets/img/content/hero-doctor.png';
+    $resolved['og_image'] = $resolved['og_image'] ?? canonical_origin() . '/assets/img/content/fotoVracha.png';
     $resolved['twitter_card'] = $resolved['twitter_card'] ?? 'summary_large_image';
 
     $forcedNoindex = !should_index_site();

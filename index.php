@@ -60,7 +60,7 @@ require __DIR__ . '/includes/header.php';
 
                     <div class="about__visual">
                         <!-- TODO: Вставить изображение about-doctor.webp в /assets/img/content/ -->
-                        <img src="assets/img/content/fotoVracha.png" alt="Портрет врача" class="about__image" width="800" height="1200" loading="lazy" decoding="async">
+                        <img src="assets/img/content/fotoVracha.png" alt="Портрет врача" class="about__image">
                     </div>
                 </div>
             </section>
