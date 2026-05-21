@@ -11,8 +11,5 @@ Disallow: /sitemap.php
 Disallow: /robots.php
 Disallow: /konsultatsiya.php
 Disallow: /specializatsiya.php
-Disallow: /politika-konfidentsialnosti.php
-Disallow: /soglasie-na-obrabotku-personalnykh-dannykh.php
-Disallow: /politika-ispolzovaniya-cookie-faylov.php
 
 Sitemap: https://aokorobkov.ru/sitemap.xml
