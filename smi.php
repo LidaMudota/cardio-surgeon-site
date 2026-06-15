@@ -11,6 +11,22 @@ $innerHeroAttrs = ' data-no-scroll-motion';
 
 $mediaItems = [
     [
+        'type' => 'Видео / подкаст',
+        'title' => 'Подкаст с кардиологом Тамазом Тамазовичем Гаглошвили на канале «Блог Кардиолога»',
+        'description' => 'Обсуждаем лучшие методы диагностики сосудов сердца.',
+        'source' => 'youtube.com / vkvideo.ru',
+        'links' => [
+            [
+                'label' => 'Открыть на YouTube',
+                'url' => 'https://m.youtube.com/watch?v=OQ6tfNjmuNk&ra=m',
+            ],
+            [
+                'label' => 'Открыть в VK',
+                'url' => 'https://vkvideo.ru/video-210934520_456241049',
+            ],
+        ],
+    ],
+    [
         'type' => 'Видео / YouTube',
         'title' => 'Подкаст с кардиологом Тамазом Тамазовичем Гаглошвили на канале «Блог Кардиолога».',
         'description' => 'Главная ОШИБКА после стентирования. Почему стент забивается ТРОМБОМ? Что категорически нельзя делать после установки стента? Как не допустить тромбоза и избежать повторного инфаркта? Разбираем главные ошибки пациентов после выписки.',
@@ -49,7 +65,13 @@ require __DIR__ . '/includes/page-start.php';
                         <h2 class="page-smi__title"><?= e($item['title']); ?></h2>
                         <p class="page-smi__description"><?= e($item['description']); ?></p>
                         <p class="page-smi__source">Источник: <span><?= e($item['source']); ?></span></p>
-                        <a class="page-smi__link" href="<?= e($item['url']); ?>" target="_blank" rel="noopener noreferrer">Открыть материал</a>
+                        <?php if (isset($item['links'])): ?>
+                            <?php foreach ($item['links'] as $link): ?>
+                                <a class="page-smi__link" href="<?= e($link['url']); ?>" target="_blank" rel="noopener noreferrer"><?= e($link['label']); ?></a>
+                            <?php endforeach; ?>
+                        <?php else: ?>
+                            <a class="page-smi__link" href="<?= e($item['url']); ?>" target="_blank" rel="noopener noreferrer">Открыть материал</a>
+                        <?php endif; ?>
                     </article>
                 <?php endforeach; ?>
             </div>
