@@ -8,11 +8,11 @@ $meta = [
 $reviewsPageData = [
     'summary' => [
         'average_rating' => '5.0',
-        'total_reviews' => '73',
+        'total_reviews' => '74',
         'label' => 'Сводные данные из отзывов пациентов на независимых площадках.',
         'updated_at' => 'Обновлено: июнь 2026',
         'distribution' => [
-            ['stars' => 5, 'count' => 73],
+            ['stars' => 5, 'count' => 74],
             ['stars' => 4, 'count' => 0],
             ['stars' => 3, 'count' => 0],
             ['stars' => 2, 'count' => 0],
@@ -37,7 +37,7 @@ $reviewsPageData = [
         [
             'name' => 'prodoctorov.ru',
             'rating' => '5.0',
-            'reviews' => '19',
+            'reviews' => '20',
             'url' => 'https://prodoctorov.ru/moskva/vrach/280971-korobkov/#rating',
             'link_label' => 'Смотреть на сайте',
         ],
@@ -79,6 +79,21 @@ $reviewsPageData = [
     ],
     'categories' => ['Консультация', 'Операция', 'Послеоперационное сопровождение', 'Внимательность', 'Профессионализм'],
     'reviews' => [
+        [
+            'author' => 'Пациент',
+            'date' => '18.06.2026',
+            'rating' => 5.0,
+            'stars' => 5,
+            'title' => 'Отзыв пациента',
+            'text' => 'Выражаю большую благодарность Александру Олеговичу за профессионализм, грамотный подход к своему делу и золотые руки. Операцию (коронарное стентирование) провели быстро, грамотно и качественно.',
+            'source_name' => 'prodoctorov.ru',
+            'source_url' => 'https://prodoctorov.ru/moskva/vrach/280971-korobkov/#rating',
+            'source_label' => 'Смотреть оригинал',
+            'category' => [],
+            'verified_text' => 'Отзыв опубликован на внешней площадке.',
+            'visit_period' => '',
+            'clinic_label' => '',
+        ],
         [
             'author' => 'Пациент',
             'date' => '18.06.2026',
