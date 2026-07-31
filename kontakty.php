@@ -24,7 +24,7 @@ require __DIR__ . '/includes/page-start.php';
                     </li>
                     <li class="contacts-page-list__item">
                         <p class="contacts-page-list__label">Telegram</p>
-                        <a class="contacts-page-list__value" href="https://t.me/korobkovdr" target="_blank" rel="noopener noreferrer">T.me/korobkovdr</a>
+                        <a class="contacts-page-list__value" href="https://t.me/drkorobkovadmin" target="_blank" rel="noopener noreferrer">@drkorobkovadmin</a>
                     </li>
                     <li class="contacts-page-list__item contacts-page-list__item--wide">
                         <p class="contacts-page-list__label">Max</p>

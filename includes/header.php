@@ -34,7 +34,7 @@
 
                         <a
                             class="header__icon-link"
-                            href="https://t.me/korobkovdr"
+                            href="https://t.me/drkorobkovadmin"
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label="telegram"
