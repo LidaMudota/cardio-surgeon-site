@@ -42,7 +42,7 @@
                 </a>
             </div>
             <div class="footer__contacts" aria-label="Контактные данные">
-                <a class="footer__contact footer__contact--phone" href="tel:+79166930333">+7 (916) 693-03-33</a>
+                <a class="footer__contact footer__contact--phone" href="tel:+79169240333">+79169240333</a>
                 <a class="footer__contact footer__contact--mail" href="mailto:aokorobkov@yandex.ru">aokorobkov@yandex.ru</a>
                 <p class="footer__contact footer__contact--address">125047, г. Москва, 2-й Тверской-Ямской пер., 10</p>
             </div>
@@ -98,7 +98,7 @@
             <section class="footer__tablet-block footer__tablet-contacts" aria-labelledby="footer-tablet-contacts">
                 <h2 class="footer__tablet-title" id="footer-tablet-contacts">Контакты</h2>
                 <div class="footer__contacts footer__contacts--tablet" aria-label="Контактные данные">
-                    <a class="footer__contact footer__contact--phone" href="tel:+79166930333">+7 (916) 693-03-33</a>
+                    <a class="footer__contact footer__contact--phone" href="tel:+79169240333">+79169240333</a>
                     <a class="footer__contact footer__contact--mail" href="mailto:aokorobkov@yandex.ru">aokorobkov@yandex.ru</a>
                     <p class="footer__contact footer__contact--address">125047, г. Москва, 2-й Тверской-Ямской пер., 10</p>
                 </div>

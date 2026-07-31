@@ -16,7 +16,7 @@ require __DIR__ . '/includes/page-start.php';
                 <ul class="contacts-page-list">
                     <li class="contacts-page-list__item">
                         <p class="contacts-page-list__label">Телефон</p>
-                        <a class="contacts-page-list__value" href="tel:+79166930333">+7916 693 03 33</a>
+                        <a class="contacts-page-list__value" href="tel:+79169240333">+79169240333</a>
                     </li>
                     <li class="contacts-page-list__item">
                         <p class="contacts-page-list__label">Электронная почта</p>
